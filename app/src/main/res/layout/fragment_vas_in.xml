@@ -1,0 +1,520 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/backgroundIn"
+            android:orientation="vertical"
+            tools:context="com.example.android.vinter_1.TestActivity">
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/main_linear_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="30dp"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <!-- Header -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:text="Patient"
+                android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:text="Daniel"
+                android:textAppearance="@style/TextCustomNormal"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <!-- Separator -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/spinner_in"/>
+
+        <!-- Kondition slider -->
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            style="@style/vas_layout_background_in"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:context="com.example.android.slider.MainActivity">
+
+            <!-- Top: Title and Output text view -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+                <!-- Title Label -->
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_weight="85"
+                    android:gravity="start"
+                    android:text="Kondition"
+                    android:textSize="@dimen/vas_default_text_size"
+                    />
+
+                <!-- Output -->
+                <TextView
+                    android:id="@+id/kondition_output_text_view"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="25dp"
+                    android:layout_weight="15"
+                    android:background="@drawable/vas_output_box"
+                    android:gravity="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/vas_output_text_size"
+                    />
+            </LinearLayout>
+
+            <!-- SeekBar -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <SeekBar
+                    android:id="@+id/kondition_seek_bar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="85"
+                    android:progress="50"/>
+            </LinearLayout>
+
+            <!-- Values labels -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_weight="1"
+                    android:gravity="start"
+                    android:text="0"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="50"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="15dp"
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:text="100"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Smärta slider -->
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            style="@style/vas_layout_background_in"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:context="com.example.android.slider.MainActivity">
+
+            <!-- Top: Title and Output text view -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+                <!-- Title Label -->
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_weight="85"
+                    android:gravity="start"
+                    android:text="Smärta"
+                    android:textSize="@dimen/vas_default_text_size"
+                    />
+
+                <!-- Output -->
+                <TextView
+                    android:id="@+id/smärta_output_text_view"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="25dp"
+                    android:layout_weight="15"
+                    android:background="@drawable/vas_output_box"
+                    android:gravity="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/vas_default_text_size"
+                    />
+            </LinearLayout>
+
+            <!-- SeekBar -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <SeekBar
+                    android:id="@+id/smärta_seek_bar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="85"
+                    android:progress="50"/>
+            </LinearLayout>
+
+            <!-- Values labels -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_weight="1"
+                    android:gravity="start"
+                    android:text="0"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="50"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="15dp"
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:text="100"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Stelhet slider -->
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            style="@style/vas_layout_background_in"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:context="com.example.android.slider.MainActivity">
+
+            <!-- Top: Title and Output text view -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+                <!-- Title Label -->
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_weight="85"
+                    android:gravity="start"
+                    android:text="Stelhet"
+                    android:textSize="@dimen/vas_default_text_size"
+                    />
+
+                <!-- Output -->
+                <TextView
+                    android:id="@+id/stelhet_output_text_view"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="25dp"
+                    android:layout_weight="15"
+                    android:background="@drawable/vas_output_box"
+                    android:gravity="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/vas_output_text_size"
+                    />
+            </LinearLayout>
+
+            <!-- SeekBar -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <SeekBar
+                    android:id="@+id/stelhet_seek_bar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="85"
+                    android:progress="50"/>
+            </LinearLayout>
+
+            <!-- Values labels -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_weight="1"
+                    android:gravity="start"
+                    android:text="0"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="50"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="15dp"
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:text="100"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Trötthet slider -->
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            style="@style/vas_layout_background_in"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:context="com.example.android.slider.MainActivity">
+
+            <!-- Top: Title and Output text view -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+                <!-- Title Label -->
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_weight="85"
+                    android:gravity="start"
+                    android:text="Trötthet"
+                    android:textSize="@dimen/vas_default_text_size"
+                    />
+
+                <!-- Output -->
+                <TextView
+                    android:id="@+id/trötthet_output_text_view"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="25dp"
+                    android:layout_weight="15"
+                    android:background="@drawable/vas_output_box"
+                    android:gravity="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/vas_output_text_size"
+                    />
+            </LinearLayout>
+
+            <!-- SeekBar -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <SeekBar
+                    android:id="@+id/trötthet_seek_bar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="85"
+                    android:progress="50"/>
+            </LinearLayout>
+
+            <!-- Values labels -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_weight="1"
+                    android:gravity="start"
+                    android:text="0"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="50"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="15dp"
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:text="100"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Hälsa slider -->
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            style="@style/vas_layout_background_in"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:context="com.example.android.slider.MainActivity">
+
+            <!-- Top: Title and Output text view -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+                <!-- Title Label -->
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_weight="85"
+                    android:gravity="start"
+                    android:text="Hälsa"
+                    android:textSize="@dimen/vas_default_text_size"
+                    />
+
+                <!-- Output -->
+                <TextView
+                    android:id="@+id/hälsa_output_text_view"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="25dp"
+                    android:layout_weight="15"
+                    android:background="@drawable/vas_output_box"
+                    android:gravity="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/vas_output_text_size"
+                    />
+            </LinearLayout>
+
+            <!-- SeekBar -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <SeekBar
+                    android:id="@+id/hälsa_seek_bar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="85"
+                    android:progress="50"/>
+            </LinearLayout>
+
+            <!-- Values labels -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_weight="1"
+                    android:gravity="start"
+                    android:text="0"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="50"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="15dp"
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:text="100"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+
+        <android.support.v7.widget.AppCompatButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="@color/button_bg_color"
+            android:paddingBottom="10dp"
+            android:paddingEnd="80dp"
+            android:paddingStart="80dp"
+            android:paddingTop="10dp"
+            android:text="Done"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            />
+    </LinearLayout>
+</ScrollView>

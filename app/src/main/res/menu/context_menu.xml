@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/show_result_patient_menu"
+        android:title="Mätresultat"/>
+    <item
+        android:id="@+id/edit_patient_menu"
+        android:title="Edit patient"/>
+    <item
+        android:id="@+id/delete_patient_menu"
+        android:title="Delete patient"/>
+</menu>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#263238</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="background">#d5d8ea</color>
+
+    <!-- Fragment IN and OUT background -->
+    <color name="backgroundIn">#B0BEC5</color>
+    <color name="backgroundOut">#ECEFF1</color>
+
+    <!-- Fragments -->
+    <color name="colorBackground">#C5CAE9</color>
+
+    <!-- Buttons -->
+    <color name="button_bg_color">#303F9F</color>
+
+    <!-- Spinners -->
+    <color name="spinner_in">#CFD8DC</color>
+    <color name="spinner_out">#FFFFFF</color>
+
+    <!-- In and Out states -->
+    <color name="blankState">#ffffff</color>
+    <color name="incompletedState">#FFEE58</color>
+    <color name="completedState">#4CAF50</color>
+
+    <!-- Blue Grey -->
+    <color name="blue_gray_100">#CFD8DC</color>
+</resources>

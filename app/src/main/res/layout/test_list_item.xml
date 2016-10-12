@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="horizontal"
+              android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/test_list_item_tvName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:textColor="#616161"
+            tools:text="Name"/>
+
+        <TextView
+            android:id="@+id/test_list_item_tvCode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textStyle="italic"
+            android:visibility="gone"
+            tools:text="Code"/>
+    </LinearLayout>
+
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/test_list_item_imgKom"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:tint="#1565C0"
+        android:src="@drawable/ic_comment_black_36dp"/>
+
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/test_list_item_imgInStatus"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:tint="@color/completedState"
+        android:visibility="invisible"
+        android:src="@drawable/ic_done_black_36dp"/>
+
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/test_list_item_imgOutStatus"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:tint="@color/completedState"
+        android:visibility="invisible"
+        android:src="@drawable/ic_done_black_36dp"/>
+
+</LinearLayout>

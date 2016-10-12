@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/backgroundOut"
+            android:orientation="vertical"
+            tools:context="com.example.android.vinter_1.TestActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="30dp">
+
+        <!-- Header -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:text="Patient"
+                android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:text="Daniel"
+                android:textAppearance="@style/TextCustomNormal"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <!-- Separator -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/spinner_out"/>
+
+        <TextView
+            style="@style/TextCustomNormal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="1. Sittande till stående\nInstruktion: Ställ Dig upp. Försök att inte använda händerna som stöd. För att få 2 poäng får patienten göra fler än ett försök i detta moment."
+            />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/spinner_out"
+            android:entries="@array/bergs_spinner_array_1"
+            />
+
+        <TextView
+            style="@style/TextCustomNormal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="2. Stå utan stöd\nInstruktion: Stå i 2 minuter utan stöd. För att få 1 poäng får patienten göra fler än ett försök i detta moment."
+            />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/spinner_out"
+            android:entries="@array/bergs_spinner_array_2"
+            />
+
+        <TextView
+            style="@style/TextCustomNormal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="Om patienten kan stå 2 minuter utan stöd: sätt full poäng för ”sitta utan ryggstöd” och fortsätt till uppgift 4."
+            android:textStyle="italic"/>
+
+        <TextView
+            style="@style/TextCustomNormal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="3. Sitta utan ryggstöd med stöd for fötterna på golv eller pall\nInstruktion: Sitt med korslagda armar i 2 minuter.\nOm patienten inte förstår att han/hon inte ska luta mot ryggstödet bör detta moment utföras där ryggstöd saknas, exempelvis i sängen."
+            />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/spinner_out"
+            android:entries="@array/bergs_spinner_array_3"
+            />
+
+        <TextView
+            style="@style/TextCustomNormal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="4. Stående till sittande\nInstruktion: Sätt Dig."
+            />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/spinner_out"
+            android:entries="@array/bergs_spinner_array_4"
+            />
+
+        <TextView
+            style="@style/TextCustomNormal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="5. Från sittande på en stol med armstöd till en annan utan armstöd och vice versa\nInstruktion: Undersökaren placerar en stol med armstöd i 90° vinkel mot en stol utan armstöd eller mot en säng. Flytta Dig från stolen med armstöd till stolen utan armstöd/sängen. Använd händerna så lite som möjligt. Flytta dig sedan från stolen (utan armstöd)/sängen till stolen med armstöd.\nOm patienten inte kan flytta sig åt båda hällen kan undersökaren flytta stolen efter den första överflyttningen. Det viktiga är att överflyttningen sker från en stol med armstöd och från en stol utan armstöd/säng."
+            />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/spinner_out"
+            android:entries="@array/bergs_spinner_array_5"
+            />
+
+        <TextView
+            style="@style/TextCustomNormal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="6. Stå utan stöd med slutna ögon\nInstruktion: Blunda och stå stilla i 10 sekunder."
+            />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/spinner_out"
+            android:entries="@array/bergs_spinner_array_6"
+            />
+
+        <TextView
+            style="@style/TextCustomNormal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="7. Stå utan stöd med fötterna intill varandra\nInstruktion: Sätt fötterna intill varandra och stå utan stöd"
+            />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/spinner_out"
+            android:entries="@array/bergs_spinner_array_7"
+            />
+
+        <TextView
+            style="@style/TextCustomNormal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="8. Sträcka sig framåt med utsträckt arm i stående\nInstruktion: Lyft armen framåt till 90 grader. Sträck ut fingrarna och sträck Dig framåt så långt Du kan. Undersökaren fäster eller håller en linjal, alternativt ett papper markerar med noll-läge och 5, 12, 25 cm mot väggen. Noll-läget ska var jäms med långfingrets fingertopp då armen är framsträckt i 90 grader. Fingrarna eller armen får inte nudda vid väggen. Mät på linjalen hur långt fingertoppen når i det mest framsträckta läget. När det är möjligt ska patienten använda båda armarna vid framåtsträckningen för att undvika rotation av bålen."
+            />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/spinner_out"
+            android:entries="@array/bergs_spinner_array_8"
+            />
+
+        <TextView
+            style="@style/TextCustomNormal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="9. Stå och ta  upp föremal från golv\nInstruktion: Ta upp sko/toffel som ligger framför Dina fötter."
+            />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/spinner_out"
+            android:entries="@array/bergs_spinner_array_9"
+            />
+
+        <TextView
+            style="@style/TextCustomNormal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="10. Vrida och titta bakåt över vänster och höger axel i stående\nInstruktion: Vrid och titta direkt bakom Dig över vänster axel. Upprepa åt häger. För att en bra rotation i hela kroppen kan undersökaren stå bakom patienten och hålla ett föremål som patienten uppmuntras att titta på."
+            />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/spinner_out"
+            android:entries="@array/bergs_spinner_array_10"
+            />
+
+        <TextView
+            style="@style/TextCustomNormal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="11. Vända 360 grader\nInstruktion: Vänd Dig runt ett helt varv. Stanna. Vänd Dig sedan ett helt varv åt andra hållet."
+            />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/spinner_out"
+            android:entries="@array/bergs_spinner_array_11"
+            />
+
+        <TextView
+            style="@style/TextCustomNormal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="12. Stå utan stöd och växelvis placera fot på pall\nInstruktion: Sätt växelvis upp en fot i taget på pallen/trappsteget. Fortsätt tills vardera foten har rört vid pallen 4 gånger."
+            />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/spinner_out"
+            android:entries="@array/bergs_spinner_array_12"
+            />
+
+        <TextView
+            style="@style/TextCustomNormal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="13. Stå utan stöd med den ena foten framför den andra\nInstruktion: (Demonstrera för patienten). Sätt ena foten direkt framför den andra. Om Du inte kan sätta foten direkt framför, försök att sätta foten så långt fram att hälen på Din främre fot är framför den andra fotens tår.För att få 3 poäng måste den främre fotens häl placeras framför den bakre fotens tår och stegets bredd ska vara ungefär som patientens normala stegbredd."
+            />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/spinner_out"
+            android:entries="@array/bergs_spinner_array_13"
+            />
+
+        <TextView
+            style="@style/TextCustomNormal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="14. Stå på ett ben\nInstruktion: Stå på ett ben så länge Du kan utan stöd."
+            />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/spinner_out"
+            android:entries="@array/bergs_spinner_array_14"
+            />
+
+    </LinearLayout>
+
+</ScrollView>
