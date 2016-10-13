@@ -13,6 +13,13 @@
         <item name="android:spinnerDropDownItemStyle">@style/spinnerDropDownItemStyle</item>
     </style>
 
+    <!-- TextView Output Results -->
+    <style name="OutputTextViewStyle">
+        <item name="android:background">@drawable/vas_output_box</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">28sp</item>
+    </style>
+
     <!-- Spinners styles defined in AppTheme -->
     <style name="spinnerItemStyle">
         <item name="android:padding">4dp</item>
@@ -28,7 +35,7 @@
 
     <!-- Text headline -->
     <style name="TextCustomHeadline" parent="TextAppearance.AppCompat.Medium">
-        <item name="android:textSize">18sp</item>
+        <item name="android:textSize">20sp</item>
         <item name="android:textColor">#232323</item>
         <item name="android:textStyle">bold</item>
     </style>
@@ -57,7 +64,21 @@
         <item name="android:textColor">#A8A19E</item>
     </style>
 
-    <!-- VAS -->
+    <!-- EQ5D Style -->
+    <style name="EQ5DTitleTextAppearance" parent="TextAppearance.AppCompat.Large">
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="EQ5DRadioTextAppearance" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="EQ5DInstructionsTextAppearance" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <!-- VAS ____________________________________________________________________________________-->
     <style name="vas_layout_background">
         <!-- Padding -->
         <item name="android:paddingStart">10dp</item>
@@ -73,13 +94,15 @@
 
     <!-- VAS_IN -->
     <style name="vas_layout_background_in" parent="vas_layout_background">
-        <item name="android:background">@color/backgroundIn</item>
+        <item name="android:background">@color/bgIn</item>
     </style>
 
     <!-- VAS_OUT -->
     <style name="vas_layout_background_out" parent="vas_layout_background">
-        <item name="android:background">@color/backgroundOut</item>
+        <item name="android:background">@color/bgOut</item>
     </style>
+
+
 
 
 </resources>

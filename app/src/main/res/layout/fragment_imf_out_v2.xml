@@ -4,7 +4,7 @@
             xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/backgroundOut"
+            android:background="@color/bgOut"
             android:orientation="vertical"
             tools:context="com.example.android.vinter_1.TestActivity">
 
@@ -82,7 +82,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
-            android:background="@color/spinner_out"/>
+            android:background="@color/bgBrightOut"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -121,7 +121,7 @@
                 android:layout_gravity="center"
                 android:layout_marginLeft="10dp"
                 android:layout_marginStart="10dp"
-                android:background="@color/spinner_out"/>
+                android:background="@color/bgBrightOut"/>
         </LinearLayout>
 
         <LinearLayout
@@ -145,7 +145,7 @@
                 android:layout_gravity="center"
                 android:layout_marginLeft="10dp"
                 android:layout_marginStart="10dp"
-                android:background="@color/spinner_out"/>
+                android:background="@color/bgBrightOut"/>
         </LinearLayout>
 
         <TextView
@@ -164,7 +164,7 @@
             android:layout_gravity="center"
             android:layout_marginLeft="10dp"
             android:layout_marginStart="10dp"
-            android:background="@color/spinner_out"/>
+            android:background="@color/bgBrightOut"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -183,7 +183,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginStart="10dp"
-                android:background="@color/spinner_out"
+                android:background="@color/bgBrightOut"
                 android:maxLength="5"
                 android:paddingEnd="10dp"
                 android:paddingLeft="10dp"
@@ -229,7 +229,7 @@
                 android:layout_gravity="center"
                 android:layout_marginLeft="10dp"
                 android:layout_marginStart="10dp"
-                android:background="@color/spinner_out"/>
+                android:background="@color/bgBrightOut"/>
         </LinearLayout>
 
         <LinearLayout
@@ -253,7 +253,7 @@
                 android:layout_gravity="center"
                 android:layout_marginLeft="10dp"
                 android:layout_marginStart="10dp"
-                android:background="@color/spinner_out"/>
+                android:background="@color/bgBrightOut"/>
         </LinearLayout>
 
         <TextView
@@ -286,7 +286,7 @@
                 android:layout_gravity="center"
                 android:layout_marginLeft="10dp"
                 android:layout_marginStart="10dp"
-                android:background="@color/spinner_out"/>
+                android:background="@color/bgBrightOut"/>
         </LinearLayout>
 
         <LinearLayout
@@ -310,7 +310,7 @@
                 android:layout_gravity="center"
                 android:layout_marginLeft="10dp"
                 android:layout_marginStart="10dp"
-                android:background="@color/spinner_out"/>
+                android:background="@color/bgBrightOut"/>
         </LinearLayout>
 
         <TextView
@@ -328,7 +328,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"
             android:layout_marginStart="25dp"
-            android:background="@color/spinner_out"/>
+            android:background="@color/bgBrightOut"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -360,7 +360,7 @@
                 android:layout_gravity="center"
                 android:layout_marginLeft="10dp"
                 android:layout_marginStart="10dp"
-                android:background="@color/spinner_out"/>
+                android:background="@color/bgBrightOut"/>
         </LinearLayout>
 
         <LinearLayout
@@ -384,7 +384,7 @@
                 android:layout_gravity="center"
                 android:layout_marginLeft="10dp"
                 android:layout_marginStart="10dp"
-                android:background="@color/spinner_out"/>
+                android:background="@color/bgBrightOut"/>
         </LinearLayout>
 
         <LinearLayout
@@ -404,7 +404,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginStart="10dp"
-                android:background="@color/spinner_out"
+                android:background="@color/bgBrightOut"
                 android:maxLength="5"
                 android:paddingEnd="10dp"
                 android:paddingLeft="10dp"
@@ -450,7 +450,7 @@
                 android:layout_gravity="center"
                 android:layout_marginLeft="10dp"
                 android:layout_marginStart="10dp"
-                android:background="@color/spinner_out"/>
+                android:background="@color/bgBrightOut"/>
         </LinearLayout>
 
         <LinearLayout
@@ -474,7 +474,7 @@
                 android:layout_gravity="center"
                 android:layout_marginLeft="10dp"
                 android:layout_marginStart="10dp"
-                android:background="@color/spinner_out"/>
+                android:background="@color/bgBrightOut"/>
         </LinearLayout>
 
         <TextView
@@ -492,7 +492,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"
             android:layout_marginStart="25dp"
-            android:background="@color/spinner_out"/>
+            android:background="@color/bgBrightOut"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -509,7 +509,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"
             android:layout_marginStart="25dp"
-            android:background="@color/spinner_out"/>
+            android:background="@color/bgBrightOut"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -526,7 +526,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"
             android:layout_marginStart="25dp"
-            android:background="@color/spinner_out"/>
+            android:background="@color/bgBrightOut"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -545,7 +545,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginStart="10dp"
-                android:background="@color/spinner_out"
+                android:background="@color/bgBrightOut"
                 android:maxLength="5"
                 android:paddingEnd="10dp"
                 android:paddingLeft="10dp"
@@ -576,7 +576,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"
             android:layout_marginStart="25dp"
-            android:background="@color/spinner_out"/>
+            android:background="@color/bgBrightOut"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -608,7 +608,7 @@
                 android:layout_gravity="center"
                 android:layout_marginLeft="10dp"
                 android:layout_marginStart="10dp"
-                android:background="@color/spinner_out"/>
+                android:background="@color/bgBrightOut"/>
         </LinearLayout>
 
         <LinearLayout
@@ -632,7 +632,7 @@
                 android:layout_gravity="center"
                 android:layout_marginLeft="10dp"
                 android:layout_marginStart="10dp"
-                android:background="@color/spinner_out"/>
+                android:background="@color/bgBrightOut"/>
         </LinearLayout>
 
         <TextView
@@ -665,7 +665,7 @@
                 android:layout_gravity="center"
                 android:layout_marginLeft="10dp"
                 android:layout_marginStart="10dp"
-                android:background="@color/spinner_out"/>
+                android:background="@color/bgBrightOut"/>
         </LinearLayout>
 
         <LinearLayout
@@ -689,7 +689,7 @@
                 android:layout_gravity="center"
                 android:layout_marginLeft="10dp"
                 android:layout_marginStart="10dp"
-                android:background="@color/spinner_out"/>
+                android:background="@color/bgBrightOut"/>
         </LinearLayout>
 
         <LinearLayout
@@ -709,7 +709,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginStart="10dp"
-                android:background="@color/spinner_out"
+                android:background="@color/bgBrightOut"
                 android:maxLength="5"
                 android:paddingEnd="10dp"
                 android:paddingLeft="10dp"
@@ -736,7 +736,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginStart="10dp"
-                android:background="@color/spinner_out"
+                android:background="@color/bgBrightOut"
                 android:maxLength="5"
                 android:paddingEnd="10dp"
                 android:paddingLeft="10dp"
@@ -750,7 +750,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="40dp"
-            android:background="@color/button_bg_color"
             android:paddingBottom="10dp"
             android:paddingEnd="80dp"
             android:paddingStart="80dp"

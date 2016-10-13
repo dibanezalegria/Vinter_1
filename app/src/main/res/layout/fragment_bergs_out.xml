@@ -3,13 +3,13 @@
             xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/backgroundOut"
+            android:background="@color/bgOut"
             android:orientation="vertical"
             tools:context="com.example.android.vinter_1.TestActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="30dp">
 
@@ -42,7 +42,7 @@
             android:layout_width="match_parent"
             android:layout_height="2dp"
             android:layout_marginBottom="10dp"
-            android:background="@color/spinner_out"/>
+            android:background="@color/bgBrightIn"/>
 
         <TextView
             style="@style/TextCustomNormal"
@@ -51,36 +51,85 @@
             android:text="1. Sittande till stående\nInstruktion: Ställ Dig upp. Försök att inte använda händerna som stöd. För att få 2 poäng får patienten göra fler än ett försök i detta moment."
             />
 
-        <Spinner
-            android:layout_width="wrap_content"
+        <RadioGroup
+            android:id="@+id/bergs_rg1"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/spinner_out"
-            android:entries="@array/bergs_spinner_array_1"
-            />
+            android:layout_marginTop="@dimen/bergs_rg_margin_top"
+            android:layout_marginStart="@dimen/bergs_rg_margin_start">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4 = kan ställa sig upp utan att använda händerna och själv hitta balansen"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3 = kan ställa sig upp självständige med hjälp av händerna"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2 = kan ställa sig upp med hjälp av händerna efter flera försök"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1 = behöver minimal hjälp av en person för att ställa sig upp eller för att hitta balansen"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0 = behöver måttlig ett maximal hjälp av en eller flera personer för att ställa sig upp"/>
+        </RadioGroup>
 
         <TextView
             style="@style/TextCustomNormal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/bergs_question_margin_top"
             android:text="2. Stå utan stöd\nInstruktion: Stå i 2 minuter utan stöd. För att få 1 poäng får patienten göra fler än ett försök i detta moment."
             />
 
-        <Spinner
-            android:layout_width="wrap_content"
+        <RadioGroup
+            android:id="@+id/bergs_rg2"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/spinner_out"
-            android:entries="@array/bergs_spinner_array_2"
-            />
+            android:layout_marginTop="@dimen/bergs_rg_margin_top"
+            android:layout_marginStart="@dimen/bergs_rg_margin_start">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4 = kan stå säkert i 2 minuter"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3 = kan stå 2 minuter med tillsyn"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2 = kan stå 30 sekunder utan stöd"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1 = behöver flera försök för att stå 30 sekunder utan stöd"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0 = kan inte stå 30 sekunder utan stöd"/>
+        </RadioGroup>
 
         <TextView
             style="@style/TextCustomNormal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
+            android:layout_marginTop="@dimen/bergs_question_margin_top"
             android:text="Om patienten kan stå 2 minuter utan stöd: sätt full poäng för ”sitta utan ryggstöd” och fortsätt till uppgift 4."
             android:textStyle="italic"/>
 
@@ -88,193 +137,522 @@
             style="@style/TextCustomNormal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/bergs_question_margin_top"
             android:text="3. Sitta utan ryggstöd med stöd for fötterna på golv eller pall\nInstruktion: Sitt med korslagda armar i 2 minuter.\nOm patienten inte förstår att han/hon inte ska luta mot ryggstödet bör detta moment utföras där ryggstöd saknas, exempelvis i sängen."
             />
 
-        <Spinner
-            android:layout_width="wrap_content"
+        <RadioGroup
+            android:id="@+id/bergs_rg3"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/spinner_out"
-            android:entries="@array/bergs_spinner_array_3"
-            />
+            android:layout_marginTop="@dimen/bergs_rg_margin_top"
+            android:layout_marginStart="@dimen/bergs_rg_margin_start">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4 = kan sitta tryggt och säkert i 2 minuter"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3 = kan sitta 2 minuter med tillsyn"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2 = kan sitta i 30 sekunder"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1 = kan sitta i 10 sekunder"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0 = kan inte sitta 10 sekunder utan stöd"/>
+        </RadioGroup>
 
         <TextView
             style="@style/TextCustomNormal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/bergs_question_margin_top"
             android:text="4. Stående till sittande\nInstruktion: Sätt Dig."
             />
 
-        <Spinner
-            android:layout_width="wrap_content"
+        <RadioGroup
+            android:id="@+id/bergs_rg4"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/spinner_out"
-            android:entries="@array/bergs_spinner_array_4"
-            />
+            android:layout_marginTop="@dimen/bergs_rg_margin_top"
+            android:layout_marginStart="@dimen/bergs_rg_margin_start">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4 = sätter sig ned på ett säkert sätt med minimal hjälp av händerna"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3 = kontrollerar nedsittningen med hjälp av händerna"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2 = använder baksidan av benen mot stolen för att kontrollera nedsittningen"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1 = sätter sig självständigt men okontrollerat"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0 = behöver hjälp av en person för att sätta sig ned"/>
+        </RadioGroup>
 
         <TextView
             style="@style/TextCustomNormal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/bergs_question_margin_top"
             android:text="5. Från sittande på en stol med armstöd till en annan utan armstöd och vice versa\nInstruktion: Undersökaren placerar en stol med armstöd i 90° vinkel mot en stol utan armstöd eller mot en säng. Flytta Dig från stolen med armstöd till stolen utan armstöd/sängen. Använd händerna så lite som möjligt. Flytta dig sedan från stolen (utan armstöd)/sängen till stolen med armstöd.\nOm patienten inte kan flytta sig åt båda hällen kan undersökaren flytta stolen efter den första överflyttningen. Det viktiga är att överflyttningen sker från en stol med armstöd och från en stol utan armstöd/säng."
             />
 
-        <Spinner
-            android:layout_width="wrap_content"
+        <RadioGroup
+            android:id="@+id/bergs_rg5"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/spinner_out"
-            android:entries="@array/bergs_spinner_array_5"
-            />
+            android:layout_marginTop="@dimen/bergs_rg_margin_top"
+            android:layout_marginStart="@dimen/bergs_rg_margin_start">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4 = kan förflytta sig säkert med minimal hjälp av händerna"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3 = kan förflytta sig säkert med påtaglig hjälp av händerna"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2 = kan förflytta sig med hjälp av muntliga ledtrådar och/eller tillsyn"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1 = behöver hjälp av en personer"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0 = behöver hjälp av två personer"/>
+        </RadioGroup>
 
         <TextView
             style="@style/TextCustomNormal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/bergs_question_margin_top"
             android:text="6. Stå utan stöd med slutna ögon\nInstruktion: Blunda och stå stilla i 10 sekunder."
             />
 
-        <Spinner
-            android:layout_width="wrap_content"
+        <RadioGroup
+            android:id="@+id/bergs_rg6"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/spinner_out"
-            android:entries="@array/bergs_spinner_array_6"
-            />
+            android:layout_marginTop="@dimen/bergs_rg_margin_top"
+            android:layout_marginStart="@dimen/bergs_rg_margin_start">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4 = kan stå säkert i 10 sekunder"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3 = kan stå10 sekunder med tillsyn"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2 = kan stå i 3 sekunder"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1 = står stilla men måste öppna ögonen inom 3 sekunder"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0 = behöver hjälp för att inte falla"/>
+        </RadioGroup>
 
         <TextView
             style="@style/TextCustomNormal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/bergs_question_margin_top"
             android:text="7. Stå utan stöd med fötterna intill varandra\nInstruktion: Sätt fötterna intill varandra och stå utan stöd"
             />
 
-        <Spinner
-            android:layout_width="wrap_content"
+        <RadioGroup
+            android:id="@+id/bergs_rg7"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/spinner_out"
-            android:entries="@array/bergs_spinner_array_7"
-            />
+            android:layout_marginTop="@dimen/bergs_rg_margin_top"
+            android:layout_marginStart="@dimen/bergs_rg_margin_start">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4 = kan självständigt sätta fötterna intill varandra och stå säkert i 1 minut"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3 = kan självständigt sätta fötterna intill varandra och stå 1 minut med tillsyn"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2 = kan självständigt sätta fötterna intill varandra men kan inte stå kvar i 1 minut"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1 = behöver hjälp för att inta ställningen men kan stå 15 sekunder med fötterna intill varandra"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0 = behöver hjälp för att inta ställningen och kan inte stå kvar i 15 sekunder"/>
+        </RadioGroup>
 
         <TextView
             style="@style/TextCustomNormal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/bergs_question_margin_top"
             android:text="8. Sträcka sig framåt med utsträckt arm i stående\nInstruktion: Lyft armen framåt till 90 grader. Sträck ut fingrarna och sträck Dig framåt så långt Du kan. Undersökaren fäster eller håller en linjal, alternativt ett papper markerar med noll-läge och 5, 12, 25 cm mot väggen. Noll-läget ska var jäms med långfingrets fingertopp då armen är framsträckt i 90 grader. Fingrarna eller armen får inte nudda vid väggen. Mät på linjalen hur långt fingertoppen når i det mest framsträckta läget. När det är möjligt ska patienten använda båda armarna vid framåtsträckningen för att undvika rotation av bålen."
             />
 
-        <Spinner
-            android:layout_width="wrap_content"
+        <RadioGroup
+            android:id="@+id/bergs_rg8"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/spinner_out"
-            android:entries="@array/bergs_spinner_array_8"
-            />
+            android:layout_marginTop="@dimen/bergs_rg_margin_top"
+            android:layout_marginStart="@dimen/bergs_rg_margin_start">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4 = kan sträcka sig framåt på ett säkert sätt mer än 25 cm"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3 = kan sträcka sig framåt på ett säkert sätt mer än 12 cm"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2 = kan sträcka sig framåt på ett säkert sätt mer än 5 cm"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1 = sträcker sig framåt men behöver tillsyn"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0 = tappar balansen vid försök/behöver yttre stöd"/>
+        </RadioGroup>
 
         <TextView
             style="@style/TextCustomNormal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/bergs_question_margin_top"
             android:text="9. Stå och ta  upp föremal från golv\nInstruktion: Ta upp sko/toffel som ligger framför Dina fötter."
             />
 
-        <Spinner
-            android:layout_width="wrap_content"
+        <RadioGroup
+            android:id="@+id/bergs_rg9"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/spinner_out"
-            android:entries="@array/bergs_spinner_array_9"
-            />
+            android:layout_marginTop="@dimen/bergs_rg_margin_top"
+            android:layout_marginStart="@dimen/bergs_rg_margin_start">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4 = kan ta upp skon lätt och på ett säkert sätt"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3 = kan ta upp skon men behöver tillsyn"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2 = kan inte ta upp skon, men når 2,5-5 cm från skon och håller självständigt balansen"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1 = kan inte ta upp skon och behöver tillsyn vid försöket"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0 = kan inte försöka/behöver hjälp för att inte tappa balansen"/>
+        </RadioGroup>
 
         <TextView
             style="@style/TextCustomNormal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/bergs_question_margin_top"
             android:text="10. Vrida och titta bakåt över vänster och höger axel i stående\nInstruktion: Vrid och titta direkt bakom Dig över vänster axel. Upprepa åt häger. För att en bra rotation i hela kroppen kan undersökaren stå bakom patienten och hålla ett föremål som patienten uppmuntras att titta på."
             />
 
-        <Spinner
-            android:layout_width="wrap_content"
+        <RadioGroup
+            android:id="@+id/bergs_rg10"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/spinner_out"
-            android:entries="@array/bergs_spinner_array_10"
-            />
+            android:layout_marginTop="@dimen/bergs_rg_margin_top"
+            android:layout_marginStart="@dimen/bergs_rg_margin_start">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4  = tittar bakåt åt båda hållen och roterar i hela kroppen"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3 = tittar bakåt åt ena hållet, mindre god rotation åt andra hållet"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2 = vrider endast åt sidorna men bibehåller balansen"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1 = behöver tillsyn under vridrörelsen"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0 = behöver städ för att inte falla"/>
+        </RadioGroup>
 
         <TextView
             style="@style/TextCustomNormal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/bergs_question_margin_top"
             android:text="11. Vända 360 grader\nInstruktion: Vänd Dig runt ett helt varv. Stanna. Vänd Dig sedan ett helt varv åt andra hållet."
             />
 
-        <Spinner
-            android:layout_width="wrap_content"
+        <RadioGroup
+            android:id="@+id/bergs_rg11"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/spinner_out"
-            android:entries="@array/bergs_spinner_array_11"
-            />
+            android:layout_marginTop="@dimen/bergs_rg_margin_top"
+            android:layout_marginStart="@dimen/bergs_rg_margin_start">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4 = kan vända säkert 360 grader på 4 sekunder eller mindre"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3 = kan vända säkert 360 grader endast åt ena hållet på 4 sekunder eller mindre"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2 = kan säkert men långsamt vända 360 grader"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1 = behöver tillsyn eller muntliga ledtrådar"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0 = behöver stöd under vändningen"/>
+        </RadioGroup>
 
         <TextView
             style="@style/TextCustomNormal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/bergs_question_margin_top"
             android:text="12. Stå utan stöd och växelvis placera fot på pall\nInstruktion: Sätt växelvis upp en fot i taget på pallen/trappsteget. Fortsätt tills vardera foten har rört vid pallen 4 gånger."
             />
 
-        <Spinner
-            android:layout_width="wrap_content"
+        <RadioGroup
+            android:id="@+id/bergs_rg12"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/spinner_out"
-            android:entries="@array/bergs_spinner_array_12"
-            />
+            android:layout_marginTop="@dimen/bergs_rg_margin_top"
+            android:layout_marginStart="@dimen/bergs_rg_margin_start">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4 = kan stå självständigt och säkert och klarar att sätta upp varje fot 4 gånger på 20 sekunder"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3 = kan stå självständigt och klarar att sätta upp varje fot 4 gånger på mer än 20 sekunder"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2 = kan klara att sätta upp varje fot 2 gånger utan hjälp men med tillsyn"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1 = kan klara mer än 1 gång med varje fot med minimal hjälp"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0 = behöver hjälp för att inte falla/kan inte försöka"/>
+        </RadioGroup>
 
         <TextView
             style="@style/TextCustomNormal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/bergs_question_margin_top"
             android:text="13. Stå utan stöd med den ena foten framför den andra\nInstruktion: (Demonstrera för patienten). Sätt ena foten direkt framför den andra. Om Du inte kan sätta foten direkt framför, försök att sätta foten så långt fram att hälen på Din främre fot är framför den andra fotens tår.För att få 3 poäng måste den främre fotens häl placeras framför den bakre fotens tår och stegets bredd ska vara ungefär som patientens normala stegbredd."
             />
 
-        <Spinner
-            android:layout_width="wrap_content"
+        <RadioGroup
+            android:id="@+id/bergs_rg13"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/spinner_out"
-            android:entries="@array/bergs_spinner_array_13"
-            />
+            android:layout_marginTop="@dimen/bergs_rg_margin_top"
+            android:layout_marginStart="@dimen/bergs_rg_margin_start">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4 = kan självständigt sätta fötterna i tandemställning och stå kvar i 30 sekunder"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3 =  kan självständigt sätta  en fot framför den andra och stå kvar i 30 sekunder"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2 =  kan självständigt flytta en fot framåt – dock ej framför den andra foten – och stå kvar 30 sekunder"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1 = behöver hjälp med att flytta en fot framåt men kan stå kvar i 15 sekunder"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0 = tappar balansen under steget eller i stående"/>
+        </RadioGroup>
 
         <TextView
             style="@style/TextCustomNormal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/bergs_question_margin_top"
             android:text="14. Stå på ett ben\nInstruktion: Stå på ett ben så länge Du kan utan stöd."
             />
 
-        <Spinner
+        <RadioGroup
+            android:id="@+id/bergs_rg14"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/bergs_rg_margin_top"
+            android:layout_marginStart="@dimen/bergs_rg_margin_start">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4 = kan självständigt lyfta benet och stå kvar i minst 10 sekunder"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3 = kan självständigt lyfta benet och stå kvar i 5 sekunder"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2 =  kan självständigt lyfta benet och stå kvar i 3 sekunder"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1 = försöker lyfta benet men kan inte stå kvar på ett ben i 3 sekunder, kan dock stå självständigt"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0 = kan inte försöka lyfta benet eller behöver hjälp för att inte falla"/>
+        </RadioGroup>
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/spinner_out"
-            android:entries="@array/bergs_spinner_array_14"
-            />
+            android:layout_marginTop="15dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TOTAL SUMMA (0-56 p, 56p = ua)"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/bergs_total_sum_tv"
+                style="@style/OutputTextViewStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:gravity="center"
+                android:minEms="2"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/bergs_btnDone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="Done"/>
 
     </LinearLayout>
 

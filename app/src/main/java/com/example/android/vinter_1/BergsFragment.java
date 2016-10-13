@@ -26,7 +26,7 @@ public class BergsFragment extends Fragment {
         View rootView;
 
         // Check whether form is IN or OUT, and change background color accordingly
-        int fragmentType = getArguments().getInt("type");
+        int fragmentType = getArguments().getInt(MyFragmentPagerAdapter.TAB);
 
         if (fragmentType == 0) {
             rootView = inflater.inflate(R.layout.fragment_bergs_in, container, false);

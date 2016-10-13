@@ -14,6 +14,8 @@ public class MyFragmentPagerAdapter extends FragmentPagerAdapter {
 
     private static final String LOG_TAG = MyFragmentPagerAdapter.class.getSimpleName();
 
+    public static final String TAB = "selectedTab"; // constant used in Bundle
+
     private int mTestCode;
 
     public MyFragmentPagerAdapter(Context context, FragmentManager fm) {
@@ -25,6 +27,9 @@ public class MyFragmentPagerAdapter extends FragmentPagerAdapter {
         // What test should I create?
         Fragment fragment;
         switch (mTestCode) {
+            case 0:
+                fragment = new EQ5DFragment();
+                break;
             case 1:
                 fragment = new VASFragment();
                 break;
@@ -45,15 +50,15 @@ public class MyFragmentPagerAdapter extends FragmentPagerAdapter {
         Bundle bundle = new Bundle();
         switch (position) {
             case 0:
-                bundle.putInt("type", 0);
+                bundle.putInt(TAB, 0);
                 fragment.setArguments(bundle);
                 return fragment;
             case 1:
-                bundle.putInt("type", 1);
+                bundle.putInt(TAB, 1);
                 fragment.setArguments(bundle);
                 return fragment;
             default:
-                bundle.putInt("type", 0);
+                bundle.putInt(TAB, 0);
                 fragment.setArguments(bundle);
                 return fragment;
         }

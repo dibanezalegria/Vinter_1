@@ -11,7 +11,7 @@
         android:text="OUT"
         android:textSize="18sp"
         android:gravity="center"
-        android:background="@color/backgroundOut"
+        android:background="@color/bgOut"
         android:textColor="@android:color/black"/>
 
 </LinearLayout>

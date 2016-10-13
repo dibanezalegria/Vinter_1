@@ -63,7 +63,10 @@ public class AddPatientDialogFragment extends DialogFragment {
         mListener = null;
     }
 
+    /**
+     * Interface callback declaration
+     */
     public interface NoticeDialogListener {
-        public void onDialogCreateClick(DialogFragment dialog, String name, int entrada);
+        void onDialogCreateClick(DialogFragment dialog, String name, int entrada);
     }
 }

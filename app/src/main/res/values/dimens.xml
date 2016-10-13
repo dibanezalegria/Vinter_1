@@ -3,11 +3,21 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
 
-    <!-- VAS _______________________________________________________________________________ -->
+    <!-- VAS ___________________________________________________________________________________ -->
     <!-- Padding for slider including scale and output -->
     <dimen name="vas_slider_horizontal_padding">30dp</dimen>
     <dimen name="vas_slider_vertical_padding">15dp</dimen>
     <!-- Text size for output text views -->
     <dimen name="vas_output_text_size">28sp</dimen>
     <dimen name="vas_default_text_size">26sp</dimen>
+
+    <!-- IMF ___________________________________________________________________________________ -->
+    <!-- Margin start radio groups -->
+    <dimen name="imf_margin_start">20dp</dimen>
+
+    <!-- BERGS __________________________________________________________________________________-->
+    <dimen name="bergs_rg_margin_start">20dp</dimen>
+    <dimen name="bergs_rg_margin_top">10dp</dimen>
+    <dimen name="bergs_question_margin_top">15dp</dimen>
+
 </resources>

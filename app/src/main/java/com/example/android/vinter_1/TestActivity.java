@@ -10,6 +10,8 @@ public class TestActivity extends AppCompatActivity {
 
     private static final String LOG_TAG = TestActivity.class.getSimpleName();
 
+//    private EQ5DFragment mFragmentHandle;
+
     private int mTestCode;
 
     @Override
@@ -43,7 +45,17 @@ public class TestActivity extends AppCompatActivity {
 
         TabLayout.Tab tab1 = tabLayout.getTabAt(1);
         tab1.setCustomView(R.layout.tab_out);
-
     }
+
+//    /**
+//     * Helper method handles onClick radio buttons from EQ5DFragment
+//     */
+//    public void setFragmentHandle(EQ5DFragment fragment) {
+//        mFragmentHandle = fragment;
+//    }
+//
+//    public void onClickEQ5D(View view) {
+//        mFragmentHandle.onClick(view);
+//    }
 
 }

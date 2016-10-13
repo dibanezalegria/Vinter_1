@@ -40,7 +40,7 @@ public class IMFFragment extends Fragment implements AdapterView.OnItemSelectedL
         View rootView;
 
         // Check whether form is IN or OUT, and change background color accordingly
-        int fragmentType = getArguments().getInt("type");
+        int fragmentType = getArguments().getInt(MyFragmentPagerAdapter.TAB);
 
         if (fragmentType == 0) {
             rootView = inflater.inflate(R.layout.fragment_imf_in, container, false);
@@ -49,7 +49,7 @@ public class IMFFragment extends Fragment implements AdapterView.OnItemSelectedL
         }
 
 
-        setupUI(rootView);
+        //setupUI(rootView);
 
         return rootView;
     }

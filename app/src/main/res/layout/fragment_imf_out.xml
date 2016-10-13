@@ -1,59 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
             xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/backgroundOut"
+            android:background="@color/bgOut"
             android:orientation="vertical"
             tools:context="com.example.android.vinter_1.TestActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingBottom="80dp"
-        android:paddingEnd="40dp"
-        android:paddingLeft="30dp"
-        android:paddingRight="40dp"
-        android:paddingStart="30dp"
-        android:paddingTop="20dp">
+        android:padding="30dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:padding="20dp"
-            android:text="IMF, Funktionsstatus - nedre extremiteter"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textStyle="bold"/>
-
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <!--
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:paddingBottom="10dp"
-                            android:paddingTop="10dp"
-                            android:text="Datum"
-                            android:textAppearance="?android:attr/textAppearanceMedium" />
-
-                        <Button
-                            android:id="@+id/date_button"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="15dp"
-                            android:layout_marginStart="15dp"
-                            android:onClick="showDatePickerDialog"
-                            android:text="yy/mm/dd"
-                            android:textSize="16sp" />
-                            -->
-
-        </LinearLayout>
-
+        <!-- Header -->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
@@ -69,20 +29,20 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
                 android:layout_marginStart="15dp"
                 android:paddingBottom="10dp"
                 android:paddingTop="10dp"
-                android:text="Daniel Ibanez"
+                android:text="Daniel"
                 android:textAppearance="@style/TextCustomNormal"
                 android:textStyle="bold"/>
-
         </LinearLayout>
 
+        <!-- Separator -->
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
-            android:background="@color/spinner_out"/>
+            android:layout_marginBottom="10dp"
+            android:background="@color/bgBrightOut"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -102,48 +62,64 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:paddingLeft="25dp"
-            android:paddingStart="25dp">
+            android:layout_marginStart="@dimen/imf_margin_start"
+            android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Hö"
+                android:text="Höger"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:typeface="monospace"/>
 
-            <Spinner
-                android:id="@+id/spinner1H"
+            <RadioGroup
+                android:id="@+id/imf_rg1h"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="10dp"
-                android:layout_marginStart="10dp"
-                android:background="@color/spinner_out"/>
-        </LinearLayout>
+                android:layout_height="wrap_content">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingLeft="25dp"
-            android:paddingStart="25dp">
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0 = hälen kan placeras ovanpå motsatt knä"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1 = hälen kan flytas halvvägs upp på motsatt underben"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2 = hälen kan ej lyftas halvvägs upp på motsatt underben"/>
+            </RadioGroup>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Vä"
+                android:text="Vänster"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:typeface="monospace"/>
 
-            <Spinner
-                android:id="@+id/spinner1V"
+            <RadioGroup
+                android:id="@+id/imf_rg1v"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="10dp"
-                android:layout_marginStart="10dp"
-                android:background="@color/spinner_out"/>
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0 = hälen kan placeras ovanpå motsatt knä"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1 = hälen kan flytas halvvägs upp på motsatt underben"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2 = hälen kan ej lyftas halvvägs upp på motsatt underben"/>
+            </RadioGroup>
         </LinearLayout>
 
         <TextView
@@ -154,14 +130,27 @@
             android:text="2. Allmän gångfunktion inomhus"
             android:textAppearance="@style/TextCustomNormal"/>
 
-        <Spinner
-            android:id="@+id/spinner2"
-            android:layout_width="wrap_content"
+        <RadioGroup
+            android:id="@+id/imf_rg2"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
-            android:layout_marginStart="10dp"
-            android:background="@color/spinner_out"/>
+            android:layout_marginStart="@dimen/imf_margin_start">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0 = gång inomhus ua"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1 = går med vissa svårigheter"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2 = uttalade gångsvårigheter och behöver gånghjälpmedel"/>
+        </RadioGroup>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -175,18 +164,15 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"/>
 
             <TextView
-                android:id="@+id/summa1"
+                android:id="@+id/imf_sum1_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
                 android:layout_marginStart="10dp"
-                android:background="@color/spinner_out"
-                android:maxLength="5"
-                android:paddingEnd="10dp"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:paddingStart="10dp"
-                android:textAppearance="?android:attr/textAppearanceMedium"/>
+                android:background="@color/bgBrightOut"
+                android:gravity="center"
+                android:minEms="2"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                tools:text="1"/>
         </LinearLayout>
 
         <TextView
@@ -204,51 +190,82 @@
             android:text="3. Sittande på 45 cm höjd. Resa sig upp på ett ben med andra benet som balansstöd (häl i ungefärlig linje med tårna på testbenet) och utan hanstöd. Testbenets häl placeras nedanför(lite bakom stolskant."
             android:textAppearance="@style/TextCustomNormal"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:paddingLeft="25dp"
-            android:paddingStart="25dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Hö"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:typeface="monospace"/>
-
-            <Spinner
-                android:id="@+id/spinner3H"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="10dp"
-                android:layout_marginStart="10dp"
-                android:background="@color/spinner_out"/>
-        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="25dp"
-            android:paddingStart="25dp">
+            android:layout_marginStart="@dimen/imf_margin_start"
+            >
 
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Vä"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:typeface="monospace"/>
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-            <Spinner
-                android:id="@+id/spinner3V"
-                android:layout_width="wrap_content"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Höger"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:typeface="monospace"/>
+
+                <RadioGroup
+                    android:id="@+id/imf_rg3h"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0 = går utan svårighet"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1 = går med svårighet"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2 = går ej"/>
+                </RadioGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="10dp"
-                android:layout_marginStart="10dp"
-                android:background="@color/spinner_out"/>
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Vänster"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:typeface="monospace"/>
+
+                <RadioGroup
+                    android:id="@+id/imf_rg3v"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0 = går utan svårighet"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1 = går med svårighet"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2 = går ej"/>
+                </RadioGroup>
+            </LinearLayout>
         </LinearLayout>
 
         <TextView
@@ -259,51 +276,82 @@
             android:text="4. Stående kliva upp på en psoaskudde (30cm) med höger respektive vänster ben först och utan handstöd."
             android:textAppearance="@style/TextCustomNormal"/>
 
+        <!-- Vänster and Höger in parallel -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:paddingLeft="25dp"
-            android:paddingStart="25dp">
+            android:layout_marginStart="@dimen/imf_margin_start"
+            >
 
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Hö"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:typeface="monospace"/>
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-            <Spinner
-                android:id="@+id/spinner4H"
-                android:layout_width="wrap_content"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Höger"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:typeface="monospace"/>
+
+                <RadioGroup
+                    android:id="@+id/imf_rg4h"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0 = går utan svårighet"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1 = går med svårighet"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2 = går ej"/>
+                </RadioGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="10dp"
-                android:layout_marginStart="10dp"
-                android:background="@color/spinner_out"/>
-        </LinearLayout>
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingLeft="25dp"
-            android:paddingStart="25dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Vänster"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:typeface="monospace"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Vä"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:typeface="monospace"/>
+                <RadioGroup
+                    android:id="@+id/imf_rg4v"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-            <Spinner
-                android:id="@+id/spinner4V"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="10dp"
-                android:layout_marginStart="10dp"
-                android:background="@color/spinner_out"/>
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0 = går utan svårighet"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1 = går med svårighet"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2 = går ej"/>
+                </RadioGroup>
+            </LinearLayout>
         </LinearLayout>
 
         <TextView
@@ -314,13 +362,27 @@
             android:text="5. Stående bilat knäflexion med hela ryggen intill en vägg och hälarna 15 cm från vägg. Patienten ska klara både flexion och uppresning. Vinkelmätning med goniometer."
             android:textAppearance="@style/TextCustomNormal"/>
 
-        <Spinner
-            android:id="@+id/spinner5"
-            android:layout_width="wrap_content"
+        <RadioGroup
+            android:id="@+id/imf_rg5"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="25dp"
-            android:layout_marginStart="25dp"
-            android:background="@color/spinner_out"/>
+            android:layout_marginStart="@dimen/imf_margin_start">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0 = >89º"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1 = 45–89º"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2 = 0–44º"/>
+        </RadioGroup>
 
         <TextView
             android:layout_width="wrap_content"
@@ -330,51 +392,82 @@
             android:text="6. Krokliggande, dvs ryggliggande med flekterade knän, fötterna och överarmarna på britsen, underarmar mot magen. Bäckenlyft och därefter extension av först höger knäled, omedelbart återgång till krokliggande, dito vänster. Benet ska ej vila mot underlaget vi extension."
             android:textAppearance="@style/TextCustomNormal"/>
 
+        <!-- Vänster and Höger in parallel -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:paddingLeft="25dp"
-            android:paddingStart="25dp">
+            android:layout_marginStart="@dimen/imf_margin_start"
+            >
 
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Hö"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:typeface="monospace"/>
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-            <Spinner
-                android:id="@+id/spinner6H"
-                android:layout_width="wrap_content"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Höger"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:typeface="monospace"/>
+
+                <RadioGroup
+                    android:id="@+id/imf_rg6h"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0 = går utan svårighet"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1 = orkar ej lyfta helt"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2 = går ej"/>
+                </RadioGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="10dp"
-                android:layout_marginStart="10dp"
-                android:background="@color/spinner_out"/>
-        </LinearLayout>
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingLeft="25dp"
-            android:paddingStart="25dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Vänster"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:typeface="monospace"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Vä"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:typeface="monospace"/>
+                <RadioGroup
+                    android:id="@+id/imf_rg6v"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-            <Spinner
-                android:id="@+id/spinner6V"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="10dp"
-                android:layout_marginStart="10dp"
-                android:background="@color/spinner_out"/>
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0 = går utan svårighet"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1 = orkar ej lyfta helt"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2 = går ej"/>
+                </RadioGroup>
+            </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
@@ -389,18 +482,15 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"/>
 
             <TextView
-                android:id="@+id/summa2"
+                android:id="@+id/imf_sum2_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
                 android:layout_marginStart="10dp"
-                android:background="@color/spinner_out"
-                android:maxLength="5"
-                android:paddingEnd="10dp"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:paddingStart="10dp"
-                android:textAppearance="?android:attr/textAppearanceMedium"/>
+                android:background="@color/bgBrightOut"
+                android:gravity="center"
+                android:minEms="2"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                tools:text="2"/>
         </LinearLayout>
 
         <TextView
@@ -418,51 +508,82 @@
             android:text="7. Stå på ett ben. Seende och med blicken riktad rakt fram i ögonhöjd."
             android:textAppearance="@style/TextCustomNormal"/>
 
+        <!-- Vänster and Höger in parallel -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:paddingLeft="25dp"
-            android:paddingStart="25dp">
+            android:layout_marginStart="@dimen/imf_margin_start"
+            >
 
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Hö"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:typeface="monospace"/>
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-            <Spinner
-                android:id="@+id/spinner7H"
-                android:layout_width="wrap_content"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Höger"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:typeface="monospace"/>
+
+                <RadioGroup
+                    android:id="@+id/imf_rg7h"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0 = >29 s"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1 = 15–29 s"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2 = 0–14 s"/>
+                </RadioGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="10dp"
-                android:layout_marginStart="10dp"
-                android:background="@color/spinner_out"/>
-        </LinearLayout>
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingLeft="25dp"
-            android:paddingStart="25dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Vänster"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:typeface="monospace"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Vä"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:typeface="monospace"/>
+                <RadioGroup
+                    android:id="@+id/imf_rg7v"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-            <Spinner
-                android:id="@+id/spinner7V"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="10dp"
-                android:layout_marginStart="10dp"
-                android:background="@color/spinner_out"/>
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0 = >29 s"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1 = 15–29 s"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2 = 0–14 s"/>
+                </RadioGroup>
+            </LinearLayout>
         </LinearLayout>
 
         <TextView
@@ -473,13 +594,27 @@
             android:text="8. Stå med fötterna tätt ihop blundande."
             android:textAppearance="@style/TextCustomNormal"/>
 
-        <Spinner
-            android:id="@+id/spinner8"
-            android:layout_width="wrap_content"
+        <RadioGroup
+            android:id="@+id/imf_rg8"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="25dp"
-            android:layout_marginStart="25dp"
-            android:background="@color/spinner_out"/>
+            android:layout_marginStart="@dimen/imf_margin_start">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0 = >29 s"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1 = 15–29 s"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2 = 0–14 s"/>
+        </RadioGroup>
 
         <TextView
             android:layout_width="wrap_content"
@@ -489,13 +624,27 @@
             android:text="9. Gång på 2 m linje. Sätt ena foten precis framför den andra."
             android:textAppearance="@style/TextCustomNormal"/>
 
-        <Spinner
-            android:id="@+id/spinner9"
-            android:layout_width="wrap_content"
+        <RadioGroup
+            android:id="@+id/imf_rg9"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="25dp"
-            android:layout_marginStart="25dp"
-            android:background="@color/spinner_out"/>
+            android:layout_marginStart="@dimen/imf_margin_start">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0 = går utan svårighet"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1 = går med svårighet"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2 = går ej"/>
+        </RadioGroup>
 
         <TextView
             android:layout_width="wrap_content"
@@ -505,13 +654,27 @@
             android:text="10. Funktionell gång på stället med växelvis motsatt arm och benlyft i snabbt tempo i 15 s. Patienten får prova en gång med vardera diagonalen för att rörelsen ska kunna utföras på rätt sätt."
             android:textAppearance="@style/TextCustomNormal"/>
 
-        <Spinner
-            android:id="@+id/spinner10"
-            android:layout_width="wrap_content"
+        <RadioGroup
+            android:id="@+id/imf_rg10"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="25dp"
-            android:layout_marginStart="25dp"
-            android:background="@color/spinner_out"/>
+            android:layout_marginStart="@dimen/imf_margin_start">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0 = >14 ggr"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1 = 8–14 ggr"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2 = 0–7 ggr"/>
+        </RadioGroup>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -525,18 +688,15 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"/>
 
             <TextView
-                android:id="@+id/summa3"
+                android:id="@+id/imf_sum3_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
                 android:layout_marginStart="10dp"
-                android:background="@color/spinner_out"
-                android:maxLength="5"
-                android:paddingEnd="10dp"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:paddingStart="10dp"
-                android:textAppearance="?android:attr/textAppearanceMedium"/>
+                android:background="@color/bgBrightOut"
+                android:gravity="center"
+                android:minEms="2"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                tools:text="3"/>
         </LinearLayout>
 
         <TextView
@@ -554,13 +714,27 @@
             android:text="11. Krokliggande (se nr 6). Utförs genom att glutealmuskulaturen spännes och därefter lyfts bäckenet."
             android:textAppearance="@style/TextCustomNormal"/>
 
-        <Spinner
-            android:id="@+id/spinner11"
-            android:layout_width="wrap_content"
+        <RadioGroup
+            android:id="@+id/imf_rg11"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="25dp"
-            android:layout_marginStart="25dp"
-            android:background="@color/spinner_out"/>
+            android:layout_marginStart="@dimen/imf_margin_start">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0 = >29 s"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1 = 15–29 s"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2 = 0–14 s"/>
+        </RadioGroup>
 
         <TextView
             android:layout_width="wrap_content"
@@ -570,51 +744,82 @@
             android:text="12. Ryggliggande. Enkelt benlyft till 30 – 45º med extenderat knä och fotled i nolläge. Dynamiskt lyft i snabbt tempo i 15 s."
             android:textAppearance="@style/TextCustomNormal"/>
 
+        <!-- Vänster and Höger in parallel -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:paddingLeft="25dp"
-            android:paddingStart="25dp">
+            android:layout_marginStart="@dimen/imf_margin_start"
+            >
 
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Hö"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:typeface="monospace"/>
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-            <Spinner
-                android:id="@+id/spinner12H"
-                android:layout_width="wrap_content"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Höger"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:typeface="monospace"/>
+
+                <RadioGroup
+                    android:id="@+id/imf_rg12h"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0 = >11 ggr"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1 = 6–11 ggr"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2 = 0–5 ggr"/>
+                </RadioGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="10dp"
-                android:layout_marginStart="10dp"
-                android:background="@color/spinner_out"/>
-        </LinearLayout>
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingLeft="25dp"
-            android:paddingStart="25dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Vänster"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:typeface="monospace"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Vä"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:typeface="monospace"/>
+                <RadioGroup
+                    android:id="@+id/imf_rg12v"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-            <Spinner
-                android:id="@+id/spinner12V"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="10dp"
-                android:layout_marginStart="10dp"
-                android:background="@color/spinner_out"/>
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0 = >11 ggr"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1 = 6–11 ggr"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2 = 0–5 ggr"/>
+                </RadioGroup>
+            </LinearLayout>
         </LinearLayout>
 
         <TextView
@@ -625,51 +830,82 @@
             android:text="13. Sidliggande med trochantern riktad mot taket och undre benet flekterat. Dynamiska lyft av övre benets abduktorer till horisontalplanet i snabbt tempo i 15 s."
             android:textAppearance="@style/TextCustomNormal"/>
 
+        <!-- Vänster and Höger in parallel -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:paddingLeft="25dp"
-            android:paddingStart="25dp">
+            android:layout_marginStart="@dimen/imf_margin_start"
+            >
 
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Hö"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:typeface="monospace"/>
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-            <Spinner
-                android:id="@+id/spinner13H"
-                android:layout_width="wrap_content"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Höger"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:typeface="monospace"/>
+
+                <RadioGroup
+                    android:id="@+id/imf_rg13h"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0 = >11 ggr"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1 = 6–11 ggr"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2 = 0–5 ggr"/>
+                </RadioGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="10dp"
-                android:layout_marginStart="10dp"
-                android:background="@color/spinner_out"/>
-        </LinearLayout>
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingLeft="25dp"
-            android:paddingStart="25dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Vänster"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:typeface="monospace"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Vä"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:typeface="monospace"/>
+                <RadioGroup
+                    android:id="@+id/imf_rg13v"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-            <Spinner
-                android:id="@+id/spinner13V"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="10dp"
-                android:layout_marginStart="10dp"
-                android:background="@color/spinner_out"/>
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0 = >11 ggr"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1 = 6–11 ggr"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2 = 0–5 ggr"/>
+                </RadioGroup>
+            </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
@@ -684,18 +920,15 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"/>
 
             <TextView
-                android:id="@+id/summa4"
+                android:id="@+id/imf_sum4_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
                 android:layout_marginStart="10dp"
-                android:background="@color/spinner_out"
-                android:maxLength="5"
-                android:paddingEnd="10dp"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:paddingStart="10dp"
-                android:textAppearance="?android:attr/textAppearanceMedium"/>
+                android:background="@color/bgBrightOut"
+                android:gravity="center"
+                android:minEms="2"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                tools:text="4"/>
         </LinearLayout>
 
         <LinearLayout
@@ -706,39 +939,26 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TOTAL SUMMA (0-40p, 0 = ua)"
+                android:text="TOTAL SUMMA (0-40 p, 0p = ua)"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textStyle="bold"/>
 
             <TextView
-                android:id="@+id/summa_total"
+                android:id="@+id/imf_total_sum_tv"
+                style="@style/OutputTextViewStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginStart="10dp"
-                android:background="@color/spinner_out"
-                android:maxLength="5"
-                android:paddingEnd="10dp"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:paddingStart="10dp"
-                android:textAppearance="?android:attr/textAppearanceMedium"/>
+                android:layout_marginStart="16dp"
+                android:gravity="center"
+                android:minEms="2"/>
         </LinearLayout>
 
-        <android.support.v7.widget.AppCompatButton
-            android:layout_width="wrap_content"
+        <Button
+            android:id="@+id/imf_btnDone"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="40dp"
-            android:background="@color/button_bg_color"
-            android:paddingBottom="10dp"
-            android:paddingEnd="80dp"
-            android:paddingStart="80dp"
-            android:paddingTop="10dp"
-            android:text="Done"
-            android:textColor="@android:color/white"
-            android:textSize="18sp"
-            />
+            android:layout_marginTop="15dp"
+            android:text="Done"/>
 
     </LinearLayout>
 
