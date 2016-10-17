@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/bgOut"
+            android:orientation="vertical"
+            tools:context="com.example.android.vinter_1.TestActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="30dp">
+
+        <!-- Header -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:text="Patient"
+                android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:text="Daniel"
+                android:textAppearance="@style/TextCustomNormal"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <!-- Separator -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/bgBrightOut"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="90"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="20dp"
+                android:text="6-minuters gångtest"
+                android:textAppearance="@style/TextCustomLarge"
+                />
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/min6_fab_help"
+                android:layout_width="0dp"
+                android:layout_weight="10"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_help_outline_white_36dp"
+                android:clickable="true"
+                android:scaleType="center"
+                app:fabSize="mini"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp">
+
+            <TextView
+                android:id="@+id/min6_tv_meters"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="5"
+                android:text="Antal meter"
+                android:textAppearance="@style/TextCustomNormal"
+                />
+
+            <EditText
+                android:id="@+id/min6_et_meters"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="3"
+                android:fontFamily="monospace"
+                android:gravity="center"
+                android:inputType="number"
+                android:maxLength="4"
+                android:textSize="20sp"/>
+
+            <CheckBox
+                android:id="@+id/min6_cb_help"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:text="Hjälpmedel"
+                android:textAppearance="@style/TextCustomNormal"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Puls"
+            android:textAppearance="@style/TextCustomLarge"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp">
+
+            <TextView
+                android:id="@+id/min6_tv_start_pulse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="5"
+                android:text="Startpuls"
+                android:textAppearance="@style/TextCustomNormal"
+                />
+
+            <EditText
+                android:id="@+id/min6_et_start_pulse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="3"
+                android:fontFamily="monospace"
+                android:gravity="center"
+                android:inputType="number"
+                android:maxLength="3"
+                android:textSize="20sp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp">
+
+            <TextView
+                android:id="@+id/min6_tv_finish_pulse"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="5"
+                android:text="Slutpuls"
+                android:textAppearance="@style/TextCustomNormal"
+                />
+
+            <EditText
+                android:id="@+id/min6_et_finish_pulse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="3"
+                android:fontFamily="monospace"
+                android:gravity="center"
+                android:inputType="number"
+                android:maxLength="3"
+                android:textSize="20sp"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Borgs CR10 skala"
+            android:textAppearance="@style/TextCustomLarge"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginStart="20dp">
+
+            <TextView
+                android:id="@+id/min6_tv_cr10_test_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minEms="5"
+                android:text="Teststart"
+                android:textAppearance="@style/TextCustomNormal"
+                />
+
+            <Spinner
+                android:id="@+id/min6_sp_cr10_test_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/bgBrightOut"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp">
+
+            <TextView
+                android:id="@+id/min6_tv_cr10_test_finish"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minEms="5"
+                android:text="Avslutat"
+                android:textAppearance="@style/TextCustomNormal"
+                />
+
+            <Spinner
+                android:id="@+id/min6_sp_cr10_test_finish"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/bgBrightOut"
+                />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Borgs ansträngningsskala (RPE)"
+            android:textAppearance="@style/TextCustomLarge"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginStart="20dp">
+
+            <TextView
+                android:id="@+id/min6_tv_rpe_test_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minEms="5"
+                android:text="Teststart"
+                android:textAppearance="@style/TextCustomNormal"
+                />
+
+            <Spinner
+                android:id="@+id/min6_sp_rpe_test_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/bgBrightOut"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp">
+
+            <TextView
+                android:id="@+id/min6_tv_rpe_test_finish"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minEms="5"
+                android:text="Avslutat"
+                android:textAppearance="@style/TextCustomNormal"
+                />
+
+            <Spinner
+                android:id="@+id/min6_sp_rpe_test_finish"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/bgBrightOut"
+                />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/min6_btnDone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/custom_button"
+            android:textAppearance="@style/TextCustomNormal"
+            android:textColor="@android:color/white"
+            android:text="DONE"/>
+
+    </LinearLayout>
+</ScrollView>

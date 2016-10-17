@@ -33,8 +33,17 @@ public class MyFragmentPagerAdapter extends FragmentPagerAdapter {
             case 1:
                 fragment = new VASFragment();
                 break;
+            case 2:
+                fragment = new TUGFragment();
+                break;
+            case 3:
+                fragment = new MIN6Fragment();
+                break;
             case 4:
                 fragment = new BergsFragment();
+                break;
+            case 5:
+                fragment = new BDLFragment();
                 break;
             case 6:
                 fragment = new IMFFragment();

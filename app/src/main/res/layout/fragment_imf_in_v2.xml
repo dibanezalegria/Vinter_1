@@ -29,14 +29,7 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textStyle="bold"/>
 
-            <android.support.v7.widget.AppCompatImageButton
-                android:id="@+id/imf_help_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="50dp"
-                android:background="@android:color/transparent"
-                android:clickable="true"
-                android:src="@drawable/help_48"/>
+
         </LinearLayout>
 
         <LinearLayout
@@ -74,7 +67,7 @@
             android:paddingBottom="10dp"
             android:paddingTop="20dp"
             android:text="Allmän rörelse- och muskelfunktion"
-            android:textAppearance="@style/TextCustomHeadline"/>
+            android:textAppearance="@style/TextCustomLarge"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -176,7 +169,7 @@
             android:paddingBottom="10dp"
             android:paddingTop="20dp"
             android:text="Muskelstyrka"
-            android:textAppearance="@style/TextCustomHeadline"/>
+            android:textAppearance="@style/TextCustomLarge"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -383,7 +376,7 @@
             android:paddingBottom="10dp"
             android:paddingTop="20dp"
             android:text="Balans och koordination"
-            android:textAppearance="@style/TextCustomHeadline"/>
+            android:textAppearance="@style/TextCustomLarge"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -516,7 +509,7 @@
             android:paddingBottom="10dp"
             android:paddingTop="20dp"
             android:text="Uthållighet"
-            android:textAppearance="@style/TextCustomHeadline"/>
+            android:textAppearance="@style/TextCustomLarge"/>
 
         <TextView
             android:layout_width="wrap_content"

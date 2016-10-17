@@ -1,6 +1,82 @@
 <resources>
     <string name="app_name">Vinter_1</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!--
+    ________________________________________________________________________________________________
+
+                                                BERGS
+
+    ________________________________________________________________________________________________
+    -->
+    <string name="bergs_string_q1"><b>1. Sittande till stående</b>\nInstruktion: <i>Ställ Dig upp. Försök att inte använda händerna som stöd.</i>\nFör att få 2 poäng får patienten göra fler än ett försök i detta moment.</string>
+
+    <string name="bergs_string_q2"><b>2. Stå utan stöd</b>\nInstruktion: <i>Stå i 2 minuter utan stöd.</i>\nFör att få 1 poäng får patienten göra fler än ett försök i detta moment.</string>
+
+    <string name="bergs_string_om_patienten"><b><i>Om patienten kan stå 2 minuter utan stöd: sätt full poäng för ”sitta utan ryggstöd” och fortsätt till uppgift 4.</i></b></string>
+
+    <string name="bergs_string_q3"><b>3. Sitta utan ryggstöd med stöd for fötterna på golv eller pall</b>\nInstruktion: <i>Sitt med korslagda armar i 2 minuter.</i>\nOm patienten inte förstår att han/hon inte ska luta mot ryggstödet bör detta moment utföras där ryggstöd saknas, exempelvis i sängen.</string>
+
+    <string name="bergs_string_q4"><b>4. Stående till sittande</b>\nInstruktion: <i>Sätt Dig.</i></string>
+
+    <string name="bergs_string_q5"><b>5. Från sittande på en stol med armstöd till en annan utan armstöd och vice </b>\nInstruktion: Undersökaren placerar en stol med armstöd i 90° vinkel mot en stol utan armstöd eller mot en säng.\n<i>Flytta Dig från stolen med armstöd till stolen utan armstöd/sängen. Använd händerna så lite som möjligt. Flytta dig sedan från stolen (utan armstöd)/sängen till stolen med armstöd.</i>\nOm patienten inte kan flytta sig åt båda hällen kan undersökaren flytta stolen efter den första överflyttningen. Det viktiga är att överflyttningen sker från en stol med armstöd och från en stol utan armstöd/säng.</string>
+
+    <string name="bergs_string_q6"><b>6. Stå utan stöd med slutna ögon\n</b>Instruktion: <i>Blunda och stå stilla i 10 sekunder.</i></string>
+
+    <string name="bergs_string_q7"><b>7. Stå utan stöd med fötterna intill varandra\n</b>Instruktion: <i>Sätt fötterna intill varandra och stå utan stöd.</i></string>
+
+    <string name="bergs_string_q8"><b>8. Sträcka sig framåt med utsträckt arm i stående\n</b>Instruktion: <i>Lyft armen framåt till 90 grader. Sträck ut fingrarna och sträck Dig framåt så långt Du kan.</i> Undersökaren fäster eller håller en linjal, alternativt ett papper markerar med noll-läge och 5, 12, 25 cm mot väggen. Noll-läget ska var jäms med långfingrets fingertopp då armen är framsträckt i 90 grader. Fingrarna eller armen får inte nudda vid väggen. Mät på linjalen hur långt fingertoppen når i det mest framsträckta läget. När det är möjligt ska patienten använda båda armarna vid framåtsträckningen för att undvika rotation av bålen.</string>
+
+    <string name="bergs_string_q9"><b>9. Stå och ta  upp föremal från golv\n</b>Instruktion: <i>Ta upp sko/toffel som ligger framför Dina fötter.</i></string>
+
+    <string name="bergs_string_q10"><b>10. Vrida och titta bakåt över vänster och höger axel i stående\n</b>Instruktion: <i>Vrid och titta direkt bakom Dig över vänster axel. Upprepa åt höger.</i> För att en bra rotation i hela kroppen kan undersökaren stå bakom patienten och hålla ett föremål som patienten uppmuntras att titta på.</string>
+
+    <string name="bergs_string_q11"><b>11. Vända 360 grader</b>\nInstruktion: <i>Vänd Dig runt ett helt varv. <u>Stanna</u>. Vänd Dig sedan ett helt varv åt andra hållet.</i></string>
+
+    <string name="bergs_string_q12"><b>12. Stå utan stöd och växelvis placera fot på pall</b>\nInstruktion: <i>Sätt växelvis upp en fot i taget på pallen/trappsteget. Fortsätt tills vardera foten har rört vid pallen 4 gånger.</i></string>
+
+    <string name="bergs_string_q13"><b>13. Stå utan stöd med den ena foten framför den andra\n</b>Instruktion: <u>Demonstrera för patienten</u>. <i>Sätt ena foten direkt framför den andra. Om Du inte kan sätta foten direkt framför, försök att sätta foten så långt fram att hälen på Din främre fot är framför den andra fotens tår.</i>\nFör att få 3 poäng måste den främre fotens häl placeras framför den bakre fotens tår och stegets bredd ska vara ungefär som patientens normala stegbredd.</string>
+
+    <string name="bergs_string_q14"><b>14. Stå på ett ben</b>\nInstruktion: <i>Stå på ett ben så länge Du kan utan stöd.</i></string>
+
+
+    <!--
+    ________________________________________________________________________________________________
+
+                                                BDL
+
+    ________________________________________________________________________________________________
+    -->
+    <string name="bdl_string_q1"><b>1. Stå med fötterna ihop, blundande</b>\nPatienten står med fötterna parallellt, tätt ihop, armarna hängande intill kroppen. Tids tas från det att patienten sluter ögonen. Fötterna får ej flyttas ur position.</string>
+
+    <string name="bdl_string_q2"><b>2. Stå på ett ben, seende</b>\nPatienten står på ett ben. Belastad fot får ej flyttas ur position. Underben och fot obelastad sida ska ej vila mot stödben. Övning 2a och 2b får utföras i valfri ordning.</string>
+
+    <string name="bdl_string_q3"><b>3. Stående på ett ben, blundande</b>\nPatienten lyfter benet, sluter sedan ögonen. Belastad fot får ej flyttas ur position. Underben och fot på obelastad sida ska ej vila mot stödben. Står på sämsta benet från övning 2. Tid tas från att patienten blundar och har lyft benet.</string>
+
+    <string name="bdl_string_q4"><b>4. Gå på linje, framlänges</b>\nPatienten ombeds gå 15 steg fram och tillbaka, på en 5cm bred linje. Tandemgång, häl mot tå, både tå- och hälparti ska vidröra linjen. Någon del av foten (hö och vä) skall vara på linjen under vändningen. Sjukgymnasten räknar stegen högt.</string>
+
+    <string name="bdl_string_q5"><b>5. Gå baklänges</b>\nPatienten ombeds gå 15 steg baklänges mellan två linjer, 20 cm mellanrum mellan  linjerna. Tandemgång, tå mot häl. Patienten får ej vidröra linjerna. Sjukgymnasten räknar stegen högt.</string>
+
+    <string name="bdl_string_q6"><b>6. Gå med kaffekopp</b>\nPatienten ombeds gå 5 m, vända och gå tillbaka inom ett 20 cm brett  område. Patienten håller i ena handen ett kaffefat med kopp fylld till 1,5 cm från kanten. Patienten få ej vidröra linjerna förutom vi vändningen. Under vändningen skall en fot vara inom markerat område. Kaffe får ej rinna över kanten.</string>
+
+    <string name="bdl_string_q7"><b>7. Stå på ett ben, huvudvridning</b>\nPatienten står på ett ben, sämsta benet från övning 2. Belastad fot får ej flyttas ur position. Underben och fot på obelastad sida ska ej vila mot ståben. Gör isolerad maximal huvudvridning vänster – rakt fram – höger – rakt fram. Detta räknas som en omgång. Patienten instrueras var 5:e sekund att starta en omgång. Patienten ska innan övningen börjar prova huvudvridningen stående på båda benen.</string>
+
+    <string name="bdl_string_q8"><b>8. Kliva upp på stol</b>\nPatienten ombeds kliva upp på en stol och där med raka höfter och knän sträcka fram minst en arm, 90 graders flexion i axellederna och sedan sträcka sig framåt. Stolen står med ena sidan 2 dm från en vägg. Framför patienten få ej finnas något objekt. Sjukgymnasten står bakom patienten.</string>
+
+    <string name="bdl_string_q9"><b>9. Hoppa på ett ben</b>\nPatienten ombeds hoppa, först på stället, sedan 2 dm framåt, på ett ben. Patienten hoppar på sämsta benet från övning 2. Patienten skall stanna till mellan varje hopp. Sjukgymnasten räknar högt 5 s från det att patienten står still</string>
+
+    <string name="bdl_string_q10"><b>10. Gå i trappa</b>\nPatienten ombeds gå 10 steg uppför i en trappa, reciprok gång, vända och gå ned 10 steg, så fort hon/han kan. Patienten får inte hålla i sig. Vändningen sker på trappavsats</string>
+
+    <!--
+    ________________________________________________________________________________________________
+
+                                                TUG
+
+    ________________________________________________________________________________________________
+    -->
+    <string name="tug_instructions"><b>Instruktion till patienten:</b>\n\nNär jag säger \"gå\" vill jag att du ska resa dig upp och gå i självvald takt till linjen på golvet 3 m bort, vända, gå tillbaka till stolen och sätta dig ner igen.</string>
+
+    <!-- CDATA sections are used to escape blocks of text containing characters that would otherwise be regarded as markup. -->
+    <string name="tug_manual"><![CDATA[<h1>Timed Up and Go</h><p>Testet mäter den tid det tar i sekunder för en person att resa sig upp från en stol med armstöd, (sitthöjd ca 46cm), gå en sträcka på 3 m, vända, gå tillbaka till stolen och sitta ner igen.<br/><br/>Patienten har sina vanliga skor och använder om så behövs sitt ordinarie gånghjälpmedel. Patienten få ingen fysisk assistans.<br/><br/>Patienten börjar sittande i stolen med ryggen mot ryggstödet och händerna vilande mot armstöden och gånghjälpmedlet till hands.<br/><br/><b>Instruktion till patienten:</b><br/><br/>När jag säger \"gå\" vill jag att du ska resa dig upp och gå i självvald takt till linjen på golvet 3 m bort, vända, gå tillbaka till stolen och sätta dig ner igen.<br/><br/>Innan testning får patienten pröva hela uppgiften en gång.<br/><br/><br/><u>Prognostisk validitet (Predictive)</u><br/>Tiden det tar för patienten speglar till viss grad oberoendet i funktionell förflyttnings förmåga. Klarar man på det &lt; 20 sek. är man oberoende i basala förflyttningar och tar det &gt; 30 sek. är man hjälpberoende.</p>]]></string>
+
 </resources>

@@ -17,6 +17,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:textAppearanceLarge"
+            android:layout_gravity="center_vertical"
             android:textColor="#616161"
             tools:text="Name"/>
 
@@ -36,27 +37,68 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:gravity="center"
+        android:layout_gravity="center_vertical"
         android:tint="#1565C0"
         android:src="@drawable/ic_comment_black_36dp"/>
 
-    <android.support.v7.widget.AppCompatImageView
-        android:id="@+id/test_list_item_imgInStatus"
+    <Button
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:gravity="center"
-        android:tint="@color/completedState"
-        android:visibility="invisible"
-        android:src="@drawable/ic_done_black_36dp"/>
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="DONE"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:background="@drawable/custom_button_completed"/>
 
-    <android.support.v7.widget.AppCompatImageView
-        android:id="@+id/test_list_item_imgOutStatus"
+    <!--<ImageButton-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_weight="1"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginEnd="10dp"-->
+        <!--android:background="@drawable/custom_button_completed"-->
+        <!--android:src="@drawable/ic_done_black_36dp"-->
+        <!--android:tint="@android:color/white"-->
+        <!--/>-->
+
+    <!--<Button-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_weight="1"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:textColor="@android:color/white"-->
+        <!--android:textSize="20sp"-->
+        <!--android:text="IN"/>-->
+
+    <!--<android.support.v7.widget.AppCompatImageView-->
+        <!--android:id="@+id/test_list_item_imgInStatus"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_weight="1"-->
+        <!--android:gravity="center"-->
+        <!--android:tint="@color/completedState"-->
+        <!--android:visibility="invisible"-->
+        <!--android:src="@drawable/ic_done_black_36dp"/>-->
+
+
+    <!--<android.support.v7.widget.AppCompatImageView-->
+        <!--android:id="@+id/test_list_item_imgOutStatus"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_weight="1"-->
+        <!--android:gravity="center"-->
+        <!--android:tint="@color/completedState"-->
+        <!--android:visibility="invisible"-->
+        <!--android:src="@drawable/ic_done_black_36dp"/>-->
+
+    <Button
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:gravity="center"
-        android:tint="@color/completedState"
-        android:visibility="invisible"
-        android:src="@drawable/ic_done_black_36dp"/>
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="BEGIN"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="20sp"
+        android:background="@drawable/custom_button_blank"
+        />
 
 </LinearLayout>

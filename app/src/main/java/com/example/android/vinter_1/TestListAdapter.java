@@ -1,7 +1,6 @@
 package com.example.android.vinter_1;
 
 import android.content.Context;
-import android.support.v7.widget.AppCompatImageView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,24 +33,24 @@ public class TestListAdapter extends ArrayAdapter<Test> {
         // Lookup view for data population
         TextView tvName = (TextView) convertView.findViewById(R.id.test_list_item_tvName);
         TextView tvCode = (TextView) convertView.findViewById(R.id.test_list_item_tvCode);
-        AppCompatImageView imgInStatus = (AppCompatImageView) convertView
-                .findViewById(R.id.test_list_item_imgInStatus);
-        AppCompatImageView imgOutStatus = (AppCompatImageView) convertView
-                .findViewById(R.id.test_list_item_imgOutStatus);
+//        AppCompatImageView imgInStatus = (AppCompatImageView) convertView
+//                .findViewById(R.id.test_list_item_imgInStatus);
+//        AppCompatImageView imgOutStatus = (AppCompatImageView) convertView
+//                .findViewById(R.id.test_list_item_imgOutStatus);
 
 
         // Populate the data into the template view using the data object
         tvName.setText(test.getName());
         tvCode.setText(test.getCode());
 
-        // Change image color following test status
-        if (test.getInState() == Test.TEST_BLANK) {
-            imgInStatus.setVisibility(View.VISIBLE);
-        }
+//        // Change image color following test status
+//        if (test.getInState() == Test.TEST_BLANK) {
+//            imgInStatus.setVisibility(View.VISIBLE);
+//        }
 
-        if (test.getOutState() == Test.TEST_BLANK) {
-            imgOutStatus.setVisibility(View.VISIBLE);
-        }
+//        if (test.getOutState() == Test.TEST_BLANK) {
+//            imgOutStatus.setVisibility(View.VISIBLE);
+//        }
 
         // Return the completed view to render the screen
         return convertView;

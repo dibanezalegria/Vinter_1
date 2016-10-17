@@ -2,8 +2,10 @@ package com.example.android.vinter_1;
 
 
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.util.SparseArray;
@@ -15,8 +17,6 @@ import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import java.util.Arrays;
-
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,18 +25,14 @@ public class EQ5DFragment extends Fragment {
 
     private static final String LOG_TAG = EQ5DFragment.class.getSimpleName();
 
-    // One radio group per question
-    private RadioGroup mRg1, mRg2, mRg3, mRg4, mRg5;
-    // Health mPattern pattern
-    private int[] mPattern;
+    private static final int N_QUESTIONS = 5;
+
+    private RadioGroup[] mRgroup;   // One radio group per question
+    private int[] mPattern;  // Health mPattern pattern
 
     public EQ5DFragment() {
-        // Initialize pattern of answers
-        final int NUMBER_OF_QUESTIONS = 5;
-        mPattern = new int[NUMBER_OF_QUESTIONS];
-        for (int i = 0; i < NUMBER_OF_QUESTIONS; i++) {
-            mPattern[i] = -1;
-        }
+        mRgroup = new RadioGroup[N_QUESTIONS];
+        mPattern = new int[N_QUESTIONS];
     }
 
     @Override
@@ -55,11 +51,11 @@ public class EQ5DFragment extends Fragment {
         }
 
         // Hook up radio groups from view
-        mRg1 = (RadioGroup) rootView.findViewById(R.id.eq5d_radioGroup1);
-        mRg2 = (RadioGroup) rootView.findViewById(R.id.eq5d_radioGroup2);
-        mRg3 = (RadioGroup) rootView.findViewById(R.id.eq5d_radioGroup3);
-        mRg4 = (RadioGroup) rootView.findViewById(R.id.eq5d_radioGroup4);
-        mRg5 = (RadioGroup) rootView.findViewById(R.id.eq5d_radioGroup5);
+        mRgroup[0] = (RadioGroup) rootView.findViewById(R.id.eq5d_radioGroup1);
+        mRgroup[1] = (RadioGroup) rootView.findViewById(R.id.eq5d_radioGroup2);
+        mRgroup[2] = (RadioGroup) rootView.findViewById(R.id.eq5d_radioGroup3);
+        mRgroup[3] = (RadioGroup) rootView.findViewById(R.id.eq5d_radioGroup4);
+        mRgroup[4] = (RadioGroup) rootView.findViewById(R.id.eq5d_radioGroup5);
 
         // SeekBar
         SeekBar seekBar = (SeekBar) rootView.findViewById(R.id.eq5d_hälso_seek_bar);
@@ -82,22 +78,23 @@ public class EQ5DFragment extends Fragment {
             }
         });
 
+        final TextView tvResult = (TextView) rootView.findViewById(R.id.eq5d_result);
+
         // Done button
         Button button = (Button) rootView.findViewById(R.id.eq5d_btnDone);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (createPattern()) {
-                    TextView tvResult = (TextView) rootView.findViewById(R.id.eq5d_result);
+                    highlightQuestions();   // remove remaining highlights
                     tvResult.setText(getValueFromPattern());
-                    //Log.d(LOG_TAG, "Value from pattern: " + getValueFromPattern());
                 } else {
                     AlertDialog dialog = new AlertDialog.Builder(getActivity()).create();
-                    dialog.setTitle("Test incomplete");
-                    dialog.setMessage("Please answer all the questions.");
-                    dialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK", new DialogInterface.OnClickListener() {
+                    dialog.setMessage("Some question have not been answered.");
+                    dialog.setButton(AlertDialog.BUTTON_POSITIVE, "Show me", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
+                            highlightQuestions();
                             dialog.dismiss();
                         }
                     });
@@ -110,95 +107,42 @@ public class EQ5DFragment extends Fragment {
     }
 
     /**
-     * Helper method
+     * Generates pattern array with answered questions
      */
     private boolean createPattern() {
-        // Radio group 1
-        switch (mRg1.getCheckedRadioButtonId()) {
-            case R.id.eq5d_radio11:
-                mPattern[0] = 1;
-                break;
-            case R.id.eq5d_radio12:
-                mPattern[0] = 2;
-                break;
-            case R.id.eq5d_radio13:
-                mPattern[0] = 3;
-                break;
-        }
-
-        // Radio group 2
-        switch (mRg2.getCheckedRadioButtonId()) {
-            case R.id.eq5d_radio21:
-                mPattern[1] = 1;
-                break;
-            case R.id.eq5d_radio22:
-                mPattern[1] = 2;
-                break;
-            case R.id.eq5d_radio23:
-                mPattern[1] = 3;
-                break;
-        }
-
-        // Radio group 3
-        switch (mRg3.getCheckedRadioButtonId()) {
-            case R.id.eq5d_radio31:
-                mPattern[2] = 1;
-                break;
-            case R.id.eq5d_radio32:
-                mPattern[2] = 2;
-                break;
-            case R.id.eq5d_radio33:
-                mPattern[2] = 3;
-                break;
-        }
-
-        // Radio group 4
-        switch (mRg4.getCheckedRadioButtonId()) {
-            case R.id.eq5d_radio41:
-                mPattern[3] = 1;
-                break;
-            case R.id.eq5d_radio42:
-                mPattern[3] = 2;
-                break;
-            case R.id.eq5d_radio43:
-                mPattern[3] = 3;
-                break;
-        }
-
-        // Radio group 5
-        switch (mRg5.getCheckedRadioButtonId()) {
-            case R.id.eq5d_radio51:
-                mPattern[4] = 1;
-                break;
-            case R.id.eq5d_radio52:
-                mPattern[4] = 2;
-                break;
-            case R.id.eq5d_radio53:
-                mPattern[4] = 3;
-                break;
-        }
-
-        Log.d(LOG_TAG, "pattern: " + Arrays.toString(mPattern));
-
-        // Are all radio buttons selected?
-        for (int value : mPattern) {
-            if (value == -1) {
-                return false;
+        boolean isValid = true;
+        // Check all radio groups
+        View radioButton;
+        for (int i = 0; i < N_QUESTIONS; i++) {
+            int radioButtonID = mRgroup[i].getCheckedRadioButtonId();
+            if (radioButtonID != -1) {
+                radioButton = mRgroup[i].findViewById(radioButtonID);
+                int index = mRgroup[i].indexOfChild(radioButton);
+                mPattern[i] = index + 1;
+            } else {
+                mPattern[i] = -1;
+                isValid = false;
             }
         }
-        return true;
+
+        return isValid;
     }
 
     /**
-     * JUnit helper method
+     * Highlights unanswered question
      */
-    public String getValueFromPattern(int[] pattern) {
-        mPattern = pattern;
-        return getValueFromPattern();
+    private void highlightQuestions() {
+        for (int i = 0; i < N_QUESTIONS; i++) {
+            if (mPattern[i] == -1) {
+                mRgroup[i].setBackgroundColor(ContextCompat.getColor(getContext(), R.color.highlight));
+            } else {
+                mRgroup[i].setBackgroundColor(Color.TRANSPARENT);
+            }
+        }
     }
 
     /**
-     * Generates result table
+     * Extract value from equivalence tables for given pattern
      */
     public String getValueFromPattern() {
         SparseArray<String> sparseArray = new SparseArray<>();
@@ -460,6 +404,14 @@ public class EQ5DFragment extends Fragment {
         Log.d(LOG_TAG, "key: " + key);
 
         return sparseArray.get(key);
+    }
+
+    /**
+     * JUnit helper method
+     */
+    public String getValueFromPattern(int[] pattern) {
+        mPattern = pattern;
+        return getValueFromPattern();
     }
 
 }

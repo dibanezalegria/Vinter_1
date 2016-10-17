@@ -18,15 +18,16 @@ import android.widget.TextView;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class BergsFragment extends Fragment {
+public class BDLFragment extends Fragment {
 
-    private static final String LOG_TAG = BergsFragment.class.getSimpleName();
-    private static final int N_QUESTIONS = 14;
+    private static final String LOG_TAG = BDLFragment.class.getSimpleName();
+    private static final int N_QUESTIONS = 11;
 
     private static boolean missing[];    // help to highlight missing answers
     private RadioGroup mRgroup[];
 
-    public BergsFragment() {
+
+    public BDLFragment() {
         mRgroup = new RadioGroup[N_QUESTIONS];
     }
 
@@ -41,31 +42,28 @@ public class BergsFragment extends Fragment {
         int fragmentType = getArguments().getInt(MyFragmentPagerAdapter.TAB);
 
         if (fragmentType == 0) {
-            rootView = inflater.inflate(R.layout.fragment_bergs_in, container, false);
+            rootView = inflater.inflate(R.layout.fragment_bdl_in, container, false);
         } else {
-            rootView = inflater.inflate(R.layout.fragment_bergs_out, container, false);
+            rootView = inflater.inflate(R.layout.fragment_bdl_out, container, false);
         }
 
         // Hook up radio groups from view
-        mRgroup[0] = (RadioGroup) rootView.findViewById(R.id.bergs_rg1);
-        mRgroup[1] = (RadioGroup) rootView.findViewById(R.id.bergs_rg2);
-        mRgroup[2] = (RadioGroup) rootView.findViewById(R.id.bergs_rg3);
-        mRgroup[3] = (RadioGroup) rootView.findViewById(R.id.bergs_rg4);
-        mRgroup[4] = (RadioGroup) rootView.findViewById(R.id.bergs_rg5);
-        mRgroup[5] = (RadioGroup) rootView.findViewById(R.id.bergs_rg6);
-        mRgroup[6] = (RadioGroup) rootView.findViewById(R.id.bergs_rg7);
-        mRgroup[7] = (RadioGroup) rootView.findViewById(R.id.bergs_rg8);
-        mRgroup[8] = (RadioGroup) rootView.findViewById(R.id.bergs_rg9);
-        mRgroup[9] = (RadioGroup) rootView.findViewById(R.id.bergs_rg10);
-        mRgroup[10] = (RadioGroup) rootView.findViewById(R.id.bergs_rg11);
-        mRgroup[11] = (RadioGroup) rootView.findViewById(R.id.bergs_rg12);
-        mRgroup[12] = (RadioGroup) rootView.findViewById(R.id.bergs_rg13);
-        mRgroup[13] = (RadioGroup) rootView.findViewById(R.id.bergs_rg14);
+        mRgroup[0] = (RadioGroup) rootView.findViewById(R.id.bdl_rg1);
+        mRgroup[1] = (RadioGroup) rootView.findViewById(R.id.bdl_rg2a);
+        mRgroup[2] = (RadioGroup) rootView.findViewById(R.id.bdl_rg2b);
+        mRgroup[3] = (RadioGroup) rootView.findViewById(R.id.bdl_rg3);
+        mRgroup[4] = (RadioGroup) rootView.findViewById(R.id.bdl_rg4);
+        mRgroup[5] = (RadioGroup) rootView.findViewById(R.id.bdl_rg5);
+        mRgroup[6] = (RadioGroup) rootView.findViewById(R.id.bdl_rg6);
+        mRgroup[7] = (RadioGroup) rootView.findViewById(R.id.bdl_rg7);
+        mRgroup[8] = (RadioGroup) rootView.findViewById(R.id.bdl_rg8);
+        mRgroup[9] = (RadioGroup) rootView.findViewById(R.id.bdl_rg9);
+        mRgroup[10] = (RadioGroup) rootView.findViewById(R.id.bdl_rg10);
 
-        final TextView tvSum = (TextView) rootView.findViewById(R.id.bergs_total_sum_tv);
+        final TextView tvSum = (TextView) rootView.findViewById(R.id.bdl_total_sum_tv);
 
         // Done button
-        Button button = (Button) rootView.findViewById(R.id.bergs_btnDone);
+        Button button = (Button) rootView.findViewById(R.id.bdl_btnDone);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -106,7 +104,7 @@ public class BergsFragment extends Fragment {
             if (radioButtonID != -1) {
                 radioButton = mRgroup[i].findViewById(radioButtonID);
                 int index = mRgroup[i].indexOfChild(radioButton);
-                sum += 4 - index;
+                sum += index;
             } else {
                 missing[i] = true;
                 someMissing = true;

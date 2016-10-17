@@ -50,7 +50,7 @@
             android:paddingBottom="10dp"
             android:paddingTop="20dp"
             android:text="Allmän rörelse- och muskelfunktion"
-            android:textAppearance="@style/TextCustomHeadline"/>
+            android:textAppearance="@style/TextCustomLarge"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -66,11 +66,12 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/imf_tv_rg1h"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Höger"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:typeface="monospace"/>
+                android:textAppearance="@style/TextCustomSmall"
+                />
 
             <RadioGroup
                 android:id="@+id/imf_rg1h"
@@ -78,27 +79,31 @@
                 android:layout_height="wrap_content">
 
                 <RadioButton
+                    style="@style/imf_text_radio_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0 = hälen kan placeras ovanpå motsatt knä"/>
 
                 <RadioButton
+                    style="@style/imf_text_radio_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="1 = hälen kan flytas halvvägs upp på motsatt underben"/>
 
                 <RadioButton
+                    style="@style/imf_text_radio_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="2 = hälen kan ej lyftas halvvägs upp på motsatt underben"/>
             </RadioGroup>
 
             <TextView
+                android:id="@+id/imf_tv_rg1v"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Vänster"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:typeface="monospace"/>
+                android:textAppearance="@style/TextCustomSmall"
+                />
 
             <RadioGroup
                 android:id="@+id/imf_rg1v"
@@ -106,16 +111,19 @@
                 android:layout_height="wrap_content">
 
                 <RadioButton
+                    style="@style/imf_text_radio_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0 = hälen kan placeras ovanpå motsatt knä"/>
 
                 <RadioButton
+                    style="@style/imf_text_radio_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="1 = hälen kan flytas halvvägs upp på motsatt underben"/>
 
                 <RadioButton
+                    style="@style/imf_text_radio_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="2 = hälen kan ej lyftas halvvägs upp på motsatt underben"/>
@@ -123,6 +131,7 @@
         </LinearLayout>
 
         <TextView
+            android:id="@+id/imf_tv_rg2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
@@ -137,16 +146,19 @@
             android:layout_marginStart="@dimen/imf_margin_start">
 
             <RadioButton
+                style="@style/imf_text_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="0 = gång inomhus ua"/>
 
             <RadioButton
+                style="@style/imf_text_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="1 = går med vissa svårigheter"/>
 
             <RadioButton
+                style="@style/imf_text_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="2 = uttalade gångsvårigheter och behöver gånghjälpmedel"/>
@@ -181,7 +193,7 @@
             android:paddingBottom="10dp"
             android:paddingTop="20dp"
             android:text="Muskelstyrka"
-            android:textAppearance="@style/TextCustomHeadline"/>
+            android:textAppearance="@style/TextCustomLarge"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -190,82 +202,74 @@
             android:text="3. Sittande på 45 cm höjd. Resa sig upp på ett ben med andra benet som balansstöd (häl i ungefärlig linje med tårna på testbenet) och utan hanstöd. Testbenets häl placeras nedanför(lite bakom stolskant."
             android:textAppearance="@style/TextCustomNormal"/>
 
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/imf_margin_start"
-            >
+            android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="0dp"
+            <TextView
+                android:id="@+id/imf_tv_rg3h"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:text="Höger"
+                android:textAppearance="@style/TextCustomSmall"
+                />
 
-                <TextView
+            <RadioGroup
+                android:id="@+id/imf_rg3h"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    style="@style/imf_text_radio_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Höger"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:typeface="monospace"/>
+                    android:text="0 = går utan svårighet"/>
 
-                <RadioGroup
-                    android:id="@+id/imf_rg3h"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0 = går utan svårighet"/>
-
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="1 = går med svårighet"/>
-
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="2 = går ej"/>
-                </RadioGroup>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
+                <RadioButton
+                    style="@style/imf_text_radio_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Vänster"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:typeface="monospace"/>
+                    android:text="1 = går med svårighet"/>
 
-                <RadioGroup
-                    android:id="@+id/imf_rg3v"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                <RadioButton
+                    style="@style/imf_text_radio_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2 = går ej"/>
+            </RadioGroup>
 
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0 = går utan svårighet"/>
+            <TextView
+                android:id="@+id/imf_tv_rg3v"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vänster"
+                android:textAppearance="@style/TextCustomSmall"/>
 
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="1 = går med svårighet"/>
+            <RadioGroup
+                android:id="@+id/imf_rg3v"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="2 = går ej"/>
-                </RadioGroup>
-            </LinearLayout>
+                <RadioButton
+                    style="@style/imf_text_radio_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0 = går utan svårighet"/>
+
+                <RadioButton
+                    style="@style/imf_text_radio_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1 = går med svårighet"/>
+
+                <RadioButton
+                    style="@style/imf_text_radio_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2 = går ej"/>
+            </RadioGroup>
         </LinearLayout>
 
         <TextView
@@ -276,85 +280,77 @@
             android:text="4. Stående kliva upp på en psoaskudde (30cm) med höger respektive vänster ben först och utan handstöd."
             android:textAppearance="@style/TextCustomNormal"/>
 
-        <!-- Vänster and Höger in parallel -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/imf_margin_start"
-            >
+            android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="0dp"
+            <TextView
+                android:id="@+id/imf_tv_rg4h"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:text="Höger"
+                android:textAppearance="@style/TextCustomSmall"/>
 
-                <TextView
+            <RadioGroup
+                android:id="@+id/imf_rg4h"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    style="@style/imf_text_radio_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Höger"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:typeface="monospace"/>
+                    android:text="0 = går utan svårighet"/>
 
-                <RadioGroup
-                    android:id="@+id/imf_rg4h"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0 = går utan svårighet"/>
-
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="1 = går med svårighet"/>
-
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="2 = går ej"/>
-                </RadioGroup>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
+                <RadioButton
+                    style="@style/imf_text_radio_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Vänster"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:typeface="monospace"/>
+                    android:text="1 = går med svårighet"/>
 
-                <RadioGroup
-                    android:id="@+id/imf_rg4v"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                <RadioButton
+                    style="@style/imf_text_radio_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2 = går ej"/>
+            </RadioGroup>
 
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0 = går utan svårighet"/>
+            <TextView
+                android:id="@+id/imf_tv_rg4v"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vänster"
+                android:textAppearance="@style/TextCustomSmall"/>
 
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="1 = går med svårighet"/>
+            <RadioGroup
+                android:id="@+id/imf_rg4v"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="2 = går ej"/>
-                </RadioGroup>
-            </LinearLayout>
+                <RadioButton
+                    style="@style/imf_text_radio_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0 = går utan svårighet"/>
+
+                <RadioButton
+                    style="@style/imf_text_radio_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1 = går med svårighet"/>
+
+                <RadioButton
+                    style="@style/imf_text_radio_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2 = går ej"/>
+            </RadioGroup>
         </LinearLayout>
 
         <TextView
+            android:id="@+id/imf_tv_rg5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
@@ -369,16 +365,19 @@
             android:layout_marginStart="@dimen/imf_margin_start">
 
             <RadioButton
+                style="@style/imf_text_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="0 = >89º"/>
 
             <RadioButton
+                style="@style/imf_text_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="1 = 45–89º"/>
 
             <RadioButton
+                style="@style/imf_text_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="2 = 0–44º"/>
@@ -392,82 +391,73 @@
             android:text="6. Krokliggande, dvs ryggliggande med flekterade knän, fötterna och överarmarna på britsen, underarmar mot magen. Bäckenlyft och därefter extension av först höger knäled, omedelbart återgång till krokliggande, dito vänster. Benet ska ej vila mot underlaget vi extension."
             android:textAppearance="@style/TextCustomNormal"/>
 
-        <!-- Vänster and Höger in parallel -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/imf_margin_start"
-            >
+            android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="0dp"
+            <TextView
+                android:id="@+id/imf_tv_rg6h"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:text="Höger"
+                android:textAppearance="@style/TextCustomSmall"/>
 
-                <TextView
+            <RadioGroup
+                android:id="@+id/imf_rg6h"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    style="@style/imf_text_radio_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Höger"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:typeface="monospace"/>
+                    android:text="0 = går utan svårighet"/>
 
-                <RadioGroup
-                    android:id="@+id/imf_rg6h"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0 = går utan svårighet"/>
-
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="1 = orkar ej lyfta helt"/>
-
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="2 = går ej"/>
-                </RadioGroup>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
+                <RadioButton
+                    style="@style/imf_text_radio_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Vänster"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:typeface="monospace"/>
+                    android:text="1 = orkar ej lyfta helt"/>
 
-                <RadioGroup
-                    android:id="@+id/imf_rg6v"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                <RadioButton
+                    style="@style/imf_text_radio_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2 = går ej"/>
+            </RadioGroup>
 
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0 = går utan svårighet"/>
+            <TextView
+                android:id="@+id/imf_tv_rg6v"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vänster"
+                android:textAppearance="@style/TextCustomSmall"/>
 
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="1 = orkar ej lyfta helt"/>
+            <RadioGroup
+                android:id="@+id/imf_rg6v"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="2 = går ej"/>
-                </RadioGroup>
-            </LinearLayout>
+                <RadioButton
+                    style="@style/imf_text_radio_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0 = går utan svårighet"/>
+
+                <RadioButton
+                    style="@style/imf_text_radio_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1 = orkar ej lyfta helt"/>
+
+                <RadioButton
+                    style="@style/imf_text_radio_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2 = går ej"/>
+            </RadioGroup>
         </LinearLayout>
 
         <LinearLayout
@@ -499,7 +489,7 @@
             android:paddingBottom="10dp"
             android:paddingTop="20dp"
             android:text="Balans och koordination"
-            android:textAppearance="@style/TextCustomHeadline"/>
+            android:textAppearance="@style/TextCustomLarge"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -508,85 +498,77 @@
             android:text="7. Stå på ett ben. Seende och med blicken riktad rakt fram i ögonhöjd."
             android:textAppearance="@style/TextCustomNormal"/>
 
-        <!-- Vänster and Höger in parallel -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/imf_margin_start"
-            >
+            android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="0dp"
+            <TextView
+                android:id="@+id/imf_tv_rg7h"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:text="Höger"
+                android:textAppearance="@style/TextCustomSmall"/>
 
-                <TextView
+            <RadioGroup
+                android:id="@+id/imf_rg7h"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    style="@style/imf_text_radio_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Höger"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:typeface="monospace"/>
+                    android:text="0 = >29 s"/>
 
-                <RadioGroup
-                    android:id="@+id/imf_rg7h"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0 = >29 s"/>
-
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="1 = 15–29 s"/>
-
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="2 = 0–14 s"/>
-                </RadioGroup>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
+                <RadioButton
+                    style="@style/imf_text_radio_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Vänster"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:typeface="monospace"/>
+                    android:text="1 = 15–29 s"/>
 
-                <RadioGroup
-                    android:id="@+id/imf_rg7v"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                <RadioButton
+                    style="@style/imf_text_radio_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2 = 0–14 s"/>
+            </RadioGroup>
 
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0 = >29 s"/>
+            <TextView
+                android:id="@+id/imf_tv_rg7v"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vänster"
+                android:textAppearance="@style/TextCustomSmall"/>
 
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="1 = 15–29 s"/>
+            <RadioGroup
+                android:id="@+id/imf_rg7v"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="2 = 0–14 s"/>
-                </RadioGroup>
-            </LinearLayout>
+                <RadioButton
+                    style="@style/imf_text_radio_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0 = >29 s"/>
+
+                <RadioButton
+                    style="@style/imf_text_radio_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1 = 15–29 s"/>
+
+                <RadioButton
+                    style="@style/imf_text_radio_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2 = 0–14 s"/>
+            </RadioGroup>
         </LinearLayout>
 
         <TextView
+            android:id="@+id/imf_tv_rg8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
@@ -601,22 +583,26 @@
             android:layout_marginStart="@dimen/imf_margin_start">
 
             <RadioButton
+                style="@style/imf_text_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="0 = >29 s"/>
 
             <RadioButton
+                style="@style/imf_text_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="1 = 15–29 s"/>
 
             <RadioButton
+                style="@style/imf_text_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="2 = 0–14 s"/>
         </RadioGroup>
 
         <TextView
+            android:id="@+id/imf_tv_rg9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
@@ -631,22 +617,26 @@
             android:layout_marginStart="@dimen/imf_margin_start">
 
             <RadioButton
+                style="@style/imf_text_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="0 = går utan svårighet"/>
 
             <RadioButton
+                style="@style/imf_text_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="1 = går med svårighet"/>
 
             <RadioButton
+                style="@style/imf_text_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="2 = går ej"/>
         </RadioGroup>
 
         <TextView
+            android:id="@+id/imf_tv_rg10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
@@ -661,16 +651,19 @@
             android:layout_marginStart="@dimen/imf_margin_start">
 
             <RadioButton
+                style="@style/imf_text_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="0 = >14 ggr"/>
 
             <RadioButton
+                style="@style/imf_text_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="1 = 8–14 ggr"/>
 
             <RadioButton
+                style="@style/imf_text_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="2 = 0–7 ggr"/>
@@ -705,9 +698,10 @@
             android:paddingBottom="10dp"
             android:paddingTop="20dp"
             android:text="Uthållighet"
-            android:textAppearance="@style/TextCustomHeadline"/>
+            android:textAppearance="@style/TextCustomLarge"/>
 
         <TextView
+            android:id="@+id/imf_tv_rg11"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
@@ -721,16 +715,19 @@
             android:layout_marginStart="@dimen/imf_margin_start">
 
             <RadioButton
+                style="@style/imf_text_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="0 = >29 s"/>
 
             <RadioButton
+                style="@style/imf_text_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="1 = 15–29 s"/>
 
             <RadioButton
+                style="@style/imf_text_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="2 = 0–14 s"/>
@@ -744,82 +741,73 @@
             android:text="12. Ryggliggande. Enkelt benlyft till 30 – 45º med extenderat knä och fotled i nolläge. Dynamiskt lyft i snabbt tempo i 15 s."
             android:textAppearance="@style/TextCustomNormal"/>
 
-        <!-- Vänster and Höger in parallel -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/imf_margin_start"
-            >
+            android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="0dp"
+            <TextView
+                android:id="@+id/imf_tv_rg12h"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:text="Höger"
+                android:textAppearance="@style/TextCustomSmall"/>
 
-                <TextView
+            <RadioGroup
+                android:id="@+id/imf_rg12h"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    style="@style/imf_text_radio_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Höger"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:typeface="monospace"/>
+                    android:text="0 = >11 ggr"/>
 
-                <RadioGroup
-                    android:id="@+id/imf_rg12h"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0 = >11 ggr"/>
-
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="1 = 6–11 ggr"/>
-
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="2 = 0–5 ggr"/>
-                </RadioGroup>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
+                <RadioButton
+                    style="@style/imf_text_radio_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Vänster"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:typeface="monospace"/>
+                    android:text="1 = 6–11 ggr"/>
 
-                <RadioGroup
-                    android:id="@+id/imf_rg12v"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                <RadioButton
+                    style="@style/imf_text_radio_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2 = 0–5 ggr"/>
+            </RadioGroup>
 
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0 = >11 ggr"/>
+            <TextView
+                android:id="@+id/imf_tv_rg12v"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vänster"
+                android:textAppearance="@style/TextCustomSmall"/>
 
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="1 = 6–11 ggr"/>
+            <RadioGroup
+                android:id="@+id/imf_rg12v"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="2 = 0–5 ggr"/>
-                </RadioGroup>
-            </LinearLayout>
+                <RadioButton
+                    style="@style/imf_text_radio_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0 = >11 ggr"/>
+
+                <RadioButton
+                    style="@style/imf_text_radio_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1 = 6–11 ggr"/>
+
+                <RadioButton
+                    style="@style/imf_text_radio_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2 = 0–5 ggr"/>
+            </RadioGroup>
         </LinearLayout>
 
         <TextView
@@ -830,82 +818,73 @@
             android:text="13. Sidliggande med trochantern riktad mot taket och undre benet flekterat. Dynamiska lyft av övre benets abduktorer till horisontalplanet i snabbt tempo i 15 s."
             android:textAppearance="@style/TextCustomNormal"/>
 
-        <!-- Vänster and Höger in parallel -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/imf_margin_start"
-            >
+            android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="0dp"
+            <TextView
+                android:id="@+id/imf_tv_rg13h"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:text="Höger"
+                android:textAppearance="@style/TextCustomSmall"/>
 
-                <TextView
+            <RadioGroup
+                android:id="@+id/imf_rg13h"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    style="@style/imf_text_radio_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Höger"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:typeface="monospace"/>
+                    android:text="0 = >11 ggr"/>
 
-                <RadioGroup
-                    android:id="@+id/imf_rg13h"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0 = >11 ggr"/>
-
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="1 = 6–11 ggr"/>
-
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="2 = 0–5 ggr"/>
-                </RadioGroup>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
+                <RadioButton
+                    style="@style/imf_text_radio_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Vänster"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:typeface="monospace"/>
+                    android:text="1 = 6–11 ggr"/>
 
-                <RadioGroup
-                    android:id="@+id/imf_rg13v"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                <RadioButton
+                    style="@style/imf_text_radio_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2 = 0–5 ggr"/>
+            </RadioGroup>
 
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0 = >11 ggr"/>
+            <TextView
+                android:id="@+id/imf_tv_rg13v"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vänster"
+                android:textAppearance="@style/TextCustomSmall"/>
 
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="1 = 6–11 ggr"/>
+            <RadioGroup
+                android:id="@+id/imf_rg13v"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="2 = 0–5 ggr"/>
-                </RadioGroup>
-            </LinearLayout>
+                <RadioButton
+                    style="@style/imf_text_radio_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0 = >11 ggr"/>
+
+                <RadioButton
+                    style="@style/imf_text_radio_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1 = 6–11 ggr"/>
+
+                <RadioButton
+                    style="@style/imf_text_radio_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2 = 0–5 ggr"/>
+            </RadioGroup>
         </LinearLayout>
 
         <LinearLayout
