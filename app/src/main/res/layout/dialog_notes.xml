@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:padding="20dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10"
+        android:text="IN"
+        android:textAppearance="@style/TextCustomNormal"/>
+
+    <EditText
+        android:id="@+id/dialog_notes_in"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="40"
+        android:padding="10dp"
+        android:gravity="top|left"
+        android:minLines="5"
+        android:scrollbars="vertical"
+        android:inputType="textMultiLine"
+        android:fontFamily="monospace"
+        android:textSize="16sp"
+        android:background="@color/blue_gray_50"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10"
+        android:layout_marginTop="30dp"
+        android:text="UT"
+        android:textAppearance="@style/TextCustomNormal"/>
+
+    <EditText
+        android:id="@+id/dialog_notes_out"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="40"
+        android:padding="10dp"
+        android:gravity="top|left"
+        android:minLines="5"
+        android:scrollbars="vertical"
+        android:inputType="textMultiLine"
+        android:fontFamily="monospace"
+        android:textSize="16sp"
+        android:background="@color/blue_gray_50"/>
+
+</LinearLayout>

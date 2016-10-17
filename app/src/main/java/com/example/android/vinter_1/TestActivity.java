@@ -47,15 +47,4 @@ public class TestActivity extends AppCompatActivity {
         tab1.setCustomView(R.layout.tab_out);
     }
 
-//    /**
-//     * Helper method handles onClick radio buttons from EQ5DFragment
-//     */
-//    public void setFragmentHandle(EQ5DFragment fragment) {
-//        mFragmentHandle = fragment;
-//    }
-//
-//    public void onClickEQ5D(View view) {
-//        mFragmentHandle.onClick(view);
-//    }
-
 }

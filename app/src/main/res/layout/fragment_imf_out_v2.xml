@@ -90,7 +90,7 @@
             android:paddingBottom="10dp"
             android:paddingTop="20dp"
             android:text="Allmän rörelse- och muskelfunktion"
-            android:textAppearance="@style/TextCustomHeadline"/>
+            android:textAppearance="@style/TextCustomLarge"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -198,7 +198,7 @@
             android:paddingBottom="10dp"
             android:paddingTop="20dp"
             android:text="Muskelstyrka"
-            android:textAppearance="@style/TextCustomHeadline"/>
+            android:textAppearance="@style/TextCustomLarge"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -419,7 +419,7 @@
             android:paddingBottom="10dp"
             android:paddingTop="20dp"
             android:text="Balans och koordination"
-            android:textAppearance="@style/TextCustomHeadline"/>
+            android:textAppearance="@style/TextCustomLarge"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -560,7 +560,7 @@
             android:paddingBottom="10dp"
             android:paddingTop="20dp"
             android:text="Uthållighet"
-            android:textAppearance="@style/TextCustomHeadline"/>
+            android:textAppearance="@style/TextCustomLarge"/>
 
         <TextView
             android:layout_width="wrap_content"

@@ -29,6 +29,48 @@
         <item>TST</item>
     </string-array>
 
+    <!-- MIN6 - BORGS Spinner values -->
+    <!-- String between quotes, so spinner respect spaces -->
+    <string-array name="min6_sp_rpe_values">
+        <item>-</item>
+        <item>6</item>
+        <item>7 Mycket, mycket lätt</item>
+        <item>8</item>
+        <item>9 Mycket lätt</item>
+        <item>10</item>
+        <item>11 Ganska lätt</item>
+        <item>12</item>
+        <item>13 Något ansträngande</item>
+        <item>14</item>
+        <item>15 Ansträngande</item>
+        <item>16</item>
+        <item>17 Mycket ansträngande</item>
+        <item>18</item>
+        <item>19 Mycket, mycket ansträngande</item>
+        <item>20 Maximal</item>
+    </string-array>
+
+    <string-array name="min6_sp_cr10_values">
+        <item>-</item>
+        <item>0 Ingen"</item>
+        <item>0.3</item>
+        <item>0.5 Mycket, mycket lätt</item>
+        <item>1 Mycket lätt</item>
+        <item>1.5</item>
+        <item>2 Lätt</item>
+        <item>2.5"</item>
+        <item>3 Måttlig</item>
+        <item>4"</item>
+        <item>5 Kraftig</item>
+        <item>6"</item>
+        <item>7 Mycket kraftig</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10 Mycket, mycket kraftig</item>
+        <item>11</item>
+        <item>* Högsta möjliga</item>
+    </string-array>
+
     <!-- IMF Spinner values -->
     <string-array name="spinner_values_1">
         <item>-</item>

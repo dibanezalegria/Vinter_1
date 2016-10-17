@@ -1,58 +1,41 @@
 <resources>
 
-    <!-- Base application theme. -->
+    <!-- Base application theme ________________________________________________________________ -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-
-        <!-- For the resting Spinner style -->
-        <item name="android:spinnerItemStyle">@style/spinnerItemStyle</item>
-        <!-- For each individual Spinner list item once clicked on -->
-        <item name="android:spinnerDropDownItemStyle">@style/spinnerDropDownItemStyle</item>
     </style>
 
-    <!-- TextView Output Results -->
+    <!-- TextView Output Results ________________________________________________________________-->
     <style name="OutputTextViewStyle">
         <item name="android:background">@drawable/vas_output_box</item>
         <item name="android:textColor">@android:color/white</item>
         <item name="android:textSize">28sp</item>
     </style>
 
-    <!-- Spinners styles defined in AppTheme -->
-    <style name="spinnerItemStyle">
-        <item name="android:padding">4dp</item>
-        <item name="android:textSize">16sp</item>
-        <item name="android:textColor">@android:color/black</item>
-    </style>
-
-    <style name="spinnerDropDownItemStyle">
-        <item name="android:padding">4dp</item>
-        <item name="android:textSize">16sp</item>
-        <item name="android:textColor">@android:color/holo_green_dark</item>
-    </style>
-
-    <!-- Text headline -->
-    <style name="TextCustomHeadline" parent="TextAppearance.AppCompat.Medium">
+    <!-- Text Size Defaults _____________________________________________________________________-->
+    <style name="TextCustomLarge" parent="TextAppearance.AppCompat.Large">
+        <!-- textSize default: 22sp -->
         <item name="android:textSize">20sp</item>
-        <item name="android:textColor">#232323</item>
+        <item name="android:textColor">@color/textColor</item>
         <item name="android:textStyle">bold</item>
     </style>
 
-    <!-- Text normal -->
     <style name="TextCustomNormal" parent="TextAppearance.AppCompat.Medium">
+        <!-- textSize default: 18sp -->
         <item name="android:textSize">18sp</item>
-        <item name="android:textColor">#232323</item>
+        <item name="android:textColor">@color/textColor</item>
     </style>
 
-    <!-- Text small -->
-    <style name="TextCustomSmall" parent="TextAppearance.AppCompat.Medium">
+    <style name="TextCustomSmall" parent="TextAppearance.AppCompat.Small">
+        <!-- textSize default: 14sp -->
         <item name="android:textSize">16sp</item>
-        <item name="android:textColor">#232323</item>
+        <item name="android:textColor">@color/textColor</item>
     </style>
 
-    <!-- Style for a tab that displays a category name -->
+    <!-- Style for a tab that displays a category name __________________________________________-->
     <style name="CategoryTab" parent="Widget.Design.TabLayout">
         <item name="tabIndicatorColor">@android:color/white</item>
         <item name="tabSelectedTextColor">@android:color/white</item>
@@ -64,18 +47,11 @@
         <item name="android:textColor">#A8A19E</item>
     </style>
 
-    <!-- EQ5D Style -->
-    <style name="EQ5DTitleTextAppearance" parent="TextAppearance.AppCompat.Large">
-        <item name="android:textColor">@android:color/black</item>
-        <item name="android:textStyle">bold</item>
-    </style>
-
-    <style name="EQ5DRadioTextAppearance" parent="TextAppearance.AppCompat.Medium">
-        <item name="android:textColor">@android:color/black</item>
-    </style>
-
-    <style name="EQ5DInstructionsTextAppearance" parent="TextAppearance.AppCompat.Medium">
-        <item name="android:textColor">@android:color/black</item>
+    <!-- EQ5D Style _____________________________________________________________________________-->
+    <style name="eq5d_text_radio_button" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:textSize">18sp</item>
+        <!-- Use opacity for grey instead of grey color for better results (BE = 75% transparent)-->
+        <item name="android:textColor">#be000000</item>
     </style>
 
     <!-- VAS ____________________________________________________________________________________-->
@@ -102,7 +78,25 @@
         <item name="android:background">@color/bgOut</item>
     </style>
 
+    <!-- BERGS __________________________________________________________________________________-->
+    <style name="bergs_text_radio_button" parent="TextAppearance.AppCompat.Small">
+        <item name="android:textSize">16sp</item>
+        <!-- Use opacity for grey instead of grey color for better results (BE = 75% transparent)-->
+        <item name="android:textColor">#be000000</item>
+    </style>
 
+    <!-- BDL __________________________________________________________________________________-->
+    <style name="bdl_text_radio_button" parent="TextAppearance.AppCompat.Small">
+        <item name="android:textSize">16sp</item>
+        <!-- Use opacity for grey instead of grey color for better results (BE = 75% transparent)-->
+        <item name="android:textColor">#be000000</item>
+    </style>
 
+    <!-- IMF __________________________________________________________________________________-->
+    <style name="imf_text_radio_button" parent="TextAppearance.AppCompat.Small">
+        <item name="android:textSize">16sp</item>
+        <!-- Use opacity for grey instead of grey color for better results (BE = 75% transparent)-->
+        <item name="android:textColor">#be000000</item>
+    </style>
 
 </resources>
