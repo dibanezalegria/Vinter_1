@@ -42,7 +42,7 @@ public class MIN6Fragment extends Fragment {
         View rootView;
 
         // Check whether form is IN or OUT, and change background color accordingly
-        int fragmentType = getArguments().getInt(MyFragmentPagerAdapter.TAB);
+        int fragmentType = getArguments().getInt(TestListAdapter.IN_OR_OUT);
 
         if (fragmentType == 0) {
             rootView = inflater.inflate(R.layout.fragment_min6_in, container, false);

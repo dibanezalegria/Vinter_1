@@ -201,12 +201,11 @@ public class MainActivity extends AppCompatActivity
                 // Open new activity that shows a list of tests for the selected Patient
                 Intent intent = new Intent(MainActivity.this, TestsListActivity.class);
                 Bundle extras = new Bundle();
-                extras.putInt(PatientEntry._ID, patient_id);
+                extras.putInt(TestListAdapter.PATIENT_ID, patient_id);
                 intent.putExtras(extras);
                 startActivity(intent);
             }
         });
-
     }
 
     /**
