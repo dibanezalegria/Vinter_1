@@ -1,26 +1,56 @@
-<FrameLayout
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/fragment_container"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"/>
+    android:layout_height="match_parent"
+    android:background="@color/bgIn"
+    android:orientation="vertical">
+
+    <!-- Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:background="@color/blue_grey_800">
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/activity_test_fab_help"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:clickable="true"
+            android:scaleType="center"
+            android:src="@drawable/ic_help_outline_white_36dp"
+            app:fabSize="mini"/>
+
+        <TextView
+            android:id="@+id/activity_test_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            tools:text="IMF - Index Muscle Function"
+            android:textSize="20sp"
+            android:textColor="@android:color/white"/>
+
+        <ImageView
+            android:id="@+id/activity_test_tick"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:src="@drawable/ic_done_black_48dp"
+            android:tint="@color/completedState"
+            android:visibility="invisible"/>
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+</LinearLayout>
 
 
-    <!--<android.support.design.widget.TabLayout-->
-    <!--android:id="@+id/tabs"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--app:tabIndicatorColor="@android:color/transparent"-->
-    <!--app:tabMaxWidth="0dp"-->
-    <!--app:tabGravity="fill"-->
-    <!--app:tabMode="fixed"/>-->
 
-    <!--&lt;!&ndash;<android.support.v4.view.ViewPager&ndash;&gt;-->
-    <!--&lt;!&ndash;android:id="@+id/viewpager"&ndash;&gt;-->
-    <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
-    <!--&lt;!&ndash;android:layout_height="match_parent"/>&ndash;&gt;-->
-
-    <!--<com.example.android.vinter_1.CustomViewPager-->
-    <!--android:id="@+id/viewpager"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="match_parent"-->
-    <!--/>-->

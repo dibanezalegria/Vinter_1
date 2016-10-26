@@ -8,8 +8,7 @@ import android.view.ViewGroup;
 import android.widget.CursorAdapter;
 import android.widget.TextView;
 
-import com.example.android.vinter_1.data.PatientContract.PatientEntry;
-
+import com.example.android.vinter_1.data.DbContract.PatientEntry;
 
 /**
  * Created by Daniel Ibanez on 2016-10-02.
@@ -29,14 +28,14 @@ public class PatientCursorAdapter extends CursorAdapter {
     @Override
     public void bindView(View view, Context context, Cursor cursor) {
         // Find fields to populate
-        TextView tvId  = (TextView) view.findViewById(R.id.id_text_view);
-        TextView tvName = (TextView)  view.findViewById(R.id.name_text_view);
-        TextView tvEntrada = (TextView) view.findViewById(R.id.entrada_text_view);
+        TextView tvId  = (TextView) view.findViewById(R.id.patient_list_item_id_tv);
+        TextView tvName = (TextView)  view.findViewById(R.id.patient_list_item_name_tv);
+        TextView tvEntrada = (TextView) view.findViewById(R.id.patient_list_item_entry_tv);
 
         // Extract properties from cursor
         int id = cursor.getInt(cursor.getColumnIndex(PatientEntry._ID));
-        String name = cursor.getString(cursor.getColumnIndex(PatientEntry.COLUMN_PATIENT_NAME));
-        int entrada = cursor.getInt(cursor.getColumnIndex(PatientEntry.COLUMN_PATIENT_ENTRADA));
+        String name = cursor.getString(cursor.getColumnIndex(PatientEntry.COLUMN_NAME));
+        int entrada = cursor.getInt(cursor.getColumnIndex(PatientEntry.COLUMN_ENTRY_NUMBER));
 
         // Populate text views
         tvId.setText(String.valueOf(id));

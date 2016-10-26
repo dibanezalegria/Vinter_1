@@ -18,14 +18,18 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".TestsListActivity"
+            android:name=".TestListActivity"
             android:parentActivityName=".MainActivity">
         </activity>
         <activity
             android:name=".TestActivity"
-            android:parentActivityName=".TestsListActivity">
+            android:parentActivityName=".TestListActivity">
         </activity>
 
+        <provider
+            android:name=".data.DbProvider"
+            android:authorities="com.example.android.vinter_1"
+            android:exported="false"/>
     </application>
 
 </manifest>

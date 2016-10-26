@@ -6,56 +6,52 @@
               android:layout_height="wrap_content"
               android:gravity="center_vertical"
               android:orientation="horizontal"
-              android:paddingStart="24dp"
+              android:paddingBottom="16dp"
               android:paddingEnd="24dp"
-              android:paddingTop="16dp"
-              android:paddingBottom="16dp">
+              android:paddingStart="24dp"
+              android:paddingTop="16dp">
 
     <TextView
         android:id="@+id/test_list_item_tvName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:layout_weight="50"
+        android:layout_weight="40"
         android:textAppearance="?android:textAppearanceLarge"
         android:textColor="#616161"
-        tools:text="Name"/>
+        tools:text="Name"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        />
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/test_list_item_fab_notes"
+    <ImageView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_weight="10"
-        android:clickable="true"
-        android:src="@drawable/ic_comment_black_36dp"
-        android:tint="@android:color/white"
-        app:elevation="0dp"
-        app:fabSize="mini"
-        app:pressedTranslationZ="0dp"/>
-
-    <Button
-        android:id="@+id/test_list_item_btn_in"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
         android:layout_weight="20"
-        android:background="@drawable/custom_button_completed"
-        android:ems="4"
-        android:text="KLAR"
-        android:textColor="@android:color/white"
-        android:textSize="20sp"/>
+        android:src="@drawable/ic_more_horiz_black_36dp"
+        android:tint="@color/grey_700"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        />
 
-    <Button
-        android:id="@+id/test_list_item_btn_out"
+    <ImageView
+        android:id="@+id/test_list_item_tick_in"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
         android:layout_weight="20"
-        android:background="@drawable/custom_button_blank"
-        android:ems="4"
-        android:text=""
-        android:textColor="@android:color/darker_gray"
-        android:textSize="20sp"/>
+        android:src="@drawable/ic_done_black_36dp"
+        android:tint="@color/completedState"
+        android:focusable="false"
+        android:focusableInTouchMode="false"/>
+
+    <ImageView
+        android:id="@+id/test_list_item_tick_out"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="20"
+        android:src="@drawable/ic_done_black_36dp"
+        android:tint="@color/completedState"
+        android:focusable="false"
+        android:focusableInTouchMode="false"/>
 
 </LinearLayout>

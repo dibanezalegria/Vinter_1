@@ -1,17 +1,28 @@
 package com.example.android.vinter_1;
 
+import android.content.ContentValues;
 import android.content.DialogInterface;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
+import android.text.Html;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import com.example.android.vinter_1.data.DbContract.TestEntry;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -20,13 +31,19 @@ public class IMFFragment extends Fragment implements RadioGroup.OnCheckedChangeL
 
     private static final String LOG_TAG = IMFFragment.class.getSimpleName();
 
+    // Save state constant
+    private static final String STATE_CONTENT = "state_content";
+
     private static final int N_QUESTIONS = 20;
     private static boolean missing[];    // help to highlight missing answers
     private RadioGroup mRgroup[];
     private TextView mTVgroup[];
     private TextView[] mTvSums;
     private TextView mTvResult;
+    private ImageView mTickImage;
     private int mTotal;
+
+    private Uri mTestUri;
 
     public IMFFragment() {
         mRgroup = new RadioGroup[N_QUESTIONS];
@@ -38,17 +55,40 @@ public class IMFFragment extends Fragment implements RadioGroup.OnCheckedChangeL
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
         final View rootView;
 
-        // Check whether form is IN or OUT, and change background color accordingly
-        int fragmentType = getArguments().getInt(TestListAdapter.IN_OR_OUT);
+        // Test URI
+        mTestUri = Uri.parse(getArguments().getString(TestActivity.KEY_URI));
 
-        if (fragmentType == 0) {
+        // Check whether form is IN or OUT, and change background color accordingly
+        final int fragmentType = getArguments().getInt(TestListActivity.KEY_INOUT);
+
+        if (fragmentType == TestActivity.TEST_IN) {
             rootView = inflater.inflate(R.layout.fragment_imf_in, container, false);
         } else {
             rootView = inflater.inflate(R.layout.fragment_imf_out, container, false);
         }
+
+        // Note fab
+        FloatingActionButton fabNotes = (FloatingActionButton) rootView.findViewById(R.id.imf_fab_notes);
+        fabNotes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                notesDialog();
+            }
+        });
+
+//        // Help fab
+//        FloatingActionButton fabHelp = (FloatingActionButton) rootView.findViewById(R.id.imf_fab_help);
+//        fabHelp.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                helpDialog();
+//            }
+//        });
+
 
         // Hook up radio groups from view
         mRgroup[0] = (RadioGroup) rootView.findViewById(R.id.imf_rg1h);
@@ -85,6 +125,9 @@ public class IMFFragment extends Fragment implements RadioGroup.OnCheckedChangeL
 
         mTvResult = (TextView) rootView.findViewById(R.id.imf_total_sum_tv);
 
+        // Tick image
+        mTickImage = (ImageView) getActivity().findViewById(R.id.activity_test_tick);
+
         // Done button
         Button button = (Button) rootView.findViewById(R.id.imf_btnDone);
         button.setOnClickListener(new View.OnClickListener() {
@@ -98,16 +141,78 @@ public class IMFFragment extends Fragment implements RadioGroup.OnCheckedChangeL
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             highlightQuestions(rootView);
-                            dialog.dismiss();
                         }
                     });
                     dialog.show();
                 } else {
-                    highlightQuestions(rootView); // remove remaining highlights
+                    // Save to database
+                    ContentValues values = new ContentValues();
+                    if (fragmentType == TestActivity.TEST_IN) {
+                        values.put(TestEntry.COLUMN_CONTENT_IN, generateContent());
+                        values.put(TestEntry.COLUMN_RESULT_IN, mTotal);
+                    }
+                    else {
+                        values.put(TestEntry.COLUMN_CONTENT_OUT, generateContent());
+                        values.put(TestEntry.COLUMN_RESULT_OUT, mTotal);
+                    }
+
+                    int rows = getActivity().getContentResolver().update(mTestUri, values, null, null);
+                    Log.d(LOG_TAG, "rows updated: " + rows);
+
+                    highlightQuestions(rootView); // clear  highlights
                     mTvResult.setText(String.valueOf(mTotal));
+                    mTickImage.setVisibility(ImageView.VISIBLE);
+                    ((TestActivity) getActivity()).setUserHasSaved(true);
                 }
             }
         });
+
+        // Get content from either saved instance OR database
+        String contentStr;
+        if (savedInstanceState != null) {
+            // onRestoreInstanceState
+            contentStr = savedInstanceState.getString(STATE_CONTENT);
+            Log.d(LOG_TAG, "Content from savedInstance: " + contentStr);
+        } else {
+            // Read test content from database
+            Cursor cursor = getActivity().getContentResolver().query(mTestUri, null, null, null, null);
+            // Early exit: should never happen
+            if (cursor == null || cursor.getCount() == 0) {
+                return rootView;
+            }
+            cursor.moveToFirst();
+            if (fragmentType == TestActivity.TEST_IN) {
+                contentStr = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_CONTENT_IN));
+            } else {
+                contentStr = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_CONTENT_OUT));
+            }
+
+            cursor.close();
+            Log.d(LOG_TAG, "Content from database: " + contentStr);
+        }
+
+        // Content can be null. Database 'content_in' and 'content_out' are null when first created
+        if (contentStr != null) {
+            // Update radio buttons and total sum using info from content
+            String[] content = contentStr.split("\\|");
+            RadioButton radioButton;
+            for (int i = 0; i < N_QUESTIONS; i++) {
+                if (!content[i].trim().equals("-1")) {
+                    int childIndex = Integer.parseInt(content[i].trim());
+                    radioButton = (RadioButton) mRgroup[i].getChildAt(childIndex);
+                    radioButton.setChecked(true);
+                }
+            }
+
+            // Restore total sum
+            String totalStr = content[N_QUESTIONS];
+            if (!totalStr.equals("-1")) {
+                mTotal = Integer.parseInt(totalStr);
+                mTvResult.setText(totalStr);
+                mTickImage.setVisibility(ImageView.VISIBLE);
+                ((TestActivity) getActivity()).setUserHasSaved(true);
+            }
+        }
 
         return rootView;
     }
@@ -140,6 +245,42 @@ public class IMFFragment extends Fragment implements RadioGroup.OnCheckedChangeL
         } else {
             return sum;
         }
+    }
+
+    /**
+     * @return String representing state for views in layout
+     */
+    private String generateContent() {
+        // Save index of selected radio button for each radio group
+        View radioButton;
+        StringBuilder contentBuilder = new StringBuilder();
+        for (int i = 0; i < N_QUESTIONS; i++) {
+            int radioButtonID = mRgroup[i].getCheckedRadioButtonId();
+            if (radioButtonID != -1) {
+                radioButton = mRgroup[i].findViewById(radioButtonID);
+                int index = mRgroup[i].indexOfChild(radioButton);
+                contentBuilder.append(index);
+            } else {
+                contentBuilder.append("-1");
+            }
+
+            contentBuilder.append("|");
+        }
+
+        // Save total sum
+        contentBuilder.append(String.valueOf(mTotal));
+
+        return contentBuilder.toString();
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        // Save state for radio groups and total sum
+        String content = generateContent();
+        outState.putString(STATE_CONTENT, content);
+
+        // Always call the superclass so it can save the view hierarchy state
+        super.onSaveInstanceState(outState);
     }
 
     /**
@@ -180,7 +321,7 @@ public class IMFFragment extends Fragment implements RadioGroup.OnCheckedChangeL
     }
 
     /**
-     *  Listener on radio buttons help calculate partial sums
+     * Listener on radio buttons help calculate partial sums
      */
     @Override
     public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -237,10 +378,80 @@ public class IMFFragment extends Fragment implements RadioGroup.OnCheckedChangeL
             }
         }
 
-        // Update total if already visible
-        if (mTotal != -1) {
-            mTvResult.setText(String.valueOf(calculateSum(0, N_QUESTIONS)));
+        // Force user to save and recalculate total sum
+        mTotal = -1;
+        mTvResult.setText("");
+        mTickImage.setVisibility(ImageView.INVISIBLE);
+        ((TestActivity) getActivity()).setUserHasSaved(false);
+
+
+//        // Update total if already visible
+//        if (mTotal != -1) {
+//            mTvResult.setText(String.valueOf(calculateSum(0, N_QUESTIONS)));
+//        }
+    }
+
+    /**
+     * Notes dialog
+     */
+    private void notesDialog() {
+        // Create dialog
+        AlertDialog dialog = new AlertDialog.Builder(getActivity()).create();
+        LayoutInflater inflater = LayoutInflater.from(getActivity());
+        final View dialogView = inflater.inflate(R.layout.dialog_notes, null);
+        dialog.setView(dialogView);
+
+        // Link view components
+        final EditText etNotesIn = (EditText) dialogView.findViewById(R.id.dialog_notes_in);
+        final EditText etNotesOut = (EditText) dialogView.findViewById(R.id.dialog_notes_out);
+
+        // Create custom title using a text view
+        TextView tvTitle = new TextView(getContext());
+        tvTitle.setText("NOTES");
+        tvTitle.setPadding(30, 20, 30, 20);
+        tvTitle.setTextSize(25);
+        tvTitle.setGravity(Gravity.CENTER);
+        tvTitle.setTextColor(ContextCompat.getColor(getContext(), R.color.indigo_500));
+
+        dialog.setCustomTitle(tvTitle);
+        dialog.setButton(AlertDialog.BUTTON_POSITIVE, "Save", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String notesInStr = etNotesIn.getText().toString();
+                String notesOutStr = etNotesOut.getText().toString();
+                Log.d(LOG_TAG, "notesIn: " + notesInStr + " notesOut: " + notesOutStr);
+                dialog.dismiss();
+            }
+        });
+        dialog.setButton(AlertDialog.BUTTON_NEGATIVE, "Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        dialog.show();
+    }
+
+    /**
+     * Help dialog
+     */
+    private void helpDialog() {
+        AlertDialog dialog = new AlertDialog.Builder(getActivity()).create();
+        // fromHtml deprecated for Android N and higher
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+            dialog.setMessage(Html.fromHtml(getContext().getString(R.string.imf_manual),
+                    Html.FROM_HTML_MODE_LEGACY));
+            ;
+        } else {
+            dialog.setMessage(Html.fromHtml(getContext().getString(R.string.imf_manual)));
         }
+        dialog.setButton(AlertDialog.BUTTON_NEUTRAL, "Close", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        dialog.show();
     }
 
 }

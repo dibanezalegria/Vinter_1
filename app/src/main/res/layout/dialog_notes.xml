@@ -3,20 +3,24 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:orientation="vertical"
-              android:padding="20dp">
+              android:paddingStart="20dp"
+              android:paddingEnd="20dp"
+              android:paddingBottom="20dp"
+              android:paddingTop="0dp">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="10"
+        android:layout_weight="5"
         android:text="IN"
+        android:layout_marginStart="10dp"
         android:textAppearance="@style/TextCustomNormal"/>
 
     <EditText
         android:id="@+id/dialog_notes_in"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="40"
+        android:layout_weight="45"
         android:padding="10dp"
         android:gravity="top|left"
         android:minLines="5"
@@ -29,8 +33,9 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="10"
+        android:layout_weight="5"
         android:layout_marginTop="30dp"
+        android:layout_marginStart="10dp"
         android:text="UT"
         android:textAppearance="@style/TextCustomNormal"/>
 
@@ -38,7 +43,7 @@
         android:id="@+id/dialog_notes_out"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="40"
+        android:layout_weight="45"
         android:padding="10dp"
         android:gravity="top|left"
         android:minLines="5"

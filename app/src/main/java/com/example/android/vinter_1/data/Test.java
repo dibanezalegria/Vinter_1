@@ -1,4 +1,4 @@
-package com.example.android.vinter_1;
+package com.example.android.vinter_1.data;
 
 
 /**
