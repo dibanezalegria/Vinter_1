@@ -21,7 +21,7 @@ import android.widget.TextView;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class MIN6Fragment extends Fragment {
+public class MIN6Fragment extends AbstractFragment {
 
     private static final String LOG_TAG = MIN6Fragment.class.getSimpleName();
 
@@ -219,7 +219,8 @@ public class MIN6Fragment extends Fragment {
     /**
      * Help dialog
      */
-    private void helpDialog() {
+    @Override
+    public void helpDialog() {
         AlertDialog dialog = new AlertDialog.Builder(getActivity()).create();
         dialog.setTitle("Manual");
         dialog.setMessage("Instructions...");
@@ -231,5 +232,11 @@ public class MIN6Fragment extends Fragment {
         });
         dialog.show();
     }
+
+    @Override
+    public boolean saveToDatabase() {
+        return false;
+    }
+
 
 }

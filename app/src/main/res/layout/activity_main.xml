@@ -21,7 +21,6 @@
         android:layout_alignParentBottom="true"
         android:layout_margin="16dp"
         android:clickable="true"
-        android:elevation="4dp"
         android:src="@drawable/ic_person_add_white_24dp"/>
 
     <ListView

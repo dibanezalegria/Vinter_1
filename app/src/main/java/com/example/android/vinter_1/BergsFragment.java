@@ -18,7 +18,7 @@ import android.widget.TextView;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class BergsFragment extends Fragment {
+public class BergsFragment extends AbstractFragment {
 
     private static final String LOG_TAG = BergsFragment.class.getSimpleName();
     private static final int N_QUESTIONS = 14;
@@ -132,5 +132,16 @@ public class BergsFragment extends Fragment {
             }
         }
     }
+
+    @Override
+    public boolean saveToDatabase() {
+        return false;
+    }
+
+    @Override
+    public void helpDialog() {
+
+    }
+
 
 }

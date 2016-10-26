@@ -21,7 +21,7 @@ import android.widget.TextView;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class EQ5DFragment extends Fragment {
+public class EQ5DFragment extends AbstractFragment {
 
     private static final String LOG_TAG = EQ5DFragment.class.getSimpleName();
 
@@ -414,4 +414,13 @@ public class EQ5DFragment extends Fragment {
         return getValueFromPattern();
     }
 
+    @Override
+    public boolean saveToDatabase() {
+        return false;
+    }
+
+    @Override
+    public void helpDialog() {
+
+    }
 }

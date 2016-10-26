@@ -18,7 +18,7 @@ import android.widget.TextView;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class BDLFragment extends Fragment {
+public class BDLFragment extends AbstractFragment {
 
     private static final String LOG_TAG = BDLFragment.class.getSimpleName();
     private static final int N_QUESTIONS = 11;
@@ -131,4 +131,13 @@ public class BDLFragment extends Fragment {
         }
     }
 
+    @Override
+    public boolean saveToDatabase() {
+        return false;
+    }
+
+    @Override
+    public void helpDialog() {
+
+    }
 }

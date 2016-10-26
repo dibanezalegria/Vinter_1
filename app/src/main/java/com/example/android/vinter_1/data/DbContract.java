@@ -50,6 +50,7 @@ public class DbContract {
         public static final String COLUMN_PATIENT_ID_FK = "patient_id";
         public static final String COLUMN_CODE = "code";
         public static final String COLUMN_NAME = "name";
+        public static final String COLUMN_TITLE_NAME = "title_name";
         public static final String COLUMN_CONTENT_IN = "content_in";
         public static final String COLUMN_CONTENT_OUT = "content_out";
         public static final String COLUMN_RESULT_IN = "result_in";
@@ -58,6 +59,8 @@ public class DbContract {
         public static final String COLUMN_NOTES_OUT = "notes_out";
         public static final String COLUMN_DATE_IN = "date_in";
         public static final String COLUMN_DATE_OUT = "date_out";
+        public static final String COLUMN_STATUS_IN = "status_in";
+        public static final String COLUMN_STATUS_OUT = "status_out";
 
         // MIME types used by the getType method ContentProvider
         public static final String CONTENT_LIST_TYPE =

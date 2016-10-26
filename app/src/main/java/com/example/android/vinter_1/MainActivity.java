@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity
                 Intent intent = new Intent(MainActivity.this, TestListActivity.class);
                 Bundle extras = new Bundle();
                 extras.putInt(KEY_PATIENT_ID, patientId);
-                String headerStr = "ID: " + patientId + " Entrada: " + entry  + " Name: " + name;
+                String headerStr = "Entrada: " + entry  + "  -  " + name;
                 extras.putString(KEY_HEADER, headerStr);
 //                extras.putString(MainActivity.KEY_PATIENT_NAME, name);
 //                extras.putString(MainActivity.KEY_PATIENT_ENTRY, entry);
@@ -189,33 +189,33 @@ public class MainActivity extends AppCompatActivity
         // Create test placeholders for patient in 'test' database
         if (uri != null) {
             long newPatientID = ContentUris.parseId(uri);
-            addTestForPatient(newPatientID, "EQ5D", "EQ5D");
-            addTestForPatient(newPatientID, "VAS", "Visuell Analog Skala");
-            addTestForPatient(newPatientID, "FSS", "Fatigue Severity Scale");
-            addTestForPatient(newPatientID, "6MIN", "6 min gångtest");
-            addTestForPatient(newPatientID, "BERGS", "Bergs balansskala");
-            addTestForPatient(newPatientID, "BDL", "BDL");
-            addTestForPatient(newPatientID, "IMF", "Index of Muscle Function");
-            addTestForPatient(newPatientID, "FSA", "Funktionsskattning Skuldra Arm");
-            addTestForPatient(newPatientID, "ERGO", "Ergometercykeltest");
-            addTestForPatient(newPatientID, "BASMI", "Bath Ankylosing Spondylitis Metrology Index");
-            addTestForPatient(newPatientID, "BASFI", "BASFI");
-            addTestForPatient(newPatientID, "TST", "Timed Stands Test");
+            addTestForPatient(newPatientID, "EQ5D", "EQ5D", "");
+            addTestForPatient(newPatientID, "VAS", "VAS", "- Visuell Analog Skala");
+            addTestForPatient(newPatientID, "FSS", "FSS", "- Fatigue Severity Scale");
+            addTestForPatient(newPatientID, "6MIN", "6 min gångtest", "");
+            addTestForPatient(newPatientID, "BERGS", "BERGS", "- Bergs balansskala");
+            addTestForPatient(newPatientID, "BDL", "BDL", "");
+            addTestForPatient(newPatientID, "IMF", "IMF", "- Index of Muscle Function");
+            addTestForPatient(newPatientID, "FSA", "FSA", "- Funktionsskattning Skuldra Arm");
+            addTestForPatient(newPatientID, "ERGO", "Ergometercykeltest", "");
+            addTestForPatient(newPatientID, "BASMI", "BASMI", "- Bath Ankylosing Spondylitis Metrology Index");
+            addTestForPatient(newPatientID, "BASFI", "BASFI", "- Bath Ankylosing Spondylitis Functional Index");
+            addTestForPatient(newPatientID, "TST", "TST", "- Timed Stands Test");
 
 //            // Crazy test
 //            for (int i = 0; i < 10000; i++) {
-//                addTestForPatient(newPatientID, "EQ5D", "EQ5D");
-//                addTestForPatient(newPatientID, "VAS", "Visuell Analog Skala");
-//                addTestForPatient(newPatientID, "FSS", "Fatigue Severity Scale");
-//                addTestForPatient(newPatientID, "6MIN", "6 min gångtest");
-//                addTestForPatient(newPatientID, "BERGS", "Bergs balansskala");
-//                addTestForPatient(newPatientID, "BDL", "BDL");
-//                addTestForPatient(newPatientID, "IMF", "Index of Muscle Function");
-//                addTestForPatient(newPatientID, "FSA", "Funktionsskattning Skuldra Arm");
-//                addTestForPatient(newPatientID, "ERGO", "Ergometercykeltest");
-//                addTestForPatient(newPatientID, "BASMI", "Bath Ankylosing Spondylitis Metrology Index");
-//                addTestForPatient(newPatientID, "BASFI", "BASFI");
-//                addTestForPatient(newPatientID, "TST", "Timed Stands Test");
+//                addTestForPatient(newPatientID, "EQ5D", "EQ5D", "");
+//                addTestForPatient(newPatientID, "VAS", "VAS", "Visuell Analog Skala");
+//                addTestForPatient(newPatientID, "FSS", "FSS", "Fatigue Severity Scale");
+//                addTestForPatient(newPatientID, "6MIN", "6 min gångtest", "");
+//                addTestForPatient(newPatientID, "BERGS", "BERGS", "Bergs balansskala");
+//                addTestForPatient(newPatientID, "BDL", "BDL", "");
+//                addTestForPatient(newPatientID, "IMF", "IMF", "Index of Muscle Function");
+//                addTestForPatient(newPatientID, "FSA", "FSA", "Funktionsskattning Skuldra Arm");
+//                addTestForPatient(newPatientID, "ERGO", "Ergometercykeltest", "");
+//                addTestForPatient(newPatientID, "BASMI", "BASMI", "Bath Ankylosing Spondylitis Metrology Index");
+//                addTestForPatient(newPatientID, "BASFI", "BASFI", "");
+//                addTestForPatient(newPatientID, "TST", "TST", "Timed Stands Test");
 //            }
 
         }
@@ -226,12 +226,13 @@ public class MainActivity extends AppCompatActivity
     /**
      * Add test to database for given patient id
      */
-    private Uri addTestForPatient(long patientId, String code, String name) {
+    private Uri addTestForPatient(long patientId, String code, String name, String title) {
         // Insert a new test for given patient id
         ContentValues values = new ContentValues();
         values.put(TestEntry.COLUMN_PATIENT_ID_FK, patientId);
         values.put(TestEntry.COLUMN_CODE, code);
         values.put(TestEntry.COLUMN_NAME, name);
+        values.put(TestEntry.COLUMN_TITLE_NAME, title);
 
         Uri uri = getContentResolver().insert(TestEntry.CONTENT_URI, values);
         Log.d(LOG_TAG, "Insert patient returned uri: " + uri);

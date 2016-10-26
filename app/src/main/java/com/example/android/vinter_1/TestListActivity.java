@@ -14,6 +14,7 @@ import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -35,8 +36,7 @@ public class TestListActivity extends AppCompatActivity implements LoaderManager
     // Menu constants
     private static final int MENU_IN = 0;
     private static final int MENU_OUT = 1;
-    private static final int MENU_NOTES = 2;
-    private static final int MENU_LOG = 3;
+    private static final int MENU_LOG = 2;
 
     private int mPatientID;
     private String mHeaderString;
@@ -47,6 +47,9 @@ public class TestListActivity extends AppCompatActivity implements LoaderManager
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tests_list);
+
+        // Keep screen on
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         // Extract info from Bundle
         Bundle extras = getIntent().getExtras();
@@ -89,10 +92,9 @@ public class TestListActivity extends AppCompatActivity implements LoaderManager
                 .getText().toString();
         menu.setHeaderTitle(name);
         // Menu options
-        menu.add(Menu.NONE, MENU_IN, 0, "IN");
-        menu.add(Menu.NONE, MENU_OUT, 1, "UT");
-        menu.add(Menu.NONE, MENU_NOTES, 2, "NOTES");
-        menu.add(Menu.NONE, MENU_LOG, 3, "LOG test table");
+        menu.add(Menu.NONE, MENU_IN, 0, "Starta IN test");
+        menu.add(Menu.NONE, MENU_OUT, 1, "Starta UT test");
+        menu.add(Menu.NONE, MENU_LOG, 2, "LOG test table");
     }
 
     @Override
@@ -105,19 +107,15 @@ public class TestListActivity extends AppCompatActivity implements LoaderManager
             return true;
         }
 
-        if (item.getItemId() == MENU_NOTES) {
-            // TODO: dialog with notes
-        } else {
-            // Start activity with IN or OUT test
-            AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
-            Uri uri = ContentUris.withAppendedId(DbContract.TestEntry.CONTENT_URI, info.id);
-            Intent intent = new Intent(TestListActivity.this, TestActivity.class);
-            intent.setData(uri);
-            intent.putExtra(MainActivity.KEY_PATIENT_ID, mPatientID);
-            intent.putExtra(MainActivity.KEY_HEADER, mHeaderString);
-            intent.putExtra(KEY_INOUT, item.getItemId());
-            startActivity(intent);
-        }
+        // Start activity with IN or OUT test
+        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+        Uri uri = ContentUris.withAppendedId(DbContract.TestEntry.CONTENT_URI, info.id);
+        Intent intent = new Intent(TestListActivity.this, TestActivity.class);
+        intent.setData(uri);
+        intent.putExtra(MainActivity.KEY_PATIENT_ID, mPatientID);
+        intent.putExtra(MainActivity.KEY_HEADER, mHeaderString);
+        intent.putExtra(KEY_INOUT, item.getItemId());
+        startActivity(intent);
 
         return super.onContextItemSelected(item);
     }

@@ -39,13 +39,14 @@ public class DbUtils {
         if (cursor != null && cursor.getCount() > 0) {
             Log.d(LOG_TAG, "----------------------------------------------------------------------");
             Log.d(LOG_TAG, "- Test Table ------------------------------------------------------");
-            Log.d(LOG_TAG, "- id pat_id code name con_in con_out res_in res_out not_in" +
-                    " not_out dat_in dat_out");
+            Log.d(LOG_TAG, "- id pat_id code name title con_in con_out res_in res_out not_in" +
+                    " not_out dat_in dat_out st_in st_out");
             while (cursor.moveToNext()) {
                 int id = cursor.getInt(cursor.getColumnIndex(TestEntry.COLUMN_ID));
                 int patId = cursor.getInt(cursor.getColumnIndex(TestEntry.COLUMN_PATIENT_ID_FK));
                 String code = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_CODE));
                 String name = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_NAME));
+                String title = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_TITLE_NAME));
                 String contentIn = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_CONTENT_IN));
                 String contentOut = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_CONTENT_OUT));
                 String resultIn = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_RESULT_IN));
@@ -54,9 +55,12 @@ public class DbUtils {
                 String notesOut = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_NOTES_OUT));
                 int dateIn = cursor.getInt(cursor.getColumnIndex(TestEntry.COLUMN_DATE_IN));
                 int dateOut = cursor.getInt(cursor.getColumnIndex(TestEntry.COLUMN_DATE_OUT));
-                Log.d(LOG_TAG, id + " " + patId + " " + code + " " + name + " " + contentIn + " " +
-                        contentOut + " " + resultIn + " " + resultOut + " " + notesIn + " " +
-                        notesOut + " " + dateIn + " " + dateOut);
+                int statusIn = cursor.getInt(cursor.getColumnIndex(TestEntry.COLUMN_STATUS_IN));
+                int statusOut = cursor.getInt(cursor.getColumnIndex(TestEntry.COLUMN_STATUS_OUT));
+                Log.d(LOG_TAG, id + " " + patId + " " + code + " " + name + " " + title + " " +
+                        contentIn + " " + contentOut + " " + resultIn + " " + resultOut + " " +
+                        notesIn + " " + notesOut + " " + dateIn + " " + dateOut + " " + statusIn +
+                        " " + statusOut + " ");
             }
             Log.d(LOG_TAG, "----------------------------------------------------------------------");
             cursor.close();

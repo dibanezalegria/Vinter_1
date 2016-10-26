@@ -23,33 +23,36 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.example.android.vinter_1.data.DbContract.TestEntry;
+import com.example.android.vinter_1.data.Test;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class IMFFragment extends Fragment implements RadioGroup.OnCheckedChangeListener {
+public class IMFFragment extends AbstractFragment implements RadioGroup.OnCheckedChangeListener {
 
     private static final String LOG_TAG = IMFFragment.class.getSimpleName();
 
     // Save state constant
     private static final String STATE_CONTENT = "state_content";
+    private static final String STATE_RESULT = "state_result";
 
     private static final int N_QUESTIONS = 20;
-    private static boolean missing[];    // help to highlight missing answers
+    private static boolean mMissingAnswers[];    // help to highlight mMissingAnswers answers
     private RadioGroup mRgroup[];
     private TextView mTVgroup[];
     private TextView[] mTvSums;
     private TextView mTvResult;
     private ImageView mTickImage;
-    private int mTotal;
+    private int mResult;
 
     private Uri mTestUri;
+    private int mTestPhase;
 
     public IMFFragment() {
         mRgroup = new RadioGroup[N_QUESTIONS];
         mTVgroup = new TextView[N_QUESTIONS];
         mTvSums = new TextView[4];
-        mTotal = -1;
+        mResult = -1;
     }
 
     @Override
@@ -62,10 +65,10 @@ public class IMFFragment extends Fragment implements RadioGroup.OnCheckedChangeL
         // Test URI
         mTestUri = Uri.parse(getArguments().getString(TestActivity.KEY_URI));
 
-        // Check whether form is IN or OUT, and change background color accordingly
-        final int fragmentType = getArguments().getInt(TestListActivity.KEY_INOUT);
+        // Test phase (IN or OUT)
+        mTestPhase = getArguments().getInt(TestListActivity.KEY_INOUT);
 
-        if (fragmentType == TestActivity.TEST_IN) {
+        if (mTestPhase == TestActivity.TEST_IN) {
             rootView = inflater.inflate(R.layout.fragment_imf_in, container, false);
         } else {
             rootView = inflater.inflate(R.layout.fragment_imf_out, container, false);
@@ -79,16 +82,6 @@ public class IMFFragment extends Fragment implements RadioGroup.OnCheckedChangeL
                 notesDialog();
             }
         });
-
-//        // Help fab
-//        FloatingActionButton fabHelp = (FloatingActionButton) rootView.findViewById(R.id.imf_fab_help);
-//        fabHelp.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                helpDialog();
-//            }
-//        });
-
 
         // Hook up radio groups from view
         mRgroup[0] = (RadioGroup) rootView.findViewById(R.id.imf_rg1h);
@@ -133,37 +126,76 @@ public class IMFFragment extends Fragment implements RadioGroup.OnCheckedChangeL
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mTotal = calculateSum(0, N_QUESTIONS);
-                if (mTotal == -1) {
+                // Save to database: return false if test incomplete
+                if (!saveToDatabase()) {
                     AlertDialog dialog = new AlertDialog.Builder(getActivity()).create();
-                    dialog.setMessage("Some question have not been answered.");
-                    dialog.setButton(AlertDialog.BUTTON_POSITIVE, "Show me", new DialogInterface.OnClickListener() {
+                    dialog.setMessage("Progress saved, but some question are still unanswered.");
+                    dialog.setButton(AlertDialog.BUTTON_POSITIVE, "VISA", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             highlightQuestions(rootView);
                         }
                     });
+                    dialog.setButton(AlertDialog.BUTTON_NEGATIVE, "OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            // Do nothing
+                        }
+                    });
                     dialog.show();
+                    mTickImage.setColorFilter(ContextCompat.getColor(getContext(), R.color.incomplete));
                 } else {
-                    // Save to database
-                    ContentValues values = new ContentValues();
-                    if (fragmentType == TestActivity.TEST_IN) {
-                        values.put(TestEntry.COLUMN_CONTENT_IN, generateContent());
-                        values.put(TestEntry.COLUMN_RESULT_IN, mTotal);
-                    }
-                    else {
-                        values.put(TestEntry.COLUMN_CONTENT_OUT, generateContent());
-                        values.put(TestEntry.COLUMN_RESULT_OUT, mTotal);
-                    }
-
-                    int rows = getActivity().getContentResolver().update(mTestUri, values, null, null);
-                    Log.d(LOG_TAG, "rows updated: " + rows);
-
-                    highlightQuestions(rootView); // clear  highlights
-                    mTvResult.setText(String.valueOf(mTotal));
-                    mTickImage.setVisibility(ImageView.VISIBLE);
-                    ((TestActivity) getActivity()).setUserHasSaved(true);
+                    AlertDialog dialog = new AlertDialog.Builder(getActivity()).create();
+                    dialog.setMessage("Test completed. Successfully saved.");
+                    dialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            highlightQuestions(rootView); // clear  highlights
+                        }
+                    });
+                    dialog.show();
+                    mTickImage.setColorFilter(ContextCompat.getColor(getContext(), R.color.complete));
                 }
+
+                mTvResult.setText(String.valueOf(mResult));
+
+                // Inform parent activity
+                ((TestActivity) getActivity()).setUserHasSaved(true);
+
+                // If return true then show complete dialog, else show items mMissingAnswers dialog
+
+
+//                mResult = calculateSum(0, N_QUESTIONS);
+//                if (mResult == -1) {
+//                    AlertDialog dialog = new AlertDialog.Builder(getActivity()).create();
+//                    dialog.setMessage("Some question have not been answered.");
+//                    dialog.setButton(AlertDialog.BUTTON_POSITIVE, "Show me", new DialogInterface.OnClickListener() {
+//                        @Override
+//                        public void onClick(DialogInterface dialog, int which) {
+//                            highlightQuestions(rootView);
+//                        }
+//                    });
+//                    dialog.show();
+//                } else {
+//                    // Save to database
+//                    ContentValues values = new ContentValues();
+//                    if (fragmentType == TestActivity.TEST_IN) {
+//                        values.put(TestEntry.COLUMN_CONTENT_IN, generateContent());
+//                        values.put(TestEntry.COLUMN_RESULT_IN, mResult);
+//                    }
+//                    else {
+//                        values.put(TestEntry.COLUMN_CONTENT_OUT, generateContent());
+//                        values.put(TestEntry.COLUMN_RESULT_OUT, mResult);
+//                    }
+//
+//                    int rows = getActivity().getContentResolver().update(mTestUri, values, null, null);
+//                    Log.d(LOG_TAG, "rows updated: " + rows);
+//
+//                    highlightQuestions(rootView); // clear  highlights
+//                    mTvResult.setText(String.valueOf(mResult));
+//                    mTickImage.setVisibility(ImageView.VISIBLE);
+//                    ((TestActivity) getActivity()).setUserHasSaved(true);
+//                }
             }
         });
 
@@ -172,6 +204,7 @@ public class IMFFragment extends Fragment implements RadioGroup.OnCheckedChangeL
         if (savedInstanceState != null) {
             // onRestoreInstanceState
             contentStr = savedInstanceState.getString(STATE_CONTENT);
+            mResult = savedInstanceState.getInt(STATE_RESULT);
             Log.d(LOG_TAG, "Content from savedInstance: " + contentStr);
         } else {
             // Read test content from database
@@ -181,10 +214,14 @@ public class IMFFragment extends Fragment implements RadioGroup.OnCheckedChangeL
                 return rootView;
             }
             cursor.moveToFirst();
-            if (fragmentType == TestActivity.TEST_IN) {
+            if (mTestPhase == TestActivity.TEST_IN) {
                 contentStr = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_CONTENT_IN));
+                mResult = Integer.parseInt(
+                        cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_RESULT_IN)));
             } else {
                 contentStr = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_CONTENT_OUT));
+                mResult = Integer.parseInt(
+                        cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_RESULT_OUT)));
             }
 
             cursor.close();
@@ -205,53 +242,77 @@ public class IMFFragment extends Fragment implements RadioGroup.OnCheckedChangeL
             }
 
             // Restore total sum
-            String totalStr = content[N_QUESTIONS];
-            if (!totalStr.equals("-1")) {
-                mTotal = Integer.parseInt(totalStr);
-                mTvResult.setText(totalStr);
-                mTickImage.setVisibility(ImageView.VISIBLE);
-                ((TestActivity) getActivity()).setUserHasSaved(true);
-            }
+            mTvResult.setText(String.valueOf(mResult));
+
+            // Restore title tick
+            // TODO: restore title tick
         }
+
+        // Inform parent activity that form is up to date
+        ((TestActivity) getActivity()).setUserHasSaved(true);
 
         return rootView;
     }
 
+
     /**
-     * Calculates the mTotal sum of points for selected radio buttons
-     * between two radio groups [from, to), including 'from' and excluding 'to'
+     * Saves content, result and status
+     *
+     * @return true if test is complete, false if there are answers mMissingAnswers
      */
-    private int calculateSum(int fromRg, int toRg) {
-        missing = new boolean[N_QUESTIONS];    // initialized as false by default
-        View radioButton;
-        boolean someMissing = false;
-        int sum = 0;
-        // Check all radio groups
-        for (int i = fromRg; i < toRg; i++) {
-            // Check index of selected radio button
-            int radioButtonID = mRgroup[i].getCheckedRadioButtonId();
-            if (radioButtonID != -1) {
-                radioButton = mRgroup[i].findViewById(radioButtonID);
-                int index = mRgroup[i].indexOfChild(radioButton);
-                sum += index;
-            } else {
-                missing[i] = true;
-                someMissing = true;
-            }
+    @Override
+    public boolean saveToDatabase() {
+        // Test status
+        boolean missing = missingAnswers();
+        int status;
+        if (missing) {
+            status = Test.INCOMPLETED;
+            // TODO: update title UI
+        } else {
+            status = Test.COMPLETED;
+            // TODO: update title UI
         }
 
-        if (someMissing) {
-            return -1;
+        // Calculate sum
+        mResult = calculateSum(0, N_QUESTIONS);
+
+        ContentValues values = new ContentValues();
+        if (mTestPhase == TestActivity.TEST_IN) {
+            values.put(TestEntry.COLUMN_CONTENT_IN, generateContent());
+            values.put(TestEntry.COLUMN_RESULT_IN, mResult);
+            values.put(TestEntry.COLUMN_STATUS_IN, status);
         } else {
-            return sum;
+            values.put(TestEntry.COLUMN_CONTENT_OUT, generateContent());
+            values.put(TestEntry.COLUMN_RESULT_OUT, mResult);
+            values.put(TestEntry.COLUMN_STATUS_OUT, status);
         }
+
+        int rows = getActivity().getContentResolver().update(mTestUri, values, null, null);
+        Log.d(LOG_TAG, "rows updated: " + rows);
+
+        return !missing;
     }
 
     /**
-     * @return String representing state for views in layout
+     * @return true is one or more radio groups have no selected radio button
+     */
+    private boolean missingAnswers() {
+        int i = 0;
+        while (i < N_QUESTIONS) {
+            if (mRgroup[i].getCheckedRadioButtonId() == -1) {
+                return true;
+            }
+            i++;
+        }
+        return false;
+    }
+
+    /**
+     * Save index of selected radio button for each radio group
+     *
+     * @return String representing state for radio groups in layout
      */
     private String generateContent() {
-        // Save index of selected radio button for each radio group
         View radioButton;
         StringBuilder contentBuilder = new StringBuilder();
         for (int i = 0; i < N_QUESTIONS; i++) {
@@ -267,10 +328,33 @@ public class IMFFragment extends Fragment implements RadioGroup.OnCheckedChangeL
             contentBuilder.append("|");
         }
 
-        // Save total sum
-        contentBuilder.append(String.valueOf(mTotal));
-
         return contentBuilder.toString();
+    }
+
+    /**
+     * Calculates the mResult sum of points for selected radio buttons
+     * between two radio groups [from, to), including 'from' and excluding 'to'
+     *
+     * @return total sum
+     */
+    private int calculateSum(int fromRg, int toRg) {
+        mMissingAnswers = new boolean[N_QUESTIONS];    // initialized as false by default
+        View radioButton;
+        int sum = 0;
+        // Check all radio groups
+        for (int i = fromRg; i < toRg; i++) {
+            // Check index of selected radio button
+            int radioButtonID = mRgroup[i].getCheckedRadioButtonId();
+            if (radioButtonID != -1) {
+                radioButton = mRgroup[i].findViewById(radioButtonID);
+                int index = mRgroup[i].indexOfChild(radioButton);
+                sum += index;
+            } else {
+                mMissingAnswers[i] = true;
+            }
+        }
+
+        return sum;
     }
 
     @Override
@@ -278,6 +362,7 @@ public class IMFFragment extends Fragment implements RadioGroup.OnCheckedChangeL
         // Save state for radio groups and total sum
         String content = generateContent();
         outState.putString(STATE_CONTENT, content);
+        outState.putSerializable(STATE_RESULT, mResult);
 
         // Always call the superclass so it can save the view hierarchy state
         super.onSaveInstanceState(outState);
@@ -312,7 +397,7 @@ public class IMFFragment extends Fragment implements RadioGroup.OnCheckedChangeL
         }
 
         for (int i = 0; i < N_QUESTIONS; i++) {
-            if (missing[i]) {
+            if (mMissingAnswers[i]) {
                 mTVgroup[i].setTextColor(ContextCompat.getColor(getContext(), R.color.highlight));
             } else {
                 mTVgroup[i].setTextColor(ContextCompat.getColor(getContext(), R.color.textColor));
@@ -333,9 +418,7 @@ public class IMFFragment extends Fragment implements RadioGroup.OnCheckedChangeL
             case R.id.imf_rg2: {
                 // Sum 1
                 int sum = calculateSum(0, 3);
-                if (sum != -1) {
-                    mTvSums[0].setText(String.valueOf(sum));
-                }
+                mTvSums[0].setText(String.valueOf(sum));
                 break;
             }
             case R.id.imf_rg3h:
@@ -347,9 +430,7 @@ public class IMFFragment extends Fragment implements RadioGroup.OnCheckedChangeL
             case R.id.imf_rg6v: {
                 // Sum 2
                 int sum = calculateSum(3, 10);
-                if (sum != -1) {
-                    mTvSums[1].setText(String.valueOf(sum));
-                }
+                mTvSums[1].setText(String.valueOf(sum));
                 break;
             }
             case R.id.imf_rg7h:
@@ -359,9 +440,7 @@ public class IMFFragment extends Fragment implements RadioGroup.OnCheckedChangeL
             case R.id.imf_rg10: {
                 // Sum 3
                 int sum = calculateSum(10, 15);
-                if (sum != -1) {
-                    mTvSums[2].setText(String.valueOf(sum));
-                }
+                mTvSums[2].setText(String.valueOf(sum));
                 break;
             }
             case R.id.imf_rg11:
@@ -371,24 +450,18 @@ public class IMFFragment extends Fragment implements RadioGroup.OnCheckedChangeL
             case R.id.imf_rg13v: {
                 // Sum 4
                 int sum = calculateSum(15, 20);
-                if (sum != -1) {
-                    mTvSums[3].setText(String.valueOf(sum));
-                }
+                mTvSums[3].setText(String.valueOf(sum));
                 break;
             }
         }
 
-        // Force user to save and recalculate total sum
-        mTotal = -1;
-        mTvResult.setText("");
+        // Update UI
+        mResult = calculateSum(0, N_QUESTIONS);
+        mTvResult.setText(String.valueOf(mResult));
         mTickImage.setVisibility(ImageView.INVISIBLE);
+
+        // Inform parent activity that changes have been made
         ((TestActivity) getActivity()).setUserHasSaved(false);
-
-
-//        // Update total if already visible
-//        if (mTotal != -1) {
-//            mTvResult.setText(String.valueOf(calculateSum(0, N_QUESTIONS)));
-//        }
     }
 
     /**
@@ -402,8 +475,24 @@ public class IMFFragment extends Fragment implements RadioGroup.OnCheckedChangeL
         dialog.setView(dialogView);
 
         // Link view components
-        final EditText etNotesIn = (EditText) dialogView.findViewById(R.id.dialog_notes_in);
-        final EditText etNotesOut = (EditText) dialogView.findViewById(R.id.dialog_notes_out);
+        final EditText etNotesIn = (EditText) dialogView.findViewById(R.id.et_dialog_notes);
+
+        // Recover notes
+        Cursor cursor = getActivity().getContentResolver().query(mTestUri, null, null, null, null, null);
+        if (cursor != null) {
+            cursor.moveToFirst();
+            String notes;
+            if (mTestPhase == TestActivity.TEST_IN) {
+                notes = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_NOTES_IN));
+            } else {
+                notes = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_NOTES_OUT));
+            }
+            if (notes != null) {
+                etNotesIn.setText(notes);
+                etNotesIn.setSelection(etNotesIn.getText().length());
+            }
+            cursor.close();
+        }
 
         // Create custom title using a text view
         TextView tvTitle = new TextView(getContext());
@@ -418,9 +507,17 @@ public class IMFFragment extends Fragment implements RadioGroup.OnCheckedChangeL
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 String notesInStr = etNotesIn.getText().toString();
-                String notesOutStr = etNotesOut.getText().toString();
-                Log.d(LOG_TAG, "notesIn: " + notesInStr + " notesOut: " + notesOutStr);
-                dialog.dismiss();
+                // Save to database
+                ContentValues values = new ContentValues();
+                if (mTestPhase == TestActivity.TEST_IN) {
+                    values.put(TestEntry.COLUMN_NOTES_IN, notesInStr);
+                } else {
+                    values.put(TestEntry.COLUMN_NOTES_OUT, notesInStr);
+                }
+
+                int rows = getActivity().getContentResolver().update(mTestUri, values, null, null);
+                Log.d(LOG_TAG, "rows updated: " + rows);
+                Log.d(LOG_TAG, "notesIn: " + notesInStr);
             }
         });
         dialog.setButton(AlertDialog.BUTTON_NEGATIVE, "Cancel", new DialogInterface.OnClickListener() {
@@ -435,16 +532,17 @@ public class IMFFragment extends Fragment implements RadioGroup.OnCheckedChangeL
     /**
      * Help dialog
      */
-    private void helpDialog() {
+    @Override
+    public void helpDialog() {
         AlertDialog dialog = new AlertDialog.Builder(getActivity()).create();
         // fromHtml deprecated for Android N and higher
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
             dialog.setMessage(Html.fromHtml(getContext().getString(R.string.imf_manual),
                     Html.FROM_HTML_MODE_LEGACY));
-            ;
         } else {
             dialog.setMessage(Html.fromHtml(getContext().getString(R.string.imf_manual)));
         }
+
         dialog.setButton(AlertDialog.BUTTON_NEUTRAL, "Close", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {

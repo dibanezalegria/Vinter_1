@@ -52,6 +52,7 @@ public class DbHelper extends SQLiteOpenHelper {
                 TestEntry.COLUMN_PATIENT_ID_FK + " INTEGER NOT NULL, " +
                 TestEntry.COLUMN_CODE + " TEXT NOT NULL, " +
                 TestEntry.COLUMN_NAME + " TEXT NOT NULL, " +
+                TestEntry.COLUMN_TITLE_NAME + " TEXT, " +
                 TestEntry.COLUMN_CONTENT_IN + " TEXT, " +
                 TestEntry.COLUMN_CONTENT_OUT + " TEXT, " +
                 TestEntry.COLUMN_RESULT_IN + " TEXT DEFAULT -1, " +
@@ -60,6 +61,8 @@ public class DbHelper extends SQLiteOpenHelper {
                 TestEntry.COLUMN_NOTES_OUT + " TEXT, " +
                 TestEntry.COLUMN_DATE_IN + " INTEGER, " +
                 TestEntry.COLUMN_DATE_OUT + " INTEGER, " +
+                TestEntry.COLUMN_STATUS_IN + " INTEGER, " +
+                TestEntry.COLUMN_STATUS_OUT + " INTEGER, " +
 
                 // Set up the patient_id_fk as a foreign key to patient table
                 "FOREIGN KEY (" + TestEntry.COLUMN_PATIENT_ID_FK + ") REFERENCES " +

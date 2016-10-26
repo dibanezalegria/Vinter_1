@@ -15,7 +15,9 @@
     <color name="bgBrightOut">#FFFFFF</color>
 
     <!-- In and Out states -->
-    <color name="completedState">@color/green_500</color>
+    <color name="complete">@color/green_500</color>
+    <color name="incomplete">@color/yellow_700</color>
+    <color name="blank">@color/transparent</color>
 
     <!-- Highlight missing questions -->
     <color name="highlight">#C2185B</color>
@@ -47,4 +49,5 @@
     <color name="green_900">#1B5E20</color>
     <color name="grey_700">#616161</color>
     <color name="grey_800">#424242</color>
+    <color name="transparent">#00FFFFFF</color>
 </resources>

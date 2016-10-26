@@ -33,14 +33,14 @@
         android:focusable="false"
         android:focusableInTouchMode="false"
         />
-
+    
     <ImageView
         android:id="@+id/test_list_item_tick_in"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="20"
         android:src="@drawable/ic_done_black_36dp"
-        android:tint="@color/completedState"
+        android:tint="@color/complete"
         android:focusable="false"
         android:focusableInTouchMode="false"/>
 
@@ -50,7 +50,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="20"
         android:src="@drawable/ic_done_black_36dp"
-        android:tint="@color/completedState"
+        android:tint="@color/complete"
         android:focusable="false"
         android:focusableInTouchMode="false"/>
 

@@ -14,7 +14,7 @@ import android.widget.TextView;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class VASFragment extends Fragment {
+public class VASFragment extends AbstractFragment {
 
     private static final String LOG_TAG = VASFragment.class.getSimpleName();
 
@@ -78,4 +78,13 @@ public class VASFragment extends Fragment {
         return rootView;
     }
 
+    @Override
+    public boolean saveToDatabase() {
+        return false;
+    }
+
+    @Override
+    public void helpDialog() {
+
+    }
 }

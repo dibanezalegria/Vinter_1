@@ -14,6 +14,7 @@
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:orientation="horizontal"
+        android:padding="8dp"
         android:background="@color/blue_grey_800">
 
         <android.support.design.widget.FloatingActionButton
@@ -41,7 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:src="@drawable/ic_done_black_48dp"
-            android:tint="@color/completedState"
+            android:tint="@color/transparent"
             android:visibility="invisible"/>
     </LinearLayout>
 

@@ -20,7 +20,7 @@ import android.widget.TextView;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class TUGFragment extends Fragment {
+public class TUGFragment extends AbstractFragment {
 
     private static final String LOG_TAG = TUGFragment.class.getSimpleName();
 
@@ -169,13 +169,13 @@ public class TUGFragment extends Fragment {
     /**
      * Help dialog
      */
-    private void helpDialog() {
+    @Override
+    public void helpDialog() {
         AlertDialog dialog = new AlertDialog.Builder(getActivity()).create();
         // fromHtml deprecated for Android N and higher
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
             dialog.setMessage(Html.fromHtml(getContext().getString(R.string.tug_manual),
                     Html.FROM_HTML_MODE_LEGACY));
-            ;
         } else {
             dialog.setMessage(Html.fromHtml(getContext().getString(R.string.tug_manual)));
         }
@@ -186,6 +186,11 @@ public class TUGFragment extends Fragment {
             }
         });
         dialog.show();
+    }
+
+    @Override
+    public boolean saveToDatabase() {
+        return false;
     }
 
 }
