@@ -1,4 +1,4 @@
-package com.example.android.vinter_1;
+package com.example.android.vinter_1.data;
 
 
 /**
@@ -7,9 +7,9 @@ package com.example.android.vinter_1;
 public class Test {
 
     // Test can be in three states
-    public static final int TEST_BLANK = 0;
-    public static final int TEST_INCOMPLETED = 1;
-    public static final int TEST_COMPLETED = 2;
+    public static final int BLANK = 0;
+    public static final int INCOMPLETED = 1;
+    public static final int COMPLETED = 2;
 
     private String code;
     private String name;

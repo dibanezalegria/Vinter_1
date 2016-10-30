@@ -24,7 +24,7 @@
         android:inputType="textMultiLine"
         android:fontFamily="monospace"
         android:textSize="16sp"
-        android:background="@color/blue_gray_50"/>
+        android:background="@color/blue_grey_50"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -46,6 +46,6 @@
         android:inputType="textMultiLine"
         android:fontFamily="monospace"
         android:textSize="16sp"
-        android:background="@color/blue_gray_50"/>
+        android:background="@color/blue_grey_50"/>
 
 </LinearLayout>

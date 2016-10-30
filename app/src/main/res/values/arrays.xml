@@ -1,18 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Menu dialog patient -->
+    <string-array name="menu_dialog_patient">
+        <item>Mätresultat</item>
+        <item>Edit patient</item>
+        <item>Delete patient</item>
+    </string-array>
+
     <!-- The tests -->
     <string-array name="tests_names_array">
         <item>EQ5D</item>
-        <item>VAS</item>
-        <item>TUG</item>
+        <item>VAS - Visuell Analog Skala</item>
+        <item>TUG - Timed UP and GO</item>
         <item>6 min gångtest</item>
-        <item>Bergs balanstest</item>
+        <item>Bergs balansskala</item>
         <item>BDL</item>
-        <item>IMF</item>
-        <item>FSA</item>
+        <item>IMF - Index of Muscle Function</item>
+        <item>FSA - Funktionsskattning Skuldra Arm</item>
         <item>Ergometercykeltest</item>
-        <item>BAS-MI</item>
-        <item>TST</item>
+        <item>BASMI - Bath Ankylosing Spondylitis Metrology Index</item>
+        <item>TST - Timed Stands Test</item>
     </string-array>
 
     <string-array name="tests_codes_array">
@@ -32,7 +39,7 @@
     <!-- MIN6 - BORGS Spinner values -->
     <!-- String between quotes, so spinner respect spaces -->
     <string-array name="min6_sp_rpe_values">
-        <item>-</item>
+        <item>n/a</item>
         <item>6</item>
         <item>7 Mycket, mycket lätt</item>
         <item>8</item>
@@ -51,7 +58,7 @@
     </string-array>
 
     <string-array name="min6_sp_cr10_values">
-        <item>-</item>
+        <item>n/a</item>
         <item>0 Ingen"</item>
         <item>0.3</item>
         <item>0.5 Mycket, mycket lätt</item>

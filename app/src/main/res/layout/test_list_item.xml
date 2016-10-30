@@ -1,103 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
               xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
+              android:gravity="center_vertical"
               android:orientation="horizontal"
-              android:padding="16dp">
+              android:paddingBottom="16dp"
+              android:paddingEnd="24dp"
+              android:paddingStart="24dp"
+              android:paddingTop="16dp">
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/test_list_item_tvName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="2"
-        android:orientation="vertical">
+        android:layout_gravity="center_vertical"
+        android:layout_weight="40"
+        android:textAppearance="?android:textAppearanceLarge"
+        android:textColor="#616161"
+        tools:text="Name"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        />
 
-        <TextView
-            android:id="@+id/test_list_item_tvName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:textAppearanceLarge"
-            android:layout_gravity="center_vertical"
-            android:textColor="#616161"
-            tools:text="Name"/>
-
-        <TextView
-            android:id="@+id/test_list_item_tvCode"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:textAppearanceMedium"
-            android:textStyle="italic"
-            android:visibility="gone"
-            tools:text="Code"/>
-    </LinearLayout>
-
-    <android.support.v7.widget.AppCompatImageView
-        android:id="@+id/test_list_item_imgKom"
+    <ImageView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:tint="#1565C0"
-        android:src="@drawable/ic_comment_black_36dp"/>
-
-    <!--<Button-->
-        <!--android:layout_width="0dp"-->
-        <!--android:layout_weight="1"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_marginStart="10dp"-->
-        <!--android:text="DONE"-->
-        <!--android:textColor="@android:color/white"-->
-        <!--android:textSize="20sp"-->
-        <!--android:background="@drawable/custom_button_completed"/>-->
-
-    <!--<ImageButton-->
-        <!--android:layout_width="0dp"-->
-        <!--android:layout_weight="1"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_marginEnd="10dp"-->
-        <!--android:background="@drawable/custom_button_completed"-->
-        <!--android:src="@drawable/ic_done_black_36dp"-->
-        <!--android:tint="@android:color/white"-->
-        <!--/>-->
-
-    <!--<Button-->
-        <!--android:layout_width="0dp"-->
-        <!--android:layout_weight="1"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:textColor="@android:color/white"-->
-        <!--android:textSize="20sp"-->
-        <!--android:text="IN"/>-->
-
-    <android.support.v7.widget.AppCompatImageView
-        android:id="@+id/test_list_item_imgInStatus"
+        android:layout_weight="20"
+        android:src="@drawable/ic_more_horiz_black_36dp"
+        android:tint="@color/grey_700"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        />
+    
+    <ImageView
+        android:id="@+id/test_list_item_tick_in"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:tint="@color/completedState"
-        android:visibility="invisible"
-        android:src="@drawable/ic_done_black_36dp"/>
+        android:layout_weight="20"
+        android:src="@drawable/ic_done_black_36dp"
+        android:tint="@color/complete"
+        android:focusable="false"
+        android:focusableInTouchMode="false"/>
 
-
-    <android.support.v7.widget.AppCompatImageView
-        android:id="@+id/test_list_item_imgOutStatus"
+    <ImageView
+        android:id="@+id/test_list_item_tick_out"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:tint="@color/completedState"
-        android:visibility="invisible"
-        android:src="@drawable/ic_done_black_36dp"/>
-
-    <!--<Button-->
-        <!--android:layout_width="0dp"-->
-        <!--android:layout_weight="1"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_marginStart="10dp"-->
-        <!--android:text="BEGIN"-->
-        <!--android:textColor="@android:color/darker_gray"-->
-        <!--android:textSize="20sp"-->
-        <!--android:background="@drawable/custom_button_blank"-->
-        <!--/>-->
+        android:layout_weight="20"
+        android:src="@drawable/ic_done_black_36dp"
+        android:tint="@color/complete"
+        android:focusable="false"
+        android:focusableInTouchMode="false"/>
 
 </LinearLayout>

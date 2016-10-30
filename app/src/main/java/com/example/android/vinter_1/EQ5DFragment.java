@@ -1,72 +1,121 @@
 package com.example.android.vinter_1;
 
 
+import android.content.ContentValues;
 import android.content.DialogInterface;
-import android.graphics.Color;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
+import android.text.Html;
 import android.util.Log;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import com.example.android.vinter_1.data.DbContract.TestEntry;
+import com.example.android.vinter_1.data.Test;
+
+import static java.lang.Integer.parseInt;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class EQ5DFragment extends Fragment {
+public class EQ5DFragment extends AbstractFragment implements NotesDialogFragment.NotesDialogListener, RadioGroup.OnCheckedChangeListener {
 
     private static final String LOG_TAG = EQ5DFragment.class.getSimpleName();
 
-    private static final int N_QUESTIONS = 5;
+    public static final int N_QUESTIONS = 5;    // public -> accessed from ResultTableActivity
 
+    // Save state constant
+    private static final String STATE_CONTENT = "state_content";
+    private static final String STATE_RESULT = "state_result";
+    private static final String STATE_HIGH_ON = "state_high_on";
+
+    private SeekBar mSlider;
+    private TextView[] mTVgroup;    // Used for highlighting
     private RadioGroup[] mRgroup;   // One radio group per question
-    private int[] mPattern;  // Health mPattern pattern
+    private int[] mPattern;         // Health mPattern pattern
+
+    private TextView mTvResult;
+    private String mResult;
+    private Uri mTestUri;
+    private int mTestPhase;
+
+    private View mRootView;
+    private boolean mHighlightsON;
 
     public EQ5DFragment() {
         mRgroup = new RadioGroup[N_QUESTIONS];
         mPattern = new int[N_QUESTIONS];
+        mTVgroup = new TextView[5];
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        final View rootView;
+        // Test URI
+        mTestUri = Uri.parse(getArguments().getString(TestActivity.KEY_URI));
 
-        // Check whether form is IN or OUT, and change background color accordingly
-        int fragmentType = getArguments().getInt(MyFragmentPagerAdapter.TAB);
+        // Test phase (IN or OUT)
+        mTestPhase = getArguments().getInt(TestListActivity.KEY_INOUT);
 
-        if (fragmentType == 0) {
-            rootView = inflater.inflate(R.layout.fragment_eq5d_in, container, false);
+        if (mTestPhase == 0) {
+            mRootView = inflater.inflate(R.layout.fragment_eq5d_in, container, false);
         } else {
-            rootView = inflater.inflate(R.layout.fragment_eq5d_out, container, false);
+            mRootView = inflater.inflate(R.layout.fragment_eq5d_out, container, false);
         }
 
+        // Note fab
+        FloatingActionButton fabNotes = (FloatingActionButton) mRootView.findViewById(R.id.eq5d_fab_notes);
+        fabNotes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                notesDialog();
+            }
+        });
+
         // Hook up radio groups from view
-        mRgroup[0] = (RadioGroup) rootView.findViewById(R.id.eq5d_radioGroup1);
-        mRgroup[1] = (RadioGroup) rootView.findViewById(R.id.eq5d_radioGroup2);
-        mRgroup[2] = (RadioGroup) rootView.findViewById(R.id.eq5d_radioGroup3);
-        mRgroup[3] = (RadioGroup) rootView.findViewById(R.id.eq5d_radioGroup4);
-        mRgroup[4] = (RadioGroup) rootView.findViewById(R.id.eq5d_radioGroup5);
+        mRgroup[0] = (RadioGroup) mRootView.findViewById(R.id.eq5d_radioGroup1);
+        mRgroup[1] = (RadioGroup) mRootView.findViewById(R.id.eq5d_radioGroup2);
+        mRgroup[2] = (RadioGroup) mRootView.findViewById(R.id.eq5d_radioGroup3);
+        mRgroup[3] = (RadioGroup) mRootView.findViewById(R.id.eq5d_radioGroup4);
+        mRgroup[4] = (RadioGroup) mRootView.findViewById(R.id.eq5d_radioGroup5);
 
-        // SeekBar
-        SeekBar seekBar = (SeekBar) rootView.findViewById(R.id.eq5d_hälso_seek_bar);
+        // Listeners
+        for (int i = 0; i < mRgroup.length; i++) {
+            mRgroup[i].setOnCheckedChangeListener(this);
+        }
 
-        final TextView outputSeekBar = (TextView) rootView.findViewById(R.id.eq5d_hälso_output_text_view);
-        outputSeekBar.setText(String.valueOf(seekBar.getProgress()));
+        // Questions
+        mTVgroup[0] = (TextView) mRootView.findViewById(R.id.eq5d_tv_1);
+        mTVgroup[1] = (TextView) mRootView.findViewById(R.id.eq5d_tv_2);
+        mTVgroup[2] = (TextView) mRootView.findViewById(R.id.eq5d_tv_3);
+        mTVgroup[3] = (TextView) mRootView.findViewById(R.id.eq5d_tv_4);
+        mTVgroup[4] = (TextView) mRootView.findViewById(R.id.eq5d_tv_5);
 
-        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+        // Slider
+        mSlider = (SeekBar) mRootView.findViewById(R.id.eq5d_slider);
+
+        final TextView outputSeekBar = (TextView) mRootView.findViewById(R.id.eq5d_hälso_output_text_view);
+        outputSeekBar.setText(String.valueOf(mSlider.getProgress()));
+
+        mSlider.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 outputSeekBar.setText(String.valueOf(progress));
+                // Inform parent activity that changes have been made
+                ((TestActivity) getActivity()).setUserHasSaved(false);
             }
 
             @Override
@@ -78,32 +127,175 @@ public class EQ5DFragment extends Fragment {
             }
         });
 
-        final TextView tvResult = (TextView) rootView.findViewById(R.id.eq5d_result);
+        mTvResult = (TextView) mRootView.findViewById(R.id.eq5d_result);
 
         // Done button
-        Button button = (Button) rootView.findViewById(R.id.eq5d_btnDone);
+        Button button = (Button) mRootView.findViewById(R.id.eq5d_btnDone);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (createPattern()) {
-                    highlightQuestions();   // remove remaining highlights
-                    tvResult.setText(getValueFromPattern());
-                } else {
+                // Save to database: return false if test incomplete
+                if (!saveToDatabase()) {
                     AlertDialog dialog = new AlertDialog.Builder(getActivity()).create();
-                    dialog.setMessage("Some question have not been answered.");
-                    dialog.setButton(AlertDialog.BUTTON_POSITIVE, "Show me", new DialogInterface.OnClickListener() {
+                    dialog.setMessage("Progress saved, but some question are still unanswered.");
+                    dialog.setButton(AlertDialog.BUTTON_POSITIVE, "VISA", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
+                            mHighlightsON = true;
                             highlightQuestions();
-                            dialog.dismiss();
+                        }
+                    });
+                    dialog.show();
+                } else {
+                    AlertDialog dialog = new AlertDialog.Builder(getActivity()).create();
+                    dialog.setMessage("Test completed. Successfully saved.");
+                    dialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            highlightQuestions(); // clear  highlights
                         }
                     });
                     dialog.show();
                 }
+
+                // mResult has valid result only when test is complete
+                if (!mResult.equals("-1"))
+                    mTvResult.setText(mResult);
+
+                // Inform parent activity
+                ((TestActivity) getActivity()).setUserHasSaved(true);
             }
         });
 
-        return rootView;
+        // Get content from either saved instance OR database
+        String contentStr;
+        if (savedInstanceState != null) {
+            // onRestoreInstanceState
+            contentStr = savedInstanceState.getString(STATE_CONTENT);
+            mResult = savedInstanceState.getString(STATE_RESULT);
+            mHighlightsON = savedInstanceState.getBoolean(STATE_HIGH_ON);
+            if (mHighlightsON) {
+                createPattern(); // needed before highlighting
+                highlightQuestions();
+            }
+            Log.d(LOG_TAG, "Content from savedInstance: " + contentStr);
+        } else {
+            // Read test content from database
+            Cursor cursor = getActivity().getContentResolver().query(mTestUri, null, null, null, null);
+            // Early exit: should never happen
+            if (cursor == null || cursor.getCount() == 0) {
+                return mRootView;
+            }
+            cursor.moveToFirst();
+            if (mTestPhase == TestActivity.TEST_IN) {
+                contentStr = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_CONTENT_IN));
+                mResult = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_RESULT_IN));
+            } else {
+                contentStr = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_CONTENT_OUT));
+                mResult = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_RESULT_OUT));
+            }
+
+            cursor.close();
+            Log.d(LOG_TAG, "Content from database: " + contentStr);
+        }
+
+        // Content can be null. Database 'content_in' and 'content_out' are null when first created
+        if (contentStr != null) {
+            // Update radio buttons and total sum using info from content
+            String[] content = contentStr.split("\\|");
+            RadioButton radioButton;
+            for (int i = 0; i < N_QUESTIONS; i++) {
+                if (!content[i].trim().equals("-1")) {
+                    int childIndex = parseInt(content[i].trim());
+                    Log.d(LOG_TAG, "i: " + i + " childIndex: " + childIndex);
+                    radioButton = (RadioButton) mRgroup[i].getChildAt(childIndex);
+                    radioButton.setChecked(true);
+                }
+            }
+
+            // Restore slider
+            Log.d(LOG_TAG, "Slider: " + content[N_QUESTIONS]);
+            mSlider.setProgress(Integer.parseInt(content[N_QUESTIONS]));
+
+            // Restore total sum. Important to check -1 after rotation
+            if (!mResult.equals("-1"))
+                mTvResult.setText(mResult);
+        }
+
+        // Inform parent activity that form is up to date
+        ((TestActivity) getActivity()).setUserHasSaved(true);
+
+        return mRootView;
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        // Save state for radio groups and total sum
+        String content = generateContent();
+        outState.putString(STATE_CONTENT, content);
+        outState.putString(STATE_RESULT, mResult);
+        outState.putBoolean(STATE_HIGH_ON, mHighlightsON);
+
+        // Always call the superclass so it can save the view hierarchy state
+        super.onSaveInstanceState(outState);
+    }
+
+
+    /**
+     * Saves content, result and status
+     *
+     * @return true if test is complete, false if there are answers mMissingAnswers
+     */
+    @Override
+    public boolean saveToDatabase() {
+        // Test status
+        int status;
+        boolean complete = createPattern();
+        if (complete) {
+            status = Test.COMPLETED;
+            // Calculate result
+            mResult = getValueFromPattern();
+        } else {
+            status = Test.INCOMPLETED;
+            mResult = "-1";
+        }
+
+        ContentValues values = new ContentValues();
+        if (mTestPhase == TestActivity.TEST_IN) {
+            values.put(TestEntry.COLUMN_CONTENT_IN, generateContent());
+            values.put(TestEntry.COLUMN_RESULT_IN, mResult);
+            values.put(TestEntry.COLUMN_STATUS_IN, status);
+        } else {
+            values.put(TestEntry.COLUMN_CONTENT_OUT, generateContent());
+            values.put(TestEntry.COLUMN_RESULT_OUT, mResult);
+            values.put(TestEntry.COLUMN_STATUS_OUT, status);
+        }
+
+        int rows = getActivity().getContentResolver().update(mTestUri, values, null, null);
+        Log.d(LOG_TAG, "rows updated: " + rows);
+
+        return complete;
+    }
+
+    /**
+     * @return String content representing state of views in layout
+     */
+    private String generateContent() {
+        // Create content
+        StringBuilder builder = new StringBuilder();
+        createPattern();
+        for (int value : mPattern) {
+            if (value != -1) {
+                value--;
+            }
+            builder.append(value);
+            builder.append("|");
+        }
+
+        // Add slider value
+        builder.append(String.valueOf(mSlider.getProgress()));
+
+        return builder.toString();
     }
 
     /**
@@ -133,10 +325,10 @@ public class EQ5DFragment extends Fragment {
      */
     private void highlightQuestions() {
         for (int i = 0; i < N_QUESTIONS; i++) {
-            if (mPattern[i] == -1) {
-                mRgroup[i].setBackgroundColor(ContextCompat.getColor(getContext(), R.color.highlight));
+            if (mPattern[i] == -1 && mHighlightsON) {
+                mTVgroup[i].setTextColor(ContextCompat.getColor(getContext(), R.color.highlight));
             } else {
-                mRgroup[i].setBackgroundColor(Color.TRANSPARENT);
+                mTVgroup[i].setTextColor(ContextCompat.getColor(getContext(), R.color.textColor));
             }
         }
     }
@@ -414,4 +606,76 @@ public class EQ5DFragment extends Fragment {
         return getValueFromPattern();
     }
 
+    /**
+     * Notes dialog
+     */
+    private void notesDialog() {
+        // Recover notes from database
+        Cursor cursor = getActivity().getContentResolver().query(mTestUri, null, null, null, null, null);
+        String oldNotes = null;
+        if (cursor != null) {
+            cursor.moveToFirst();
+            if (mTestPhase == TestActivity.TEST_IN) {
+                oldNotes = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_NOTES_IN));
+            } else {
+                oldNotes = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_NOTES_OUT));
+            }
+            cursor.close();
+        }
+
+        // Call dialog
+        FragmentManager fm = getActivity().getSupportFragmentManager();
+        NotesDialogFragment dialogFragment = NotesDialogFragment.newInstance(oldNotes);
+        // Set target fragment for use later when sending results
+        dialogFragment.setTargetFragment(EQ5DFragment.this, 100);
+        dialogFragment.show(fm, "notes_fragment_dialog");
+    }
+
+    @Override
+    public void helpDialog() {
+        AlertDialog dialog = new AlertDialog.Builder(getActivity()).create();
+        // fromHtml deprecated for Android N and higher
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+            dialog.setMessage(Html.fromHtml(getContext().getString(R.string.imf_manual),
+                    Html.FROM_HTML_MODE_LEGACY));
+        } else {
+            dialog.setMessage(Html.fromHtml(getContext().getString(R.string.imf_manual)));
+        }
+
+        dialog.setButton(AlertDialog.BUTTON_NEUTRAL, "Close", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        dialog.show();
+    }
+
+    @Override
+    public void onDialogSaveClick(String text) {
+        // Save to database
+        ContentValues values = new ContentValues();
+        if (mTestPhase == TestActivity.TEST_IN) {
+            values.put(TestEntry.COLUMN_NOTES_IN, text);
+        } else {
+            values.put(TestEntry.COLUMN_NOTES_OUT, text);
+        }
+
+        int rows = getActivity().getContentResolver().update(mTestUri, values, null, null);
+        Log.d(LOG_TAG, "rows updated: " + rows);
+    }
+
+    @Override
+    public void onCheckedChanged(RadioGroup group, int checkedId) {
+        // Result update only when all radio groups have selected radio buttons
+        if (createPattern()) {
+            mResult = getValueFromPattern();
+            mTvResult.setText(mResult);
+        }
+
+        highlightQuestions();   // Dynamic highlighting
+
+        // Inform parent activity that changes have been made
+        ((TestActivity) getActivity()).setUserHasSaved(false);
+    }
 }

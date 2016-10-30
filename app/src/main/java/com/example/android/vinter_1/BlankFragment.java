@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class BlankFragment extends Fragment {
+public class BlankFragment extends AbstractFragment {
 
 
     public BlankFragment() {
@@ -26,4 +26,13 @@ public class BlankFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_blank, container, false);
     }
 
+    @Override
+    public boolean saveToDatabase() {
+        return false;
+    }
+
+    @Override
+    public void helpDialog() {
+
+    }
 }

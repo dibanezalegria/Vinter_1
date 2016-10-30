@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
@@ -14,6 +15,13 @@ public class AddPatientDialogFragment extends DialogFragment {
 
     // Use this instance of the interface to deliver action events
     private NoticeDialogListener mListener;
+
+    /**
+     * Interface callback declaration
+     */
+    public interface NoticeDialogListener {
+        void onDialogCreateClick(DialogFragment dialog, String name, int entry);
+    }
 
     @Override
     public void onAttach(Context context) {
@@ -29,28 +37,35 @@ public class AddPatientDialogFragment extends DialogFragment {
         }
     }
 
+    @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = getActivity().getLayoutInflater();
         final View view = inflater.inflate(R.layout.fragment_dialog_add_patient, null);
-
-        // Inflate nad set the layout for the dialog
         builder.setView(view)
                 .setPositiveButton("Save", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        TextView name = (TextView) view.findViewById(R.id.username_dialog_text_view);
-                        TextView entrada = (TextView) view.findViewById(R.id.entrada_dialog_text_view);
-                        mListener.onDialogCreateClick(AddPatientDialogFragment.this,
-                                name.getText().toString(),
-                                Integer.parseInt(entrada.getText().toString()));
+                        TextView tvName = (TextView) view.findViewById(R.id.edit_dialog_name_tv);
+                        TextView tvEntry = (TextView) view.findViewById(R.id.edit_dialog_entry_tv);
+                        String nameStr = tvName.getText().toString().trim();
+                        String entryStr = tvEntry.getText().toString().trim();
+                        // Data validation: name is mandatory
+                        if (nameStr.length() != 0) {
+                            // Validate entry number
+                            int entry = 0;
+                            if (entryStr.length() != 0) {
+                                entry = Integer.parseInt(tvEntry.getText().toString());
+                            }
+                            mListener.onDialogCreateClick(AddPatientDialogFragment.this,
+                                    tvName.getText().toString(), entry);
+                        }
                     }
                 })
                 .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-
                     }
                 });
 
@@ -63,10 +78,5 @@ public class AddPatientDialogFragment extends DialogFragment {
         mListener = null;
     }
 
-    /**
-     * Interface callback declaration
-     */
-    public interface NoticeDialogListener {
-        void onDialogCreateClick(DialogFragment dialog, String name, int entrada);
-    }
+
 }

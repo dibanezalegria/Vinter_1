@@ -25,4 +25,7 @@
     <dimen name="bdl_rg_margin_top">10dp</dimen>
     <dimen name="bdl_question_margin_top">15dp</dimen>
 
+    <!-- MÄTRESULTAT ____________________________________________________________________________-->
+    <dimen name="mat_padding">8dp</dimen>
+
 </resources>

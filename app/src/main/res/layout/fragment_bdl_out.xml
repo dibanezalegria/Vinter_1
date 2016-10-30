@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:tools="http://schemas.android.com/tools"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/bgOut"
@@ -11,40 +12,43 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="30dp">
+        android:paddingBottom="30dp"
+        android:paddingEnd="30dp"
+        android:paddingStart="30dp">
 
-        <!-- Header -->
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp"
-                android:text="Patient"
-                android:textAppearance="?android:attr/textAppearanceMedium"/>
+                android:layout_gravity="center_vertical"
+                android:layout_weight="90"
+                android:gravity="center"
+                android:text="UT test"
+                android:textAppearance="@style/TextCustomLarge"/>
 
-            <TextView
-                android:layout_width="wrap_content"
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/bdl_fab_notes"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp"
-                android:text="Daniel"
-                android:textAppearance="@style/TextCustomNormal"
-                android:textStyle="bold"/>
+                android:layout_weight="10"
+                android:clickable="true"
+                android:src="@drawable/ic_comment_white_24dp"
+                app:fabSize="mini"/>
         </LinearLayout>
 
         <!-- Separator -->
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="30dp"
             android:background="@color/bgBrightOut"/>
 
         <TextView
+            android:id="@+id/bdl_tv_1"
             style="@style/TextCustomNormal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -99,6 +103,7 @@
             />
 
         <TextView
+            android:id="@+id/bdl_tv_2a"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/bdl_rg_margin_start"
@@ -145,6 +150,7 @@
         </RadioGroup>
 
         <TextView
+            android:id="@+id/bdl_tv_2b"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/bdl_rg_margin_start"
@@ -191,6 +197,7 @@
         </RadioGroup>
 
         <TextView
+            android:id="@+id/bdl_tv_3"
             style="@style/TextCustomNormal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -237,6 +244,7 @@
         </RadioGroup>
 
         <TextView
+            android:id="@+id/bdl_tv_4"
             style="@style/TextCustomNormal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -283,6 +291,7 @@
         </RadioGroup>
 
         <TextView
+            android:id="@+id/bdl_tv_5"
             style="@style/TextCustomNormal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -329,6 +338,7 @@
         </RadioGroup>
 
         <TextView
+            android:id="@+id/bdl_tv_6"
             style="@style/TextCustomNormal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -375,6 +385,7 @@
         </RadioGroup>
 
         <TextView
+            android:id="@+id/bdl_tv_7"
             style="@style/TextCustomNormal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -421,6 +432,7 @@
         </RadioGroup>
 
         <TextView
+            android:id="@+id/bdl_tv_8"
             style="@style/TextCustomNormal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -467,6 +479,7 @@
         </RadioGroup>
 
         <TextView
+            android:id="@+id/bdl_tv_9"
             style="@style/TextCustomNormal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -513,6 +526,7 @@
         </RadioGroup>
 
         <TextView
+            android:id="@+id/bdl_tv_10"
             style="@style/TextCustomNormal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -584,8 +598,11 @@
             android:id="@+id/bdl_btnDone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:text="Done"/>
+            android:layout_marginTop="40dp"
+            android:background="@drawable/custom_button"
+            android:text="SPARA"
+            android:textAppearance="@style/TextCustomNormal"
+            android:textColor="@android:color/white"/>
 
     </LinearLayout>
 

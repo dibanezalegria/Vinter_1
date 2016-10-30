@@ -2,6 +2,8 @@
     <string name="app_name">Vinter_1</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <string name="done_button">SPARA</string>
+
     <!--
     ________________________________________________________________________________________________
 
@@ -78,5 +80,15 @@
 
     <!-- CDATA sections are used to escape blocks of text containing characters that would otherwise be regarded as markup. -->
     <string name="tug_manual"><![CDATA[<h1>Timed Up and Go</h><p>Testet mäter den tid det tar i sekunder för en person att resa sig upp från en stol med armstöd, (sitthöjd ca 46cm), gå en sträcka på 3 m, vända, gå tillbaka till stolen och sitta ner igen.<br/><br/>Patienten har sina vanliga skor och använder om så behövs sitt ordinarie gånghjälpmedel. Patienten få ingen fysisk assistans.<br/><br/>Patienten börjar sittande i stolen med ryggen mot ryggstödet och händerna vilande mot armstöden och gånghjälpmedlet till hands.<br/><br/><b>Instruktion till patienten:</b><br/><br/>När jag säger \"gå\" vill jag att du ska resa dig upp och gå i självvald takt till linjen på golvet 3 m bort, vända, gå tillbaka till stolen och sätta dig ner igen.<br/><br/>Innan testning får patienten pröva hela uppgiften en gång.<br/><br/><br/><u>Prognostisk validitet (Predictive)</u><br/>Tiden det tar för patienten speglar till viss grad oberoendet i funktionell förflyttnings förmåga. Klarar man på det &lt; 20 sek. är man oberoende i basala förflyttningar och tar det &gt; 30 sek. är man hjälpberoende.</p>]]></string>
+
+    <!--
+   ________________________________________________________________________________________________
+
+                                               IMF
+
+   ________________________________________________________________________________________________
+   -->
+    <!-- CDATA sections are used to escape blocks of text containing characters that would otherwise be regarded as markup. -->
+    <string name="imf_manual"><![CDATA[<h1>Timed Up and Go</h><p>Testet mäter den tid det tar i sekunder för en person att resa sig upp från en stol med armstöd, (sitthöjd ca 46cm), gå en sträcka på 3 m, vända, gå tillbaka till stolen och sitta ner igen.<br/><br/>Patienten har sina vanliga skor och använder om så behövs sitt ordinarie gånghjälpmedel. Patienten få ingen fysisk assistans.<br/><br/>Patienten börjar sittande i stolen med ryggen mot ryggstödet och händerna vilande mot armstöden och gånghjälpmedlet till hands.<br/><br/><b>Instruktion till patienten:</b><br/><br/>När jag säger \"gå\" vill jag att du ska resa dig upp och gå i självvald takt till linjen på golvet 3 m bort, vända, gå tillbaka till stolen och sätta dig ner igen.<br/><br/>Innan testning får patienten pröva hela uppgiften en gång.<br/><br/><br/><u>Prognostisk validitet (Predictive)</u><br/>Tiden det tar för patienten speglar till viss grad oberoendet i funktionell förflyttnings förmåga. Klarar man på det &lt; 20 sek. är man oberoende i basala förflyttningar och tar det &gt; 30 sek. är man hjälpberoende.</p>]]></string>
 
 </resources>

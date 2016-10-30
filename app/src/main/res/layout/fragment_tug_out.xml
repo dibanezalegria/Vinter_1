@@ -12,68 +12,40 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="30dp">
+        android:paddingBottom="30dp"
+        android:paddingEnd="30dp"
+        android:paddingStart="30dp">
 
-        <!-- Header -->
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp"
-                android:text="Patient"
-                android:textAppearance="?android:attr/textAppearanceMedium"/>
+                android:layout_gravity="center_vertical"
+                android:layout_weight="90"
+                android:gravity="center"
+                android:text="UT test"
+                android:textAppearance="@style/TextCustomLarge"/>
 
-            <TextView
-                android:id="@+id/tug_tv_patient"
-                android:layout_width="wrap_content"
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/tug_fab_notes"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp"
-                android:text="Daniel"
-                android:textAppearance="@style/TextCustomNormal"
-                android:textStyle="bold"/>
+                android:layout_weight="10"
+                android:clickable="true"
+                android:src="@drawable/ic_comment_white_24dp"
+                app:fabSize="mini"/>
         </LinearLayout>
 
         <!-- Separator -->
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="30dp"
             android:background="@color/bgBrightOut"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="end">
-
-            <android.support.design.widget.FloatingActionButton
-                android:id="@+id/tug_fab_notes"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_gravity="end"
-                android:clickable="true"
-                android:src="@drawable/ic_comment_white_24dp"
-                app:fabSize="mini"/>
-
-            <android.support.design.widget.FloatingActionButton
-                android:id="@+id/tug_fab_help"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_gravity="end"
-                android:clickable="true"
-                android:scaleType="center"
-                android:src="@drawable/ic_help_outline_white_36dp"
-                app:fabSize="mini"/>
-        </LinearLayout>
-
 
         <TextView
             android:id="@+id/tug_tv_instructions"
@@ -101,9 +73,9 @@
                 android:layout_height="wrap_content"
                 android:ems="4"
                 android:fontFamily="monospace"
+                android:inputType="number"
                 android:maxLength="3"
-                android:textSize="20sp"
-                android:inputType="number"/>
+                android:textSize="20sp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -123,10 +95,10 @@
                 android:id="@+id/tug_et_help"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="monospace"
-                android:textSize="20sp"
                 android:ems="6"
-                android:inputType="text"/>
+                android:fontFamily="monospace"
+                android:inputType="text"
+                android:textSize="20sp"/>
         </LinearLayout>
 
         <Button
@@ -135,7 +107,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="100dp"
             android:background="@drawable/custom_button"
-            android:text="DONE"
+            android:text="SPARA"
             android:textAppearance="@style/TextCustomNormal"
             android:textColor="@android:color/white"/>
 

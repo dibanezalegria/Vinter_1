@@ -1,46 +1,50 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:tools="http://schemas.android.com/tools"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/bgOut"
             android:orientation="vertical"
             tools:context="com.example.android.vinter_1.TestActivity">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                  android:layout_width="match_parent"
-                  android:layout_height="wrap_content"
-                  android:orientation="vertical"
-                  android:padding="30dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="30dp"
+        android:paddingEnd="30dp"
+        android:paddingStart="30dp">
 
-        <!-- Header -->
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp"
-                android:text="Patient"
-                android:textAppearance="?android:attr/textAppearanceMedium"/>
+                android:layout_gravity="center_vertical"
+                android:layout_weight="90"
+                android:gravity="center"
+                android:text="UT test"
+                android:textAppearance="@style/TextCustomLarge"/>
 
-            <TextView
-                android:layout_width="wrap_content"
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/eq5d_fab_notes"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp"
-                android:text="Daniel"
-                android:textAppearance="@style/TextCustomNormal"
-                android:textStyle="bold"/>
+                android:layout_weight="10"
+                android:clickable="true"
+                android:src="@drawable/ic_comment_white_24dp"
+                app:fabSize="mini"/>
         </LinearLayout>
 
         <!-- Separator -->
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
+            android:layout_marginBottom="30dp"
             android:background="@color/bgBrightOut"/>
 
         <!-- Hälsotillstånd termometer slider -->
@@ -94,7 +98,7 @@
                 android:layout_height="wrap_content">
 
                 <SeekBar
-                    android:id="@+id/eq5d_hälso_seek_bar"
+                    android:id="@+id/eq5d_slider"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="85"
@@ -154,6 +158,7 @@
             android:text="Markera, genom att kryssa i en ruta varje nedanstående grupp, vilket påstående som bäst beskriver Ditt hälsotillstånd i dag."/>
 
         <TextView
+            android:id="@+id/eq5d_tv_1"
             style="@style/TextCustomLarge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -192,6 +197,7 @@
         </RadioGroup>
 
         <TextView
+            android:id="@+id/eq5d_tv_2"
             style="@style/TextCustomLarge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -231,6 +237,7 @@
         </RadioGroup>
 
         <TextView
+            android:id="@+id/eq5d_tv_3"
             style="@style/TextCustomLarge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -270,6 +277,7 @@
         </RadioGroup>
 
         <TextView
+            android:id="@+id/eq5d_tv_4"
             style="@style/TextCustomLarge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -309,6 +317,7 @@
         </RadioGroup>
 
         <TextView
+            android:id="@+id/eq5d_tv_5"
             style="@style/TextCustomLarge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -373,9 +382,12 @@
             android:id="@+id/eq5d_btnDone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:text="Done"/>
+            android:layout_marginTop="50dp"
+            android:background="@drawable/custom_button"
+            android:text="@string/done_button"
+            android:textAppearance="@style/TextCustomNormal"
+            android:textColor="@android:color/white"/>
     </LinearLayout>
 </ScrollView>
 
-
+    
