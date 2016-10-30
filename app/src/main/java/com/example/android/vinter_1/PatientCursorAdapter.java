@@ -47,25 +47,6 @@ public class PatientCursorAdapter extends CursorAdapter {
             public void onClick(View v) {
                 View itemView = (View) v.getParent();
                 mMainActivity.optionFabClicked(itemView);
-
-
-                //TODO: inform main activity about clicked id so we can launch options from there
-
-//                Log.d(LOG_TAG, "fab clicked");
-//                // Get patient's info from view
-//                TextView tvId = (TextView) clickedView.findViewById(R.id.patient_list_item_id_tv);
-//                TextView tvName = (TextView) clickedView.findViewById(R.id.patient_list_item_name_tv);
-//                TextView tvEntry = (TextView) clickedView.findViewById(R.id.patient_list_item_entry_tv);
-//                String name = tvName.getText().toString();
-//                String entry = tvEntry.getText().toString();
-//                String headerStr = "Entrada: " + entry + "  -  " + name;
-//                Bundle extras = new Bundle();
-//                extras.putLong(KEY_PATIENT_ID, Long.parseLong(tvId.getText().toString()));
-//                extras.putString(KEY_HEADER, headerStr);
-//                Intent intent = new Intent(context, ResultTableActivity.class);
-//                intent.putExtras(extras);
-//                startActivity(intent);
-//                return true;
             }
         });
 
