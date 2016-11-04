@@ -27,6 +27,6 @@
         android:inputType="textMultiLine"
         android:fontFamily="monospace"
         android:textSize="18sp"
-        android:background="@drawable/layout_border_solid"/>
+        android:background="@drawable/notes_dialogs_bg"/>
 
 </LinearLayout>

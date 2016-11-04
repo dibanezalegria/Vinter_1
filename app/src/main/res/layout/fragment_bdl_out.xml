@@ -580,9 +580,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TOTAL SUMMA (0-44 p, 44p = ua)"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textStyle="bold"/>
+                android:text="Total summa (0-44 p, 44p = ua)"
+                android:textAppearance="@style/TextCustomLarge"/>
 
             <TextView
                 android:id="@+id/bdl_total_sum_tv"
@@ -599,7 +598,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
-            android:background="@drawable/custom_button"
+            android:background="@drawable/spara_custom_button"
             android:text="SPARA"
             android:textAppearance="@style/TextCustomNormal"
             android:textColor="@android:color/white"/>

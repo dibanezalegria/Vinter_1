@@ -9,6 +9,7 @@
             tools:context="com.example.android.vinter_1.TestActivity">
 
     <LinearLayout
+        android:id="@+id/min6_layout_background"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -117,7 +118,7 @@
                 android:textSize="26sp"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="16dp"
-                android:background="@drawable/layout_border_dark"
+                android:background="@drawable/min6_border_ticks"
                 android:gravity="start"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp"
@@ -332,7 +333,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
-            android:background="@drawable/custom_button"
+            android:background="@drawable/spara_custom_button"
             android:text="SPARA"
             android:textAppearance="@style/TextCustomNormal"
             android:textColor="@android:color/white"/>

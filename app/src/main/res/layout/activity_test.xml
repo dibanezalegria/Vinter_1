@@ -21,7 +21,6 @@
             android:id="@+id/activity_test_fab_help"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:clickable="true"
             android:scaleType="center"
             android:src="@drawable/ic_help_outline_white_36dp"
@@ -32,6 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
             tools:text="IMF - Index Muscle Function"
             android:textSize="20sp"
             android:textColor="@android:color/white"/>

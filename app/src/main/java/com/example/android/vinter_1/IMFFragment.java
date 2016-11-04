@@ -337,7 +337,7 @@ public class IMFFragment extends AbstractFragment implements NotesDialogFragment
         // Save state for radio groups and total sum
         String content = generateContent();
         outState.putString(STATE_CONTENT, content);
-        outState.putSerializable(STATE_RESULT, mResult);
+        outState.putInt(STATE_RESULT, mResult);
         outState.putBoolean(STATE_HIGH_ON, mHighlightsON);
 
         // Always call the superclass so it can save the view hierarchy state

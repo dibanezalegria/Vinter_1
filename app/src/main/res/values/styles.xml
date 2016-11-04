@@ -10,7 +10,7 @@
 
     <!-- TextView Output Results ________________________________________________________________-->
     <style name="OutputTextViewStyle">
-        <item name="android:background">@drawable/vas_output_box</item>
+        <item name="android:background">@drawable/spinner_blue_output_box</item>
         <item name="android:textColor">@android:color/white</item>
         <item name="android:textSize">28sp</item>
     </style>
@@ -80,23 +80,42 @@
 
     <!-- BERGS __________________________________________________________________________________-->
     <style name="bergs_text_radio_button" parent="TextAppearance.AppCompat.Small">
-        <item name="android:textSize">16sp</item>
+        <item name="android:textSize">18sp</item>
         <!-- Use opacity for grey instead of grey color for better results (BE = 75% transparent)-->
         <item name="android:textColor">#be000000</item>
+        <item name="android:paddingStart">6dp</item>
     </style>
 
     <!-- BDL __________________________________________________________________________________-->
     <style name="bdl_text_radio_button" parent="TextAppearance.AppCompat.Small">
-        <item name="android:textSize">16sp</item>
+        <item name="android:textSize">18sp</item>
         <!-- Use opacity for grey instead of grey color for better results (BE = 75% transparent)-->
         <item name="android:textColor">#be000000</item>
+        <item name="android:paddingStart">6dp</item>
     </style>
 
     <!-- IMF __________________________________________________________________________________-->
     <style name="imf_text_radio_button" parent="TextAppearance.AppCompat.Small">
+        <item name="android:textSize">18sp</item>
+        <!-- Use opacity for grey instead of grey color for better results (BE = 75% transparent)-->
+        <item name="android:textColor">#be000000</item>
+        <item name="android:paddingStart">6dp</item>
+    </style>
+
+    <!-- FSA Style _____________________________________________________________________________-->
+    <style name="fsa_text_radio_button" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:textSize">18sp</item>
+        <!-- Use opacity for grey instead of grey color for better results (BE = 75% transparent)-->
+        <item name="android:textColor">#be000000</item>
+        <item name="android:paddingStart">0dp</item>
+    </style>
+
+    <!-- FSS Style _____________________________________________________________________________-->
+    <style name="fss_text_radio_button" parent="TextAppearance.AppCompat.Medium">
         <item name="android:textSize">16sp</item>
         <!-- Use opacity for grey instead of grey color for better results (BE = 75% transparent)-->
         <item name="android:textColor">#be000000</item>
+        <item name="android:paddingStart">0dp</item>
     </style>
 
 </resources>

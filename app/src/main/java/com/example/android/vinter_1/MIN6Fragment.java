@@ -2,6 +2,7 @@ package com.example.android.vinter_1;
 
 
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.database.Cursor;
 import android.net.Uri;
@@ -18,13 +19,16 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -76,6 +80,19 @@ public class MIN6Fragment extends AbstractFragment implements NotesDialogFragmen
             mRootView = inflater.inflate(R.layout.fragment_min6_out, container, false);
         }
 
+        // Layout background listener closes soft keyboard
+        LinearLayout layout = (LinearLayout) mRootView.findViewById(R.id.min6_layout_background);
+        layout.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                // Hide soft keyboard
+                InputMethodManager imm = (InputMethodManager) getActivity()
+                        .getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+                return false;
+            }
+        });
+
         // Note fab
         FloatingActionButton fabNotes = (FloatingActionButton) mRootView.findViewById(R.id.min6_fab_notes);
         fabNotes.setOnClickListener(new View.OnClickListener() {
@@ -88,23 +105,23 @@ public class MIN6Fragment extends AbstractFragment implements NotesDialogFragmen
         // Spinners CR10
         spCR10Start = (Spinner) mRootView.findViewById(R.id.min6_sp_cr10_test_start);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(), R.array.min6_sp_cr10_values,
-                R.layout.min6_spinner_borgs_list_item);
+                R.layout.min6_spinner_list_item);
         spCR10Start.setAdapter(adapter);
 
         spCR10Finish = (Spinner) mRootView.findViewById(R.id.min6_sp_cr10_test_finish);
         adapter = ArrayAdapter.createFromResource(getContext(), R.array.min6_sp_cr10_values,
-                R.layout.min6_spinner_borgs_list_item);
+                R.layout.min6_spinner_list_item);
         spCR10Finish.setAdapter(adapter);
 
         // Spinners RPE
         spRpeStart = (Spinner) mRootView.findViewById(R.id.min6_sp_rpe_test_start);
         adapter = ArrayAdapter.createFromResource(getContext(),
-                R.array.min6_sp_rpe_values, R.layout.min6_spinner_borgs_list_item);
+                R.array.min6_sp_rpe_values, R.layout.min6_spinner_list_item);
         spRpeStart.setAdapter(adapter);
 
         spRpeFinish = (Spinner) mRootView.findViewById(R.id.min6_sp_rpe_test_finish);
         adapter = ArrayAdapter.createFromResource(getContext(), R.array.min6_sp_rpe_values,
-                R.layout.min6_spinner_borgs_list_item);
+                R.layout.min6_spinner_list_item);
         spRpeFinish.setAdapter(adapter);
 
         // Edit text
@@ -585,8 +602,6 @@ public class MIN6Fragment extends AbstractFragment implements NotesDialogFragmen
     @Override
     public void afterTextChanged(Editable s) {
         highlightQuestions();   // Dynamic highlighting
-
-        Log.d(LOG_TAG, "Update all");
 
         // Inform parent activity
         ((TestActivity) getActivity()).setUserHasSaved(false);

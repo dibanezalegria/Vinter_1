@@ -91,4 +91,76 @@
     <!-- CDATA sections are used to escape blocks of text containing characters that would otherwise be regarded as markup. -->
     <string name="imf_manual"><![CDATA[<h1>Timed Up and Go</h><p>Testet mäter den tid det tar i sekunder för en person att resa sig upp från en stol med armstöd, (sitthöjd ca 46cm), gå en sträcka på 3 m, vända, gå tillbaka till stolen och sitta ner igen.<br/><br/>Patienten har sina vanliga skor och använder om så behövs sitt ordinarie gånghjälpmedel. Patienten få ingen fysisk assistans.<br/><br/>Patienten börjar sittande i stolen med ryggen mot ryggstödet och händerna vilande mot armstöden och gånghjälpmedlet till hands.<br/><br/><b>Instruktion till patienten:</b><br/><br/>När jag säger \"gå\" vill jag att du ska resa dig upp och gå i självvald takt till linjen på golvet 3 m bort, vända, gå tillbaka till stolen och sätta dig ner igen.<br/><br/>Innan testning får patienten pröva hela uppgiften en gång.<br/><br/><br/><u>Prognostisk validitet (Predictive)</u><br/>Tiden det tar för patienten speglar till viss grad oberoendet i funktionell förflyttnings förmåga. Klarar man på det &lt; 20 sek. är man oberoende i basala förflyttningar och tar det &gt; 30 sek. är man hjälpberoende.</p>]]></string>
 
+    <!--
+    ________________________________________________________________________________________________
+
+                                                BASMI
+
+    ________________________________________________________________________________________________
+    -->
+    <string name="basmi_q1">"<b>1. Rotation halsrygg</b>\n(aktiv, sittande, myrinmätare)\n\n<small>&gt;85.0=0; 76.6-85.0=1; 68.1.76.5=2; 59.6-68.0=3; 51.1-59.5=4; 42.6-51.0=5; 34.1-42.5=6; 25.6-34.0=7; 17.1-25.5=8; 8.6-17.0=9; &lt;8.5=10"</small></string>
+
+    <string name="basmi_q2"><b>2. Hörselgång till vägg</b>\n(hälar, skinkor, skulderblad så nära vägg som möjligt; raka knän, hakan in)\n\n<small>&lt;10=0; 10-12.5=1; 13-15.5=2; 16-18.5=3; 19-21.5=4; 22-24-5=5; 25-27.5=6; 28-30.5=7; 31-33.5=8; 34-36.5=9; &gt;37=10</small></string>
+
+    <string name="basmi_q3"><b>3. Sidböjning</b>\n(hälar, skinkor, skulderblad så nära bägg som möjligt; markera dig 3 mot låret)\n\n<small>&gt;20.0=0; 18.0-20.0=1; 15.9-17.9=2; 13.8-15.8=3; 11.7-13.7=4;
+    9.6-11.6=5; 7.5-9.5=6; 5.4-7.4=7; 3.3-5.3=8; 1.2-3.2=9; &lt;1.2=10</small></string>
+
+    <string name="basmi_q4"><b>4. Avstånd mellan malleolerna</b>\n(aktiv abd bilat. liggande på bred brits)\n\n<small>&gt;120=0; 110-119.5=1; 100-109.5=2; 90-99.5=3; 80-89.5=4; 70-79.5=5; 60-69.5=6; 50-59.5=7; 40-49.5=8; 30-39.5=9; &lt;30=10</small></string>
+
+    <string name="basmi_q5"><b>5. Modifierad Schober</b>\n(markera SIPS och 10 cm ovan; raka knän)\n\n<small>&gt;7=0; 6.4-7.0=1; 5.7-6.3=2; 5.0-5.6=3; 4.3-4.9=4; 3.6-4.2=5; 2.9-3.5=6; 2.2-2.8=7; 1.5-2.1=8; 0.8-1.4=9; &lt;0.7=10</small></string>
+
+    <!--
+    ________________________________________________________________________________________________
+
+                                                FSA
+
+    ________________________________________________________________________________________________
+    -->
+    <string name="fsa_q1"><b>Hand-mot-tak</b> (armbågen som riktmärke i sagitalplan)</string>
+
+    <string name="fsa_q1_a1">1. får <b>ej</b> armbågen till <b>processus xiphoideus nivå (i horisontalplan)</b></string>
+    <string name="fsa_q1_a2">2. får armbågen till processus xiphoideus nivå <b>men kompenserar med skulderelevation</b></string>
+    <string name="fsa_q1_a3">3. får armbågen till processus xiphoideus nivå <b>utan kompensation</b></string>
+    <string name="fsa_q1_a4">4. får armbågen till <b>axelnivå</b></string>
+    <string name="fsa_q1_a5">5. får armbågen till <b>ögonnivå</b></string>
+    <string name="fsa_q1_a6">6. får armbågen <b>ovan huvudet (humerus vertikalt)</b></string>
+
+    <string name="fsa_q2"><b>Hand-motsatt-axel</b></string>
+
+    <string name="fsa_q2_a1">1. får <b>ej</b> finger III MCP till <b>motsatt processus coracoideus</b></string>
+    <string name="fsa_q2_a2">2. får finger III MCP till <b>motsatt processus coracoideus</b></string>
+    <string name="fsa_q2_a3">3. får finger III <b>DIP</b> runt om <b>motsatt spina scapulae i underarmens längsriktning</b></string>
+    <string name="fsa_q2_a4">4. får finger III DIP runt om motsatt spina scapulae och kan <b>lyfta armbågen ovan processus xiphoideus nivå</b></string>
+    <string name="fsa_q2_a5">5. får finger III DIP runt om motsatt spina scapulae och kan <b>lyfta armbågen till axelnivå</b></string>
+    <string name="fsa_q2_a6">6. får finger III DIP runt om motsatt spina scapulae och kan <b>lyfta armbågen till ögonnivå</b></string>
+
+
+    <string name="fsa_q3"><b>Hand-i-nacke</b></string>
+    <string name="fsa_q3_a1">1. får <b>ej</b> finger III DIP (distala interphalangealleden) till <b>spinalutskotten mellersta cervicalryggen (kring C4)</b></string>
+    <string name="fsa_q3_a2">2. får finger III DIP till mellersta cervicalryggen <b>med kompensation (skulderelevation)</b></string>
+    <string name="fsa_q3_a3">3. får finger III DIP till mellersta cervicalryggen <b>utan kompensation</b></string>
+    <string name="fsa_q3_a4">4. får finger III DIP till mellersta cervicalryggen <b>och armbågen kan föras ut åt sidan i riktning mot frontalplan</b></string>
+    <string name="fsa_q3_a5">5. får finger III DIP till mellersta cervicalryggen <b>och armbågen kan föras helt ut åt sidan i frontalplan</b></string>
+    <string name="fsa_q3_a6">6. kan föra <b>överarmen i riktning mot huvudet</b> i frontalplan med tredje fingrets MCP i riktning mot motsatt angulus superior scapulae</string>
+
+    <string name="fsa_q4"><b>Hand-i-rygg</b></string>
+
+    <string name="fsa_q4_a1">1. får <b>ej</b> processus styloideus radii bakom ett frontalplan genom <b>samma sidas SIPS</b></string>
+    <string name="fsa_q4_a2">2. får processus styloideus radii med handryggen <b>mot samma sidas laterala cristakant i SIPS nivå</b></string>
+    <string name="fsa_q4_a3">3. får processus styloideus radii med handryggen <b>till samma sidas SIPS nivå</b></string>
+    <string name="fsa_q4_a4">4. får processus styloideus radii med handryggen <b>till motsatt SIPS nivå</b></string>
+    <string name="fsa_q4_a5">5. får processus styloideus radii med handryggen <b>mot columna i motsatt sidas armbågsnivå</b></string>
+    <string name="fsa_q4_a6">6. får processus styloideus radii med handryggen <b>förbi columna ovanför motsatt sidas armbågsnivå</b> i riktning mot motsatt angulus inferior scapulae</string>
+
+    <string name="fsa_q5"><b>Hand-till-säte</b></string>
+
+    <string name="fsa_q5_a1">1. får <b>ej</b> processus styloideus radii bakom ett frontalplan genom <b>samma sidas SIPS</b></string>
+    <string name="fsa_q5_a2">2. får processus styloideus radii med handryggen <b>mot samma sidas laterala cristakant i SIPS nivå</b></string>
+    <string name="fsa_q5_a3">3. får processus styloideus radii med handryggen <b>till samma sidas SIPS nivå</b></string>
+    <string name="fsa_q5_a4">4. får processus styloideus radii med handryggen <b>mot sacrum</b> i SIPS nivå med <b>tumme och hand</b> i riktning mot sagitalplan till motsatt sidas SIPS</string>
+    <string name="fsa_q5_a5">5. får processus styloideus radii med <b>tummen mot sacrum</b> i SIPS nivå och <b>med handen i sagitalplan</b></string>
+    <string name="fsa_q5_a6">6. får processus styloideus radii med <b>handflatan mot sacrum</b> i SIPS nivå</string>
+
+
+
 </resources>

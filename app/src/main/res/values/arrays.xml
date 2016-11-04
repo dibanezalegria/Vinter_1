@@ -274,4 +274,15 @@
         <item>0 = kan inte försöka lyfta benet eller behöver hjälp för att inte falla</item>
     </string-array>
 
+    <!-- FSA Spinner values -->
+    <string-array name="fsa_spinner_array">
+        <item>-</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+    </string-array>
+
 </resources>

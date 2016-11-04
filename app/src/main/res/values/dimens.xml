@@ -18,7 +18,7 @@
     <!-- BERGS __________________________________________________________________________________-->
     <dimen name="bergs_rg_margin_start">5dp</dimen>
     <dimen name="bergs_rg_margin_top">10dp</dimen>
-    <dimen name="bergs_question_margin_top">15dp</dimen>
+    <dimen name="bergs_question_margin_top">26dp</dimen>
 
     <!-- BDL ____________________________________________________________________________________-->
     <dimen name="bdl_rg_margin_start">5dp</dimen>
@@ -27,5 +27,15 @@
 
     <!-- MÄTRESULTAT ____________________________________________________________________________-->
     <dimen name="mat_padding">8dp</dimen>
+
+    <!-- BASMI __________________________________________________________________________________-->
+    <dimen name="basmi_question_margin_top">26dp</dimen>
+    <dimen name="basmi_answers_margin_start">48dp</dimen>
+
+    <!-- FSA ___________________________________________________________________________________ -->
+    <!-- Margin start radio groups -->
+    <dimen name="fsa_margin_start">6dp</dimen>
+    <dimen name="fsa_padding_box_text">6dp</dimen>
+    <dimen name="fsa_margin_between_questions">32dp</dimen>
 
 </resources>

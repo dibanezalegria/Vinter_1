@@ -920,9 +920,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TOTAL SUMMA (0-40 p, 0p = ua)"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textStyle="bold"/>
+                android:text="Total summa (0-40 p, 0p = ua)"
+                android:textAppearance="@style/TextCustomLarge"/>
 
             <TextView
                 android:id="@+id/imf_total_sum_tv"
@@ -939,7 +938,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
-            android:background="@drawable/custom_button"
+            android:background="@drawable/spara_custom_button"
             android:text="@string/done_button"
             android:textAppearance="@style/TextCustomNormal"
             android:textColor="@android:color/white"/>

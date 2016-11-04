@@ -9,7 +9,6 @@
             tools:context="com.example.android.vinter_1.TestActivity">
 
     <LinearLayout
-        android:id="@+id/tug_layout_background"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -32,7 +31,7 @@
                 android:textAppearance="@style/TextCustomLarge"/>
 
             <android.support.design.widget.FloatingActionButton
-                android:id="@+id/tug_fab_notes"
+                android:id="@+id/bdl_fab_notes"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="10"
@@ -48,69 +47,65 @@
             android:layout_marginBottom="30dp"
             android:background="@color/bgBrightIn"/>
 
-        <TextView
-            android:id="@+id/tug_tv_instructions"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/tug_instructions"
-            android:textAppearance="@style/TextCustomNormal"/>
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp">
+            >
 
-            <TextView
-                android:id="@+id/tug_tv_seconds"
-                android:layout_width="wrap_content"
+            <SeekBar
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="7"
-                android:text="Sekunder"
-                android:textAppearance="@style/TextCustomNormal"/>
-
-            <EditText
-                android:id="@+id/tug_et_seconds"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="4"
-                android:fontFamily="monospace"
-                android:inputType="number"
-                android:maxLength="3"
-                android:textSize="20sp"/>
+                android:max="7"/>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp">
+            android:layout_height="wrap_content">
 
             <TextView
-                android:id="@+id/tug_tv_help"
-                android:layout_width="wrap_content"
+                style="@style/TextCustomNormal"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:ems="7"
-                android:text="Gånghjälpmedel"
-                android:textAppearance="@style/TextCustomNormal"/>
+                android:text="1"/>
+            <TextView
+                style="@style/TextCustomNormal"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="2"/>
 
-            <EditText
-                android:id="@+id/tug_et_help"
-                android:layout_width="wrap_content"
+            <TextView
+                style="@style/TextCustomNormal"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:ems="6"
-                android:fontFamily="monospace"
-                android:inputType="text"
-                android:textSize="20sp"/>
+                android:text="3"/>
+            <TextView
+                style="@style/TextCustomNormal"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="4"/>
+            <TextView
+                style="@style/TextCustomNormal"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="5"/>
+            <TextView
+                style="@style/TextCustomNormal"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="6"/>
+            <TextView
+                style="@style/TextCustomNormal"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="7"/>
         </LinearLayout>
-
-        <Button
-            android:id="@+id/tug_btnDone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
-            android:background="@drawable/spara_custom_button"
-            android:text="SPARA"
-            android:textAppearance="@style/TextCustomNormal"
-            android:textColor="@android:color/white"/>
 
     </LinearLayout>
 </ScrollView>

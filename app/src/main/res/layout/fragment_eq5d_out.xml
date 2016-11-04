@@ -85,7 +85,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="25dp"
                     android:layout_weight="15"
-                    android:background="@drawable/vas_output_box"
+                    android:background="@drawable/spinner_blue_output_box"
                     android:gravity="center"
                     android:textColor="@android:color/white"
                     android:textSize="@dimen/vas_output_text_size"
@@ -383,7 +383,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
-            android:background="@drawable/custom_button"
+            android:background="@drawable/spara_custom_button"
             android:text="@string/done_button"
             android:textAppearance="@style/TextCustomNormal"
             android:textColor="@android:color/white"/>

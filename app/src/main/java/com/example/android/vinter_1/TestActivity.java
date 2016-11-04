@@ -107,6 +107,15 @@ public class TestActivity extends AppCompatActivity {
                 case "IMF":
                     mAbstractFragment = new IMFFragment();
                     break;
+                case "BASMI":
+                    mAbstractFragment = new BasmiFragment();
+                    break;
+                case "FSA":
+                    mAbstractFragment = new FSAFragment();
+                    break;
+                case "FSS":
+                    mAbstractFragment = new FSSFragment();
+                    break;
                 default:
                     mAbstractFragment = new BlankFragment();
                     break;

@@ -63,7 +63,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
@@ -74,7 +74,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
@@ -85,14 +85,13 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/blue_grey_50"
-                >
+                android:background="@color/blue_grey_50">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="70"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="18"
                     android:padding="@dimen/mat_padding"
                     android:text="6-minuters gångtest - antal meter"
@@ -103,7 +102,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
@@ -114,7 +113,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
@@ -129,7 +128,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="70"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="18"
                     android:padding="@dimen/mat_padding"
                     android:text="Hjälpmedel"
@@ -140,11 +139,11 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
-                    android:background="@drawable/layout_border"
-                    android:maxLines="1"
+                    android:background="@drawable/layout_border_only"
                     android:ellipsize="end"
                     android:ems="4"
                     android:gravity="center"
+                    android:maxLines="1"
                     android:padding="@dimen/mat_padding"
                     android:textAppearance="@style/TextCustomNormal"/>
 
@@ -153,11 +152,11 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
-                    android:maxLines="1"
+                    android:background="@drawable/layout_border_only"
                     android:ellipsize="end"
-                    android:background="@drawable/layout_border"
                     android:ems="4"
                     android:gravity="center"
+                    android:maxLines="1"
                     android:padding="@dimen/mat_padding"
                     android:textAppearance="@style/TextCustomNormal"/>
             </LinearLayout>
@@ -171,7 +170,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="70"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="18"
                     android:padding="@dimen/mat_padding"
                     android:text="Borgs - Smärta, CR10 vid teststart (0-->)"
@@ -182,7 +181,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
@@ -193,7 +192,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
@@ -208,7 +207,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="70"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="18"
                     android:padding="@dimen/mat_padding"
                     android:text="Borgs - Smärta, CR10 vid avslutat (0-->)"
@@ -219,7 +218,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
@@ -230,7 +229,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
@@ -246,10 +245,10 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="70"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
+                    android:ellipsize="end"
                     android:ems="18"
                     android:maxLines="1"
-                    android:ellipsize="end"
                     android:padding="@dimen/mat_padding"
                     android:text="Borgs - Ansträngning, RPE vid teststart (6, 20)"
                     android:textAppearance="@style/TextCustomNormal"/>
@@ -259,7 +258,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
@@ -270,7 +269,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
@@ -285,10 +284,10 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="70"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
+                    android:ellipsize="end"
                     android:ems="18"
                     android:maxLines="1"
-                    android:ellipsize="end"
                     android:padding="@dimen/mat_padding"
                     android:text="Borgs - Ansträngning, RPE vid avslutat test (6, 20)"
                     android:textAppearance="@style/TextCustomNormal"/>
@@ -298,7 +297,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
@@ -309,7 +308,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
@@ -325,7 +324,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="70"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="18"
                     android:maxLines="1"
                     android:padding="@dimen/mat_padding"
@@ -337,7 +336,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
@@ -348,7 +347,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
@@ -363,7 +362,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="70"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="18"
                     android:maxLines="1"
                     android:padding="@dimen/mat_padding"
@@ -375,7 +374,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
@@ -386,40 +385,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
-                    android:background="@drawable/layout_border"
-                    android:ems="4"
-                    android:gravity="center"
-                    android:padding="@dimen/mat_padding"
-                    android:textAppearance="@style/TextCustomNormal"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/blue_grey_50">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="70"
-                    android:ems="18"
-                    android:maxLines="1"
-                    android:padding="@dimen/mat_padding"
-                    android:textAppearance="@style/TextCustomNormal"/>
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="15"
-                    android:ems="4"
-                    android:gravity="center"
-                    android:padding="@dimen/mat_padding"
-                    android:textAppearance="@style/TextCustomNormal"/>
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="15"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
@@ -432,10 +398,24 @@
                 >
 
                 <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/table_row_light_bg"
+                    android:padding="@dimen/mat_padding"
+                    android:textAppearance="@style/TextCustomNormal"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="70"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="18"
                     android:maxLines="1"
                     android:padding="@dimen/mat_padding"
@@ -446,7 +426,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
@@ -456,7 +436,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
@@ -472,7 +452,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="70"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="18"
                     android:maxLines="1"
                     android:padding="@dimen/mat_padding"
@@ -484,7 +464,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
@@ -495,7 +475,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
@@ -511,7 +491,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="70"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="18"
                     android:maxLines="1"
                     android:padding="@dimen/mat_padding"
@@ -523,11 +503,11 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
-                    android:maxLines="1"
+                    android:background="@drawable/layout_border_only"
                     android:ellipsize="end"
-                    android:background="@drawable/layout_border"
                     android:ems="4"
                     android:gravity="center"
+                    android:maxLines="1"
                     android:padding="@dimen/mat_padding"
                     android:textAppearance="@style/TextCustomNormal"/>
 
@@ -536,47 +516,21 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
-                    android:maxLines="1"
+                    android:background="@drawable/layout_border_only"
                     android:ellipsize="end"
-                    android:background="@drawable/layout_border"
                     android:ems="4"
                     android:gravity="center"
+                    android:maxLines="1"
                     android:padding="@dimen/mat_padding"
                     android:textAppearance="@style/TextCustomNormal"/>
             </LinearLayout>
 
-            <LinearLayout
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/blue_grey_50">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="70"
-                    android:ems="18"
-                    android:maxLines="1"
-                    android:padding="@dimen/mat_padding"
-                    android:textAppearance="@style/TextCustomNormal"/>
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="15"
-                    android:ems="4"
-                    android:gravity="center"
-                    android:padding="@dimen/mat_padding"
-                    android:textAppearance="@style/TextCustomNormal"/>
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="15"
-                    android:ems="4"
-                    android:gravity="center"
-                    android:padding="@dimen/mat_padding"
-                    android:textAppearance="@style/TextCustomNormal"/>
-            </LinearLayout>
+                android:background="@drawable/table_row_light_bg"
+                android:padding="@dimen/mat_padding"
+                android:textAppearance="@style/TextCustomNormal"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -586,10 +540,10 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="70"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
+                    android:ellipsize="end"
                     android:ems="18"
                     android:maxLines="1"
-                    android:ellipsize="end"
                     android:padding="@dimen/mat_padding"
                     android:text="Ergometri konditionsprov/Testvärde (ml O2/kg*min)"
                     android:textAppearance="@style/TextCustomNormal"/>
@@ -598,7 +552,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
@@ -608,7 +562,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
@@ -624,7 +578,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="70"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="18"
                     android:maxLines="1"
                     android:padding="@dimen/mat_padding"
@@ -635,7 +589,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
@@ -645,7 +599,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
@@ -660,7 +614,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="70"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="18"
                     android:maxLines="1"
                     android:padding="@dimen/mat_padding"
@@ -671,7 +625,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
@@ -681,7 +635,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
@@ -697,7 +651,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="70"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="18"
                     android:maxLines="1"
                     android:padding="@dimen/mat_padding"
@@ -708,7 +662,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
@@ -718,7 +672,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
@@ -733,7 +687,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="70"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="18"
                     android:maxLines="1"
                     android:padding="@dimen/mat_padding"
@@ -744,7 +698,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
@@ -754,45 +708,19 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
                     android:textAppearance="@style/TextCustomNormal"/>
             </LinearLayout>
 
-            <LinearLayout
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/blue_grey_50">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="70"
-                    android:ems="18"
-                    android:maxLines="1"
-                    android:padding="@dimen/mat_padding"
-                    android:textAppearance="@style/TextCustomNormal"/>
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="15"
-                    android:ems="4"
-                    android:gravity="center"
-                    android:padding="@dimen/mat_padding"
-                    android:textAppearance="@style/TextCustomNormal"/>
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="15"
-                    android:ems="4"
-                    android:gravity="center"
-                    android:padding="@dimen/mat_padding"
-                    android:textAppearance="@style/TextCustomNormal"/>
-            </LinearLayout>
+                android:background="@drawable/table_row_light_bg"
+                android:padding="@dimen/mat_padding"
+                android:textAppearance="@style/TextCustomNormal"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -802,10 +730,10 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="70"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
+                    android:ellipsize="end"
                     android:ems="18"
                     android:maxLines="1"
-                    android:ellipsize="end"
                     android:padding="@dimen/mat_padding"
                     android:text="VAS - Kondition (0-100 mm, 0=ingen kondition)"
                     android:textAppearance="@style/TextCustomNormal"/>
@@ -815,7 +743,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
@@ -826,7 +754,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
@@ -842,7 +770,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="70"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="18"
                     android:maxLines="1"
                     android:padding="@dimen/mat_padding"
@@ -854,7 +782,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
@@ -865,7 +793,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
@@ -880,7 +808,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="70"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="18"
                     android:maxLines="1"
                     android:padding="@dimen/mat_padding"
@@ -892,7 +820,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
@@ -903,7 +831,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
@@ -919,7 +847,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="70"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="18"
                     android:maxLines="1"
                     android:padding="@dimen/mat_padding"
@@ -931,7 +859,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
@@ -942,7 +870,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
@@ -957,7 +885,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="70"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="18"
                     android:maxLines="1"
                     android:padding="@dimen/mat_padding"
@@ -969,7 +897,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
@@ -980,45 +908,19 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
                     android:textAppearance="@style/TextCustomNormal"/>
             </LinearLayout>
 
-            <LinearLayout
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/blue_grey_50">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="70"
-                    android:ems="18"
-                    android:maxLines="1"
-                    android:padding="@dimen/mat_padding"
-                    android:textAppearance="@style/TextCustomNormal"/>
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="15"
-                    android:ems="4"
-                    android:gravity="center"
-                    android:padding="@dimen/mat_padding"
-                    android:textAppearance="@style/TextCustomNormal"/>
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="15"
-                    android:ems="4"
-                    android:gravity="center"
-                    android:padding="@dimen/mat_padding"
-                    android:textAppearance="@style/TextCustomNormal"/>
-            </LinearLayout>
+                android:padding="@dimen/mat_padding"
+                android:background="@drawable/table_row_light_bg"
+                android:textAppearance="@style/TextCustomNormal"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -1028,7 +930,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="70"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="18"
                     android:maxLines="1"
                     android:padding="@dimen/mat_padding"
@@ -1040,7 +942,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
@@ -1051,7 +953,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
@@ -1067,10 +969,10 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="70"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
+                    android:ellipsize="end"
                     android:ems="18"
                     android:maxLines="1"
-                    android:ellipsize="end"
                     android:padding="@dimen/mat_padding"
                     android:text="EQ-5D Nuvarande hälsotillstånd (0-100mm, 100=bästa tänkbara)"
                     android:textAppearance="@style/TextCustomNormal"/>
@@ -1080,7 +982,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
@@ -1091,44 +993,19 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
                     android:textAppearance="@style/TextCustomNormal"/>
             </LinearLayout>
 
-            <LinearLayout
+            <TextView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="70"
-                    android:ems="18"
-                    android:maxLines="1"
-                    android:padding="@dimen/mat_padding"
-                    android:textAppearance="@style/TextCustomNormal"/>
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="15"
-                    android:ems="4"
-                    android:gravity="center"
-                    android:padding="@dimen/mat_padding"
-                    android:textAppearance="@style/TextCustomNormal"/>
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="15"
-                    android:ems="4"
-                    android:gravity="center"
-                    android:padding="@dimen/mat_padding"
-                    android:textAppearance="@style/TextCustomNormal"/>
-            </LinearLayout>
+                android:layout_height="wrap_content"
+                android:background="@drawable/layout_border_only"
+                android:padding="@dimen/mat_padding"
+                android:textAppearance="@style/TextCustomNormal"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -1139,7 +1016,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="70"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="18"
                     android:maxLines="1"
                     android:padding="@dimen/mat_padding"
@@ -1150,7 +1027,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
@@ -1160,7 +1037,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
@@ -1175,7 +1052,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="70"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="18"
                     android:maxLines="1"
                     android:padding="@dimen/mat_padding"
@@ -1186,7 +1063,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
@@ -1196,45 +1073,19 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
                     android:textAppearance="@style/TextCustomNormal"/>
             </LinearLayout>
 
-            <LinearLayout
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/blue_grey_50">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="70"
-                    android:ems="18"
-                    android:maxLines="1"
-                    android:padding="@dimen/mat_padding"
-                    android:textAppearance="@style/TextCustomNormal"/>
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="15"
-                    android:ems="4"
-                    android:gravity="center"
-                    android:padding="@dimen/mat_padding"
-                    android:textAppearance="@style/TextCustomNormal"/>
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="15"
-                    android:ems="4"
-                    android:gravity="center"
-                    android:padding="@dimen/mat_padding"
-                    android:textAppearance="@style/TextCustomNormal"/>
-            </LinearLayout>
+                android:padding="@dimen/mat_padding"
+                android:background="@drawable/table_row_light_bg"
+                android:textAppearance="@style/TextCustomNormal"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -1244,7 +1095,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="70"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="18"
                     android:maxLines="1"
                     android:padding="@dimen/mat_padding"
@@ -1255,7 +1106,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
@@ -1265,7 +1116,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
@@ -1281,7 +1132,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="70"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="18"
                     android:maxLines="1"
                     android:padding="@dimen/mat_padding"
@@ -1293,7 +1144,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
@@ -1304,7 +1155,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
@@ -1319,7 +1170,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="70"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="18"
                     android:maxLines="1"
                     android:padding="@dimen/mat_padding"
@@ -1331,7 +1182,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
@@ -1342,7 +1193,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
@@ -1358,7 +1209,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="70"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="18"
                     android:maxLines="1"
                     android:padding="@dimen/mat_padding"
@@ -1370,7 +1221,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
@@ -1381,44 +1232,65 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
                     android:textAppearance="@style/TextCustomNormal"/>
             </LinearLayout>
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/layout_border_only"
+                android:padding="@dimen/mat_padding"
+                android:textAppearance="@style/TextCustomNormal"/>
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:background="@color/blue_grey_50">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="70"
+                    android:background="@drawable/layout_border_only"
                     android:ems="18"
                     android:maxLines="1"
                     android:padding="@dimen/mat_padding"
+                    android:text="BASMI (0-10p, 0p=ua)"
                     android:textAppearance="@style/TextCustomNormal"/>
 
                 <TextView
+                    android:id="@+id/table_basmi_result_in"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
                     android:textAppearance="@style/TextCustomNormal"/>
 
                 <TextView
+                    android:id="@+id/table_basmi_result_out"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
                     android:textAppearance="@style/TextCustomNormal"/>
             </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/layout_border_only"
+                android:padding="@dimen/mat_padding"
+                android:textAppearance="@style/TextCustomNormal"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -1438,7 +1310,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="30"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
@@ -1449,7 +1321,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="30"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
@@ -1465,7 +1337,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="40"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="18"
                     android:maxLines="1"
                     android:padding="@dimen/mat_padding"
@@ -1476,7 +1348,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
@@ -1487,7 +1359,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
@@ -1498,7 +1370,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
@@ -1509,7 +1381,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
@@ -1526,49 +1398,53 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="40"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
+                    android:ellipsize="end"
                     android:ems="18"
                     android:maxLines="1"
-                    android:ellipsize="end"
                     android:padding="@dimen/mat_padding"
                     android:text="Funktion: Summa (5-30p, 30p=ua)"
                     android:textAppearance="@style/TextCustomNormal"/>
 
                 <TextView
+                    android:id="@+id/table_fsa_sum_h_in"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
                     android:textAppearance="@style/TextCustomNormal"/>
 
                 <TextView
+                    android:id="@+id/table_fsa_sum_h_out"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
                     android:textAppearance="@style/TextCustomNormal"/>
 
                 <TextView
+                    android:id="@+id/table_fsa_sum_v_in"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
                     android:textAppearance="@style/TextCustomNormal"/>
 
                 <TextView
+                    android:id="@+id/table_fsa_sum_v_out"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
@@ -1583,49 +1459,53 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="40"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
+                    android:ellipsize="end"
                     android:ems="18"
                     android:maxLines="1"
-                    android:ellipsize="end"
                     android:padding="@dimen/mat_padding"
                     android:text="Smärta: Summa (0-inf, 0=ingen smärta)"
                     android:textAppearance="@style/TextCustomNormal"/>
 
                 <TextView
+                    android:id="@+id/table_fsa_smart_h_in"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
                     android:textAppearance="@style/TextCustomNormal"/>
 
                 <TextView
+                    android:id="@+id/table_fsa_smart_h_out"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
                     android:textAppearance="@style/TextCustomNormal"/>
 
                 <TextView
+                    android:id="@+id/table_fsa_smart_v_in"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
                     android:textAppearance="@style/TextCustomNormal"/>
 
                 <TextView
+                    android:id="@+id/table_fsa_smart_v_out"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
@@ -1641,7 +1521,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="40"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="18"
                     android:gravity="center"
                     android:maxLines="1"
@@ -1653,7 +1533,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="30"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
@@ -1664,7 +1544,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="30"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
@@ -1680,30 +1560,32 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="40"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
+                    android:ellipsize="end"
                     android:ems="18"
                     android:gravity="center"
                     android:maxLines="1"
-                    android:ellipsize="end"
                     android:padding="@dimen/mat_padding"
                     android:text="Funktion: (5-60p, 60p=ua)"
                     android:textAppearance="@style/TextCustomNormal"/>
 
                 <TextView
+                    android:id="@+id/table_fsa_total_in"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="30"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
                     android:textAppearance="@style/TextCustomNormal"/>
 
                 <TextView
+                    android:id="@+id/table_fsa_total_out"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="30"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
@@ -1713,37 +1595,51 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/blue_grey_50"
-                >
+                android:background="@color/blue_grey_50">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="40"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
+                    android:ellipsize="end"
                     android:ems="18"
                     android:gravity="center"
                     android:maxLines="1"
-                    android:ellipsize="end"
                     android:padding="@dimen/mat_padding"
                     android:text="Smärta: (0-inf, 0=ingen smärta)"
                     android:textAppearance="@style/TextCustomNormal"/>
 
+                <!--<TextView-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_weight="40"-->
+                    <!--android:background="@drawable/layout_border_only"-->
+                    <!--android:ellipsize="end"-->
+                    <!--android:ems="18"-->
+                    <!--android:gravity="center"-->
+                    <!--android:maxLines="1"-->
+                    <!--android:padding="@dimen/mat_padding"-->
+                    <!--android:text="Smärta: (0-inf, 0=ingen smärta)"-->
+                    <!--android:textAppearance="@style/TextCustomNormal"/>-->
+
                 <TextView
+                    android:id="@+id/table_fsa_smart_total_in"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="30"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
                     android:textAppearance="@style/TextCustomNormal"/>
 
                 <TextView
+                    android:id="@+id/table_fsa_smart_total_out"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="30"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_only"
                     android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"

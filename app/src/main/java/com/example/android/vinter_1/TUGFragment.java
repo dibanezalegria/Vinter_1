@@ -2,6 +2,7 @@ package com.example.android.vinter_1;
 
 
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.database.Cursor;
 import android.net.Uri;
@@ -16,10 +17,13 @@ import android.text.Html;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.android.vinter_1.data.DbContract;
@@ -64,6 +68,19 @@ public class TUGFragment extends AbstractFragment implements NotesDialogFragment
         } else {
             mRootView = inflater.inflate(R.layout.fragment_tug_out, container, false);
         }
+
+        // Layout background listener closes soft keyboard
+        LinearLayout layout = (LinearLayout) mRootView.findViewById(R.id.tug_layout_background);
+        layout.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                // Hide soft keyboard
+                InputMethodManager imm = (InputMethodManager) getActivity()
+                        .getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+                return false;
+            }
+        });
 
         // Note fab
         FloatingActionButton fabNotes = (FloatingActionButton) mRootView.findViewById(R.id.tug_fab_notes);
