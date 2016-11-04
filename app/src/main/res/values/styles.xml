@@ -70,7 +70,7 @@
 
     <!-- VAS_IN -->
     <style name="vas_layout_background_in" parent="vas_layout_background">
-        <item name="android:background">@color/bgIn</item>
+        <item name="android:background">@color/test_background_color</item>
     </style>
 
     <!-- VAS_OUT -->

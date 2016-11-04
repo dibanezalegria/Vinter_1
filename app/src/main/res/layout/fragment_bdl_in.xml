@@ -4,7 +4,7 @@
             xmlns:app="http://schemas.android.com/apk/res-auto"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/bgIn"
+            android:background="@color/test_background_color"
             android:orientation="vertical"
             tools:context="com.example.android.vinter_1.TestActivity">
 
@@ -581,6 +581,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Total summa (0-44 p, 44p = ua)"
+                android:layout_gravity="center_vertical"
                 android:textAppearance="@style/TextCustomLarge"/>
 
             <TextView

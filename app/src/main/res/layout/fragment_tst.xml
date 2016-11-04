@@ -4,11 +4,12 @@
             xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/bgIn"
+            android:background="@color/test_background_color"
             android:orientation="vertical"
             tools:context="com.example.android.vinter_1.TestActivity">
 
     <LinearLayout
+        android:id="@+id/basmi_layout_background"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -22,6 +23,7 @@
             android:padding="16dp">
 
             <TextView
+                android:id="@+id/tst_title"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
@@ -31,7 +33,7 @@
                 android:textAppearance="@style/TextCustomLarge"/>
 
             <android.support.design.widget.FloatingActionButton
-                android:id="@+id/bdl_fab_notes"
+                android:id="@+id/basmi_fab_notes"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="10"
@@ -47,65 +49,66 @@
             android:layout_marginBottom="30dp"
             android:background="@color/bgBrightIn"/>
 
+        <TextView
+            style="@style/TextCustomNormal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tst_instructions"/>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            >
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp">
 
-            <SeekBar
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/tst_tv_seconds"
+                style="@style/TextCustomNormal"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:max="7"/>
+                android:ems="10"
+                android:text="Tidsåtgång i sekunder"/>
+
+            <EditText
+                android:id="@+id/tst_et_seconds"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:ems="3"
+                android:maxLength="4"
+                android:inputType="number"/>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp">
 
             <TextView
+                android:id="@+id/tst_tv_shoes"
                 style="@style/TextCustomNormal"
-                android:layout_width="0dp"
-                android:layout_weight="1"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1"/>
-            <TextView
-                style="@style/TextCustomNormal"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:text="2"/>
+                android:text="Med/utan skor"/>
 
-            <TextView
+            <CheckBox
+                android:id="@+id/tst_cb_shoes"
                 style="@style/TextCustomNormal"
-                android:layout_width="0dp"
-                android:layout_weight="1"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3"/>
-            <TextView
-                style="@style/TextCustomNormal"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:text="4"/>
-            <TextView
-                style="@style/TextCustomNormal"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:text="5"/>
-            <TextView
-                style="@style/TextCustomNormal"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:text="6"/>
-            <TextView
-                style="@style/TextCustomNormal"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:text="7"/>
+                android:layout_marginStart="16dp"/>
         </LinearLayout>
+
+        <Button
+            android:id="@+id/vas_btnDone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="80dp"
+            android:background="@drawable/spara_custom_button"
+            android:text="@string/done_button"
+            android:textAppearance="@style/TextCustomNormal"
+            android:textColor="@android:color/white"/>
 
     </LinearLayout>
 </ScrollView>

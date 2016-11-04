@@ -4,7 +4,7 @@
             xmlns:app="http://schemas.android.com/apk/res-auto"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/bgIn"
+            android:background="@color/test_background_color"
             android:orientation="vertical"
             tools:context="com.example.android.vinter_1.TestActivity">
 
@@ -102,7 +102,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="85"
-                    android:progress="50"/>
+                    android:progress="0"/>
             </LinearLayout>
 
             <!-- Values labels -->
@@ -366,6 +366,7 @@
                 style="@style/TextCustomLarge"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
                 android:text="Resultat (-0.594 - 1.0, 1.0 = full hälsa)"/>
 
             <TextView

@@ -161,6 +161,65 @@
     <string name="fsa_q5_a5">5. får processus styloideus radii med <b>tummen mot sacrum</b> i SIPS nivå och <b>med handen i sagitalplan</b></string>
     <string name="fsa_q5_a6">6. får processus styloideus radii med <b>handflatan mot sacrum</b> i SIPS nivå</string>
 
+    <!--
+    ________________________________________________________________________________________________
 
+                                                BASFI
+
+    ________________________________________________________________________________________________
+    -->
+    <string name="basfi_markera">Markera på varje linje din förmåga <u>den senaste veckan</u> i samtliga aktiviteter\n\n<b>Obs!</b> Som hjälpmedel räknas alla typer av redskap som underlättar en aktivitet</string>
+    <string name="basfi_q1">1. Ta på strumpor eller strumpbyxor utan hjälpmedel (t ex strumppåtagare)</string>
+    <string name="basfi_q2">2. Plocka upp en penna från golvet utan hjälpmedel och utan att ta stöd med hand eller knä</string>
+    <string name="basfi_q3">3. Nå upp till en hylla ovan huvudhöjd utan hjälp eller hjälpmedel</string>
+    <string name="basfi_q4">4. Resa Dig från en köksstol utan att använda händerna eller annan hjälp</string>
+    <string name="basfi_q5">5. Resa Dig från ryggliggande på golvet</string>
+    <string name="basfi_q6">6. Stå utan stöd i 10 minuter utan obehag</string>
+    <string name="basfi_q7">7. Gå uppför 12-15 trappsteg utan att använda handstöd. En fot på varje steg</string>
+    <string name="basfi_q8">8. Titta över axeln utan att vrida kroppen</string>
+    <string name="basfi_q9">9. Utföra fysiskt krävande aktiviteter (t ex sjukgymnastisk träning, trädgårdsarbete eller sport)</string>
+    <string name="basfi_q10">10. Vara aktiv en hel dag, hemma eller på arbetet</string>
+
+    <!--
+    ________________________________________________________________________________________________
+
+                                                BASDAI
+
+    ________________________________________________________________________________________________
+    -->
+    <string name="basdai_markera">Markera på varje linje ditt svar på samtliga frågor som gäller hur du känt dig <u>den senaste veckan</u></string>
+    <string name="basdai_q1">1. Hur upplevde Du Din trötthet i allmänhet?</string>
+    <string name="basdai_q2">2. Hur upplevde Du vanligen Din nack-, rygg- och höftsmärta?</string>
+    <string name="basdai_q3">3. Hur upplevde Du i allmänhet Din smärta/svullnad i andra leder än nacke, rygg och höfter?</string>
+    <string name="basdai_q4">4. Hur upplevde Du vanligen Ditt obehag från områden, som ömmar för tryck eller beröring?</string>
+    <string name="basdai_q5">5. Hur upplevde Du vanligen Din morgonstelhet efter uppvaknandet?</string>
+    <string name="basdai_q6">6. Hur länge efter uppvaknandet varade Din morgonstelhet i allmänhet?</string>
+
+    <!--
+    ________________________________________________________________________________________________
+
+                                                BASG-1
+
+    ________________________________________________________________________________________________
+    -->
+    <string name="basg1_markera">1. Markera på linjen nedan vilken effekt sjukdomen hade på Ditt välbefinnande under <u>den senaste veckan</u></string>
+
+    <!--
+    ________________________________________________________________________________________________
+
+                                                BASG-2
+
+    ________________________________________________________________________________________________
+    -->
+    <string name="basg2_markera">2. Markera på linjen nedan vilken effekt sjukdomen hade på Ditt välbefinnande under <u>det senaste halvåret</u></string>
+
+    <!--
+   ________________________________________________________________________________________________
+
+                                               TST
+
+   ________________________________________________________________________________________________
+   -->
+    <string name="tst_instructions">Testet utförs helst barfota, annars i lågklackade skor. Använd stol med ryggstöd (45 cm hög).\n\n<b>Instruktion till patienten:</b>\n\nUtför 10 uppresningar så snabbt som möjligt utan hjälp av armarna.\n</string>
 
 </resources>

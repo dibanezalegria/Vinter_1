@@ -8,7 +8,7 @@
     <color name="textColor">#232323</color>
 
     <!-- Fragment IN and OUT background and brighter color for separators and editable text views -->
-    <color name="bgIn">@color/blue_grey_200</color>
+    <color name="test_background_color">@color/blue_grey_200</color>
     <color name="bgBrightIn">@color/blue_grey_100</color>
 
     <color name="bgOut">@color/grey_100</color>

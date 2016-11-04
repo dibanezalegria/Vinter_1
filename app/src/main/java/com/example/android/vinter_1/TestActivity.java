@@ -116,6 +116,18 @@ public class TestActivity extends AppCompatActivity {
                 case "FSS":
                     mAbstractFragment = new FSSFragment();
                     break;
+                case "BASFI":
+                    mAbstractFragment = new BasfiFragment();
+                    break;
+                case "BASDAI":
+                    mAbstractFragment = new BasdaiFragment();
+                    break;
+                case "BASG":
+                    mAbstractFragment = new BasgFragment();
+                    break;
+                case "TST":
+                    mAbstractFragment = new TSTFragment();
+                    break;
                 default:
                     mAbstractFragment = new BlankFragment();
                     break;

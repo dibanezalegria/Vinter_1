@@ -317,10 +317,7 @@ public class FSAFragment extends AbstractFragment implements NotesDialogFragment
         int rows = getActivity().getContentResolver().update(mTestUri, values, null, null);
         Log.d(LOG_TAG, "rows updated: " + rows);
 
-        if (status == Test.COMPLETED)
-            return true;
-        else
-            return false;
+        return status == Test.COMPLETED;
     }
 
     private void updateSumsTv() {

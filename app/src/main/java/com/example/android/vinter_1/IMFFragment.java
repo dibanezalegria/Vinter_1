@@ -104,8 +104,8 @@ public class IMFFragment extends AbstractFragment implements NotesDialogFragment
         mRgroup[19] = (RadioGroup) mRootView.findViewById(R.id.imf_rg13v);
 
         // Listeners
-        for (int i = 0; i < mRgroup.length; i++) {
-            mRgroup[i].setOnCheckedChangeListener(this);
+        for (RadioGroup aRgroup : mRgroup) {
+            aRgroup.setOnCheckedChangeListener(this);
         }
 
         // Hook up sums from view

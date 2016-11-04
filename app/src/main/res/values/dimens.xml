@@ -8,7 +8,7 @@
     <dimen name="vas_slider_horizontal_padding">30dp</dimen>
     <dimen name="vas_slider_vertical_padding">15dp</dimen>
     <!-- Text size for output text views -->
-    <dimen name="vas_output_text_size">28sp</dimen>
+    <dimen name="vas_output_text_size">26sp</dimen>
     <dimen name="vas_default_text_size">26sp</dimen>
 
     <!-- IMF ___________________________________________________________________________________ -->
@@ -38,4 +38,11 @@
     <dimen name="fsa_padding_box_text">6dp</dimen>
     <dimen name="fsa_margin_between_questions">32dp</dimen>
 
+    <!-- BASFI__________________________________________________________________________________ -->
+    <dimen name="basfi_margin_questions">32dp</dimen>
+    <dimen name="basfi_margin_question_slider">16dp</dimen>
+
+    <!-- BASDAI__________________________________________________________________________________ -->
+    <dimen name="basdai_margin_questions">32dp</dimen>
+    <dimen name="basdai_margin_question_slider">16dp</dimen>
 </resources>

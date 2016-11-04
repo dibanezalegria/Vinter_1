@@ -1,43 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            xmlns:tools="http://schemas.android.com/tools"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            tools:context="com.example.android.vinter_1.ResultTableActivity">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.android.vinter_1.ResultTableActivity">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                  android:layout_width="match_parent"
-                  android:layout_height="match_parent"
-                  android:background="@color/blue_grey_800"
-                  android:orientation="vertical">
+    <!-- Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/blue_grey_800"
+        android:gravity="center_vertical"
+        android:padding="16dp">
 
-        <!-- Header -->
-        <LinearLayout
-            android:layout_width="match_parent"
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/activity_test_fab_help"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:padding="16dp">
+            android:layout_marginStart="16dp"
+            android:clickable="true"
+            android:scaleType="center"
+            android:src="@drawable/ic_comment_white_24dp"
+            app:fabSize="mini"/>
 
-            <android.support.design.widget.FloatingActionButton
-                android:id="@+id/activity_test_fab_help"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:clickable="true"
-                android:scaleType="center"
-                android:src="@drawable/ic_comment_white_24dp"
-                app:fabSize="mini"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Mätresultat"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"/>
+    </LinearLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:text="Mätresultat"
-                android:textColor="@android:color/white"
-                android:textSize="20sp"/>
-        </LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <!-- Table -->
         <LinearLayout
@@ -918,8 +919,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/mat_padding"
                 android:background="@drawable/table_row_light_bg"
+                android:padding="@dimen/mat_padding"
                 android:textAppearance="@style/TextCustomNormal"/>
 
             <LinearLayout
@@ -1083,8 +1084,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/mat_padding"
                 android:background="@drawable/table_row_light_bg"
+                android:padding="@dimen/mat_padding"
                 android:textAppearance="@style/TextCustomNormal"/>
 
             <LinearLayout
@@ -1103,6 +1104,7 @@
                     android:textAppearance="@style/TextCustomNormal"/>
 
                 <TextView
+                    android:id="@+id/table_fss_in"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
@@ -1113,6 +1115,7 @@
                     android:textAppearance="@style/TextCustomNormal"/>
 
                 <TextView
+                    android:id="@+id/table_fss_out"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
@@ -1245,6 +1248,160 @@
                 android:background="@drawable/layout_border_only"
                 android:padding="@dimen/mat_padding"
                 android:textAppearance="@style/TextCustomNormal"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/blue_grey_50">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="70"
+                    android:background="@drawable/layout_border_only"
+                    android:ems="18"
+                    android:maxLines="1"
+                    android:padding="@dimen/mat_padding"
+                    android:text="BASDAI (0-10p, 0p=ua)"
+                    android:textAppearance="@style/TextCustomNormal"/>
+
+                <TextView
+                    android:id="@+id/table_basdai_in"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="15"
+                    android:background="@drawable/layout_border_only"
+                    android:ems="4"
+                    android:gravity="center"
+                    android:padding="@dimen/mat_padding"
+                    android:textAppearance="@style/TextCustomNormal"/>
+
+                <TextView
+                    android:id="@+id/table_basdai_out"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="15"
+                    android:background="@drawable/layout_border_only"
+                    android:ems="4"
+                    android:gravity="center"
+                    android:padding="@dimen/mat_padding"
+                    android:textAppearance="@style/TextCustomNormal"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="70"
+                    android:background="@drawable/layout_border_only"
+                    android:ems="18"
+                    android:maxLines="1"
+                    android:padding="@dimen/mat_padding"
+                    android:text="BASFI (0-10p, 0p=ua)"
+                    android:textAppearance="@style/TextCustomNormal"/>
+
+                <TextView
+                    android:id="@+id/table_basfi_in"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="15"
+                    android:background="@drawable/layout_border_only"
+                    android:ems="4"
+                    android:gravity="center"
+                    android:padding="@dimen/mat_padding"
+                    android:textAppearance="@style/TextCustomNormal"/>
+
+                <TextView
+                    android:id="@+id/table_basfi_out"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="15"
+                    android:background="@drawable/layout_border_only"
+                    android:ems="4"
+                    android:gravity="center"
+                    android:padding="@dimen/mat_padding"
+                    android:textAppearance="@style/TextCustomNormal"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/blue_grey_50">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="70"
+                    android:background="@drawable/layout_border_only"
+                    android:ems="18"
+                    android:maxLines="1"
+                    android:padding="@dimen/mat_padding"
+                    android:text="BASG-1 (0-10p, 0p=ua)"
+                    android:textAppearance="@style/TextCustomNormal"/>
+
+                <TextView
+                    android:id="@+id/table_basg1_in"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="15"
+                    android:background="@drawable/layout_border_only"
+                    android:ems="4"
+                    android:gravity="center"
+                    android:padding="@dimen/mat_padding"
+                    android:textAppearance="@style/TextCustomNormal"/>
+
+                <TextView
+                    android:id="@+id/table_basg1_out"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="15"
+                    android:background="@drawable/layout_border_only"
+                    android:ems="4"
+                    android:gravity="center"
+                    android:padding="@dimen/mat_padding"
+                    android:textAppearance="@style/TextCustomNormal"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="70"
+                    android:background="@drawable/layout_border_only"
+                    android:ems="18"
+                    android:maxLines="1"
+                    android:padding="@dimen/mat_padding"
+                    android:text="BASG-2 (0-10p, 0p=ua)"
+                    android:textAppearance="@style/TextCustomNormal"/>
+
+                <TextView
+                    android:id="@+id/table_basg2_in"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="15"
+                    android:background="@drawable/layout_border_only"
+                    android:ems="4"
+                    android:gravity="center"
+                    android:padding="@dimen/mat_padding"
+                    android:textAppearance="@style/TextCustomNormal"/>
+
+                <TextView
+                    android:id="@+id/table_basg2_out"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="15"
+                    android:background="@drawable/layout_border_only"
+                    android:ems="4"
+                    android:gravity="center"
+                    android:padding="@dimen/mat_padding"
+                    android:textAppearance="@style/TextCustomNormal"/>
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -1610,19 +1767,6 @@
                     android:text="Smärta: (0-inf, 0=ingen smärta)"
                     android:textAppearance="@style/TextCustomNormal"/>
 
-                <!--<TextView-->
-                    <!--android:layout_width="0dp"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_weight="40"-->
-                    <!--android:background="@drawable/layout_border_only"-->
-                    <!--android:ellipsize="end"-->
-                    <!--android:ems="18"-->
-                    <!--android:gravity="center"-->
-                    <!--android:maxLines="1"-->
-                    <!--android:padding="@dimen/mat_padding"-->
-                    <!--android:text="Smärta: (0-inf, 0=ingen smärta)"-->
-                    <!--android:textAppearance="@style/TextCustomNormal"/>-->
-
                 <TextView
                     android:id="@+id/table_fsa_smart_total_in"
                     android:layout_width="0dp"
@@ -1645,7 +1789,6 @@
                     android:padding="@dimen/mat_padding"
                     android:textAppearance="@style/TextCustomNormal"/>
             </LinearLayout>
-
         </LinearLayout>
-    </LinearLayout>
-</ScrollView>
+    </ScrollView>
+</LinearLayout>

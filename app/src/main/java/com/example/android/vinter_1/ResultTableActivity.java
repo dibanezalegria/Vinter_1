@@ -80,6 +80,16 @@ public class ResultTableActivity extends AppCompatActivity {
                         break;
                     case "FSA":
                         handleFSA(cursor);
+                        break;
+                    case "FSS":
+                        handleFSS(cursor);
+                        break;
+                    case "BASFI":
+                        handleBASFI(cursor);
+                        break;
+                    case "BASDAI":
+                        handleBASDAI(cursor);
+                        break;
                     default:
                         break;
                 }
@@ -396,49 +406,60 @@ public class ResultTableActivity extends AppCompatActivity {
                 mSmartV.setText(part[5]);
             }
         }
+    }
 
-//        // Here I do not check status, since result contains both sum höger, vänster and total AND
-//        // smärta höger, vänster an total also.
-//        // Format -> result höger|result vänster|smärta höger|smärta vänster
-//
-//        // In
-//        String result = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_RESULT_IN));
-//        String[] part = result.split("\\|");
-//
-//        if (!part[0].equals("-1")) {
-//            TextView mTvSumH = (TextView) findViewById(R.id.table_fsa_sum_h_in);
-//            mTvSumH.setText(part[0]);
-//        }
-//
-//        if (!part[1].equals("-1")) {
-//            TextView mTvSumV = (TextView) findViewById(R.id.table_fsa_sum_v_in);
-//            mTvSumV.setText(part[1]);
-//        }
-//
-//        if (!part[2].equals("-1")) {
-//            TextView mTvTotal = (TextView) findViewById(R.id.table_fsa_total_in);
-//            mTvTotal.setText(part[2]);
-//        }
-//
-//
-//        // Out
-//        result= cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_RESULT_OUT));
-//        part = result.split("\\|");
-//
-//        if (!part[0].equals("-1")) {
-//            TextView mTvSumH = (TextView) findViewById(R.id.table_fsa_sum_h_out);
-//            mTvSumH.setText(part[0]);
-//        }
-//
-//        if (!part[1].equals("-1")) {
-//            TextView mTvSumV = (TextView) findViewById(R.id.table_fsa_sum_v_out);
-//            mTvSumV.setText(part[1]);
-//        }
-//
-//        if (!part[2].equals("-1")) {
-//            TextView mTvTotal = (TextView) findViewById(R.id.table_fsa_total_out);
-//            mTvTotal.setText(part[2]);
-//        }
+    private void handleFSS(Cursor cursor) {
+        // In
+        int statusIn = cursor.getInt(cursor.getColumnIndex(TestEntry.COLUMN_STATUS_IN));
+        if (statusIn == Test.COMPLETED) {
+            TextView mTvResult = (TextView) findViewById(R.id.table_fss_in);
+            String result = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_RESULT_IN));
+            mTvResult.setText(result);
+        }
+
+        // Out
+        int statusOut = cursor.getInt(cursor.getColumnIndex(TestEntry.COLUMN_STATUS_OUT));
+        if (statusOut == Test.COMPLETED) {
+            TextView mTvResult = (TextView) findViewById(R.id.table_fss_out);
+            String result = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_RESULT_OUT));
+            mTvResult.setText(result);
+        }
+    }
+
+    private void handleBASFI(Cursor cursor) {
+        // In
+        int statusIn = cursor.getInt(cursor.getColumnIndex(TestEntry.COLUMN_STATUS_IN));
+        if (statusIn == Test.COMPLETED) {
+            TextView mTvResult = (TextView) findViewById(R.id.table_basfi_in);
+            String result = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_RESULT_IN));
+            mTvResult.setText(result);
+        }
+
+        // Out
+        int statusOut = cursor.getInt(cursor.getColumnIndex(TestEntry.COLUMN_STATUS_OUT));
+        if (statusOut == Test.COMPLETED) {
+            TextView mTvResult = (TextView) findViewById(R.id.table_basfi_out);
+            String result = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_RESULT_OUT));
+            mTvResult.setText(result);
+        }
+    }
+
+    private void handleBASDAI(Cursor cursor) {
+        // In
+        int statusIn = cursor.getInt(cursor.getColumnIndex(TestEntry.COLUMN_STATUS_IN));
+        if (statusIn == Test.COMPLETED) {
+            TextView mTvResult = (TextView) findViewById(R.id.table_basdai_in);
+            String result = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_RESULT_IN));
+            mTvResult.setText(result);
+        }
+
+        // Out
+        int statusOut = cursor.getInt(cursor.getColumnIndex(TestEntry.COLUMN_STATUS_OUT));
+        if (statusOut == Test.COMPLETED) {
+            TextView mTvResult = (TextView) findViewById(R.id.table_basdai_out);
+            String result = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_RESULT_OUT));
+            mTvResult.setText(result);
+        }
     }
 
 
