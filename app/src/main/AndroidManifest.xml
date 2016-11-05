@@ -19,12 +19,13 @@
         </activity>
         <activity
             android:name=".TestListActivity"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".MainActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden">
         </activity>
         <activity
             android:name=".TestActivity"
             android:parentActivityName=".TestListActivity"
-            android:windowSoftInputMode="stateHidden">
+            android:windowSoftInputMode="adjustResize|stateHidden">
         </activity>
         <activity
             android:name=".ResultTableActivity"

@@ -9,42 +9,46 @@
     android:orientation="vertical">
 
     <!-- Header -->
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:padding="16dp"
+        android:padding="24dp"
         android:background="@color/blue_grey_800">
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/activity_test_fab_help"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
             android:clickable="true"
             android:scaleType="center"
             android:src="@drawable/ic_help_outline_white_36dp"
+            app:fabSize="mini"/>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/activity_test_fab_notes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:clickable="true"
+            android:scaleType="center"
+            android:src="@drawable/ic_comment_white_24dp"
             app:fabSize="mini"/>
 
         <TextView
             android:id="@+id/activity_test_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@id/activity_test_fab_help"
+            android:layout_toStartOf="@id/activity_test_fab_notes"
+            android:paddingStart="16dp"
             tools:text="IMF - Index Muscle Function"
             android:textSize="20sp"
             android:textColor="@android:color/white"/>
-
-        <!--<ImageView-->
-            <!--android:id="@+id/activity_test_tick"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginStart="20dp"-->
-            <!--android:src="@drawable/ic_done_black_48dp"-->
-            <!--android:tint="@color/transparent"-->
-            <!--android:visibility="invisible"/>-->
-    </LinearLayout>
+    </RelativeLayout>
 
     <FrameLayout
         android:id="@+id/fragment_container"

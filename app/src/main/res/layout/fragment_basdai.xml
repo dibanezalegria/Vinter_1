@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
             xmlns:tools="http://schemas.android.com/tools"
-            android:id="@+id/basdai_background"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
             android:background="@color/test_background_color"
+            android:orientation="vertical"
             tools:context="com.example.android.vinter_1.TestActivity">
 
     <LinearLayout
+        android:id="@+id/basdai_layout_background"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -18,30 +17,16 @@
         android:paddingEnd="30dp"
         android:paddingStart="30dp">
 
-        <LinearLayout
+        <!-- Header -->
+        <TextView
+            android:id="@+id/basdai_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="16dp">
-
-            <TextView
-                android:id="@+id/basdai_title"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_weight="90"
-                android:gravity="center"
-                android:text="IN test"
-                android:textAppearance="@style/TextCustomLarge"/>
-
-            <android.support.design.widget.FloatingActionButton
-                android:id="@+id/basdai_fab_notes"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="10"
-                android:clickable="true"
-                android:src="@drawable/ic_comment_white_24dp"
-                app:fabSize="mini"/>
-        </LinearLayout>
+            android:layout_gravity="center_vertical"
+            android:padding="@dimen/fragment_title_padding"
+            android:gravity="center"
+            android:text="IN test"
+            android:textAppearance="@style/TextCustomLarge"/>
 
         <!-- Separator -->
         <View
@@ -280,9 +265,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/basdai_margin_question_slider"
-            android:theme="@style/Widget.AppCompat.SeekBar.Discrete"
             android:max="8"
-            android:progress="0"/>
+            android:progress="0"
+            android:theme="@style/Widget.AppCompat.SeekBar.Discrete"/>
 
         <!-- Labels -->
         <LinearLayout
@@ -302,8 +287,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:paddingStart="16dp"
                 android:gravity="start"
+                android:paddingStart="16dp"
                 android:text="1/2 tim"
                 android:textAppearance="?android:textAppearanceMedium"
                 />
@@ -321,8 +306,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:paddingStart="36dp"
                 android:gravity="center"
+                android:paddingStart="36dp"
                 android:text="1 1/2 tim"
                 android:textAppearance="?android:textAppearanceMedium"
                 />

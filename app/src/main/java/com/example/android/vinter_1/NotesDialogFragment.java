@@ -20,25 +20,32 @@ public class NotesDialogFragment extends DialogFragment {
      * Listener interface
      */
     public interface NotesDialogListener {
-        void onDialogSaveClick(String text);
+        void onDialogSaveClick(String notesIn, String notesOut);
     }
 
-    private static String mNotes;
-    private EditText mEditText;
+    private String mNotesIn, mNotesOut;
+    private EditText mEtNotesIn, mEtNotesOut;
 
     public NotesDialogFragment() {
         // Empty constructor is required for DialogFragment
         // Make sure not to add arguments to the constructor
-        // Use `newInstance` instead as shown below
+        // Use 'newInstance' instead as shown below
     }
 
-    public static NotesDialogFragment newInstance(String notes) {
-        if (notes != null) {
-            mNotes = notes;
-        } else {
-            mNotes = "";
-        }
+    public static NotesDialogFragment newInstance(String notesIn, String notesOut) {
         NotesDialogFragment fragment = new NotesDialogFragment();
+        if (notesIn != null) {
+            fragment.setNotesIn(notesIn);
+        } else {
+            fragment.setNotesIn("");
+        }
+
+        if (notesOut != null) {
+            fragment.setNotesOut(notesOut);
+        } else {
+            fragment.setNotesOut("");
+        }
+
         return fragment;
     }
 
@@ -48,11 +55,17 @@ public class NotesDialogFragment extends DialogFragment {
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = getActivity().getLayoutInflater();
         final View view = inflater.inflate(R.layout.fragment_dialog_notes, null);
-        // Layout fields
-        mEditText = (EditText) view.findViewById(R.id.et_dialog_notes);
-        mEditText.setText(mNotes);
+        // Edit text notes in
+        mEtNotesIn = (EditText) view.findViewById(R.id.dialog_notes_et_in);
+        mEtNotesIn.setText(mNotesIn);
         // Place cursor at the end of the text
-        mEditText.setSelection(mEditText.getText().length());
+        mEtNotesIn.setSelection(mEtNotesIn.getText().length());
+
+        // Edit text notes out
+        mEtNotesOut = (EditText) view.findViewById(R.id.dialog_notes_et_out);
+        mEtNotesOut.setText(mNotesOut);
+        // Place cursor at the end of the text
+        mEtNotesOut.setSelection(mEtNotesOut.getText().length());
 
         dialogBuilder.setView(view)
                 .setPositiveButton("SAVE", new DialogInterface.OnClickListener() {
@@ -73,7 +86,14 @@ public class NotesDialogFragment extends DialogFragment {
 
     public void callParentFragment() {
         NotesDialogListener listener = (NotesDialogListener) getTargetFragment();
-        listener.onDialogSaveClick(mEditText.getText().toString());
+        listener.onDialogSaveClick(mEtNotesIn.getText().toString(), mEtNotesOut.getText().toString());
     }
 
+    public void setNotesIn(String notesIn) {
+        mNotesIn = notesIn;
+    }
+
+    public void setNotesOut(String notesOut) {
+        mNotesOut = notesOut;
+    }
 }

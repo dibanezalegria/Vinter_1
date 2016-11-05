@@ -2,11 +2,11 @@ package com.example.android.vinter_1;
 
 
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.content.ContextCompat;
@@ -15,14 +15,18 @@ import android.text.Html;
 import android.util.Log;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import com.example.android.vinter_1.data.DbContract;
 import com.example.android.vinter_1.data.DbContract.TestEntry;
 import com.example.android.vinter_1.data.Test;
 
@@ -70,18 +74,27 @@ public class EQ5DFragment extends AbstractFragment implements NotesDialogFragmen
         // Test phase (IN or OUT)
         mTestPhase = getArguments().getInt(TestListActivity.KEY_INOUT);
 
-        if (mTestPhase == 0) {
-            mRootView = inflater.inflate(R.layout.fragment_eq5d_in, container, false);
-        } else {
-            mRootView = inflater.inflate(R.layout.fragment_eq5d_out, container, false);
+        mRootView = inflater.inflate(R.layout.fragment_eq5d, container, false);
+
+        if (mTestPhase == TestActivity.TEST_OUT) {
+//            ScrollView scroll = (ScrollView) mRootView.findViewById(R.id.basfi_background);
+//            scroll.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.bgOut));
+//            View separator = (View) mRootView.findViewById(R.id.basfi_separator);
+//            separator.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.bgBrightOut));
+            TextView textView = (TextView) mRootView.findViewById(R.id.eq5d_title);
+            textView.setText("UT test");
         }
 
-        // Note fab
-        FloatingActionButton fabNotes = (FloatingActionButton) mRootView.findViewById(R.id.eq5d_fab_notes);
-        fabNotes.setOnClickListener(new View.OnClickListener() {
+        // Layout background listener closes soft keyboard
+        LinearLayout layout = (LinearLayout) mRootView.findViewById(R.id.eq5d_layout_background);
+        layout.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick(View v) {
-                notesDialog();
+            public boolean onTouch(View v, MotionEvent event) {
+                // Hide soft keyboard
+                InputMethodManager imm = (InputMethodManager) getActivity()
+                        .getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+                return false;
             }
         });
 
@@ -609,23 +622,22 @@ public class EQ5DFragment extends AbstractFragment implements NotesDialogFragmen
     /**
      * Notes dialog
      */
-    private void notesDialog() {
+    @Override
+    public void notesDialog() {
         // Recover notes from database
         Cursor cursor = getActivity().getContentResolver().query(mTestUri, null, null, null, null, null);
-        String oldNotes = null;
+        String oldNotesIn = null;
+        String oldNotesOut = null;
         if (cursor != null) {
             cursor.moveToFirst();
-            if (mTestPhase == TestActivity.TEST_IN) {
-                oldNotes = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_NOTES_IN));
-            } else {
-                oldNotes = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_NOTES_OUT));
-            }
+            oldNotesIn = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_NOTES_IN));
+            oldNotesOut = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_NOTES_OUT));
             cursor.close();
         }
 
         // Call dialog
         FragmentManager fm = getActivity().getSupportFragmentManager();
-        NotesDialogFragment dialogFragment = NotesDialogFragment.newInstance(oldNotes);
+        NotesDialogFragment dialogFragment = NotesDialogFragment.newInstance(oldNotesIn, oldNotesOut);
         // Set target fragment for use later when sending results
         dialogFragment.setTargetFragment(EQ5DFragment.this, 100);
         dialogFragment.show(fm, "notes_fragment_dialog");
@@ -652,14 +664,11 @@ public class EQ5DFragment extends AbstractFragment implements NotesDialogFragmen
     }
 
     @Override
-    public void onDialogSaveClick(String text) {
+    public void onDialogSaveClick(String notesIn, String notesOut) {
         // Save to database
         ContentValues values = new ContentValues();
-        if (mTestPhase == TestActivity.TEST_IN) {
-            values.put(TestEntry.COLUMN_NOTES_IN, text);
-        } else {
-            values.put(TestEntry.COLUMN_NOTES_OUT, text);
-        }
+        values.put(DbContract.TestEntry.COLUMN_NOTES_IN, notesIn);
+        values.put(DbContract.TestEntry.COLUMN_NOTES_OUT, notesOut);
 
         int rows = getActivity().getContentResolver().update(mTestUri, values, null, null);
         Log.d(LOG_TAG, "rows updated: " + rows);

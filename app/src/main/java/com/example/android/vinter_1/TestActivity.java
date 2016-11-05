@@ -159,13 +159,23 @@ public class TestActivity extends AppCompatActivity {
         }
 
         // Fab help
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.activity_test_fab_help);
-        fab.setOnClickListener(new View.OnClickListener() {
+        FloatingActionButton fabHelp = (FloatingActionButton) findViewById(R.id.activity_test_fab_help);
+        fabHelp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mAbstractFragment.helpDialog();
             }
         });
+
+        // Fab notes
+        FloatingActionButton fabNotes = (FloatingActionButton) findViewById(R.id.activity_test_fab_notes);
+        fabNotes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mAbstractFragment.notesDialog();
+            }
+        });
+
     }
 
     @Override

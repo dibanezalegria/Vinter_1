@@ -35,4 +35,9 @@ public class BlankFragment extends AbstractFragment {
     public void helpDialog() {
 
     }
+
+    @Override
+    public void notesDialog() {
+
+    }
 }

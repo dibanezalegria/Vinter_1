@@ -9,6 +9,7 @@
             tools:context="com.example.android.vinter_1.TestActivity">
 
     <LinearLayout
+        android:id="@+id/vas_layout_background"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -16,30 +17,16 @@
         android:paddingEnd="30dp"
         android:paddingStart="30dp">
 
-        <LinearLayout
+        <!-- Header -->
+        <TextView
+            android:id="@+id/vas_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="16dp">
-
-            <TextView
-                android:id="@+id/vas_title"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_weight="90"
-                android:gravity="center"
-                android:text="IN test"
-                android:textAppearance="@style/TextCustomLarge"/>
-
-            <android.support.design.widget.FloatingActionButton
-                android:id="@+id/vas_fab_notes"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="10"
-                android:clickable="true"
-                android:src="@drawable/ic_comment_white_24dp"
-                app:fabSize="mini"/>
-        </LinearLayout>
+            android:layout_gravity="center_vertical"
+            android:padding="@dimen/fragment_title_padding"
+            android:gravity="center"
+            android:text="IN test"
+            android:textAppearance="@style/TextCustomLarge"/>
 
         <!-- Separator -->
         <View
@@ -81,8 +68,8 @@
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_remove_black_24dp"
                     android:tint="@color/blue_grey_900"
-                    android:clickable="true"
-                    />
+                    android:background="@color/transparent"
+                    android:clickable="true"/>
 
                 <!-- Output -->
                 <TextView
@@ -93,16 +80,15 @@
                     android:background="@drawable/spinner_blue_output_box"
                     android:gravity="center"
                     android:textColor="@android:color/white"
-                    android:textSize="@dimen/vas_output_text_size"
-                    />
+                    android:textSize="@dimen/vas_output_text_size"/>
                 <ImageButton
                     android:id="@+id/vas_btn_plus_1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="@color/transparent"
                     android:src="@drawable/ic_add_white_24dp"
                     android:tint="@color/blue_grey_900"
-                    android:clickable="true"
-                    />
+                    android:clickable="true"/>
             </LinearLayout>
 
             <!-- SeekBar -->
@@ -131,8 +117,7 @@
                     android:layout_weight="1"
                     android:gravity="start"
                     android:text="0"
-                    android:textAppearance="?android:textAppearanceMedium"
-                    />
+                    android:textAppearance="?android:textAppearanceMedium"/>
 
                 <TextView
                     android:layout_width="0dp"
@@ -140,8 +125,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="50"
-                    android:textAppearance="?android:textAppearanceMedium"
-                    />
+                    android:textAppearance="?android:textAppearanceMedium"/>
 
                 <TextView
                     android:layout_width="0dp"
@@ -150,8 +134,7 @@
                     android:layout_weight="1"
                     android:gravity="end"
                     android:text="100"
-                    android:textAppearance="?android:textAppearanceMedium"
-                    />
+                    android:textAppearance="?android:textAppearanceMedium"/>
             </LinearLayout>
         </LinearLayout>
 
@@ -179,8 +162,7 @@
                     android:layout_weight="85"
                     android:gravity="start"
                     android:text="Smärta"
-                    android:textSize="@dimen/vas_default_text_size"
-                    />
+                    android:textSize="@dimen/vas_default_text_size"/>
 
                 <!-- Output -->
                 <TextView
@@ -192,8 +174,7 @@
                     android:background="@drawable/spinner_blue_output_box"
                     android:gravity="center"
                     android:textColor="@android:color/white"
-                    android:textSize="@dimen/vas_default_text_size"
-                    />
+                    android:textSize="@dimen/vas_default_text_size"/>
             </LinearLayout>
 
             <!-- SeekBar -->
@@ -222,8 +203,7 @@
                     android:layout_weight="1"
                     android:gravity="start"
                     android:text="0"
-                    android:textAppearance="?android:textAppearanceMedium"
-                    />
+                    android:textAppearance="?android:textAppearanceMedium"/>
 
                 <TextView
                     android:layout_width="0dp"
@@ -231,8 +211,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="50"
-                    android:textAppearance="?android:textAppearanceMedium"
-                    />
+                    android:textAppearance="?android:textAppearanceMedium"/>
 
                 <TextView
                     android:layout_width="0dp"
@@ -241,8 +220,7 @@
                     android:layout_weight="1"
                     android:gravity="end"
                     android:text="100"
-                    android:textAppearance="?android:textAppearanceMedium"
-                    />
+                    android:textAppearance="?android:textAppearanceMedium"/>
             </LinearLayout>
         </LinearLayout>
 
@@ -270,8 +248,7 @@
                     android:layout_weight="85"
                     android:gravity="start"
                     android:text="Stelhet"
-                    android:textSize="@dimen/vas_default_text_size"
-                    />
+                    android:textSize="@dimen/vas_default_text_size"/>
 
                 <!-- Output -->
                 <TextView
@@ -283,8 +260,7 @@
                     android:background="@drawable/spinner_blue_output_box"
                     android:gravity="center"
                     android:textColor="@android:color/white"
-                    android:textSize="@dimen/vas_output_text_size"
-                    />
+                    android:textSize="@dimen/vas_output_text_size"/>
             </LinearLayout>
 
             <!-- SeekBar -->
@@ -303,8 +279,7 @@
             <!-- Values labels -->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                >
+                android:layout_height="wrap_content">
 
                 <TextView
                     android:layout_width="0dp"
@@ -313,8 +288,7 @@
                     android:layout_weight="1"
                     android:gravity="start"
                     android:text="0"
-                    android:textAppearance="?android:textAppearanceMedium"
-                    />
+                    android:textAppearance="?android:textAppearanceMedium"/>
 
                 <TextView
                     android:layout_width="0dp"
@@ -322,8 +296,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="50"
-                    android:textAppearance="?android:textAppearanceMedium"
-                    />
+                    android:textAppearance="?android:textAppearanceMedium"/>
 
                 <TextView
                     android:layout_width="0dp"
@@ -332,8 +305,7 @@
                     android:layout_weight="1"
                     android:gravity="end"
                     android:text="100"
-                    android:textAppearance="?android:textAppearanceMedium"
-                    />
+                    android:textAppearance="?android:textAppearanceMedium"/>
             </LinearLayout>
         </LinearLayout>
 
@@ -361,8 +333,7 @@
                     android:layout_weight="85"
                     android:gravity="start"
                     android:text="Trötthet"
-                    android:textSize="@dimen/vas_default_text_size"
-                    />
+                    android:textSize="@dimen/vas_default_text_size"/>
 
                 <!-- Output -->
                 <TextView
@@ -374,8 +345,7 @@
                     android:background="@drawable/spinner_blue_output_box"
                     android:gravity="center"
                     android:textColor="@android:color/white"
-                    android:textSize="@dimen/vas_output_text_size"
-                    />
+                    android:textSize="@dimen/vas_output_text_size"/>
             </LinearLayout>
 
             <!-- SeekBar -->
@@ -404,8 +374,7 @@
                     android:layout_weight="1"
                     android:gravity="start"
                     android:text="0"
-                    android:textAppearance="?android:textAppearanceMedium"
-                    />
+                    android:textAppearance="?android:textAppearanceMedium"/>
 
                 <TextView
                     android:layout_width="0dp"
@@ -413,8 +382,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="50"
-                    android:textAppearance="?android:textAppearanceMedium"
-                    />
+                    android:textAppearance="?android:textAppearanceMedium"/>
 
                 <TextView
                     android:layout_width="0dp"
@@ -423,8 +391,7 @@
                     android:layout_weight="1"
                     android:gravity="end"
                     android:text="100"
-                    android:textAppearance="?android:textAppearanceMedium"
-                    />
+                    android:textAppearance="?android:textAppearanceMedium"/>
             </LinearLayout>
         </LinearLayout>
 
@@ -452,8 +419,7 @@
                     android:layout_weight="85"
                     android:gravity="start"
                     android:text="Hälsa"
-                    android:textSize="@dimen/vas_default_text_size"
-                    />
+                    android:textSize="@dimen/vas_default_text_size"/>
 
                 <!-- Output -->
                 <TextView
@@ -465,8 +431,7 @@
                     android:background="@drawable/spinner_blue_output_box"
                     android:gravity="center"
                     android:textColor="@android:color/white"
-                    android:textSize="@dimen/vas_output_text_size"
-                    />
+                    android:textSize="@dimen/vas_output_text_size"/>
             </LinearLayout>
 
             <!-- SeekBar -->
@@ -485,8 +450,7 @@
             <!-- Values labels -->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                >
+                android:layout_height="wrap_content">
 
                 <TextView
                     android:layout_width="0dp"
@@ -495,8 +459,7 @@
                     android:layout_weight="1"
                     android:gravity="start"
                     android:text="0"
-                    android:textAppearance="?android:textAppearanceMedium"
-                    />
+                    android:textAppearance="?android:textAppearanceMedium"/>
 
                 <TextView
                     android:layout_width="0dp"
@@ -504,8 +467,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="50"
-                    android:textAppearance="?android:textAppearanceMedium"
-                    />
+                    android:textAppearance="?android:textAppearanceMedium"/>
 
                 <TextView
                     android:layout_width="0dp"
@@ -514,8 +476,7 @@
                     android:layout_weight="1"
                     android:gravity="end"
                     android:text="100"
-                    android:textAppearance="?android:textAppearanceMedium"
-                    />
+                    android:textAppearance="?android:textAppearanceMedium"/>
             </LinearLayout>
         </LinearLayout>
 

@@ -3,6 +3,8 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
 
+    <dimen name="fragment_title_padding">26dp</dimen>
+
     <!-- VAS ___________________________________________________________________________________ -->
     <!-- Padding for slider including scale and output -->
     <dimen name="vas_slider_horizontal_padding">30dp</dimen>

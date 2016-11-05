@@ -73,7 +73,6 @@ public class MenuPatientDialogFragment extends DialogFragment {
                     public void onClick(DialogInterface dialog, int which) {
                         // The 'which' argument contains the index position
                         // of the selected item
-                        Log.d(LOG_TAG, "onCreateDialog -> which: " + which);
                         mCallback.onMenuPatientDialogClick(which, Integer.parseInt(id), name, entry);
                     }
                 });

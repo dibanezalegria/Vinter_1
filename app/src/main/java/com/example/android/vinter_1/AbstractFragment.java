@@ -12,5 +12,6 @@ public abstract class AbstractFragment extends Fragment {
 
     public abstract boolean saveToDatabase();
     public abstract void helpDialog();
+    public abstract void notesDialog();
 
 }

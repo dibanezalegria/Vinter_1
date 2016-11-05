@@ -4,7 +4,7 @@
             xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/bgOut"
+            android:background="@color/test_background_color"
             android:orientation="vertical"
             tools:context="com.example.android.vinter_1.TestActivity">
 
@@ -17,36 +17,23 @@
         android:paddingEnd="30dp"
         android:paddingStart="30dp">
 
-        <LinearLayout
+        <!-- Header -->
+        <TextView
+            android:id="@+id/basmi_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="16dp">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_weight="90"
-                android:gravity="center"
-                android:text="UT test"
-                android:textAppearance="@style/TextCustomLarge"/>
-
-            <android.support.design.widget.FloatingActionButton
-                android:id="@+id/basmi_fab_notes"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="10"
-                android:clickable="true"
-                android:src="@drawable/ic_comment_white_24dp"
-                app:fabSize="mini"/>
-        </LinearLayout>
+            android:layout_gravity="center_vertical"
+            android:padding="@dimen/fragment_title_padding"
+            android:gravity="center"
+            android:text="IN test"
+            android:textAppearance="@style/TextCustomLarge"/>
 
         <!-- Separator -->
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
             android:layout_marginBottom="30dp"
-            android:background="@color/bgBrightOut"/>
+            android:background="@color/bgBrightIn"/>
 
         <!-- Q1 -->
         <TextView
@@ -451,6 +438,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="BASMI Total (0-10, 0 = ua)"
+                android:layout_gravity="center_vertical"
                 android:textAppearance="@style/TextCustomLarge"
                 />
 

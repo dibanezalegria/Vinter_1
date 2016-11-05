@@ -38,15 +38,24 @@ public class PatientCursorAdapter extends CursorAdapter {
         TextView tvName = (TextView)  view.findViewById(R.id.patient_list_item_name_tv);
         TextView tvEntrada = (TextView) view.findViewById(R.id.patient_list_item_entry_tv);
 
-        final View clickedView = view;
+        // Note on item listeners for this view
+        // Clicks in fab and item open the same option menu
 
-        // Fab result
+        // Fab options listener
         FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.patient_list_fab_result);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 View itemView = (View) v.getParent();
                 mMainActivity.optionFabClicked(itemView);
+            }
+        });
+
+        // Item list listener
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mMainActivity.optionFabClicked(v);
             }
         });
 
