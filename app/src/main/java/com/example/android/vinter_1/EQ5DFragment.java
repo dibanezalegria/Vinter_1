@@ -150,7 +150,7 @@ public class EQ5DFragment extends AbstractFragment implements NotesDialogFragmen
                 // Save to database: return false if test incomplete
                 if (!saveToDatabase()) {
                     AlertDialog dialog = new AlertDialog.Builder(getActivity()).create();
-                    dialog.setMessage("Progress saved, but some question are still unanswered.");
+                    dialog.setMessage(getResources().getString(R.string.test_saved_incomplete));
                     dialog.setButton(AlertDialog.BUTTON_POSITIVE, "VISA", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
@@ -161,7 +161,7 @@ public class EQ5DFragment extends AbstractFragment implements NotesDialogFragmen
                     dialog.show();
                 } else {
                     AlertDialog dialog = new AlertDialog.Builder(getActivity()).create();
-                    dialog.setMessage("Test completed. Successfully saved.");
+                    dialog.setMessage(getResources().getString(R.string.test_saved_complete));
                     dialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
@@ -648,10 +648,10 @@ public class EQ5DFragment extends AbstractFragment implements NotesDialogFragmen
         AlertDialog dialog = new AlertDialog.Builder(getActivity()).create();
         // fromHtml deprecated for Android N and higher
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
-            dialog.setMessage(Html.fromHtml(getContext().getString(R.string.imf_manual),
+            dialog.setMessage(Html.fromHtml(getContext().getString(R.string.eq5d_manual),
                     Html.FROM_HTML_MODE_LEGACY));
         } else {
-            dialog.setMessage(Html.fromHtml(getContext().getString(R.string.imf_manual)));
+            dialog.setMessage(Html.fromHtml(getContext().getString(R.string.eq5d_manual)));
         }
 
         dialog.setButton(AlertDialog.BUTTON_NEUTRAL, "Close", new DialogInterface.OnClickListener() {

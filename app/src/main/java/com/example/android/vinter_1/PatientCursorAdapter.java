@@ -38,6 +38,9 @@ public class PatientCursorAdapter extends CursorAdapter {
         TextView tvName = (TextView)  view.findViewById(R.id.patient_list_item_name_tv);
         TextView tvEntrada = (TextView) view.findViewById(R.id.patient_list_item_entry_tv);
 
+        // Enable only for debugging
+        tvId.setVisibility(TextView.GONE);
+
         // Note on item listeners for this view
         // Clicks in fab and item open the same option menu
 

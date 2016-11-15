@@ -23,8 +23,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:padding="@dimen/fragment_title_padding"
             android:gravity="center"
+            android:padding="@dimen/fragment_title_padding"
             android:text="IN test"
             android:textAppearance="@style/TextCustomLarge"/>
 
@@ -32,50 +32,49 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
-            android:layout_marginBottom="30dp"
+            android:layout_marginBottom="40dp"
             android:background="@color/bgBrightIn"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_weight="90"
-                android:text="6-minuters gångtest"
-                android:textAppearance="@style/TextCustomLarge"
-                />
-
-        </LinearLayout>
 
         <TextView
             android:id="@+id/min6_tv_meters"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
+            android:layout_marginBottom="20dp"
             android:ems="5"
             android:text="Antal meter"
-            android:textAppearance="@style/TextCustomNormal"
+            android:textAppearance="@style/TextCustomLarge"
             />
 
         <LinearLayout
             android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                style="@style/TextCustomNormal"
+                android:layout_weight="1"
+                android:text="| = 30 m"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp">
+            android:layout_marginBottom="16dp"
+            android:layout_marginStart="20dp">
 
             <ImageButton
                 android:id="@+id/min6_btn_meter_minus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:clickable="true"
                 android:src="@drawable/ic_remove_black_24dp"
                 android:tint="@color/blue_grey_900"
-                android:clickable="true"
                 />
 
             <EditText
@@ -93,23 +92,23 @@
                 android:id="@+id/min6_btn_meter_plus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:clickable="true"
                 android:src="@drawable/ic_add_white_24dp"
                 android:tint="@color/blue_grey_900"
-                android:clickable="true"
                 />
 
             <TextView
                 android:id="@+id/min6_tv_meter_ticks"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="26sp"
-                android:layout_marginStart="20dp"
                 android:layout_marginEnd="16dp"
+                android:layout_marginStart="20dp"
                 android:background="@drawable/min6_border_ticks"
                 android:gravity="start"
-                android:paddingStart="8dp"
-                android:paddingEnd="8dp"
                 android:paddingBottom="4dp"
+                android:paddingEnd="8dp"
+                android:paddingStart="8dp"
+                android:textSize="26sp"
                 tools:text="||||| |||||"/>
 
         </LinearLayout>
@@ -124,8 +123,8 @@
                 android:id="@+id/min6_tv_help"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Hjälpmedel"
                 android:ems="5"
+                android:text="Hjälpmedel"
                 android:textAppearance="@style/TextCustomNormal"
                 />
 

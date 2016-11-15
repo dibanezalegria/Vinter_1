@@ -38,7 +38,8 @@ import com.example.android.vinter_1.data.Test;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class MIN6Fragment extends AbstractFragment implements NotesDialogFragment.NotesDialogListener, TextWatcher, AdapterView.OnItemSelectedListener {
+public class MIN6Fragment extends AbstractFragment implements NotesDialogFragment.NotesDialogListener,
+        TextWatcher, AdapterView.OnItemSelectedListener {
 
     private static final String LOG_TAG = MIN6Fragment.class.getSimpleName();
 
@@ -144,6 +145,11 @@ public class MIN6Fragment extends AbstractFragment implements NotesDialogFragmen
                     mTickCounter = Integer.parseInt(mETmeters.getText().toString()) / 30;
 
                 updateTickDisplay();
+
+                highlightQuestions();   // Dynamic highlighting
+
+                // Inform parent activity
+                ((TestActivity) getActivity()).setUserHasSaved(false);
             }
         });
 
@@ -196,7 +202,7 @@ public class MIN6Fragment extends AbstractFragment implements NotesDialogFragmen
                 // Save to database: return false if test incomplete
                 if (!saveToDatabase()) {
                     AlertDialog dialog = new AlertDialog.Builder(getActivity()).create();
-                    dialog.setMessage("Progress saved, but some question are still unanswered.");
+                    dialog.setMessage(getResources().getString(R.string.test_saved_incomplete));
                     dialog.setButton(AlertDialog.BUTTON_POSITIVE, "VISA", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
@@ -207,7 +213,7 @@ public class MIN6Fragment extends AbstractFragment implements NotesDialogFragmen
                     dialog.show();
                 } else {
                     AlertDialog dialog = new AlertDialog.Builder(getActivity()).create();
-                    dialog.setMessage("Test completed. Successfully saved.");
+                    dialog.setMessage(getResources().getString(R.string.test_saved_complete));
                     dialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
@@ -278,9 +284,6 @@ public class MIN6Fragment extends AbstractFragment implements NotesDialogFragmen
             updateTickDisplay();
         }
 
-        // Inform parent activity that form is up to date
-        ((TestActivity) getActivity()).setUserHasSaved(true);
-
         return mRootView;
     }
 
@@ -304,6 +307,9 @@ public class MIN6Fragment extends AbstractFragment implements NotesDialogFragmen
         spCR10Finish.setOnItemSelectedListener(this);
         spRpeStart.setOnItemSelectedListener(this);
         spRpeFinish.setOnItemSelectedListener(this);
+
+        // Inform parent activity that form is up to date
+        ((TestActivity) getActivity()).setUserHasSaved(true);
     }
 
     @Override
@@ -448,6 +454,12 @@ public class MIN6Fragment extends AbstractFragment implements NotesDialogFragmen
      * Highlights unanswered question
      */
     private void highlightQuestions() {
+        if (mHighlightsON && mETmeters.getText().toString().trim().length() == 0) {
+            mTVmeters.setTextColor(ContextCompat.getColor(getContext(), R.color.highlight));
+        } else {
+            mTVmeters.setTextColor(ContextCompat.getColor(getContext(), R.color.textColor));
+        }
+
         if (mHighlightsON && mETpulseStart.getText().toString().trim().length() == 0) {
             mTVpulseStart.setTextColor(ContextCompat.getColor(getContext(), R.color.highlight));
         } else {
@@ -493,10 +505,10 @@ public class MIN6Fragment extends AbstractFragment implements NotesDialogFragmen
         AlertDialog dialog = new AlertDialog.Builder(getActivity()).create();
         // fromHtml deprecated for Android N and higher
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
-            dialog.setMessage(Html.fromHtml(getContext().getString(R.string.imf_manual),
+            dialog.setMessage(Html.fromHtml(getContext().getString(R.string.min6_manual),
                     Html.FROM_HTML_MODE_LEGACY));
         } else {
-            dialog.setMessage(Html.fromHtml(getContext().getString(R.string.imf_manual)));
+            dialog.setMessage(Html.fromHtml(getContext().getString(R.string.min6_manual)));
         }
 
         dialog.setButton(AlertDialog.BUTTON_NEUTRAL, "Close", new DialogInterface.OnClickListener() {
@@ -506,6 +518,11 @@ public class MIN6Fragment extends AbstractFragment implements NotesDialogFragmen
             }
         });
         dialog.show();
+
+        // Change text size
+        TextView msg = (TextView) dialog.findViewById(android.R.id.message);
+        if (msg != null)
+            msg.setTextSize(18);
     }
 
     /**
@@ -537,6 +554,10 @@ public class MIN6Fragment extends AbstractFragment implements NotesDialogFragmen
      */
     private boolean missingAnswers() {
         boolean missing = false;
+        if (mETmeters.getText().toString().trim().length() == 0) {
+            missing = true;
+        }
+
         if (mETpulseStart.getText().toString().trim().length() == 0) {
             missing = true;
         }

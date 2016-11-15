@@ -16,7 +16,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:layout_weight="40"
+        android:layout_weight="50"
         android:textAppearance="?android:textAppearanceLarge"
         android:textColor="#616161"
         tools:text="Name"
@@ -27,7 +27,7 @@
     <ImageView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="20"
+        android:layout_weight="10"
         android:src="@drawable/ic_more_horiz_black_36dp"
         android:tint="@color/grey_700"
         android:focusable="false"

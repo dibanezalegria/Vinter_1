@@ -45,6 +45,7 @@
             android:layout_toEndOf="@id/activity_test_fab_help"
             android:layout_toStartOf="@id/activity_test_fab_notes"
             android:paddingStart="16dp"
+            android:paddingEnd="16dp"
             tools:text="IMF - Index Muscle Function"
             android:textSize="20sp"
             android:textColor="@android:color/white"/>

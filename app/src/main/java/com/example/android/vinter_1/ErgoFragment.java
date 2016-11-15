@@ -1,15 +1,20 @@
 package com.example.android.vinter_1;
 
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
+import android.text.Editable;
 import android.text.Html;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -17,33 +22,31 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.example.android.vinter_1.data.DbContract;
 import com.example.android.vinter_1.data.Test;
 
-import java.util.Locale;
 
 /**
- * Created by Daniel Ibanez on 2016-11-02.
+ * A simple {@link Fragment} subclass.
  */
+public class ErgoFragment extends AbstractFragment implements NotesDialogFragment.NotesDialogListener, TextWatcher {
 
-public class FSSFragment extends AbstractFragment implements RadioGroup.OnCheckedChangeListener, NotesDialogFragment.NotesDialogListener {
+    private static final String LOG_TAG = ErgoFragment.class.getSimpleName();
 
-    private static final String LOG_TAG = FSSFragment.class.getSimpleName();
-
-    private static int N_QUESTIONS = 9;
+    private static final int N_DATA = 7;
+    private static final int N_PULSE = 12;
 
     // Save state constant
     private static final String STATE_CONTENT = "state_content";
     private static final String STATE_HIGH_ON = "state_high_on";
 
-    private TextView mTvQ[];
-    private RadioGroup mRg[];
-    private TextView mTvResult;
+    private TextView mTvTitle[];
+    private EditText mData[];
+    private EditText mPulse[];
 
     private Uri mTestUri;
     private int mTestPhase;
@@ -51,9 +54,10 @@ public class FSSFragment extends AbstractFragment implements RadioGroup.OnChecke
     private View mRootView;
     private boolean mHighlightsON;
 
-    public FSSFragment() {
-        mTvQ = new TextView[N_QUESTIONS];
-        mRg = new RadioGroup[N_QUESTIONS];
+    public ErgoFragment() {
+        mTvTitle = new TextView[N_DATA];
+        mData = new EditText[N_DATA];
+        mPulse = new EditText[N_PULSE];
     }
 
     @Override
@@ -65,19 +69,19 @@ public class FSSFragment extends AbstractFragment implements RadioGroup.OnChecke
         // Test phase (IN or OUT)
         mTestPhase = getArguments().getInt(TestListActivity.KEY_INOUT);
 
-        mRootView = inflater.inflate(R.layout.fragment_fss, container, false);
+        mRootView = inflater.inflate(R.layout.fragment_ergo, container, false);
 
         if (mTestPhase == TestActivity.TEST_OUT) {
 //            ScrollView scroll = (ScrollView) mRootView.findViewById(R.id.basfi_background);
 //            scroll.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.bgOut));
 //            View separator = (View) mRootView.findViewById(R.id.basfi_separator);
 //            separator.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.bgBrightOut));
-            TextView textView = (TextView) mRootView.findViewById(R.id.fss_title);
+            TextView textView = (TextView) mRootView.findViewById(R.id.ergo_title);
             textView.setText("UT test");
         }
 
         // Layout background listener closes soft keyboard
-        LinearLayout layout = (LinearLayout) mRootView.findViewById(R.id.fss_layout_background);
+        LinearLayout layout = (LinearLayout) mRootView.findViewById(R.id.ergo_layout_background);
         layout.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -89,39 +93,52 @@ public class FSSFragment extends AbstractFragment implements RadioGroup.OnChecke
             }
         });
 
-        // Result output
-        mTvResult = (TextView) mRootView.findViewById(R.id.fss_result);
+        mTvTitle[0] = (TextView) mRootView.findViewById(R.id.ergo_tv_cykel);
+        mTvTitle[1] = (TextView) mRootView.findViewById(R.id.ergo_tv_sadel);
+        mTvTitle[2] = (TextView) mRootView.findViewById(R.id.ergo_tv_vikt);
+        mTvTitle[3] = (TextView) mRootView.findViewById(R.id.ergo_tv_längd);
+        mTvTitle[4] = (TextView) mRootView.findViewById(R.id.ergo_tv_ålder);
+        mTvTitle[5] = (TextView) mRootView.findViewById(R.id.ergo_tv_vilo);
+        mTvTitle[6] = (TextView) mRootView.findViewById(R.id.ergo_tv_belas);
 
-        mTvQ[0] = (TextView) mRootView.findViewById(R.id.fss_tv_q1);
-        mTvQ[1] = (TextView) mRootView.findViewById(R.id.fss_tv_q2);
-        mTvQ[2] = (TextView) mRootView.findViewById(R.id.fss_tv_q3);
-        mTvQ[3] = (TextView) mRootView.findViewById(R.id.fss_tv_q4);
-        mTvQ[4] = (TextView) mRootView.findViewById(R.id.fss_tv_q5);
-        mTvQ[5] = (TextView) mRootView.findViewById(R.id.fss_tv_q6);
-        mTvQ[6] = (TextView) mRootView.findViewById(R.id.fss_tv_q7);
-        mTvQ[7] = (TextView) mRootView.findViewById(R.id.fss_tv_q8);
-        mTvQ[8] = (TextView) mRootView.findViewById(R.id.fss_tv_q9);
+        mData[0] = (EditText) mRootView.findViewById(R.id.ergo_et_cykel);
+        mData[1] = (EditText) mRootView.findViewById(R.id.ergo_et_sadel);
+        mData[2] = (EditText) mRootView.findViewById(R.id.ergo_et_vikt);
+        mData[3] = (EditText) mRootView.findViewById(R.id.ergo_et_längd);
+        mData[4] = (EditText) mRootView.findViewById(R.id.ergo_et_ålder);
+        mData[5] = (EditText) mRootView.findViewById(R.id.ergo_et_vilo);
+        mData[6] = (EditText) mRootView.findViewById(R.id.ergo_et_belas);
 
-        mRg[0] = (RadioGroup) mRootView.findViewById(R.id.fss_rg1);
-        mRg[1] = (RadioGroup) mRootView.findViewById(R.id.fss_rg2);
-        mRg[2] = (RadioGroup) mRootView.findViewById(R.id.fss_rg3);
-        mRg[3] = (RadioGroup) mRootView.findViewById(R.id.fss_rg4);
-        mRg[4] = (RadioGroup) mRootView.findViewById(R.id.fss_rg5);
-        mRg[5] = (RadioGroup) mRootView.findViewById(R.id.fss_rg6);
-        mRg[6] = (RadioGroup) mRootView.findViewById(R.id.fss_rg7);
-        mRg[7] = (RadioGroup) mRootView.findViewById(R.id.fss_rg8);
-        mRg[8] = (RadioGroup) mRootView.findViewById(R.id.fss_rg9);
+        mPulse[0] = (EditText) mRootView.findViewById(R.id.ergo_et_pulse1);
+        mPulse[1] = (EditText) mRootView.findViewById(R.id.ergo_et_pulse2);
+        mPulse[2] = (EditText) mRootView.findViewById(R.id.ergo_et_pulse3);
+        mPulse[3] = (EditText) mRootView.findViewById(R.id.ergo_et_pulse4);
+        mPulse[4] = (EditText) mRootView.findViewById(R.id.ergo_et_pulse5);
+        mPulse[5] = (EditText) mRootView.findViewById(R.id.ergo_et_pulse6);
+        mPulse[6] = (EditText) mRootView.findViewById(R.id.ergo_et_pulse7);
+        mPulse[7] = (EditText) mRootView.findViewById(R.id.ergo_et_pulse8);
+        mPulse[8] = (EditText) mRootView.findViewById(R.id.ergo_et_pulse9);
+        mPulse[9] = (EditText) mRootView.findViewById(R.id.ergo_et_pulse10);
+        mPulse[10] = (EditText) mRootView.findViewById(R.id.ergo_et_pulse11);
+        mPulse[11] = (EditText) mRootView.findViewById(R.id.ergo_et_pulse12);
 
         // Listeners
-        for (RadioGroup rg : mRg) {
-            rg.setOnCheckedChangeListener(this);
+        for (EditText et : mData) {
+            et.addTextChangedListener(this);
         }
 
+        for (EditText et : mPulse) {
+            et.addTextChangedListener(this);
+        }
+
+
+
+
         // Done button
-        Button button = (Button) mRootView.findViewById(R.id.fss_btnDone);
-        button.setOnClickListener(new View.OnClickListener() {
+        Button btnDone = (Button) mRootView.findViewById(R.id.ergo_btnDone);
+        btnDone.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 // Save to database: return false if test incomplete
                 if (!saveToDatabase()) {
                     AlertDialog dialog = new AlertDialog.Builder(getActivity()).create();
@@ -145,10 +162,6 @@ public class FSSFragment extends AbstractFragment implements RadioGroup.OnChecke
                     });
                     dialog.show();
                 }
-
-                String result = calculate();
-                if (!result.equals("-1"))
-                    mTvResult.setText(result);
 
                 // Inform parent activity
                 ((TestActivity) getActivity()).setUserHasSaved(true);
@@ -185,32 +198,33 @@ public class FSSFragment extends AbstractFragment implements RadioGroup.OnChecke
 
         // Content can be null. Database 'content_in' and 'content_out' are null when first created
         if (contentStr != null) {
-            // Set radio buttons and total sum using info from content
+            // Set edit text views
             String[] content = contentStr.split("\\|");
-            RadioButton radioButton;
-            for (int i = 0; i < N_QUESTIONS; i++) {
-                if (!content[i].trim().equals("-1")) {
-                    int childIndex = Integer.parseInt(content[i].trim());
-                    radioButton = (RadioButton) mRg[i].getChildAt(childIndex);
-                    radioButton.setChecked(true);
-                }
+            int counter = 0;
+            for (int i = 0; i < N_DATA; i++) {
+                mData[i].setText(content[counter++]);
             }
 
-            // Restore total sum. Important to check -1 after rotation
-            String result = calculate();
-            if (!result.equals("-1"))
-                mTvResult.setText(result);
+            for (int i = 0; i < N_PULSE; i++ ) {
+                mPulse[i].setText(content[counter++]);
+            }
         }
-
-        // Inform parent activity that form is up to date
-        ((TestActivity) getActivity()).setUserHasSaved(true);
 
         return mRootView;
     }
 
     @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        // Activity has created from scratch or from save instance
+        // Inform parent activity that view fields are up to date
+        Log.d(LOG_TAG, "onActivityCreated");
+        ((TestActivity) getActivity()).setUserHasSaved(true);
+    }
+
+    @Override
     public void onSaveInstanceState(Bundle outState) {
-        // Save state for radio groups and total sum
+        // Save state for views in layout
         String content = generateContent();
         outState.putString(STATE_CONTENT, content);
         outState.putBoolean(STATE_HIGH_ON, mHighlightsON);
@@ -219,126 +233,119 @@ public class FSSFragment extends AbstractFragment implements RadioGroup.OnChecke
         super.onSaveInstanceState(outState);
     }
 
+    /**
+     * Generate a string from information extracted for edit text views
+     *
+     * @return String representing edit text views
+     */
+    private String generateContent() {
+        StringBuilder builder = new StringBuilder();
+        for (EditText et : mData) {
+            builder.append(et.getText().toString().trim());
+            builder.append("|");
+        }
+
+        for (EditText et : mPulse) {
+            builder.append(et.getText().toString().trim());
+            builder.append("|");
+        }
+
+        builder.append("0|");   // Fix: split() can not handle all positions empty
+
+        Log.d(LOG_TAG, "content: " + builder.toString());
+
+        return builder.toString();
+    }
+
+    /**
+     * @return true if one or more question are not answered
+     */
+    private boolean missingAnswers() {
+        // Only some fields are mandatory.
+        // Those that appear in mätresultat: belastning, vikt, ålder and längd
+        if (mData[2].getText().toString().trim().length() == 0 ||
+                mData[3].getText().toString().trim().length() == 0 ||
+                mData[4].getText().toString().trim().length() == 0 ||
+                mData[6].getText().toString().trim().length() == 0) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * Highlights unanswered question
+     */
+    private void highlight() {
+        // Vikt
+        if (mHighlightsON && mData[2].getText().toString().trim().length() == 0) {
+            mTvTitle[2].setTextColor(ContextCompat.getColor(getContext(), R.color.highlight));
+        } else {
+            mTvTitle[2].setTextColor(ContextCompat.getColor(getContext(), R.color.textColor));
+        }
+
+        // Längd
+        if (mHighlightsON && mData[3].getText().toString().trim().length() == 0) {
+            mTvTitle[3].setTextColor(ContextCompat.getColor(getContext(), R.color.highlight));
+        } else {
+            mTvTitle[3].setTextColor(ContextCompat.getColor(getContext(), R.color.textColor));
+        }
+
+        // Ålder
+        if (mHighlightsON && mData[4].getText().toString().trim().length() == 0) {
+            mTvTitle[4].setTextColor(ContextCompat.getColor(getContext(), R.color.highlight));
+        } else {
+            mTvTitle[4].setTextColor(ContextCompat.getColor(getContext(), R.color.textColor));
+        }
+
+        // Belastning
+        if (mHighlightsON && mData[6].getText().toString().trim().length() == 0) {
+            mTvTitle[6].setTextColor(ContextCompat.getColor(getContext(), R.color.highlight));
+        } else {
+            mTvTitle[6].setTextColor(ContextCompat.getColor(getContext(), R.color.textColor));
+        }
+    }
+
     @Override
     public boolean saveToDatabase() {
+        Log.d(LOG_TAG, "saveToDatabase");
+        ContentValues values = new ContentValues();
         // Test status
-        String result = calculate();
+        boolean missing = missingAnswers();
         int status;
-        if (result.equals("-1")) {
+        if (missing) {
             status = Test.INCOMPLETED;
         } else {
             status = Test.COMPLETED;
         }
 
-        ContentValues values = new ContentValues();
+        // Values
         if (mTestPhase == TestActivity.TEST_IN) {
             values.put(DbContract.TestEntry.COLUMN_CONTENT_IN, generateContent());
-            values.put(DbContract.TestEntry.COLUMN_RESULT_IN, result);
             values.put(DbContract.TestEntry.COLUMN_STATUS_IN, status);
         } else {
             values.put(DbContract.TestEntry.COLUMN_CONTENT_OUT, generateContent());
-            values.put(DbContract.TestEntry.COLUMN_RESULT_OUT, result);
             values.put(DbContract.TestEntry.COLUMN_STATUS_OUT, status);
         }
 
         int rows = getActivity().getContentResolver().update(mTestUri, values, null, null);
         Log.d(LOG_TAG, "rows updated: " + rows);
 
-        return !result.equals("-1");
+        return !missing;
     }
 
     /**
-     * Save index of selected radio button for each radio group
-     *
-     * @return String representing state for radio groups in layout
+     * Help dialog
      */
-    private String generateContent() {
-        View radioButton;
-        StringBuilder contentBuilder = new StringBuilder();
-        for (int i = 0; i < N_QUESTIONS; i++) {
-            int radioButtonID = mRg[i].getCheckedRadioButtonId();
-            if (radioButtonID != -1) {
-                radioButton = mRg[i].findViewById(radioButtonID);
-                int index = mRg[i].indexOfChild(radioButton);
-                contentBuilder.append(index);
-            } else {
-                contentBuilder.append("-1");
-            }
-
-            contentBuilder.append("|");
-        }
-
-        Log.d(LOG_TAG, "generateContent: " + contentBuilder.toString());
-
-        return contentBuilder.toString();
-    }
-
-    /**
-     * @return true if all question have an answer
-     */
-    private boolean isComplete() {
-        for (int i = 0; i < N_QUESTIONS; i++) {
-            int radioButtonID = mRg[i].getCheckedRadioButtonId();
-            if (radioButtonID == -1) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    /**
-     * @return mean value of answers
-     */
-    private String calculate() {
-        // Calculate average only when test is complete
-        if (!isComplete()) {
-            return "-1";
-        }
-
-        View radioButton;
-        int sum = 0;
-        for (int i = 0; i < N_QUESTIONS; i++) {
-            radioButton = mRg[i].findViewById(mRg[i].getCheckedRadioButtonId());
-            sum += mRg[i].indexOfChild(radioButton) + 1;
-        }
-
-        return String.format(Locale.ENGLISH, "%.1f", sum / 9.0f);
-    }
-
-    private void highlight() {
-        for (int i = 0; i < N_QUESTIONS; i++) {
-            int radioButtonID = mRg[i].getCheckedRadioButtonId();
-            if (radioButtonID == -1 && mHighlightsON) {
-                mTvQ[i].setTextColor(ContextCompat.getColor(getContext(), R.color.highlight));
-            } else {
-                mTvQ[i].setTextColor(ContextCompat.getColor(getContext(), R.color.textColor));
-            }
-        }
-    }
-
-    @Override
-    public void onCheckedChanged(RadioGroup group, int checkedId) {
-        // Update result UI if test complete
-        String result = calculate();
-        if (!result.equals("-1")) {
-            mTvResult.setText(result);
-        }
-
-        highlight();   // Dynamic highlighting
-
-        // Inform parent activity that changes have been made
-        ((TestActivity) getActivity()).setUserHasSaved(false);
-    }
-
     @Override
     public void helpDialog() {
         AlertDialog dialog = new AlertDialog.Builder(getActivity()).create();
         // fromHtml deprecated for Android N and higher
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
-            dialog.setMessage(Html.fromHtml(getContext().getString(R.string.fss_manual),
+            dialog.setMessage(Html.fromHtml(getContext().getString(R.string.ergo_manual),
                     Html.FROM_HTML_MODE_LEGACY));
         } else {
-            dialog.setMessage(Html.fromHtml(getContext().getString(R.string.fss_manual)));
+            dialog.setMessage(Html.fromHtml(getContext().getString(R.string.ergo_manual)));
         }
 
         dialog.setButton(AlertDialog.BUTTON_NEUTRAL, "Close", new DialogInterface.OnClickListener() {
@@ -375,10 +382,29 @@ public class FSSFragment extends AbstractFragment implements RadioGroup.OnChecke
         FragmentManager fm = getActivity().getSupportFragmentManager();
         NotesDialogFragment dialogFragment = NotesDialogFragment.newInstance(oldNotesIn, oldNotesOut);
         // Set target fragment for use later when sending results
-        dialogFragment.setTargetFragment(FSSFragment.this, 100);
+        dialogFragment.setTargetFragment(ErgoFragment.this, 100);
         dialogFragment.show(fm, "notes_fragment_dialog");
     }
 
+
+    @Override
+    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+    }
+
+    @Override
+    public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+    }
+
+    @Override
+    public void afterTextChanged(Editable s) {
+        Log.d(LOG_TAG, "afterTextChanged");
+        highlight();   // Dynamic highlighting
+
+        // Inform parent activity
+        ((TestActivity) getActivity()).setUserHasSaved(false);
+    }
 
     @Override
     public void onDialogSaveClick(String notesIn, String notesOut) {

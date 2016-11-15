@@ -37,7 +37,7 @@ public class TestActivity extends AppCompatActivity {
     public static final String KEY_URI = "key_uri";
 
     // Fragments inform TestActivity about user's actions
-    private static boolean sUserHasSaved;
+    private boolean mUserHasSaved;
 
     // Save state constant
     private static final String STATE_USER_SAVED = "state_user_saved";
@@ -128,6 +128,12 @@ public class TestActivity extends AppCompatActivity {
                 case "TST":
                     mAbstractFragment = new TSTFragment();
                     break;
+                case "LED":
+                    mAbstractFragment = new LedFragment();
+                    break;
+                case "ERGO":
+                    mAbstractFragment = new ErgoFragment();
+                    break;
                 default:
                     mAbstractFragment = new BlankFragment();
                     break;
@@ -180,8 +186,7 @@ public class TestActivity extends AppCompatActivity {
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
-        // Android tries to save state for static variables but just in case
-        outState.putBoolean(STATE_USER_SAVED, sUserHasSaved);
+        outState.putBoolean(STATE_USER_SAVED, mUserHasSaved);
         super.onSaveInstanceState(outState);
     }
 
@@ -189,7 +194,7 @@ public class TestActivity extends AppCompatActivity {
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
         if (savedInstanceState != null) {
-            sUserHasSaved = savedInstanceState.getBoolean(STATE_USER_SAVED);
+            mUserHasSaved = savedInstanceState.getBoolean(STATE_USER_SAVED);
         }
     }
 
@@ -198,37 +203,7 @@ public class TestActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             // Respond to the action bar's Up/Home button
             case android.R.id.home:
-                // Alert dialog if user has not saved
-                if (!sUserHasSaved) {
-                    AlertDialog dialog = new AlertDialog.Builder(this).create();
-                    dialog.setMessage("Save changes?");
-                    dialog.setButton(AlertDialog.BUTTON_POSITIVE, "SPARA",
-                            new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    mAbstractFragment.saveToDatabase();
-                                    goBackToTestListActivity();
-                                }
-                            });
-                    dialog.setButton(AlertDialog.BUTTON_NEGATIVE, "NO, JUST LEAVE",
-                            new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    goBackToTestListActivity();
-                                }
-                            });
-                    dialog.setButton(AlertDialog.BUTTON_NEUTRAL, "CANCEL",
-                            new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    // Do nothing
-                                }
-                            });
-                    dialog.show();
-                } else {
-                    goBackToTestListActivity();
-                }
-
+                warnUser();
                 return true;
         }
         return super.onOptionsItemSelected(item);
@@ -248,15 +223,49 @@ public class TestActivity extends AppCompatActivity {
      * Fragment inform when user saves
      */
     public void setUserHasSaved(boolean saved) {
-        sUserHasSaved = saved;
+        mUserHasSaved = saved;
     }
 
-    //    @Override
-//    public void onBackPressed() {
-//        Log.d(LOG_TAG, "onBackPressed()");
-//        Intent upIntent = NavUtils.getParentActivityIntent(this);
-//        upIntent.putExtra(TestListAdapter.PATIENT_ID, mPatientID);
-//        NavUtils.navigateUpTo(this, upIntent);
-//    }
+    @Override
+    public void onBackPressed() {
+        Log.d(LOG_TAG, "onBackPressed()");
+        warnUser();
+    }
+
+    /**
+     * Save changes dialog
+     */
+    private void warnUser() {
+        // Alert dialog if user has not saved
+        if (!mUserHasSaved) {
+            AlertDialog dialog = new AlertDialog.Builder(this).create();
+            dialog.setMessage("Spara ändringar?");
+            dialog.setButton(AlertDialog.BUTTON_POSITIVE, "SAVE",
+                    new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            mAbstractFragment.saveToDatabase();
+                            goBackToTestListActivity();
+                        }
+                    });
+            dialog.setButton(AlertDialog.BUTTON_NEGATIVE, "NO, JUST LEAVE",
+                    new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            goBackToTestListActivity();
+                        }
+                    });
+            dialog.setButton(AlertDialog.BUTTON_NEUTRAL, "CANCEL",
+                    new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            // Do nothing
+                        }
+                    });
+            dialog.show();
+        } else {
+            goBackToTestListActivity();
+        }
+    }
 
 }

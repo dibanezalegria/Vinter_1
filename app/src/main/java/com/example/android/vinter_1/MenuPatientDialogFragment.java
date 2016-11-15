@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AlertDialog;
-import android.util.Log;
 
 /**
  * Created by Daniel Ibanez on 2016-10-30.
@@ -65,7 +64,7 @@ public class MenuPatientDialogFragment extends DialogFragment {
         final String id = args.getString(MainActivity.KEY_PATIENT_ID);
         final String name = args.getString(MainActivity.KEY_PATIENT_NAME);
         final String entry = args.getString(MainActivity.KEY_PATIENT_ENTRY);
-        final String title = id + " " + name + " " + entry;
+        final String title = name + " - " + entry;
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle(title)
@@ -76,6 +75,7 @@ public class MenuPatientDialogFragment extends DialogFragment {
                         mCallback.onMenuPatientDialogClick(which, Integer.parseInt(id), name, entry);
                     }
                 });
+
         return builder.create();
     }
 }

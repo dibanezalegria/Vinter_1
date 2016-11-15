@@ -201,21 +201,21 @@ public class MainActivity extends AppCompatActivity
         if (uri != null) {
             long newPatientID = ContentUris.parseId(uri);
             addTestForPatient(newPatientID, "6MIN", "6 min gångtest", "");
-            addTestForPatient(newPatientID, "TST", "TST", "- Timed Stands Test");
-            addTestForPatient(newPatientID, "TUG", "TUG", "Timed UP and GO");
-            addTestForPatient(newPatientID, "ERGO", "Ergometercykeltest", "");
-            addTestForPatient(newPatientID, "VAS", "VAS", "- Visuell Analog Skala");
+            addTestForPatient(newPatientID, "BASDAI", "BASDAI", "- Bath Ankylosing Spondylitis Disease Activity Index");
+            addTestForPatient(newPatientID, "BASFI", "BASFI", "- Bath Ankylosing Spondylitis Functional Index");
+            addTestForPatient(newPatientID, "BASG", "BASG", "- Bath Ankylosing Spondylitis Patient Global Score");
+            addTestForPatient(newPatientID, "BASMI", "BASMI", "- Bath Ankylosing Spondylitis Metrology Index");
+            addTestForPatient(newPatientID, "BDL", "BDL", "");
+            addTestForPatient(newPatientID, "BERGS", "Bergs", "- Bergs balansskala");
             addTestForPatient(newPatientID, "EQ5D", "EQ5D", "");
+            addTestForPatient(newPatientID, "ERGO", "Ergometri (cykeltest)", "");
+            addTestForPatient(newPatientID, "FSA", "FSA", "- Funktionsskattning Skuldra Arm");
             addTestForPatient(newPatientID, "FSS", "FSS", "- Fatigue Severity Scale");
             addTestForPatient(newPatientID, "IMF", "IMF", "- Index of Muscle Function");
-            addTestForPatient(newPatientID, "BERGS", "Bergs", "- Bergs balansskala");
-            addTestForPatient(newPatientID, "BDL", "BDL", "");
-            addTestForPatient(newPatientID, "FSA", "FSA", "- Funktionsskattning Skuldra Arm");
-            addTestForPatient(newPatientID, "BASDAI", "BASDAI", "- Bath Ankylosing Spondylitis Disease Activity Index");
-            addTestForPatient(newPatientID, "BASG", "BASG", "- Bath Ankylosing Spondylitis Patient Global Score");
-            addTestForPatient(newPatientID, "BASFI", "BASFI", "- Bath Ankylosing Spondylitis Functional Index");
-            addTestForPatient(newPatientID, "BASMI", "BASMI", "- Bath Ankylosing Spondylitis Metrology Index");
-
+            addTestForPatient(newPatientID, "LED", "LEDSTATUS", "");
+            addTestForPatient(newPatientID, "TST", "TST", "- Timed Stands Test");
+            addTestForPatient(newPatientID, "TUG", "TUG", "Timed UP and GO");
+            addTestForPatient(newPatientID, "VAS", "VAS", "- Visuell Analog Skala");
 
 //            // Crazy test: check database size in MB
 //            for (int i = 0; i < 10000; i++) {
@@ -290,6 +290,12 @@ public class MainActivity extends AppCompatActivity
         bundle.putString(KEY_PATIENT_ENTRY, tvEntry.getText().toString());
         dialogFragment.setArguments(bundle);
         dialogFragment.show(getSupportFragmentManager(), "menu_patient_dialog");
+
+//        // Change text size
+//        getSupportFragmentManager().executePendingTransactions();
+//        TextView msg = (TextView) dialogFragment.getDialog().findViewById(android.R.id.message);
+//        if (msg != null)
+//            msg.setTextSize(26);
     }
 
     /**
@@ -314,7 +320,7 @@ public class MainActivity extends AppCompatActivity
                 Intent intent = new Intent(MainActivity.this, TestListActivity.class);
                 Bundle extras = new Bundle();
                 extras.putInt(KEY_PATIENT_ID, patientId);
-                String headerStr = "Entrada: " + entry + "  -  " + name;
+                String headerStr = name + " - " + entry;
                 extras.putString(KEY_HEADER, headerStr);
                 intent.putExtras(extras);
                 startActivity(intent);
@@ -322,7 +328,7 @@ public class MainActivity extends AppCompatActivity
             }
             case MenuPatientDialogFragment.MENU_DIALOG_RESULT: {
                 // Get patient's info from view
-                String headerStr = "Entrada: " + entry + "  -  " + name;
+                String headerStr = name + " - " + entry;
                 Bundle extras = new Bundle();
                 extras.putLong(KEY_PATIENT_ID, patientId);
                 extras.putString(KEY_HEADER, headerStr);
@@ -343,7 +349,9 @@ public class MainActivity extends AppCompatActivity
             }
             case MenuPatientDialogFragment.MENU_DIALOG_DELETE: {
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setMessage("This patient will be deleted.")
+                builder.setMessage("Patienten tas bort.\n\nObs! Alla tester och mätresultat " +
+                        "för patienten försvinner.")
+                        .setTitle(name + " - " + entry)
                         .setPositiveButton("Delete", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {

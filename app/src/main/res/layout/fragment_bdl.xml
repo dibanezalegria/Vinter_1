@@ -96,7 +96,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/bdl_rg_margin_start"
             android:layout_marginTop="10dp"
-            android:text="Stǻr på höger ben"
+            android:text="a. Stǻr på höger ben"
             android:textAppearance="@style/TextCustomSmall"/>
 
         <RadioGroup
@@ -143,7 +143,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/bdl_rg_margin_start"
             android:layout_marginTop="10dp"
-            android:text="Stǻr på vänster ben"
+            android:text="b. Stǻr på vänster ben"
             android:textAppearance="@style/TextCustomSmall"/>
 
         <RadioGroup

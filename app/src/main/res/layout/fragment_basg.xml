@@ -3,7 +3,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
             xmlns:tools="http://schemas.android.com/tools"
-            android:id="@+id/basfi_background"
+            android:id="@+id/basg_background"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
@@ -32,14 +32,14 @@
 
         <!-- Separator -->
         <View
-            android:id="@+id/basfi_separator"
+            android:id="@+id/basg_separator"
             android:layout_width="match_parent"
             android:layout_height="2dp"
             android:layout_marginBottom="30dp"
             android:background="@color/bgBrightIn"/>
 
         <TextView
-            android:id="@+id/basfi_q1"
+            android:id="@+id/basg_q1"
             style="@style/TextCustomNormal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -47,10 +47,11 @@
             android:text="@string/basg1_markera"/>
 
         <SeekBar
-            android:id="@+id/basfi_slider1"
+            android:id="@+id/basg_slider1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/basfi_margin_question_slider"
+            android:max="20"
             android:progress="0"/>
 
         <!-- Labels -->
@@ -80,7 +81,7 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/basfi_q2"
+            android:id="@+id/basg_q2"
             style="@style/TextCustomNormal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -88,10 +89,11 @@
             android:text="@string/basg2_markera"/>
 
         <SeekBar
-            android:id="@+id/basfi_slider2"
+            android:id="@+id/basg_slider2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/basfi_margin_question_slider"
+            android:max="20"
             android:progress="0"/>
 
         <!-- Labels -->
@@ -134,12 +136,12 @@
                 android:text="BASG-1 (0-10p, 0p = ua)"/>
 
             <TextView
-                android:id="@+id/basg1_result"
+                android:id="@+id/basg_result1"
                 style="@style/OutputTextViewStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
-                android:ems="2"
+                android:ems="3"
                 android:gravity="center"/>
         </LinearLayout>
 
@@ -157,17 +159,17 @@
                 android:text="BASG-2 (0-10p, 0p = ua)"/>
 
             <TextView
-                android:id="@+id/basg2_result"
+                android:id="@+id/basg_result2"
                 style="@style/OutputTextViewStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
-                android:ems="2"
+                android:ems="3"
                 android:gravity="center"/>
         </LinearLayout>
 
         <Button
-            android:id="@+id/basfi_btnDone"
+            android:id="@+id/basg_btnDone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="36dp"

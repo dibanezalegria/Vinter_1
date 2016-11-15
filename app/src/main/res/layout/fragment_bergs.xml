@@ -60,7 +60,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/bergs_text_radio_button"
-                android:text="3 = kan ställa sig upp självständige med hjälp av händerna"/>
+                android:text="3 = kan ställa sig upp självständig med hjälp av händerna"/>
 
             <RadioButton
                 android:layout_width="wrap_content"
@@ -78,7 +78,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/bergs_text_radio_button"
-                android:text="0 = behöver måttlig ett maximal hjälp av en eller flera personer för att ställa sig upp"/>
+                android:text="0 = behöver måttlig eller maximal hjälp av en eller flera personer för att ställa sig upp"/>
         </RadioGroup>
 
         <TextView
@@ -509,7 +509,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/bergs_text_radio_button"
-                android:text="0 = behöver städ för att inte falla"/>
+                android:text="0 = behöver stöd för att inte falla"/>
         </RadioGroup>
 
         <TextView

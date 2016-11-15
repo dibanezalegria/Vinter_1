@@ -1,8 +1,11 @@
 <resources>
-    <string name="app_name">Vinter_1</string>
+    <string name="app_name">Vintersol</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string name="done_button">SPARA</string>
+
+    <string name="test_saved_complete">Sparat. Test komplett.</string>
+    <string name="test_saved_incomplete">Sparat. Test <b>EJ</b> komplett.</string>
 
     <!--
     ________________________________________________________________________________________________
@@ -21,7 +24,7 @@
 
     <string name="bergs_string_q4"><b>4. Stående till sittande</b>\nInstruktion: <i>Sätt Dig.</i></string>
 
-    <string name="bergs_string_q5"><b>5. Från sittande på en stol med armstöd till en annan utan armstöd och vice </b>\nInstruktion: Undersökaren placerar en stol med armstöd i 90° vinkel mot en stol utan armstöd eller mot en säng.\n<i>Flytta Dig från stolen med armstöd till stolen utan armstöd/sängen. Använd händerna så lite som möjligt. Flytta dig sedan från stolen (utan armstöd)/sängen till stolen med armstöd.</i>\nOm patienten inte kan flytta sig åt båda hällen kan undersökaren flytta stolen efter den första överflyttningen. Det viktiga är att överflyttningen sker från en stol med armstöd och från en stol utan armstöd/säng.</string>
+    <string name="bergs_string_q5"><b>5. Från sittande på en stol med armstöd till en annan utan armstöd och vice versa </b>\nInstruktion: Undersökaren placerar en stol med armstöd i 90° vinkel mot en stol utan armstöd eller mot en säng.\n<i>Flytta Dig från stolen med armstöd till stolen utan armstöd/sängen. Använd händerna så lite som möjligt. Flytta dig sedan från stolen (utan armstöd)/sängen till stolen med armstöd.</i>\nOm patienten inte kan flytta sig åt båda hällen kan undersökaren flytta stolen efter den första överflyttningen. Det viktiga är att överflyttningen sker från en stol med armstöd och från en stol utan armstöd/säng.</string>
 
     <string name="bergs_string_q6"><b>6. Stå utan stöd med slutna ögon\n</b>Instruktion: <i>Blunda och stå stilla i 10 sekunder.</i></string>
 
@@ -41,6 +44,9 @@
 
     <string name="bergs_string_q14"><b>14. Stå på ett ben</b>\nInstruktion: <i>Stå på ett ben så länge Du kan utan stöd.</i></string>
 
+    <!-- CDATA sections are used to escape blocks of text containing characters that would otherwise be regarded as markup. -->
+    <string name="bergs_manual"><![CDATA[<h1>Bergs balansskala</h1><h2>Instruktion</h2><p>Visa och förklara för patienten före varje moment som han/hon ska utföra. Det är det <b>första försöket</b> som ska poängsättas. Det är därför mycket viktigt att patienten från början får all den information som behövs så att han/hon förstår vad som ska göras. Ge information på ett naturligt sätt och använd den skrivna instruktioner till varje moment endast som utgångspunkt. </p><h2>Utrustning</h2><p>- Ett tidtagarur eller en klocka med sekundvisare<br/>- En linjal eller annat föremål (exempelvis baksidan av skattningsformuläret) markerat med ett noll-läge samt 5, 12 och 25 cm<br/>- Sko eller toffel<br/>- Stol i standardhöjd med armstöd samt en stol utan armstöd eller säng<br/>- Ett steg i en trappa eller en pall med motsvarande steghöjd </p>]]></string>
+
 
     <!--
     ________________________________________________________________________________________________
@@ -49,7 +55,7 @@
 
     ________________________________________________________________________________________________
     -->
-    <string name="bdl_string_q1"><b>1. Stå med fötterna ihop, blundande</b>\nPatienten står med fötterna parallellt, tätt ihop, armarna hängande intill kroppen. Tids tas från det att patienten sluter ögonen. Fötterna får ej flyttas ur position.</string>
+    <string name="bdl_string_q1"><b>1. Stå med fötterna ihop, blundande</b>\nPatienten står med fötterna parallellt, tätt ihop, armarna hängande intill kroppen. Tid tas från det att patienten sluter ögonen. Fötterna får ej flyttas ur position.</string>
 
     <string name="bdl_string_q2"><b>2. Stå på ett ben, seende</b>\nPatienten står på ett ben. Belastad fot får ej flyttas ur position. Underben och fot obelastad sida ska ej vila mot stödben. Övning 2a och 2b får utföras i valfri ordning.</string>
 
@@ -59,7 +65,7 @@
 
     <string name="bdl_string_q5"><b>5. Gå baklänges</b>\nPatienten ombeds gå 15 steg baklänges mellan två linjer, 20 cm mellanrum mellan  linjerna. Tandemgång, tå mot häl. Patienten får ej vidröra linjerna. Sjukgymnasten räknar stegen högt.</string>
 
-    <string name="bdl_string_q6"><b>6. Gå med kaffekopp</b>\nPatienten ombeds gå 5 m, vända och gå tillbaka inom ett 20 cm brett  område. Patienten håller i ena handen ett kaffefat med kopp fylld till 1,5 cm från kanten. Patienten få ej vidröra linjerna förutom vi vändningen. Under vändningen skall en fot vara inom markerat område. Kaffe får ej rinna över kanten.</string>
+    <string name="bdl_string_q6"><b>6. Gå med kaffekopp</b>\nPatienten ombeds gå 5 m, vända och gå tillbaka inom ett 20 cm brett  område. Patienten håller i ena handen ett kaffefat med kopp fylld till 1,5 cm från kanten. Patienten få ej vidröra linjerna förutom vid vändningen. Under vändningen skall en fot vara inom markerat område. Kaffe får ej rinna över kanten.</string>
 
     <string name="bdl_string_q7"><b>7. Stå på ett ben, huvudvridning</b>\nPatienten står på ett ben, sämsta benet från övning 2. Belastad fot får ej flyttas ur position. Underben och fot på obelastad sida ska ej vila mot ståben. Gör isolerad maximal huvudvridning vänster – rakt fram – höger – rakt fram. Detta räknas som en omgång. Patienten instrueras var 5:e sekund att starta en omgång. Patienten ska innan övningen börjar prova huvudvridningen stående på båda benen.</string>
 
@@ -68,6 +74,9 @@
     <string name="bdl_string_q9"><b>9. Hoppa på ett ben</b>\nPatienten ombeds hoppa, först på stället, sedan 2 dm framåt, på ett ben. Patienten hoppar på sämsta benet från övning 2. Patienten skall stanna till mellan varje hopp. Sjukgymnasten räknar högt 5 s från det att patienten står still</string>
 
     <string name="bdl_string_q10"><b>10. Gå i trappa</b>\nPatienten ombeds gå 10 steg uppför i en trappa, reciprok gång, vända och gå ned 10 steg, så fort hon/han kan. Patienten får inte hålla i sig. Vändningen sker på trappavsats</string>
+
+    <!-- CDATA sections are used to escape blocks of text containing characters that would otherwise be regarded as markup. -->
+    <string name="bdl_manual"><![CDATA[<h1>BDL balansskala</h1><h2>Allmänna riktlinjer</h2><p>Patienten instrueras muntligt och visas hur övningen ska utföras, men påhejas inte under utförandet.<br/>Patienten skall meddelas om att tidtagning sker samt vilka kriterier som gäller för 4 poäng.<br/>Börja alltid från 1p-nivån och stegra när övningen innehåller olika moment.<br/>Två försök på varje övning, om patienten inte uppnår 4 poäng på första försöket. Räkna det bästa försöket.<br/>Med tandemstående menas att stå tå mot häl.<br/>När måttet steg används räknas antal steg från utgångspositionen tandemstående. Första steget sker när bakre foten flyttas fram.<br/>Med reciprok gång menas att en fot sätts på varje trappsteg, höger på varannat trappsteg, vänster på varannat.<br/>Med sämsta benet från övning 2 menas prioritetsordning: lägst uppnådd poäng, kortast tid i sekunder, subjektiv bedömning.<br/>Patienten testas utan skor på fötterna, förutom i övning 10, gå i trappa.</p><h2>Utrustning och förberedelser</h2><p>- Två 5 meter långa linjer märks ut parallellt, med 20 cm mellanrum.<br/>- En 5 cm bred linje, 5 meter lång märks ut.<br/>- Tidtagarur.<br/>- Kaffekopp på fat. Koppen fylld med kaffe till 0.5 cm från kanten.<br/>- Stol med ryggstöd, hård sits (44 cm hög samt 35 cm hög stolsrygg användes vid instrumentutformningen).<br/>- Rak trappa 10 trappsteg (15 cm högt trappsteg, 32 cm djupt användes vid instrumentutformningen).</p>]]></string>
 
     <!--
     ________________________________________________________________________________________________
@@ -79,7 +88,7 @@
     <string name="tug_instructions"><b>Instruktion till patienten:</b>\n\nNär jag säger \"gå\" vill jag att du ska resa dig upp och gå i självvald takt till linjen på golvet 3 m bort, vända, gå tillbaka till stolen och sätta dig ner igen.</string>
 
     <!-- CDATA sections are used to escape blocks of text containing characters that would otherwise be regarded as markup. -->
-    <string name="tug_manual"><![CDATA[<h1>Timed Up and Go</h><p>Testet mäter den tid det tar i sekunder för en person att resa sig upp från en stol med armstöd, (sitthöjd ca 46cm), gå en sträcka på 3 m, vända, gå tillbaka till stolen och sitta ner igen.<br/><br/>Patienten har sina vanliga skor och använder om så behövs sitt ordinarie gånghjälpmedel. Patienten få ingen fysisk assistans.<br/><br/>Patienten börjar sittande i stolen med ryggen mot ryggstödet och händerna vilande mot armstöden och gånghjälpmedlet till hands.<br/><br/><b>Instruktion till patienten:</b><br/><br/>När jag säger \"gå\" vill jag att du ska resa dig upp och gå i självvald takt till linjen på golvet 3 m bort, vända, gå tillbaka till stolen och sätta dig ner igen.<br/><br/>Innan testning får patienten pröva hela uppgiften en gång.<br/><br/><br/><u>Prognostisk validitet (Predictive)</u><br/>Tiden det tar för patienten speglar till viss grad oberoendet i funktionell förflyttnings förmåga. Klarar man på det &lt; 20 sek. är man oberoende i basala förflyttningar och tar det &gt; 30 sek. är man hjälpberoende.</p>]]></string>
+    <string name="tug_manual"><![CDATA[<h1>Timed Up and Go</h1><p>Testet mäter den tid det tar i sekunder för en person att resa sig upp från en stol med armstöd, (sitthöjd ca 46cm), gå en sträcka på 3 m, vända, gå tillbaka till stolen och sitta ner igen.<br/><br/>Patienten har sina vanliga skor och använder om så behövs sitt ordinarie gånghjälpmedel. Patienten få ingen fysisk assistans.<br/><br/>Patienten börjar sittande i stolen med ryggen mot ryggstödet och händerna vilande mot armstöden och gånghjälpmedlet till hands.</p><h2>Instruktion till patienten</h2><p>När jag säger \"gå\" vill jag att du ska resa dig upp och gå i självvald takt till linjen på golvet 3 m bort, vända, gå tillbaka till stolen och sätta dig ner igen.<br/><br/>Innan testning får patienten pröva hela uppgiften en gång.</p><h2>Prognostisk validitet (Predictive)</h2><p>Tiden det tar för patienten speglar till viss grad oberoendet i funktionell förflyttnings förmåga. Klarar man på det &lt; 20 sek. är man oberoende i basala förflyttningar och tar det &gt; 30 sek. är man hjälpberoende.</p><h2>Mätvärden</h2><p>=&lt; 10 sek = normal, inga problem med förflyttning el. balans.<br/>11&#8211;20 sek = oberoende i förflyttning utomhus/inomhus.<br/>21&#8211;29 sek = \"grå zon\", stor variation i funktionell förmåga.<br/>Mer än 30 sek = hjälpberoende.<br/><br/>Resultat: Tiden anses kunna predicera fall om den överskrider ett visst värde. För friska, hemmaboende äldre anses den ligga på mer än eller lika med 14&#8211;16 sek.</p>]]></string>
 
     <!--
    ________________________________________________________________________________________________
@@ -89,7 +98,7 @@
    ________________________________________________________________________________________________
    -->
     <!-- CDATA sections are used to escape blocks of text containing characters that would otherwise be regarded as markup. -->
-    <string name="imf_manual"><![CDATA[<h1>Timed Up and Go</h><p>Testet mäter den tid det tar i sekunder för en person att resa sig upp från en stol med armstöd, (sitthöjd ca 46cm), gå en sträcka på 3 m, vända, gå tillbaka till stolen och sitta ner igen.<br/><br/>Patienten har sina vanliga skor och använder om så behövs sitt ordinarie gånghjälpmedel. Patienten få ingen fysisk assistans.<br/><br/>Patienten börjar sittande i stolen med ryggen mot ryggstödet och händerna vilande mot armstöden och gånghjälpmedlet till hands.<br/><br/><b>Instruktion till patienten:</b><br/><br/>När jag säger \"gå\" vill jag att du ska resa dig upp och gå i självvald takt till linjen på golvet 3 m bort, vända, gå tillbaka till stolen och sätta dig ner igen.<br/><br/>Innan testning får patienten pröva hela uppgiften en gång.<br/><br/><br/><u>Prognostisk validitet (Predictive)</u><br/>Tiden det tar för patienten speglar till viss grad oberoendet i funktionell förflyttnings förmåga. Klarar man på det &lt; 20 sek. är man oberoende i basala förflyttningar och tar det &gt; 30 sek. är man hjälpberoende.</p>]]></string>
+    <string name="imf_manual"><![CDATA[<h1>IMF - Funktionsstatus nedre extremiteter</h1><h2>Utrustning</h2><p>- Stol med plan sits, 45 cm hög<br/>- Psoaskudde alternativt pall 30 cm hög<br/>- Brits alternativt träningsmatta<br/>- Tidtagarur<br/>- Goniometer<br/>- Måttband<br/>- Färgd tape</p><h2>Instruktioner till patient</h2><p>Patienten bör vara lättklädd och utföra testerna utan skor. I de fall patienten måste använda skor ska det anges speciellt.</p><h2>Instruktiones till sjukgymnast</h2><p>Visa patienten hur ett test skall utföras. Låt patienten därefter utföra testet direkt utan att först ha provat. Visa nästa test och låt patienten utföra det osv. Endast i test nr 10 får patienten först prova rörelsen.</p>]]></string>
 
     <!--
     ________________________________________________________________________________________________
@@ -102,12 +111,15 @@
 
     <string name="basmi_q2"><b>2. Hörselgång till vägg</b>\n(hälar, skinkor, skulderblad så nära vägg som möjligt; raka knän, hakan in)\n\n<small>&lt;10=0; 10-12.5=1; 13-15.5=2; 16-18.5=3; 19-21.5=4; 22-24-5=5; 25-27.5=6; 28-30.5=7; 31-33.5=8; 34-36.5=9; &gt;37=10</small></string>
 
-    <string name="basmi_q3"><b>3. Sidböjning</b>\n(hälar, skinkor, skulderblad så nära bägg som möjligt; markera dig 3 mot låret)\n\n<small>&gt;20.0=0; 18.0-20.0=1; 15.9-17.9=2; 13.8-15.8=3; 11.7-13.7=4;
+    <string name="basmi_q3"><b>3. Sidböjning</b>\n(hälar, skinkor, skulderblad så nära vägg som möjligt; markera dig 3 mot låret)\n\n<small>&gt;20.0=0; 18.0-20.0=1; 15.9-17.9=2; 13.8-15.8=3; 11.7-13.7=4;
     9.6-11.6=5; 7.5-9.5=6; 5.4-7.4=7; 3.3-5.3=8; 1.2-3.2=9; &lt;1.2=10</small></string>
 
     <string name="basmi_q4"><b>4. Avstånd mellan malleolerna</b>\n(aktiv abd bilat. liggande på bred brits)\n\n<small>&gt;120=0; 110-119.5=1; 100-109.5=2; 90-99.5=3; 80-89.5=4; 70-79.5=5; 60-69.5=6; 50-59.5=7; 40-49.5=8; 30-39.5=9; &lt;30=10</small></string>
 
     <string name="basmi_q5"><b>5. Modifierad Schober</b>\n(markera SIPS och 10 cm ovan; raka knän)\n\n<small>&gt;7=0; 6.4-7.0=1; 5.7-6.3=2; 5.0-5.6=3; 4.3-4.9=4; 3.6-4.2=5; 2.9-3.5=6; 2.2-2.8=7; 1.5-2.1=8; 0.8-1.4=9; &lt;0.7=10</small></string>
+
+    <!-- CDATA sections are used to escape blocks of text containing characters that would otherwise be regarded as markup. -->
+    <string name="basmi_manual"><![CDATA[<h1>BASMI - Bath Ankylosing Spondylitis Metrology Index</h1><h2>Utrustning</h2><p>- Myrinmätare<br/>- Stol<br/>- Måttband<br/>- Matta/bred brits<br/>- Penna<br/>- Protokoll</p><h2>Instruktioner till patienten</h2><p>Vid mättning nr:<br/>1 - sitter patienten med rak rygg på en stol<br/>2 + 3 - står patienten med hälar, skinkor och skulderblad så nära en vägg som möjligt och med en fotbredd mellan fötterna.<br/>4 - ligger patienten på rygg på en bred brits eller på en matta på golvet.<br/>5 - står patienten fritt på golvet med så rak rygg som möjligt.</p><h2>Instruktiones till sjukgymnast</h2><p>Alla mätningar görs aktivt. Mät alltid vid samma tidpunkt på dygnet.<br/><br/>Vid mätning nr:<br/>1 - används myrinmätare. Sjukgymnasten stå bakom patienten och hindrar patientens medrotation av axlar.<br/>2 - registreras måttet från hörselgångens främre kant till vägg med måttband.<br/>3 - markeras utsidan av patientens båda lår med ett tvärstreck vid dig III:s fingertopp då patienten sträcker sina fingrar maximalt. Därefter sätts ett nytt streck vid maximal lateral flexion bilateralt. Kontrollera att patienten ej böjer sig framåt eller lyfter motsatt häl vid rörelsen.<br/>4 - abducerar patienten höftlederna aktivt avlastat i ryggläge. Det maximala avståndet mellan mediala malleolerna med tårna mot taket registreras.<br/>5 - markeras ett streck 10 cm ovanför S1 och 5 cm nedanför. Patienten böjer sig maximalt framåt och den uppkomna skillnaden mellan markeringarna registreras. </p><h2>Poängbedömning</h2><p>Varje funktion ger 0-2 poäng, 0p=normal funktion. Summan av poängen utgör totalscoren för BASMI, 0-10 poäng, där 0p=ua (anges med en decimal).</p>]]></string>
 
     <!--
     ________________________________________________________________________________________________
@@ -161,6 +173,21 @@
     <string name="fsa_q5_a5">5. får processus styloideus radii med <b>tummen mot sacrum</b> i SIPS nivå och <b>med handen i sagitalplan</b></string>
     <string name="fsa_q5_a6">6. får processus styloideus radii med <b>handflatan mot sacrum</b> i SIPS nivå</string>
 
+    <!-- CDATA sections are used to escape blocks of text containing characters that would otherwise be regarded as markup. -->
+    <string name="fsa_manual"><![CDATA[<h1>FSA - Funktionsskattning Skuldra Arm</h1><p>n/a</p>]]></string>
+
+    <!--
+   ________________________________________________________________________________________________
+
+                                               FSS
+
+   ________________________________________________________________________________________________
+   -->
+
+    <!-- CDATA sections are used to escape blocks of text containing characters that would otherwise be regarded as markup. -->
+    <string name="fss_manual"><![CDATA[<h1>FSS - Fatigue Severity Scale</h1><h2>Utrustning</h2><p>Frågeformulär</p><h2>Instruktioner till patient</h2><p>I originalversionen av FSS finns ingen definition av trötthet. I en vidareutveckling av FSS har Schwartz et al (3) utgått från följande definition:<br/>\"By fatigue we mean a sense of tiredness, lack of energy and total body give-out\" (\"en känsla av trötthet, kraftlöshet och total kroppslig orkeslöshet\")</p><h2>Instruktiones till sjukgymnast</h2><p>Om definition av trötthet enligt ovan används läs då upp den för patienten. Detsamma gäller för tidsangivelse.<br/>Varje fråga ger mellan 1&#8211;7 poäng. Ju högre poäng desto svårare trötthet.</p>]]></string>
+
+
     <!--
     ________________________________________________________________________________________________
 
@@ -180,6 +207,9 @@
     <string name="basfi_q9">9. Utföra fysiskt krävande aktiviteter (t ex sjukgymnastisk träning, trädgårdsarbete eller sport)</string>
     <string name="basfi_q10">10. Vara aktiv en hel dag, hemma eller på arbetet</string>
 
+    <!-- CDATA sections are used to escape blocks of text containing characters that would otherwise be regarded as markup. -->
+    <string name="basfi_manual"><![CDATA[<h1>BASFI - Bath Ankylosing Spondylitis Functional Index</h1><h2>Instruktioner till sjukgymnast</h2><p>Formuläret är avsett för självrapportering, utan närmare förklaring, instruktion eller övervakning. Kontrollera att alla frågor blivit besvarade.</p><h2>Poängbedömning</h2><p>Totalscoren för BASFI blir 0&#8211;10, där 0=ua ( anges med en decimal).</p>]]></string>
+
     <!--
     ________________________________________________________________________________________________
 
@@ -195,6 +225,9 @@
     <string name="basdai_q5">5. Hur upplevde Du vanligen Din morgonstelhet efter uppvaknandet?</string>
     <string name="basdai_q6">6. Hur länge efter uppvaknandet varade Din morgonstelhet i allmänhet?</string>
 
+    <!-- CDATA sections are used to escape blocks of text containing characters that would otherwise be regarded as markup. -->
+    <string name="basdai_manual"><![CDATA[<h1>BASDAI - Bath Ankylosing Spondylitis Disease Activity Index</h1><h2>Instruktioner till sjukgymnast</h2><p>Formuläret är avsett för självrapportering, utan närmare förklaring, instruktion eller övervakning. Kontrollera att varje fråga blivit besvarad.</p><h2>Poängbedömning</h2><p>Totalscoren för BASDAI blir 0&#8211;10, där 0=ua (anges med en decimal).</p>]]></string>
+
     <!--
     ________________________________________________________________________________________________
 
@@ -203,6 +236,9 @@
     ________________________________________________________________________________________________
     -->
     <string name="basg1_markera">1. Markera på linjen nedan vilken effekt sjukdomen hade på Ditt välbefinnande under <u>den senaste veckan</u></string>
+
+    <!-- CDATA sections are used to escape blocks of text containing characters that would otherwise be regarded as markup. -->
+    <string name="basg_manual"><![CDATA[<h1>BASG - Bath Ankylosing Spondylitis Patient Global Score</h1><h2>Instruktioner till sjukgymnast</h2><p>Formuläret är avsett för självrapportering, utan närmare förklaring, instruktion eller övervakning. Kontrollera att båda frågorna besvarats.</p><h2>Poängbedömning</h2><p>Totalscore för varje BAS-G fråga är 0&#8211;10, där 0=ua (anges med en decimal).</p>]]></string>
 
     <!--
     ________________________________________________________________________________________________
@@ -221,5 +257,74 @@
    ________________________________________________________________________________________________
    -->
     <string name="tst_instructions">Testet utförs helst barfota, annars i lågklackade skor. Använd stol med ryggstöd (45 cm hög).\n\n<b>Instruktion till patienten:</b>\n\nUtför 10 uppresningar så snabbt som möjligt utan hjälp av armarna.\n</string>
+
+    <!-- CDATA sections are used to escape blocks of text containing characters that would otherwise be regarded as markup. -->
+    <string name="tst_manual"><![CDATA[<h1>TST - Timed Stands Test</h1><h2>Utrustning</h2><p>Stol med ryggstöd, 45 cm hög<br/>Tidtagarur</p><h2>Instruktioner till sjukgymnast</h2><p>Låt patienten prova en uppresning.<br/>Kontrollera att höfter och knän sträcks maximalt och att <u>båda fötterna är i golvet vid varje uppressning</u>.<br/>Notera om patienten använt skor eller ej.<br>Registrera tidsåtgång med stoppur för 10 uppresningar och \"nedsittningar\".</p><h2>Poängbedömning</h2><p>Tid för testet avrundas till närmaste tiondels sekund.<br/>Ju kortare tid desto bättre muskelfunktion.</p>]]></string>
+
+
+    <!--
+   ________________________________________________________________________________________________
+
+                                               LEDSTATUS
+
+   ________________________________________________________________________________________________
+   -->
+    <string name="ledstatus_q1"><b>Nacke:</b> Mäts i sittande</string>
+    <string name="ledstatus_q2"><b>Axelled:</b> Mäts i sittande <b>\nObs! Rotation mäts i liggande med axelled i 90° abduktion</b></string>
+    <string name="ledstatus_q3"><b>Armbågsled</b></string>
+    <string name="ledstatus_q4"><b>Handled:</b> Mäts i sittande med handleden understödd</string>
+    <string name="ledstatus_q5"><b>Höftled:</b> Mäts i ryggliggande, extension med benet utanför kanten och rotation med 90° i höft och knäled</string>
+    <string name="ledstatus_q6"><b>Knäled:</b> Mäts i liggande, extension mäts med rulle under hälen. Hyperextension anges i + °</string>
+    <string name="ledstatus_q7"><b>Fotled:</b> Mäts i ryggliggande med underbenet på psoaskudde och knäleden i 90°</string>
+
+    <!-- CDATA sections are used to escape blocks of text containing characters that would otherwise be regarded as markup. -->
+    <string name="ledstatus_manual"><![CDATA[<h1>LEDSTATUS</h1><p>n/a</p>]]></string>
+
+
+    <!--
+  ________________________________________________________________________________________________
+
+                                              MIN6
+
+  ________________________________________________________________________________________________
+  -->
+
+    <!-- CDATA sections are used to escape blocks of text containing characters that would otherwise be regarded as markup. -->
+    <string name="min6_manual"><![CDATA[<h1>6-minuters gångtest</h1><h2>Utrustning</h2><p>- Uppmätt gångsträcka på 30 meter, med markeringar på golvet efter varje 5 meter<br/>- Pulsmätare<br/>- Borgs ansträngningsskala<br/>- Borgs smärtskala<br/>-  Klocka med sekundvisare</p><h2>Instruktioner</h2><p>Be patienten stanna vid startpunkten, och gå fram till slutmarkeringen av sträckan, och placera någonting synligt, tex en tidbok på slutmarkeringen, så att patienten ser var hon skall vända.<br/><br/>Förklara för patienten att du vill mäta den sträcka som hon går under 6 minuter, och att hon skall gå så fort hon kan, men inte springa, och a tt Du kommer tala om för henne när hon gått 3 minuter och 5 minuter, men du \"får\" enligt protokollet inte säga något mer under gångtestet.<br/><br/>Placera pulsmätaren på patienten arm, och ta startpulsen (inte att förväxla med vilopuls).<br/><br/>Be patienten skatta sin ansträngningsgrad med Borgs ansträngningsskala och smärtan med Borgs smärtskala.<br/><br/>Säg att du placerar dig i mitten på gångsträckan, och om några störande inslag skulle inträffa så tar dun hand om dem, och att hon skall koncentrera sig på gångtestet.<br/><br/>Be patienten att förbereda sig, och tala om starttiden distinkt: Klara, färdiga, gå!<br/><br/>Markera varje 30 meters sträcka på protokollet.<br/>Tala om när 3 minuter har gått.<br/>Tala om när 5 minuter har gått.<br/><br/>När 6 minuter har gått, ropa till patienten att hon skall \"stanna\", och läs av slutvärdet på pulsklockan, be henne  att skatta sin ansträngning och smärta och mät längden av den sista gångsträckan.</p>]]></string>
+
+
+    <!--
+  ________________________________________________________________________________________________
+
+                                              VAS
+
+  ________________________________________________________________________________________________
+  -->
+
+    <!-- CDATA sections are used to escape blocks of text containing characters that would otherwise be regarded as markup. -->
+    <string name="vas_manual"><![CDATA[<h1>VAS - Visuell Analog Skala</h1><p>n/a</p>]]></string>
+
+    <!--
+  ________________________________________________________________________________________________
+
+                                              EQ5D
+
+  ________________________________________________________________________________________________
+  -->
+
+    <!-- CDATA sections are used to escape blocks of text containing characters that would otherwise be regarded as markup. -->
+    <string name="eq5d_manual"><![CDATA[<h1>EQ5D</h1><p>n/a</p>]]></string>
+
+
+    <!--
+  ________________________________________________________________________________________________
+
+                                              ERGO
+
+  ________________________________________________________________________________________________
+  -->
+
+    <!-- CDATA sections are used to escape blocks of text containing characters that would otherwise be regarded as markup. -->
+    <string name="ergo_manual"><![CDATA[<h1>Ergometri konditionsprov</h1><h2>Kommentarer</h2><p>Provet är ej relevant att utföra på patienter som använder blodtryckssänkande medicin av typ betablockerare. Observera att efedrin, koffein och nikotin höjer pulsen.</p><h2>Utrustning</h2><p>- Ergometercyckel (utväxling och hjulets omkrets ska vara dimensionerade så att ett fullständigt tramptag flyttar en punkt på fälgen 6 meter)<br/>- Digital mätare på cykeln<br/>- Tidtagarur för \"långtidstagning\"<br/>- Pulsklocka<br/>- Personvåg<br/>- Monarks tabell eller \"plastsnurra\"</p><h2>Instruktioner till patient</h2><p>Kraftig aktivitet bör ej utföras före provet och provet bör ej utföras tidigare än ca en timmer efter måltid. Lätt och ledig klädsel rekommenderas. Sadel och styre ställs in efter patientens önskemål. Patienten uppmanas att trampa i takt med metronomens slag.</p><h2>Instruktioner till sjukgymnast </h2><p>Börja med att låta patienten sitta på ett lugnt stället ca 5 minuter. Notera vilopulsen.<br/><br/><b>Val av belastning:</b> För kvinnliga friska personer väljs lämpligen 100 W (600 kpm/min) och för manliga 150 W (900 kpm/min). För personer med väntad lägre fysisk arbetsförmåga, t. ex. helt otränade eller äldre personer kan den lägsta belastningen, 50 W, vara lämpligt att starta med.<br/>Om pulsen efter några minuters  arbete är lägre än 110-115 slag/min ska belastningen höjas och långtidsklockan nollställas. Belastningen kan höjas med 25 W i taget för kvinnor och 50 W för män. För att kunna beräkna konditionsvärdet måste arbetspulsen stiga till > 120.<br/><br/><b>Inställning av belastning:</b> Cykeln ska stå på jämt och gast underlag. Med patienten på cykeln oh utan tramporna berörs kontrolleras att pendelvikten är nollställd. Då arbetet påbörjas bör bromsbandet vara slakt. När patienten har börjat trampa höjs belastningen tills önskad belastning erhålls. Metronomen ställs in på exakt 100 enkelslag/min. Långtidsklockan startas när patienten funnit den rätta trampfrekvensen, 50 hela tramptag/min. Belastningen bör kontrolleras varje minut och eventuellt efterjusteras.<br/><br/><b>Mätning:</b> Pulsen räknas i slutet av varje minut. Medelvärdet av pulsfrekvensen vid 5:e och 6:e minuten betecknas som arbetspulsen ifråga. Är skillnaden > 5 slag/min förlängs tiden med en eller flera minuter så att en konstant nivå nås (s.k. steady state).<br/><br/><b>Obs!</b> Med personer äldre än 40 år bör provet avbrytas om pulsen överstiger 150 slag/min. Vid tryck eller smärta i bröstet, smärta utstrålande mot vänster arm och/eller käkvinklar, vid kraftig hållkänsla och/eller besvärande andfåddhet avbryts provet.</p>]]></string>
 
 </resources>

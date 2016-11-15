@@ -8,6 +8,14 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <!-- Theme for dialogs -->
+    <style name="DialogTheme" parent="@android:style/Theme.Dialog">
+        <item name="android:textSize">20sp</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:background">@color/blue_grey_100</item>
+        <item name="android:textColor">@color/textColor</item>
+    </style>
+
     <!-- TextView Output Results ________________________________________________________________-->
     <style name="OutputTextViewStyle">
         <item name="android:background">@drawable/spinner_blue_output_box</item>

@@ -12,7 +12,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="In test"
+                android:text="In"
                 android:background="@color/blue_grey_800"
                 android:textColor="@android:color/white"
                 android:padding="16dp"
@@ -43,7 +43,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Ut test"
+                android:text="Ut"
                 android:background="@color/blue_grey_800"
                 android:textColor="@android:color/white"
                 android:padding="16dp"

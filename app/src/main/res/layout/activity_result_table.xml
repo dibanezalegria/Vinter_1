@@ -16,15 +16,15 @@
         android:gravity="center_vertical"
         android:padding="16dp">
 
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/activity_test_fab_help"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:clickable="true"
-            android:scaleType="center"
-            android:src="@drawable/ic_comment_white_24dp"
-            app:fabSize="mini"/>
+        <!--<android.support.design.widget.FloatingActionButton-->
+            <!--android:id="@+id/activity_test_fab_help"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginStart="16dp"-->
+            <!--android:clickable="true"-->
+            <!--android:scaleType="center"-->
+            <!--android:src="@drawable/ic_comment_white_24dp"-->
+            <!--app:fabSize="mini"/>-->
 
         <TextView
             android:layout_width="wrap_content"
@@ -424,6 +424,7 @@
                     android:textAppearance="@style/TextCustomNormal"/>
 
                 <TextView
+                    android:id="@+id/table_tst_in"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
@@ -434,6 +435,7 @@
                     android:textAppearance="@style/TextCustomNormal"/>
 
                 <TextView
+                    android:id="@+id/table_tst_out"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
@@ -448,6 +450,44 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/blue_grey_50">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="70"
+                    android:background="@drawable/layout_border_only"
+                    android:ems="18"
+                    android:maxLines="1"
+                    android:padding="@dimen/mat_padding"
+                    android:text="Med/utan skor"
+                    android:textAppearance="@style/TextCustomNormal"/>
+
+                <TextView
+                    android:id="@+id/table_tst_shoes_in"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="15"
+                    android:background="@drawable/layout_border_only"
+                    android:ems="4"
+                    android:gravity="center"
+                    android:padding="@dimen/mat_padding"
+                    android:textAppearance="@style/TextCustomNormal"/>
+
+                <TextView
+                    android:id="@+id/table_tst_shoes_out"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="15"
+                    android:background="@drawable/layout_border_only"
+                    android:ems="4"
+                    android:gravity="center"
+                    android:padding="@dimen/mat_padding"
+                    android:textAppearance="@style/TextCustomNormal"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
                 <TextView
                     android:layout_width="0dp"
@@ -486,7 +526,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                >
+                android:background="@drawable/table_row_light_bg">
 
                 <TextView
                     android:layout_width="0dp"
@@ -529,12 +569,12 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/table_row_light_bg"
                 android:padding="@dimen/mat_padding"
                 android:textAppearance="@style/TextCustomNormal"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
+                android:background="@drawable/table_row_light_bg"
                 android:layout_height="wrap_content">
 
                 <TextView
@@ -572,8 +612,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/blue_grey_50">
+                android:layout_height="wrap_content">
 
                 <TextView
                     android:layout_width="0dp"
@@ -587,6 +626,7 @@
                     android:textAppearance="@style/TextCustomNormal"/>
 
                 <TextView
+                    android:id="@+id/table_ergo_belas_in"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
@@ -597,6 +637,7 @@
                     android:textAppearance="@style/TextCustomNormal"/>
 
                 <TextView
+                    android:id="@+id/table_ergo_belas_out"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
@@ -609,7 +650,8 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:background="@drawable/table_row_light_bg">
 
                 <TextView
                     android:layout_width="0dp"
@@ -623,6 +665,7 @@
                     android:textAppearance="@style/TextCustomNormal"/>
 
                 <TextView
+                    android:id="@+id/table_ergo_vikt_in"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
@@ -633,43 +676,7 @@
                     android:textAppearance="@style/TextCustomNormal"/>
 
                 <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="15"
-                    android:background="@drawable/layout_border_only"
-                    android:ems="4"
-                    android:gravity="center"
-                    android:padding="@dimen/mat_padding"
-                    android:textAppearance="@style/TextCustomNormal"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/blue_grey_50">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="70"
-                    android:background="@drawable/layout_border_only"
-                    android:ems="18"
-                    android:maxLines="1"
-                    android:padding="@dimen/mat_padding"
-                    android:text="Ålder"
-                    android:textAppearance="@style/TextCustomNormal"/>
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="15"
-                    android:background="@drawable/layout_border_only"
-                    android:ems="4"
-                    android:gravity="center"
-                    android:padding="@dimen/mat_padding"
-                    android:textAppearance="@style/TextCustomNormal"/>
-
-                <TextView
+                    android:id="@+id/table_ergo_vikt_out"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
@@ -692,10 +699,11 @@
                     android:ems="18"
                     android:maxLines="1"
                     android:padding="@dimen/mat_padding"
-                    android:text="Längd(cm)"
+                    android:text="Ålder"
                     android:textAppearance="@style/TextCustomNormal"/>
 
                 <TextView
+                    android:id="@+id/table_ergo_ålder_in"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
@@ -706,6 +714,46 @@
                     android:textAppearance="@style/TextCustomNormal"/>
 
                 <TextView
+                    android:id="@+id/table_ergo_ålder_out"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="15"
+                    android:background="@drawable/layout_border_only"
+                    android:ems="4"
+                    android:gravity="center"
+                    android:padding="@dimen/mat_padding"
+                    android:textAppearance="@style/TextCustomNormal"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/table_row_light_bg">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="70"
+                    android:background="@drawable/layout_border_only"
+                    android:ems="18"
+                    android:maxLines="1"
+                    android:padding="@dimen/mat_padding"
+                    android:text="Längd(cm)"
+                    android:textAppearance="@style/TextCustomNormal"/>
+
+                <TextView
+                    android:id="@+id/table_ergo_längd_in"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="15"
+                    android:background="@drawable/layout_border_only"
+                    android:ems="4"
+                    android:gravity="center"
+                    android:padding="@dimen/mat_padding"
+                    android:textAppearance="@style/TextCustomNormal"/>
+
+                <TextView
+                    android:id="@+id/table_ergo_längd_out"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
@@ -719,7 +767,6 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/table_row_light_bg"
                 android:padding="@dimen/mat_padding"
                 android:textAppearance="@style/TextCustomNormal"/>
 

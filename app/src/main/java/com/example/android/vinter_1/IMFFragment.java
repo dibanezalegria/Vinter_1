@@ -137,7 +137,7 @@ public class IMFFragment extends AbstractFragment implements NotesDialogFragment
                 // Save to database: return false if test incomplete
                 if (!saveToDatabase()) {
                     AlertDialog dialog = new AlertDialog.Builder(getActivity()).create();
-                    dialog.setMessage("Progress saved, but some question are still unanswered.");
+                    dialog.setMessage(getResources().getString(R.string.test_saved_incomplete));
                     dialog.setButton(AlertDialog.BUTTON_POSITIVE, "VISA", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
@@ -148,7 +148,7 @@ public class IMFFragment extends AbstractFragment implements NotesDialogFragment
                     dialog.show();
                 } else {
                     AlertDialog dialog = new AlertDialog.Builder(getActivity()).create();
-                    dialog.setMessage("Test completed. Successfully saved.");
+                    dialog.setMessage(getResources().getString(R.string.test_saved_complete));
                     dialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
@@ -499,6 +499,11 @@ public class IMFFragment extends AbstractFragment implements NotesDialogFragment
             }
         });
         dialog.show();
+
+        // Change text size
+        TextView msg = (TextView) dialog.findViewById(android.R.id.message);
+        if (msg != null)
+            msg.setTextSize(18);
     }
 
     /**

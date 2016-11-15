@@ -96,25 +96,22 @@ public class VASFragment extends AbstractFragment implements NotesDialogFragment
 
         // Plus and minus buttons
         mMinusBtn[0] = (ImageButton) rootView.findViewById(R.id.vas_btn_minus_1);
-        mMinusBtn[0].setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int progress = mSeekBars[0].getProgress();
-                if (progress > 0)
-                    mSeekBars[0].setProgress(progress - 1);
-            }
-        });
+        mMinusBtn[1] = (ImageButton) rootView.findViewById(R.id.vas_btn_minus_2);
+        mMinusBtn[2] = (ImageButton) rootView.findViewById(R.id.vas_btn_minus_3);
+        mMinusBtn[3] = (ImageButton) rootView.findViewById(R.id.vas_btn_minus_4);
+        mMinusBtn[4] = (ImageButton) rootView.findViewById(R.id.vas_btn_minus_5);
 
         mPlusBtn[0] = (ImageButton) rootView.findViewById(R.id.vas_btn_plus_1);
-        mPlusBtn[0].setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int progress = mSeekBars[0].getProgress();
-                if (progress < 100)
-                    mSeekBars[0].setProgress(progress + 1);
-            }
-        });
+        mPlusBtn[1] = (ImageButton) rootView.findViewById(R.id.vas_btn_plus_2);
+        mPlusBtn[2] = (ImageButton) rootView.findViewById(R.id.vas_btn_plus_3);
+        mPlusBtn[3] = (ImageButton) rootView.findViewById(R.id.vas_btn_plus_4);
+        mPlusBtn[4] = (ImageButton) rootView.findViewById(R.id.vas_btn_plus_5);
 
+        // Listeners
+        for (int i = 0; i < N_SLIDERS; i++) {
+            mMinusBtn[i].setOnClickListener(this);
+            mPlusBtn[i].setOnClickListener(this);
+        }
 
         mTextViews[0] = (TextView) rootView.findViewById(R.id.kondition_output_text_view);
         mTextViews[1] = (TextView) rootView.findViewById(R.id.smärta_output_text_view);
@@ -156,7 +153,7 @@ public class VASFragment extends AbstractFragment implements NotesDialogFragment
                 ((TestActivity) getActivity()).setUserHasSaved(true);
                 // Show dialog
                 AlertDialog dialog = new AlertDialog.Builder(getActivity()).create();
-                dialog.setMessage("Test completed. Successfully saved.");
+                dialog.setMessage(getResources().getString(R.string.test_saved_complete));
                 dialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -259,7 +256,71 @@ public class VASFragment extends AbstractFragment implements NotesDialogFragment
      */
     @Override
     public void onClick(View v) {
+        switch (v.getId()) {
+            // Minus buttons
+            case R.id.vas_btn_minus_1: {
+                int progress = mSeekBars[0].getProgress();
+                if (progress > 0)
+                    mSeekBars[0].setProgress(progress - 1);
+                break;
+            }
+            case R.id.vas_btn_minus_2:{
+                int progress = mSeekBars[1].getProgress();
+                if (progress > 0)
+                    mSeekBars[1].setProgress(progress - 1);
+                break;
+            }
+            case R.id.vas_btn_minus_3:{
+                int progress = mSeekBars[2].getProgress();
+                if (progress > 0)
+                    mSeekBars[2].setProgress(progress - 1);
+                break;
+            }
+            case R.id.vas_btn_minus_4:{
+                int progress = mSeekBars[3].getProgress();
+                if (progress > 0)
+                    mSeekBars[3].setProgress(progress - 1);
+                break;
+            }
+            case R.id.vas_btn_minus_5:{
+                int progress = mSeekBars[4].getProgress();
+                if (progress > 0)
+                    mSeekBars[4].setProgress(progress - 1);
+                break;
+            }
 
+            // Plus buttons
+            case R.id.vas_btn_plus_1: {
+                int progress = mSeekBars[0].getProgress();
+                if (progress < 100)
+                    mSeekBars[0].setProgress(progress + 1);
+                break;
+            }
+            case R.id.vas_btn_plus_2:{
+                int progress = mSeekBars[1].getProgress();
+                if (progress < 100)
+                    mSeekBars[1].setProgress(progress + 1);
+                break;
+            }
+            case R.id.vas_btn_plus_3:{
+                int progress = mSeekBars[2].getProgress();
+                if (progress < 100)
+                    mSeekBars[2].setProgress(progress + 1);
+                break;
+            }
+            case R.id.vas_btn_plus_4:{
+                int progress = mSeekBars[3].getProgress();
+                if (progress < 100)
+                    mSeekBars[3].setProgress(progress + 1);
+                break;
+            }
+            case R.id.vas_btn_plus_5:{
+                int progress = mSeekBars[4].getProgress();
+                if (progress < 100)
+                    mSeekBars[4].setProgress(progress + 1);
+                break;
+            }
+        }
     }
 
     /**
@@ -291,10 +352,10 @@ public class VASFragment extends AbstractFragment implements NotesDialogFragment
         AlertDialog dialog = new AlertDialog.Builder(getActivity()).create();
         // fromHtml deprecated for Android N and higher
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
-            dialog.setMessage(Html.fromHtml(getContext().getString(R.string.imf_manual),
+            dialog.setMessage(Html.fromHtml(getContext().getString(R.string.vas_manual),
                     Html.FROM_HTML_MODE_LEGACY));
         } else {
-            dialog.setMessage(Html.fromHtml(getContext().getString(R.string.imf_manual)));
+            dialog.setMessage(Html.fromHtml(getContext().getString(R.string.vas_manual)));
         }
 
         dialog.setButton(AlertDialog.BUTTON_NEUTRAL, "Close", new DialogInterface.OnClickListener() {

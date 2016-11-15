@@ -90,6 +90,15 @@ public class ResultTableActivity extends AppCompatActivity {
                     case "BASDAI":
                         handleBASDAI(cursor);
                         break;
+                    case "TST":
+                        handleTST(cursor);
+                        break;
+                    case "BASG":
+                        handleBASG(cursor);
+                        break;
+                    case "ERGO":
+                        handleErgo(cursor);
+                        break;
                     default:
                         break;
                 }
@@ -251,17 +260,17 @@ public class ResultTableActivity extends AppCompatActivity {
         // In
         int statusIn = cursor.getInt(cursor.getColumnIndex(TestEntry.COLUMN_STATUS_IN));
         if (statusIn == Test.COMPLETED) {
-            TextView mTvResultIn = (TextView) findViewById(R.id.table_bergs_result_in);
+            TextView tvResultIn = (TextView) findViewById(R.id.table_bergs_result_in);
             String resultIn = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_RESULT_IN));
-            mTvResultIn.setText(resultIn);
+            tvResultIn.setText(resultIn);
         }
 
         // Out
         int statusOut = cursor.getInt(cursor.getColumnIndex(TestEntry.COLUMN_STATUS_OUT));
         if (statusOut == Test.COMPLETED) {
-            TextView mTvResultOut = (TextView) findViewById(R.id.table_bergs_result_out);
+            TextView tvResultOut = (TextView) findViewById(R.id.table_bergs_result_out);
             String resultOut = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_RESULT_OUT));
-            mTvResultOut.setText(resultOut);
+            tvResultOut.setText(resultOut);
         }
     }
 
@@ -269,17 +278,17 @@ public class ResultTableActivity extends AppCompatActivity {
         // In
         int statusIn = cursor.getInt(cursor.getColumnIndex(TestEntry.COLUMN_STATUS_IN));
         if (statusIn == Test.COMPLETED) {
-            TextView mTvResultIn = (TextView) findViewById(R.id.table_bdl_result_in);
+            TextView tvResultIn = (TextView) findViewById(R.id.table_bdl_result_in);
             String resultIn = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_RESULT_IN));
-            mTvResultIn.setText(resultIn);
+            tvResultIn.setText(resultIn);
         }
 
         // Out
         int statusOut = cursor.getInt(cursor.getColumnIndex(TestEntry.COLUMN_STATUS_OUT));
         if (statusOut == Test.COMPLETED) {
-            TextView mTvResultOut = (TextView) findViewById(R.id.table_bdl_result_out);
+            TextView tvResultOut = (TextView) findViewById(R.id.table_bdl_result_out);
             String resultOut = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_RESULT_OUT));
-            mTvResultOut.setText(resultOut);
+            tvResultOut.setText(resultOut);
         }
     }
 
@@ -287,17 +296,17 @@ public class ResultTableActivity extends AppCompatActivity {
         // In
         int statusIn = cursor.getInt(cursor.getColumnIndex(TestEntry.COLUMN_STATUS_IN));
         if (statusIn == Test.COMPLETED) {
-            TextView mTvResultIn = (TextView) findViewById(R.id.table_imf_result_in);
+            TextView tvResultIn = (TextView) findViewById(R.id.table_imf_result_in);
             String resultIn = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_RESULT_IN));
-            mTvResultIn.setText(resultIn);
+            tvResultIn.setText(resultIn);
         }
 
         // Out
         int statusOut = cursor.getInt(cursor.getColumnIndex(TestEntry.COLUMN_STATUS_OUT));
         if (statusOut == Test.COMPLETED) {
-            TextView mTvResultOut = (TextView) findViewById(R.id.table_imf_result_out);
+            TextView tvResultOut = (TextView) findViewById(R.id.table_imf_result_out);
             String resultOut = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_RESULT_OUT));
-            mTvResultOut.setText(resultOut);
+            tvResultOut.setText(resultOut);
         }
     }
 
@@ -318,17 +327,17 @@ public class ResultTableActivity extends AppCompatActivity {
         // In
         int statusIn = cursor.getInt(cursor.getColumnIndex(TestEntry.COLUMN_STATUS_IN));
         if (statusIn == Test.COMPLETED) {
-            TextView mTvResultIn = (TextView) findViewById(R.id.table_basmi_result_in);
+            TextView tvResultIn = (TextView) findViewById(R.id.table_basmi_result_in);
             String resultIn = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_RESULT_IN));
-            mTvResultIn.setText(resultIn);
+            tvResultIn.setText(resultIn);
         }
 
         // Out
         int statusOut = cursor.getInt(cursor.getColumnIndex(TestEntry.COLUMN_STATUS_OUT));
         if (statusOut == Test.COMPLETED) {
-            TextView mTvResultOut = (TextView) findViewById(R.id.table_basmi_result_out);
+            TextView tvResultOut = (TextView) findViewById(R.id.table_basmi_result_out);
             String resultOut = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_RESULT_OUT));
-            mTvResultOut.setText(resultOut);
+            tvResultOut.setText(resultOut);
         }
     }
 
@@ -340,33 +349,33 @@ public class ResultTableActivity extends AppCompatActivity {
             String[] part = result.split("\\|");
 
             if (!part[0].equals("-1")) {
-                TextView mTvSumH = (TextView) findViewById(R.id.table_fsa_sum_h_in);
-                mTvSumH.setText(part[0]);
+                TextView tvSumH = (TextView) findViewById(R.id.table_fsa_sum_h_in);
+                tvSumH.setText(part[0]);
             }
 
             if (!part[1].equals("-1")) {
-                TextView mTvSumV = (TextView) findViewById(R.id.table_fsa_sum_v_in);
-                mTvSumV.setText(part[1]);
+                TextView tvSumV = (TextView) findViewById(R.id.table_fsa_sum_v_in);
+                tvSumV.setText(part[1]);
             }
 
             if (!part[2].equals("-1")) {
-                TextView mTvTotal = (TextView) findViewById(R.id.table_fsa_total_in);
-                mTvTotal.setText(part[2]);
+                TextView tvTotal = (TextView) findViewById(R.id.table_fsa_total_in);
+                tvTotal.setText(part[2]);
             }
 
             if (!part[3].equals("-1")) {
-                TextView mSmartH = (TextView) findViewById(R.id.table_fsa_smart_h_in);
-                mSmartH.setText(part[3]);
+                TextView tvSmartH = (TextView) findViewById(R.id.table_fsa_smart_h_in);
+                tvSmartH.setText(part[3]);
             }
 
             if (!part[4].equals("-1")) {
-                TextView mSmartV = (TextView) findViewById(R.id.table_fsa_smart_v_in);
-                mSmartV.setText(part[4]);
+                TextView tvSmartV = (TextView) findViewById(R.id.table_fsa_smart_v_in);
+                tvSmartV.setText(part[4]);
             }
 
             if (!part[5].equals("-1")) {
-                TextView mSmartV = (TextView) findViewById(R.id.table_fsa_smart_total_in);
-                mSmartV.setText(part[5]);
+                TextView tvSmartV = (TextView) findViewById(R.id.table_fsa_smart_total_in);
+                tvSmartV.setText(part[5]);
             }
         }
 
@@ -377,33 +386,33 @@ public class ResultTableActivity extends AppCompatActivity {
             String[] part = result.split("\\|");
 
             if (!part[0].equals("-1")) {
-                TextView mTvSumH = (TextView) findViewById(R.id.table_fsa_sum_h_out);
-                mTvSumH.setText(part[0]);
+                TextView tvSumH = (TextView) findViewById(R.id.table_fsa_sum_h_out);
+                tvSumH.setText(part[0]);
             }
 
             if (!part[1].equals("-1")) {
-                TextView mTvSumV = (TextView) findViewById(R.id.table_fsa_sum_v_out);
-                mTvSumV.setText(part[1]);
+                TextView tvSumV = (TextView) findViewById(R.id.table_fsa_sum_v_out);
+                tvSumV.setText(part[1]);
             }
 
             if (!part[2].equals("-1")) {
-                TextView mTvTotal = (TextView) findViewById(R.id.table_fsa_total_out);
-                mTvTotal.setText(part[2]);
+                TextView tvTotal = (TextView) findViewById(R.id.table_fsa_total_out);
+                tvTotal.setText(part[2]);
             }
 
             if (!part[3].equals("-1")) {
-                TextView mSmartH = (TextView) findViewById(R.id.table_fsa_smart_h_out);
-                mSmartH.setText(part[3]);
+                TextView tvSmartH = (TextView) findViewById(R.id.table_fsa_smart_h_out);
+                tvSmartH.setText(part[3]);
             }
 
             if (!part[4].equals("-1")) {
-                TextView mSmartV = (TextView) findViewById(R.id.table_fsa_smart_v_out);
-                mSmartV.setText(part[4]);
+                TextView tvSmartV = (TextView) findViewById(R.id.table_fsa_smart_v_out);
+                tvSmartV.setText(part[4]);
             }
 
             if (!part[5].equals("-1")) {
-                TextView mSmartV = (TextView) findViewById(R.id.table_fsa_smart_total_out);
-                mSmartV.setText(part[5]);
+                TextView tvSmartV = (TextView) findViewById(R.id.table_fsa_smart_total_out);
+                tvSmartV.setText(part[5]);
             }
         }
     }
@@ -412,17 +421,17 @@ public class ResultTableActivity extends AppCompatActivity {
         // In
         int statusIn = cursor.getInt(cursor.getColumnIndex(TestEntry.COLUMN_STATUS_IN));
         if (statusIn == Test.COMPLETED) {
-            TextView mTvResult = (TextView) findViewById(R.id.table_fss_in);
+            TextView tvResult = (TextView) findViewById(R.id.table_fss_in);
             String result = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_RESULT_IN));
-            mTvResult.setText(result);
+            tvResult.setText(result);
         }
 
         // Out
         int statusOut = cursor.getInt(cursor.getColumnIndex(TestEntry.COLUMN_STATUS_OUT));
         if (statusOut == Test.COMPLETED) {
-            TextView mTvResult = (TextView) findViewById(R.id.table_fss_out);
+            TextView tvResult = (TextView) findViewById(R.id.table_fss_out);
             String result = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_RESULT_OUT));
-            mTvResult.setText(result);
+            tvResult.setText(result);
         }
     }
 
@@ -430,17 +439,17 @@ public class ResultTableActivity extends AppCompatActivity {
         // In
         int statusIn = cursor.getInt(cursor.getColumnIndex(TestEntry.COLUMN_STATUS_IN));
         if (statusIn == Test.COMPLETED) {
-            TextView mTvResult = (TextView) findViewById(R.id.table_basfi_in);
+            TextView tvResult = (TextView) findViewById(R.id.table_basfi_in);
             String result = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_RESULT_IN));
-            mTvResult.setText(result);
+            tvResult.setText(result);
         }
 
         // Out
         int statusOut = cursor.getInt(cursor.getColumnIndex(TestEntry.COLUMN_STATUS_OUT));
         if (statusOut == Test.COMPLETED) {
-            TextView mTvResult = (TextView) findViewById(R.id.table_basfi_out);
+            TextView tvResult = (TextView) findViewById(R.id.table_basfi_out);
             String result = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_RESULT_OUT));
-            mTvResult.setText(result);
+            tvResult.setText(result);
         }
     }
 
@@ -448,17 +457,107 @@ public class ResultTableActivity extends AppCompatActivity {
         // In
         int statusIn = cursor.getInt(cursor.getColumnIndex(TestEntry.COLUMN_STATUS_IN));
         if (statusIn == Test.COMPLETED) {
-            TextView mTvResult = (TextView) findViewById(R.id.table_basdai_in);
+            TextView tvResult = (TextView) findViewById(R.id.table_basdai_in);
             String result = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_RESULT_IN));
-            mTvResult.setText(result);
+            tvResult.setText(result);
         }
 
         // Out
         int statusOut = cursor.getInt(cursor.getColumnIndex(TestEntry.COLUMN_STATUS_OUT));
         if (statusOut == Test.COMPLETED) {
-            TextView mTvResult = (TextView) findViewById(R.id.table_basdai_out);
+            TextView tvResult = (TextView) findViewById(R.id.table_basdai_out);
             String result = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_RESULT_OUT));
-            mTvResult.setText(result);
+            tvResult.setText(result);
+        }
+    }
+
+    private void handleTST(Cursor cursor) {
+        // In
+        int statusIn = cursor.getInt(cursor.getColumnIndex(TestEntry.COLUMN_STATUS_IN));
+        if (statusIn == Test.COMPLETED) {
+            TextView tvResult = (TextView) findViewById(R.id.table_tst_in);
+            String content = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_CONTENT_IN));
+            String[] parts = content.split("\\|");
+            tvResult.setText(parts[0]);
+            // Skor
+            TextView tvShoes = (TextView) findViewById(R.id.table_tst_shoes_in);
+            if (parts[1].equals("1"))
+                tvShoes.setText("med");
+            else
+                tvShoes.setText("utan");
+        }
+
+        // Out
+        int statusOut = cursor.getInt(cursor.getColumnIndex(TestEntry.COLUMN_STATUS_OUT));
+        if (statusOut == Test.COMPLETED) {
+            TextView tvResult = (TextView) findViewById(R.id.table_tst_out);
+            String content = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_CONTENT_OUT));
+            String[] parts = content.split("\\|");
+            tvResult.setText(parts[0]);
+            // Skor
+            TextView tvShoes = (TextView) findViewById(R.id.table_tst_shoes_out);
+            if (parts[1].equals("1"))
+                tvShoes.setText("med");
+            else
+                tvShoes.setText("utan");
+        }
+    }
+
+    private void handleBASG(Cursor cursor) {
+        // In
+        int statusIn = cursor.getInt(cursor.getColumnIndex(TestEntry.COLUMN_STATUS_IN));
+        if (statusIn == Test.COMPLETED) {
+            TextView tvBasg1 = (TextView) findViewById(R.id.table_basg1_in);
+            TextView tvBasg2 = (TextView) findViewById(R.id.table_basg2_in);
+            String result = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_RESULT_IN));
+            String[] part = result.split("\\|");
+            tvBasg1.setText(part[0]);
+            tvBasg2.setText(part[1]);
+        }
+
+        // Out
+        int statusOut = cursor.getInt(cursor.getColumnIndex(TestEntry.COLUMN_STATUS_OUT));
+        if (statusOut == Test.COMPLETED) {
+            TextView tvBasg1 = (TextView) findViewById(R.id.table_basg1_out);
+            TextView tvBasg2 = (TextView) findViewById(R.id.table_basg2_out);
+            String result = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_RESULT_OUT));
+            String[] part = result.split("\\|");
+            tvBasg1.setText(part[0]);
+            tvBasg2.setText(part[1]);
+        }
+    }
+
+    private void handleErgo(Cursor cursor) {
+        // In
+        int statusIn = cursor.getInt(cursor.getColumnIndex(TestEntry.COLUMN_STATUS_IN));
+        if (statusIn == Test.COMPLETED) {
+            TextView tvVikt = (TextView) findViewById(R.id.table_ergo_vikt_in);
+            TextView tvLängd = (TextView) findViewById(R.id.table_ergo_längd_in);
+            TextView tvÅlder = (TextView) findViewById(R.id.table_ergo_ålder_in);
+            TextView tvBelas = (TextView) findViewById(R.id.table_ergo_belas_in);
+
+            String content = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_CONTENT_IN));
+            String[] parts = content.split("\\|");
+            tvVikt.setText(parts[2]);
+            tvLängd.setText(parts[3]);
+            tvÅlder.setText(parts[4]);
+            tvBelas.setText(parts[6]);
+        }
+
+        // Out
+        int statusOut = cursor.getInt(cursor.getColumnIndex(TestEntry.COLUMN_STATUS_OUT));
+        if (statusOut == Test.COMPLETED) {
+            TextView tvVikt = (TextView) findViewById(R.id.table_ergo_vikt_out);
+            TextView tvLängd = (TextView) findViewById(R.id.table_ergo_längd_out);
+            TextView tvÅlder = (TextView) findViewById(R.id.table_ergo_ålder_out);
+            TextView tvBelas = (TextView) findViewById(R.id.table_ergo_belas_out);
+
+            String content = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_CONTENT_OUT));
+            String[] parts = content.split("\\|");
+            tvVikt.setText(parts[2]);
+            tvLängd.setText(parts[3]);
+            tvÅlder.setText(parts[4]);
+            tvBelas.setText(parts[6]);
         }
     }
 

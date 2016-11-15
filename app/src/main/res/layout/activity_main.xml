@@ -1,63 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="@color/blue_grey_50"
-    tools:context="com.example.android.vinter_1.MainActivity">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
 
-    <!-- Empty view for the list -->
-    <RelativeLayout
-        android:id="@+id/patient_list_empty_view"
-        android:layout_width="wrap_content"
+    <!-- Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true">
-
-        <ImageView
-            android:id="@+id/patient_list_image"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:src="@drawable/ic_person_add_black_128dp_1x"
-            android:tint="@color/blue_grey_800"/>
+        android:padding="24dp"
+        android:background="@color/blue_grey_800">
 
         <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:text="Patienter"
+            android:textSize="20sp"/>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/activity_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:background="@color/blue_grey_50"
+        tools:context="com.example.android.vinter_1.MainActivity">
+
+        <!-- Empty view for the list -->
+        <RelativeLayout
+            android:id="@+id/patient_list_empty_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/patient_list_image"
-            android:layout_centerHorizontal="true"
-            android:paddingTop="16dp"
-            android:text="Click on icon to add new patients"
-            android:textColor="@color/blue_grey_800"
-            android:textAppearance="?android:textAppearanceLarge"/>
+            android:layout_centerInParent="true">
+
+            <ImageView
+                android:id="@+id/patient_list_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/ic_person_add_black_128dp_1x"
+                android:tint="@color/blue_grey_800"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/patient_list_image"
+                android:layout_centerHorizontal="true"
+                android:paddingTop="16dp"
+                android:text="Click on icon to add new patients"
+                android:textColor="@color/blue_grey_800"
+                android:textAppearance="?android:textAppearanceLarge"/>
+        </RelativeLayout>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/add_patient_fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="16dp"
+            android:clickable="true"
+            android:src="@drawable/ic_person_add_white_24dp"/>
+
+        <ListView
+            android:id="@+id/patients_list_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toStartOf="@id/add_patient_fab"
+            android:layout_alignParentStart="true"
+            android:dividerHeight="10dp"
+            android:divider="@android:color/transparent"
+            android:longClickable="true"
+            android:fadeScrollbars="false">
+        </ListView>
+
     </RelativeLayout>
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/add_patient_fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_margin="16dp"
-        android:clickable="true"
-        android:src="@drawable/ic_person_add_white_24dp"/>
 
-    <ListView
-        android:id="@+id/patients_list_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toStartOf="@id/add_patient_fab"
-        android:layout_alignParentStart="true"
-        android:dividerHeight="10dp"
-        android:divider="@android:color/transparent"
-        android:longClickable="true"
-        android:fadeScrollbars="false">
-    </ListView>
+</LinearLayout>
 
-</RelativeLayout>
+

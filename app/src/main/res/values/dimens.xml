@@ -40,11 +40,23 @@
     <dimen name="fsa_padding_box_text">6dp</dimen>
     <dimen name="fsa_margin_between_questions">32dp</dimen>
 
-    <!-- BASFI__________________________________________________________________________________ -->
+    <!-- BASFI _________________________________________________________________________________ -->
     <dimen name="basfi_margin_questions">32dp</dimen>
     <dimen name="basfi_margin_question_slider">16dp</dimen>
 
-    <!-- BASDAI__________________________________________________________________________________ -->
+    <!-- BASDAI ________________________________________________________________________________ -->
     <dimen name="basdai_margin_questions">32dp</dimen>
     <dimen name="basdai_margin_question_slider">16dp</dimen>
+
+    <!-- LEDSTATUS _____________________________________________________________________________ -->
+    <dimen name="ledstatus_between_columns">32dp</dimen>
+
+    <!-- FSS ___________________________________________________________________________________ -->
+    <dimen name="fss_margin_top_question">32dp</dimen>
+    <dimen name="fss_margin_top_radio_group">16dp</dimen>
+    <dimen name="fss_margin_start_radio_group">16dp</dimen>
+
+    <!-- Ergo __________________________________________________________________________________ -->
+    <dimen name="ergo_margin_top_question">26dp</dimen>
+    <dimen name="ergo_margin_top_pulse">16dp</dimen>
 </resources>

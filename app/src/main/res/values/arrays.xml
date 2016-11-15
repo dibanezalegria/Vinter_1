@@ -2,11 +2,11 @@
 <resources>
     <!-- Menu dialog patient -->
     <string-array name="menu_dialog_patient">
-        <item>Tests</item>
+        <item>Tester</item>
         <item>Mätresultat</item>
-        <item>Edit patient</item>
-        <item>Delete patient</item>
-        <item>Log patients</item>
+        <item>Ändra patientuppgifter</item>
+        <item>Ta bort patient</item>
+        <!--<item>Log patients</item>-->
     </string-array>
 
     <!-- The tests -->
