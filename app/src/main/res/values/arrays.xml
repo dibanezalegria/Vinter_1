@@ -4,7 +4,7 @@
     <string-array name="menu_dialog_patient">
         <item>Tester</item>
         <item>Mätresultat</item>
-        <item>Ändra patientuppgifter</item>
+        <item>Redigera patient</item>
         <item>Ta bort patient</item>
         <!--<item>Log patients</item>-->
     </string-array>

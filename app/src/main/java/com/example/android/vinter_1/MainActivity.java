@@ -200,22 +200,22 @@ public class MainActivity extends AppCompatActivity
         // Create test placeholders for patient in 'test' database
         if (uri != null) {
             long newPatientID = ContentUris.parseId(uri);
+            addTestForPatient(newPatientID, "VAS", "VAS", "- Visuell Analog Skala");
+            addTestForPatient(newPatientID, "EQ5D", "EQ5D", "");
             addTestForPatient(newPatientID, "6MIN", "6 min gångtest", "");
+            addTestForPatient(newPatientID, "TUG", "TUG", "Timed UP and GO");
+            addTestForPatient(newPatientID, "ERGO", "Ergometri (cykeltest)", "");
+            addTestForPatient(newPatientID, "TST", "TST", "- Timed Stands Test");
+            addTestForPatient(newPatientID, "IMF", "IMF", "- Index of Muscle Function");
+            addTestForPatient(newPatientID, "FSA", "FSA", "- Funktionsskattning Skuldra Arm");
+            addTestForPatient(newPatientID, "LED", "LEDSTATUS", "");
+            addTestForPatient(newPatientID, "BERGS", "Bergs", "- Bergs balansskala");
+            addTestForPatient(newPatientID, "BDL", "BDL", "");
+            addTestForPatient(newPatientID, "FSS", "FSS", "- Fatigue Severity Scale");
+            addTestForPatient(newPatientID, "BASMI", "BASMI", "- Bath Ankylosing Spondylitis Metrology Index");
             addTestForPatient(newPatientID, "BASDAI", "BASDAI", "- Bath Ankylosing Spondylitis Disease Activity Index");
             addTestForPatient(newPatientID, "BASFI", "BASFI", "- Bath Ankylosing Spondylitis Functional Index");
             addTestForPatient(newPatientID, "BASG", "BASG", "- Bath Ankylosing Spondylitis Patient Global Score");
-            addTestForPatient(newPatientID, "BASMI", "BASMI", "- Bath Ankylosing Spondylitis Metrology Index");
-            addTestForPatient(newPatientID, "BDL", "BDL", "");
-            addTestForPatient(newPatientID, "BERGS", "Bergs", "- Bergs balansskala");
-            addTestForPatient(newPatientID, "EQ5D", "EQ5D", "");
-            addTestForPatient(newPatientID, "ERGO", "Ergometri (cykeltest)", "");
-            addTestForPatient(newPatientID, "FSA", "FSA", "- Funktionsskattning Skuldra Arm");
-            addTestForPatient(newPatientID, "FSS", "FSS", "- Fatigue Severity Scale");
-            addTestForPatient(newPatientID, "IMF", "IMF", "- Index of Muscle Function");
-            addTestForPatient(newPatientID, "LED", "LEDSTATUS", "");
-            addTestForPatient(newPatientID, "TST", "TST", "- Timed Stands Test");
-            addTestForPatient(newPatientID, "TUG", "TUG", "Timed UP and GO");
-            addTestForPatient(newPatientID, "VAS", "VAS", "- Visuell Analog Skala");
 
 //            // Crazy test: check database size in MB
 //            for (int i = 0; i < 10000; i++) {
