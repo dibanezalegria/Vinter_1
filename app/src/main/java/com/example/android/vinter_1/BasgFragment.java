@@ -180,9 +180,9 @@ public class BasgFragment extends AbstractFragment
 
     private String calculate() {
         String basg1 = String.valueOf(
-                mSlider1.getProgress() / 2.0f);
+                mSlider1.getProgress() / 10.0f);
         String basg2 = String.valueOf(
-                mSlider2.getProgress() / 2.0f);
+                mSlider2.getProgress() / 10.0f);
 
         // Update UI
         mTvResult1.setText(basg1);

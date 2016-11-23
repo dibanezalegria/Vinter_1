@@ -31,7 +31,7 @@
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin"
         android:background="@color/blue_grey_50"
-        tools:context="com.example.android.vinter_1.MainActivity">
+        tools:context="com.example.android.vinter_1.PatientListActivity">
 
         <!-- Empty view for the list -->
         <RelativeLayout

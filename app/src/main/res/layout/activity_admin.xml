@@ -22,7 +22,7 @@
             android:layout_weight="6"
             android:layout_height="wrap_content"
             android:background="@drawable/exit_custom_button"
-            android:text="Exit"/>
+            android:text="Log out"/>
 
         <TextView
             android:layout_width="0dp"
@@ -56,13 +56,14 @@
             style="@style/TextCustomNormal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Number of patients in recycle bin: "/>
+            android:text="Number of items in recycle bin: "/>
 
         <TextView
             style="@style/TextCustomNormal"
             android:id="@+id/admin_number_patients_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
             android:textColor="@android:color/holo_red_light"/>
     </LinearLayout>
 

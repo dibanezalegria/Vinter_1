@@ -33,8 +33,8 @@ public class ResultTableActivity extends AppCompatActivity {
         // Extract info from Bundle
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
-            mPatientID = extras.getLong(MainActivity.KEY_PATIENT_ID);
-            mHeaderString = extras.getString(MainActivity.KEY_HEADER);
+            mPatientID = extras.getLong(PatientListActivity.KEY_PATIENT_ID);
+            mHeaderString = extras.getString(PatientListActivity.KEY_HEADER);
             Log.d(LOG_TAG, "Getting extras from Bundle -> mPatientID: " + mPatientID +
                     " mHeader: " + mHeaderString);
         }
@@ -98,6 +98,15 @@ public class ResultTableActivity extends AppCompatActivity {
                         break;
                     case "ERGO":
                         handleErgo(cursor);
+                        break;
+                    case "IPAQ":
+                        handleIPAQ(cursor);
+                        break;
+                    case "OTT":
+                        handleOTT(cursor);
+                        break;
+                    case "THORAX":
+                        handleThorax(cursor);
                         break;
                     default:
                         break;
@@ -558,6 +567,75 @@ public class ResultTableActivity extends AppCompatActivity {
             tvLängd.setText(parts[3]);
             tvÅlder.setText(parts[4]);
             tvBelas.setText(parts[6]);
+        }
+    }
+
+    private void handleIPAQ(Cursor cursor) {
+        // In
+        int statusIn = cursor.getInt(cursor.getColumnIndex(TestEntry.COLUMN_STATUS_IN));
+        if (statusIn == Test.COMPLETED) {
+            TextView tvF = (TextView) findViewById(R.id.table_ipaq_fysisk_in);
+            TextView tvS = (TextView) findViewById(R.id.table_ipaq_sittande_in);
+            String result = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_RESULT_IN));
+            String[] part = result.split("\\|");
+            tvF.setText(part[0]);
+            tvS.setText(part[1]);
+        }
+
+        // Out
+        int statusOut = cursor.getInt(cursor.getColumnIndex(TestEntry.COLUMN_STATUS_OUT));
+        if (statusOut == Test.COMPLETED) {
+            TextView tvF = (TextView) findViewById(R.id.table_ipaq_fysisk_out);
+            TextView tvS = (TextView) findViewById(R.id.table_ipaq_sittande_out);
+            String result = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_RESULT_OUT));
+            String[] part = result.split("\\|");
+            tvF.setText(part[0]);
+            tvS.setText(part[1]);
+        }
+    }
+
+    private void handleOTT(Cursor cursor) {
+        // No need to check from COMPLETE status. If either flexion or extension have values
+        // we print them out.
+        // In
+        TextView tvFlex = (TextView) findViewById(R.id.table_ottflex_in);
+        TextView tvExt = (TextView) findViewById(R.id.table_ottext_in);
+        String content = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_CONTENT_IN));
+        if (content != null) {
+            String[] part = content.split("\\|");
+            tvFlex.setText(part[0]);
+            tvExt.setText(part[1]);
+        }
+
+
+        // Out
+        tvFlex = (TextView) findViewById(R.id.table_ottflex_out);
+        tvExt = (TextView) findViewById(R.id.table_ottext_out);
+        content = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_CONTENT_OUT));
+        if (content != null) {
+            String[] part = content.split("\\|");
+            tvFlex.setText(part[0]);
+            tvExt.setText(part[1]);
+        }
+    }
+
+    private void handleThorax(Cursor cursor) {
+        // In
+        int statusIn = cursor.getInt(cursor.getColumnIndex(TestEntry.COLUMN_STATUS_IN));
+        if (statusIn == Test.COMPLETED) {
+            TextView tv = (TextView) findViewById(R.id.table_thorax_in);
+            String result = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_CONTENT_IN));
+            String[] part = result.split("\\|");
+            tv.setText(part[0]);
+        }
+
+        // Out
+        int statusOut = cursor.getInt(cursor.getColumnIndex(TestEntry.COLUMN_STATUS_OUT));
+        if (statusOut == Test.COMPLETED) {
+            TextView tv = (TextView) findViewById(R.id.table_thorax_out);
+            String result = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_CONTENT_OUT));
+            String[] part = result.split("\\|");
+            tv.setText(part[0]);
         }
     }
 

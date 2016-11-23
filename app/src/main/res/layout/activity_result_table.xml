@@ -16,16 +16,6 @@
         android:gravity="center_vertical"
         android:padding="16dp">
 
-        <!--<android.support.design.widget.FloatingActionButton-->
-            <!--android:id="@+id/activity_test_fab_help"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginStart="16dp"-->
-            <!--android:clickable="true"-->
-            <!--android:scaleType="center"-->
-            <!--android:src="@drawable/ic_comment_white_24dp"-->
-            <!--app:fabSize="mini"/>-->
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -574,8 +564,8 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:background="@drawable/table_row_light_bg"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:background="@drawable/table_row_light_bg">
 
                 <TextView
                     android:layout_width="0dp"
@@ -1068,10 +1058,11 @@
                     android:ems="18"
                     android:maxLines="1"
                     android:padding="@dimen/mat_padding"
-                    android:text="IPAQ Fysisk aktivitet (kategori 1-3)"
+                    android:text="IPAQ - Fysisk aktivitet (kategori 1-3)"
                     android:textAppearance="@style/TextCustomNormal"/>
 
                 <TextView
+                    android:id="@+id/table_ipaq_fysisk_in"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
@@ -1082,6 +1073,7 @@
                     android:textAppearance="@style/TextCustomNormal"/>
 
                 <TextView
+                    android:id="@+id/table_ipaq_fysisk_out"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
@@ -1108,6 +1100,7 @@
                     android:textAppearance="@style/TextCustomNormal"/>
 
                 <TextView
+                    android:id="@+id/table_ipaq_sittande_in"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
@@ -1118,6 +1111,7 @@
                     android:textAppearance="@style/TextCustomNormal"/>
 
                 <TextView
+                    android:id="@+id/table_ipaq_sittande_out"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
@@ -1479,6 +1473,129 @@
 
                 <TextView
                     android:id="@+id/table_basmi_result_out"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="15"
+                    android:background="@drawable/layout_border_only"
+                    android:ems="4"
+                    android:gravity="center"
+                    android:padding="@dimen/mat_padding"
+                    android:textAppearance="@style/TextCustomNormal"/>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/layout_border_only"
+                android:padding="@dimen/mat_padding"
+                android:textAppearance="@style/TextCustomNormal"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/blue_grey_50">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="70"
+                    android:background="@drawable/layout_border_only"
+                    android:ems="18"
+                    android:maxLines="1"
+                    android:padding="@dimen/mat_padding"
+                    android:text="Ott - flexion (Normalvärde: 3 cm)"
+                    android:textAppearance="@style/TextCustomNormal"/>
+
+                <TextView
+                    android:id="@+id/table_ottflex_in"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="15"
+                    android:background="@drawable/layout_border_only"
+                    android:ems="4"
+                    android:gravity="center"
+                    android:padding="@dimen/mat_padding"
+                    android:textAppearance="@style/TextCustomNormal"/>
+
+                <TextView
+                    android:id="@+id/table_ottflex_out"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="15"
+                    android:background="@drawable/layout_border_only"
+                    android:ems="4"
+                    android:gravity="center"
+                    android:padding="@dimen/mat_padding"
+                    android:textAppearance="@style/TextCustomNormal"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="70"
+                    android:background="@drawable/layout_border_only"
+                    android:ems="18"
+                    android:maxLines="1"
+                    android:padding="@dimen/mat_padding"
+                    android:text="Ott - Extension (Normalvärde: 2 cm)"
+                    android:textAppearance="@style/TextCustomNormal"/>
+
+                <TextView
+                    android:id="@+id/table_ottext_in"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="15"
+                    android:background="@drawable/layout_border_only"
+                    android:ems="4"
+                    android:gravity="center"
+                    android:padding="@dimen/mat_padding"
+                    android:textAppearance="@style/TextCustomNormal"/>
+
+                <TextView
+                    android:id="@+id/table_ottext_out"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="15"
+                    android:background="@drawable/layout_border_only"
+                    android:ems="4"
+                    android:gravity="center"
+                    android:padding="@dimen/mat_padding"
+                    android:textAppearance="@style/TextCustomNormal"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/blue_grey_50">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="70"
+                    android:background="@drawable/layout_border_only"
+                    android:ems="18"
+                    android:maxLines="1"
+                    android:padding="@dimen/mat_padding"
+                    android:text="Thoraxexkursion (Normalvärde: 6-10 cm)"
+                    android:textAppearance="@style/TextCustomNormal"/>
+
+                <TextView
+                    android:id="@+id/table_thorax_in"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="15"
+                    android:background="@drawable/layout_border_only"
+                    android:ems="4"
+                    android:gravity="center"
+                    android:padding="@dimen/mat_padding"
+                    android:textAppearance="@style/TextCustomNormal"/>
+
+                <TextView
+                    android:id="@+id/table_thorax_out"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"

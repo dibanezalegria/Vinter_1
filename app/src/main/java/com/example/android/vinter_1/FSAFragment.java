@@ -75,10 +75,6 @@ public class FSAFragment extends AbstractFragment implements NotesDialogFragment
         mRootView = inflater.inflate(R.layout.fragment_fsa, container, false);
 
         if (mTestPhase == TestActivity.TEST_OUT) {
-//            ScrollView scroll = (ScrollView) mRootView.findViewById(R.id.basfi_background);
-//            scroll.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.bgOut));
-//            View separator = (View) mRootView.findViewById(R.id.basfi_separator);
-//            separator.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.bgBrightOut));
             TextView textView = (TextView) mRootView.findViewById(R.id.fsa_title);
             textView.setText("UT test");
         }
@@ -123,7 +119,7 @@ public class FSAFragment extends AbstractFragment implements NotesDialogFragment
         // Edit text input filter
         for (int q = 0; q < N_QUESTIONS; q++) {
             for (int s = 0; s < N_SIDES; s++) {
-                mEtSmart[q][s].setFilters(new InputFilter[]{new InputFilterMinMax("0", "10")});
+                mEtSmart[q][s].setFilters(new InputFilter[]{new InputFilterMinMax("0", "10", 2, 1)});
                 mEtSmart[q][s].addTextChangedListener(this);
             }
         }
@@ -270,7 +266,7 @@ public class FSAFragment extends AbstractFragment implements NotesDialogFragment
             builder.append("-1");
         }
 
-        int smartH = -1;
+        double smartH = -1;
         builder.append("|");
         if (isSmartHcomplete()) {
             smartH = calculateSmartHsum();
@@ -280,7 +276,7 @@ public class FSAFragment extends AbstractFragment implements NotesDialogFragment
             status = Test.INCOMPLETED;
         }
 
-        int smartV = -1;
+        double smartV = -1;
         builder.append("|");
         if (isSmartVcomplete()) {
             smartV = calculateSmartVsum();
@@ -326,8 +322,8 @@ public class FSAFragment extends AbstractFragment implements NotesDialogFragment
         if (sumH != 0 && sumV != 0)
             mTvTotalSum.setText(String.valueOf(sumH + sumV));
 
-        int sumSH = calculateSmartHsum();
-        int sumSV = calculateSmartVsum();
+        double sumSH = calculateSmartHsum();
+        double sumSV = calculateSmartVsum();
         if (sumSH != -1) {
             mTvSumSH.setText(String.valueOf(sumSH));
         }
@@ -417,12 +413,12 @@ public class FSAFragment extends AbstractFragment implements NotesDialogFragment
         return sum;
     }
 
-    private int calculateSmartHsum() {
+    private double calculateSmartHsum() {
         boolean allEmpty = true;
-        int sum = 0;
+        double sum = 0;
         for (int q = 0; q < N_QUESTIONS; q++) {
             if (!mEtSmart[q][0].getText().toString().trim().isEmpty()) {
-                sum += Integer.parseInt(mEtSmart[q][0].getText().toString().trim());
+                sum += Double.parseDouble(mEtSmart[q][0].getText().toString().trim());
                 allEmpty = false;
             }
         }
@@ -433,12 +429,12 @@ public class FSAFragment extends AbstractFragment implements NotesDialogFragment
             return sum;
     }
 
-    private int calculateSmartVsum() {
+    private double calculateSmartVsum() {
         boolean allEmpty = true;
-        int sum = 0;
+        double sum = 0;
         for (int q = 0; q < N_QUESTIONS; q++) {
             if (!mEtSmart[q][1].getText().toString().trim().isEmpty()) {
-                sum += Integer.parseInt(mEtSmart[q][1].getText().toString().trim());
+                sum += Double.parseDouble(mEtSmart[q][1].getText().toString().trim());
                 allEmpty = false;
             }
         }

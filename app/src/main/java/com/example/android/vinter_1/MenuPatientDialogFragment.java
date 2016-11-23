@@ -61,9 +61,9 @@ public class MenuPatientDialogFragment extends DialogFragment {
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         // Extract info from bundle
         Bundle args = getArguments();
-        final String id = args.getString(MainActivity.KEY_PATIENT_ID);
-        final String name = args.getString(MainActivity.KEY_PATIENT_NAME);
-        final String entry = args.getString(MainActivity.KEY_PATIENT_ENTRY);
+        final String id = args.getString(PatientListActivity.KEY_PATIENT_ID);
+        final String name = args.getString(PatientListActivity.KEY_PATIENT_NAME);
+        final String entry = args.getString(PatientListActivity.KEY_PATIENT_ENTRY);
         final String title = name + " - " + entry;
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());

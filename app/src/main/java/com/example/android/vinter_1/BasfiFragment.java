@@ -61,10 +61,6 @@ public class BasfiFragment extends AbstractFragment implements NotesDialogFragme
         final View rootView = inflater.inflate(R.layout.fragment_basfi, container, false);
 
         if (mTestPhase == TestActivity.TEST_OUT) {
-//            ScrollView scroll = (ScrollView) mRootView.findViewById(R.id.basfi_background);
-//            scroll.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.bgOut));
-//            View separator = (View) mRootView.findViewById(R.id.basfi_separator);
-//            separator.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.bgBrightOut));
             TextView textView = (TextView) rootView.findViewById(R.id.basfi_title);
             textView.setText("UT test");
         }
@@ -198,7 +194,7 @@ public class BasfiFragment extends AbstractFragment implements NotesDialogFragme
             sum += slider.getProgress();
         }
 
-        String result = String.format(Locale.ENGLISH, "%.1f", sum / 20.0f);
+        String result = String.format(Locale.ENGLISH, "%.1f", sum / 100.0f);
         mTvResult.setText(result);
 
         return result;

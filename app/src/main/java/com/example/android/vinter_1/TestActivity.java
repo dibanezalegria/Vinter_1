@@ -67,8 +67,8 @@ public class TestActivity extends AppCompatActivity {
         // Header title
         Bundle extra = getIntent().getExtras();
         if (extra != null) {
-            mPatientID = extra.getInt(MainActivity.KEY_PATIENT_ID);
-            mHeaderString = extra.getString(MainActivity.KEY_HEADER);
+            mPatientID = extra.getInt(PatientListActivity.KEY_PATIENT_ID);
+            mHeaderString = extra.getString(PatientListActivity.KEY_HEADER);
             mInOut = extra.getInt(TestListActivity.KEY_INOUT);
             // Title for activity -> patient info
             setTitle(mHeaderString);
@@ -133,6 +133,15 @@ public class TestActivity extends AppCompatActivity {
                     break;
                 case "ERGO":
                     mAbstractFragment = new ErgoFragment();
+                    break;
+                case "IPAQ":
+                    mAbstractFragment = new IpaqFragment();
+                    break;
+                case "OTT":
+                    mAbstractFragment = new OttFragment();
+                    break;
+                case "THORAX":
+                    mAbstractFragment = new ThoraxFragment();
                     break;
                 default:
                     mAbstractFragment = new BlankFragment();
@@ -214,8 +223,8 @@ public class TestActivity extends AppCompatActivity {
      */
     private void goBackToTestListActivity() {
         Intent upIntent = NavUtils.getParentActivityIntent(TestActivity.this);
-        upIntent.putExtra(MainActivity.KEY_HEADER, mHeaderString);
-        upIntent.putExtra(MainActivity.KEY_PATIENT_ID, mPatientID);
+        upIntent.putExtra(PatientListActivity.KEY_HEADER, mHeaderString);
+        upIntent.putExtra(PatientListActivity.KEY_PATIENT_ID, mPatientID);
         NavUtils.navigateUpTo(TestActivity.this, upIntent);
     }
 

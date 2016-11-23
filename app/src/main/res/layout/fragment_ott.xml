@@ -9,7 +9,7 @@
             tools:context="com.example.android.vinter_1.TestActivity">
 
     <LinearLayout
-        android:id="@+id/tug_layout_background"
+        android:id="@+id/ott_layout_background"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -19,7 +19,7 @@
 
         <!-- Header -->
         <TextView
-            android:id="@+id/tug_title"
+            android:id="@+id/ott_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -36,28 +36,28 @@
             android:background="@color/bgBrightIn"/>
 
         <TextView
-            android:id="@+id/tug_tv_instructions"
+            android:id="@+id/ott_tv_instructions"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/tug_instructions"
+            android:text="@string/ott_instructions"
             android:textAppearance="@style/TextCustomNormal"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
+
             android:layout_marginTop="30dp">
 
             <TextView
-                android:id="@+id/tug_tv_seconds"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="7"
-                android:text="Sekunder"
+                android:ems="5"
+                android:text="Flexion"
                 android:textAppearance="@style/TextCustomNormal"/>
 
             <EditText
-                android:id="@+id/tug_et_seconds"
+                android:id="@+id/ott_et_flexion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="4"
@@ -66,6 +66,12 @@
                 android:inputType="number"
                 android:maxLength="3"
                 android:textSize="20sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="cm"
+                android:textAppearance="@style/TextCustomNormal"/>
         </LinearLayout>
 
         <LinearLayout
@@ -75,26 +81,32 @@
             android:layout_marginTop="30dp">
 
             <TextView
-                android:id="@+id/tug_tv_help"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="7"
-                android:text="Gånghjälpmedel"
+                android:ems="5"
+                android:text="Extension"
                 android:textAppearance="@style/TextCustomNormal"/>
 
             <EditText
-                android:id="@+id/tug_et_help"
+                android:id="@+id/ott_et_extension"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="6"
-                android:fontFamily="monospace"
+                android:ems="4"
                 android:gravity="center"
-                android:inputType="text"
+                android:fontFamily="monospace"
+                android:inputType="number"
+                android:maxLength="3"
                 android:textSize="20sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="cm"
+                android:textAppearance="@style/TextCustomNormal"/>
         </LinearLayout>
 
         <Button
-            android:id="@+id/tug_btnDone"
+            android:id="@+id/ott_btnDone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="100dp"

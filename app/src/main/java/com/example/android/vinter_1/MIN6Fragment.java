@@ -78,10 +78,6 @@ public class MIN6Fragment extends AbstractFragment implements NotesDialogFragmen
         mRootView = inflater.inflate(R.layout.fragment_min6, container, false);
 
         if (mTestPhase == TestActivity.TEST_OUT) {
-//            ScrollView scroll = (ScrollView) mRootView.findViewById(R.id.basfi_background);
-//            scroll.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.bgOut));
-//            View separator = (View) mRootView.findViewById(R.id.basfi_separator);
-//            separator.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.bgBrightOut));
             TextView textView = (TextView) mRootView.findViewById(R.id.min6_title);
             textView.setText("UT test");
         }
@@ -128,7 +124,6 @@ public class MIN6Fragment extends AbstractFragment implements NotesDialogFragmen
         mETpulseFinish = (EditText) mRootView.findViewById(R.id.min6_et_finish_pulse);
 
         // Listeners
-//        mETmeters.addTextChangedListener(this);
         mETmeters.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -460,17 +455,17 @@ public class MIN6Fragment extends AbstractFragment implements NotesDialogFragmen
             mTVmeters.setTextColor(ContextCompat.getColor(getContext(), R.color.textColor));
         }
 
-        if (mHighlightsON && mETpulseStart.getText().toString().trim().length() == 0) {
-            mTVpulseStart.setTextColor(ContextCompat.getColor(getContext(), R.color.highlight));
-        } else {
-            mTVpulseStart.setTextColor(ContextCompat.getColor(getContext(), R.color.textColor));
-        }
-
-        if (mHighlightsON && mETpulseFinish.getText().toString().trim().length() == 0) {
-            mTVpulseFinish.setTextColor(ContextCompat.getColor(getContext(), R.color.highlight));
-        } else {
-            mTVpulseFinish.setTextColor(ContextCompat.getColor(getContext(), R.color.textColor));
-        }
+//        if (mHighlightsON && mETpulseStart.getText().toString().trim().length() == 0) {
+//            mTVpulseStart.setTextColor(ContextCompat.getColor(getContext(), R.color.highlight));
+//        } else {
+//            mTVpulseStart.setTextColor(ContextCompat.getColor(getContext(), R.color.textColor));
+//        }
+//
+//        if (mHighlightsON && mETpulseFinish.getText().toString().trim().length() == 0) {
+//            mTVpulseFinish.setTextColor(ContextCompat.getColor(getContext(), R.color.highlight));
+//        } else {
+//            mTVpulseFinish.setTextColor(ContextCompat.getColor(getContext(), R.color.textColor));
+//        }
 
         if (mHighlightsON && spCR10Start.getSelectedItemPosition() == 0) {
             mTVcr10Start.setTextColor(ContextCompat.getColor(getContext(), R.color.highlight));
@@ -558,13 +553,13 @@ public class MIN6Fragment extends AbstractFragment implements NotesDialogFragmen
             missing = true;
         }
 
-        if (mETpulseStart.getText().toString().trim().length() == 0) {
-            missing = true;
-        }
-
-        if (mETpulseFinish.getText().toString().trim().length() == 0) {
-            missing = true;
-        }
+//        if (mETpulseStart.getText().toString().trim().length() == 0) {
+//            missing = true;
+//        }
+//
+//        if (mETpulseFinish.getText().toString().trim().length() == 0) {
+//            missing = true;
+//        }
 
         if (spCR10Start.getSelectedItemPosition() == 0) {
             missing = true;

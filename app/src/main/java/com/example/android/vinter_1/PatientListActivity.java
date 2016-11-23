@@ -24,13 +24,13 @@ import com.example.android.vinter_1.data.DbContract.PatientEntry;
 import com.example.android.vinter_1.data.DbContract.TestEntry;
 import com.example.android.vinter_1.data.DbUtils;
 
-public class MainActivity extends AppCompatActivity
+public class PatientListActivity extends AppCompatActivity
         implements AddPatientDialogFragment.NoticeDialogListener,
         EditPatientDialogFragment.NoticeDialogListener,
         MenuPatientDialogFragment.OnMenuOptionSelectedListener,
         LoaderManager.LoaderCallbacks<Cursor> {
 
-    private static final String LOG_TAG = MainActivity.class.getSimpleName();
+    private static final String LOG_TAG = PatientListActivity.class.getSimpleName();
     private static final int PATIENT_LOADER = 0;
 
 //    // Context menu constants
@@ -202,6 +202,7 @@ public class MainActivity extends AppCompatActivity
             long newPatientID = ContentUris.parseId(uri);
             addTestForPatient(newPatientID, "VAS", "VAS", "- Visuell Analog Skala");
             addTestForPatient(newPatientID, "EQ5D", "EQ5D", "");
+            addTestForPatient(newPatientID, "IPAQ", "I-PAQ", "");
             addTestForPatient(newPatientID, "6MIN", "6 min gångtest", "");
             addTestForPatient(newPatientID, "TUG", "TUG", "Timed UP and GO");
             addTestForPatient(newPatientID, "ERGO", "Ergometri (cykeltest)", "");
@@ -213,6 +214,8 @@ public class MainActivity extends AppCompatActivity
             addTestForPatient(newPatientID, "BDL", "BDL", "");
             addTestForPatient(newPatientID, "FSS", "FSS", "- Fatigue Severity Scale");
             addTestForPatient(newPatientID, "BASMI", "BASMI", "- Bath Ankylosing Spondylitis Metrology Index");
+            addTestForPatient(newPatientID, "OTT", "OTT Flexion/Extension", "");
+            addTestForPatient(newPatientID, "THORAX", "Thoraxexkursion", "");
             addTestForPatient(newPatientID, "BASDAI", "BASDAI", "- Bath Ankylosing Spondylitis Disease Activity Index");
             addTestForPatient(newPatientID, "BASFI", "BASFI", "- Bath Ankylosing Spondylitis Functional Index");
             addTestForPatient(newPatientID, "BASG", "BASG", "- Bath Ankylosing Spondylitis Patient Global Score");
@@ -317,7 +320,7 @@ public class MainActivity extends AppCompatActivity
         switch (optionId) {
             case MenuPatientDialogFragment.MENU_DIALOG_TEST: {
                 // Open new activity with list of tests for given patient id
-                Intent intent = new Intent(MainActivity.this, TestListActivity.class);
+                Intent intent = new Intent(PatientListActivity.this, TestListActivity.class);
                 Bundle extras = new Bundle();
                 extras.putInt(KEY_PATIENT_ID, patientId);
                 String headerStr = name + " - " + entry;
@@ -332,7 +335,7 @@ public class MainActivity extends AppCompatActivity
                 Bundle extras = new Bundle();
                 extras.putLong(KEY_PATIENT_ID, patientId);
                 extras.putString(KEY_HEADER, headerStr);
-                Intent intent = new Intent(MainActivity.this, ResultTableActivity.class);
+                Intent intent = new Intent(PatientListActivity.this, ResultTableActivity.class);
                 intent.putExtras(extras);
                 startActivity(intent);
                 break;

@@ -19,11 +19,11 @@ public class PatientCursorAdapter extends CursorAdapter {
 
     private static final String LOG_TAG = PatientCursorAdapter.class.getSimpleName();
 
-    private MainActivity mMainActivity;
+    private PatientListActivity mPatientListActivity;
 
     public PatientCursorAdapter(Context context, Cursor cursor) {
         super(context, cursor, 0);
-        mMainActivity = (MainActivity) context;
+        mPatientListActivity = (PatientListActivity) context;
     }
 
     @Override
@@ -50,7 +50,7 @@ public class PatientCursorAdapter extends CursorAdapter {
             @Override
             public void onClick(View v) {
                 View itemView = (View) v.getParent();
-                mMainActivity.optionFabClicked(itemView);
+                mPatientListActivity.optionFabClicked(itemView);
             }
         });
 
@@ -58,7 +58,7 @@ public class PatientCursorAdapter extends CursorAdapter {
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mMainActivity.optionFabClicked(v);
+                mPatientListActivity.optionFabClicked(v);
             }
         });
 

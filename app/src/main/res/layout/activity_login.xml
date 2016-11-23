@@ -1,83 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_login"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="64dp"
-    android:background="@color/blue_grey_900"
-    tools:context="com.example.android.vinter_1.LoginActivity">
+    android:background="@color/blue_grey_900">
 
-    <ImageView
-        android:layout_marginTop="64dp"
-        android:id="@+id/login_logo_image"
+    <RelativeLayout
+        android:id="@+id/activity_login"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/logo2"/>
+        android:layout_height="match_parent"
+        android:background="@color/blue_grey_900"
+        android:padding="64dp"
+        tools:context="com.example.android.vinter_1.LoginActivity">
 
-    <EditText
-        android:id="@+id/login_username"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/blue_grey_100"
-        android:padding="8dp"
-        android:paddingStart="12dp"
-        android:textSize="24sp"
-        android:inputType="text"
-        android:maxLength="12"
-        android:fontFamily="sans-serif"
-        android:layout_marginTop="64dp"
-        android:layout_below="@id/login_logo_image"
-        android:hint="Username"/>
+        <ImageView
+            android:id="@+id/login_logo_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="64dp"
+            android:src="@drawable/logo"/>
 
-    <EditText
-        android:id="@+id/login_password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/blue_grey_100"
-        android:padding="8dp"
-        android:paddingStart="12dp"
-        android:textSize="24sp"
-        android:inputType="textPassword"
-        android:maxLength="12"
-        android:fontFamily="sans-serif"
-        android:hint="Password"
-        android:layout_marginTop="26dp"
-        android:layout_below="@id/login_username"/>
+        <TextView
+            style="@style/TextCustomSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="v1.0"
+            android:layout_below="@id/login_logo_image"
+            android:layout_alignParentEnd="true"
+            android:textColor="@color/blue_grey_400"/>
 
-    <Button
-        android:id="@+id/login_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/spara_custom_button"
-        android:layout_marginTop="26dp"
-        android:text="Log in"
-        android:textSize="24sp"
-        android:textColor="@android:color/white"
-        android:layout_below="@id/login_password"/>
+        <EditText
+            android:id="@+id/login_username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/login_logo_image"
+            android:layout_marginTop="64dp"
+            android:background="@color/blue_grey_100"
+            android:fontFamily="sans-serif"
+            android:hint="Username"
+            android:inputType="text"
+            android:maxLength="12"
+            android:padding="8dp"
+            android:paddingStart="12dp"
+            android:textSize="24sp"/>
 
-    <TextView
-        android:id="@+id/login_failed_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        style="@style/TextCustomNormal"
-        android:textColor="@android:color/holo_red_light"
-        android:text="@string/login_invalid"
-        android:gravity="center"
-        android:visibility="invisible"
-        android:layout_marginTop="32dp"
-        android:layout_below="@id/login_button"/>
+        <EditText
+            android:id="@+id/login_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/login_username"
+            android:layout_marginTop="26dp"
+            android:background="@color/blue_grey_100"
+            android:fontFamily="sans-serif"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:maxLength="12"
+            android:padding="8dp"
+            android:paddingStart="12dp"
+            android:textSize="24sp"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        style="@style/TextCustomSmall"
-        android:textColor="@android:color/white"
-        android:text="v1.0"/>
+        <Button
+            android:id="@+id/login_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/login_password"
+            android:layout_marginTop="26dp"
+            android:background="@drawable/spara_custom_button"
+            android:text="Log in"
+            android:textColor="@android:color/white"
+            android:textSize="22sp"/>
 
+        <TextView
+            android:id="@+id/login_failed_text"
+            style="@style/TextCustomNormal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/login_button"
+            android:layout_marginTop="32dp"
+            android:gravity="center"
+            android:text="@string/login_invalid"
+            android:textColor="@android:color/holo_red_light"
+            android:visibility="invisible"/>
 
-
-</RelativeLayout>
+    </RelativeLayout>
+</ScrollView>

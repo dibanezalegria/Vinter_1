@@ -1,14 +1,18 @@
 package com.example.android.vinter_1;
 
 import android.content.ContentUris;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Html;
 import android.util.Log;
 import android.view.ContextMenu;
 import android.view.Menu;
@@ -54,13 +58,21 @@ public class TestListActivity extends AppCompatActivity implements LoaderManager
         // Extract info from Bundle
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
-            mPatientID = extras.getInt(MainActivity.KEY_PATIENT_ID);
-            mHeaderString = extras.getString(MainActivity.KEY_HEADER);
+            mPatientID = extras.getInt(PatientListActivity.KEY_PATIENT_ID);
+            mHeaderString = extras.getString(PatientListActivity.KEY_HEADER);
             Log.d(LOG_TAG, "Getting extras from Bundle -> mPatientID: " + mPatientID + " mHeader: " + mHeaderString);
         }
 
         // Activity's title
         setTitle(mHeaderString);
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.activity_test_list_fab_help);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                helpDialog();
+            }
+        });
 
         ListView listView = (ListView) findViewById(R.id.tests_list_view);
 
@@ -112,12 +124,36 @@ public class TestListActivity extends AppCompatActivity implements LoaderManager
         Uri uri = ContentUris.withAppendedId(TestEntry.CONTENT_URI, info.id);
         Intent intent = new Intent(TestListActivity.this, TestActivity.class);
         intent.setData(uri);
-        intent.putExtra(MainActivity.KEY_PATIENT_ID, mPatientID);
-        intent.putExtra(MainActivity.KEY_HEADER, mHeaderString);
+        intent.putExtra(PatientListActivity.KEY_PATIENT_ID, mPatientID);
+        intent.putExtra(PatientListActivity.KEY_HEADER, mHeaderString);
         intent.putExtra(KEY_INOUT, item.getItemId());
         startActivity(intent);
 
         return super.onContextItemSelected(item);
+    }
+
+    private void helpDialog() {
+        AlertDialog dialog = new AlertDialog.Builder(this).create();
+        // fromHtml deprecated for Android N and higher
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+            dialog.setMessage(Html.fromHtml(getString(R.string.test_list_activity_manual),
+                    Html.FROM_HTML_MODE_LEGACY));
+        } else {
+            dialog.setMessage(Html.fromHtml(getString(R.string.test_list_activity_manual)));
+        }
+
+        dialog.setButton(AlertDialog.BUTTON_NEUTRAL, "Close", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        dialog.show();
+
+        // Change text size
+        TextView msg = (TextView) dialog.findViewById(android.R.id.message);
+        if (msg != null)
+            msg.setTextSize(18);
     }
 
     @Override

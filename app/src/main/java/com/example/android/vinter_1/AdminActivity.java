@@ -36,7 +36,7 @@ public class AdminActivity extends AppCompatActivity implements LoaderManager.Lo
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         // Title
-        setTitle("Vintersol Tester - Administrator");
+        setTitle("Vintersol - Administrator");
 
         mTvNumberPatients = (TextView) findViewById(R.id.admin_number_patients_tv);
 

@@ -7,8 +7,8 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.text.Editable;
 import android.text.Html;
@@ -20,35 +20,31 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.android.vinter_1.data.DbContract;
+import com.example.android.vinter_1.data.DbContract.TestEntry;
 import com.example.android.vinter_1.data.Test;
 
 /**
- * Created by Daniel Ibanez on 2016-11-04.
+ * A simple {@link Fragment} subclass.
  */
+public class OttFragment extends AbstractFragment implements NotesDialogFragment.NotesDialogListener, TextWatcher {
 
-public class TSTFragment extends AbstractFragment
-        implements NotesDialogFragment.NotesDialogListener {
-
-    private static final String LOG_TAG = TSTFragment.class.getSimpleName();
+    private static final String LOG_TAG = OttFragment.class.getSimpleName();
 
     // Save state constant
     private static final String STATE_CONTENT = "state_content";
-    private static final String STATE_HIGH_ON = "state_high_on";
+
+    private EditText mEtFlexion, mEtExtension;
 
     private Uri mTestUri;
     private int mTestPhase;
-    private View mRootView;
-    private TextView mTvSeconds;
-    private EditText mEtSeconds;
-    private CheckBox mCbShoes;
-    private boolean mHighlightsON;
+
+    public OttFragment() {
+        // Required empty public constructor
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -59,19 +55,15 @@ public class TSTFragment extends AbstractFragment
         // Test phase (IN or OUT)
         mTestPhase = getArguments().getInt(TestListActivity.KEY_INOUT);
 
-        mRootView = inflater.inflate(R.layout.fragment_tst, container, false);
+        final View rootView = inflater.inflate(R.layout.fragment_ott, container, false);
 
         if (mTestPhase == TestActivity.TEST_OUT) {
-//            ScrollView scroll = (ScrollView) mRootView.findViewById(R.id.basfi_background);
-//            scroll.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.bgOut));
-//            View separator = (View) mRootView.findViewById(R.id.basfi_separator);
-//            separator.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.bgBrightOut));
-            TextView textView = (TextView) mRootView.findViewById(R.id.tst_title);
+            TextView textView = (TextView) rootView.findViewById(R.id.ott_title);
             textView.setText("UT test");
         }
 
         // Layout background listener closes soft keyboard
-        LinearLayout layout = (LinearLayout) mRootView.findViewById(R.id.tst_layout_background);
+        LinearLayout layout = (LinearLayout) rootView.findViewById(R.id.ott_layout_background);
         layout.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -83,39 +75,15 @@ public class TSTFragment extends AbstractFragment
             }
         });
 
-        mTvSeconds = (TextView) mRootView.findViewById(R.id.tst_tv_seconds);
-        mEtSeconds = (EditText) mRootView.findViewById(R.id.tst_et_seconds);
-        mEtSeconds.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
+        mEtFlexion = (EditText) rootView.findViewById(R.id.ott_et_flexion);
+        mEtExtension = (EditText) rootView.findViewById(R.id.ott_et_extension);
 
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                highlight();   // Dynamic highlighting
-
-                // Inform parent activity
-                ((TestActivity) getActivity()).setUserHasSaved(false);
-            }
-        });
-
-        mCbShoes = (CheckBox) mRootView.findViewById(R.id.tst_cb_shoes);
-        mCbShoes.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                highlight();   // Dynamic highlighting
-
-                // Inform parent activity
-                ((TestActivity) getActivity()).setUserHasSaved(false);
-            }
-        });
+        // Listeners
+        mEtFlexion.addTextChangedListener(this);
+        mEtExtension.addTextChangedListener(this);
 
         // Done button
-        Button btnDone = (Button) mRootView.findViewById(R.id.tst_btnDone);
+        Button btnDone = (Button) rootView.findViewById(R.id.ott_btnDone);
         btnDone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -123,11 +91,9 @@ public class TSTFragment extends AbstractFragment
                 if (!saveToDatabase()) {
                     AlertDialog dialog = new AlertDialog.Builder(getActivity()).create();
                     dialog.setMessage(getResources().getString(R.string.test_saved_incomplete));
-                    dialog.setButton(AlertDialog.BUTTON_POSITIVE, "VISA", new DialogInterface.OnClickListener() {
+                    dialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            mHighlightsON = true;
-                            highlight();
                         }
                     });
                     dialog.show();
@@ -137,7 +103,6 @@ public class TSTFragment extends AbstractFragment
                     dialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            highlight(); // clear  highlights
                         }
                     });
                     dialog.show();
@@ -153,23 +118,19 @@ public class TSTFragment extends AbstractFragment
         if (savedInstanceState != null) {
             // onRestoreInstanceState
             contentStr = savedInstanceState.getString(STATE_CONTENT);
-            mHighlightsON = savedInstanceState.getBoolean(STATE_HIGH_ON);
-            if (mHighlightsON) {
-                highlight();
-            }
-            Log.d(LOG_TAG, "Content from savedInstance: ");
+            Log.d(LOG_TAG, "Content from savedInstance: " + contentStr);
         } else {
             // Read test content from database
             Cursor cursor = getActivity().getContentResolver().query(mTestUri, null, null, null, null);
             // Early exit: should never happen
             if (cursor == null || cursor.getCount() == 0) {
-                return mRootView;
+                return rootView;
             }
             cursor.moveToFirst();
             if (mTestPhase == TestActivity.TEST_IN) {
-                contentStr = cursor.getString(cursor.getColumnIndex(DbContract.TestEntry.COLUMN_CONTENT_IN));
+                contentStr = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_CONTENT_IN));
             } else {
-                contentStr = cursor.getString(cursor.getColumnIndex(DbContract.TestEntry.COLUMN_CONTENT_OUT));
+                contentStr = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_CONTENT_OUT));
             }
 
             cursor.close();
@@ -180,14 +141,11 @@ public class TSTFragment extends AbstractFragment
         if (contentStr != null) {
             // Set edit text views
             String[] content = contentStr.split("\\|");
-            mEtSeconds.setText(content[0]);
-            if (content[1].equals("1"))
-                mCbShoes.setChecked(true);
-            else
-                mCbShoes.setChecked(false);
+            mEtFlexion.setText(content[0]);
+            mEtExtension.setText(content[1]);
         }
 
-        return mRootView;
+        return rootView;
     }
 
     @Override
@@ -201,24 +159,24 @@ public class TSTFragment extends AbstractFragment
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
-        // Save state
+        // Save state for views in layout
         String content = generateContent();
         outState.putString(STATE_CONTENT, content);
-        outState.putBoolean(STATE_HIGH_ON, mHighlightsON);
 
         // Always call the superclass so it can save the view hierarchy state
         super.onSaveInstanceState(outState);
     }
 
+    /**
+     * Generate a string from information extracted for edit text views
+     *
+     * @return String representing edit text views
+     */
     private String generateContent() {
         StringBuilder builder = new StringBuilder();
-        builder.append(mEtSeconds.getText().toString().trim());
+        builder.append(mEtFlexion.getText().toString().trim());
         builder.append("|");
-        if (mCbShoes.isChecked()) {
-            builder.append("1");
-        } else {
-            builder.append("0");
-        }
+        builder.append(mEtExtension.getText().toString().trim());
         builder.append("|");
         builder.append("0|");   // Fix: split() can not handle all positions empty
 
@@ -227,18 +185,25 @@ public class TSTFragment extends AbstractFragment
         return builder.toString();
     }
 
+    /**
+     * @return true if one or more question are not answered
+     */
+    private boolean missingAnswers() {
+        boolean missing = false;
+        if (mEtFlexion.getText().toString().isEmpty() ||
+                mEtExtension .getText().toString().isEmpty()) {
+            missing = true;
+        }
+
+        return missing;
+    }
+
     @Override
     public boolean saveToDatabase() {
         Log.d(LOG_TAG, "saveToDatabase");
         ContentValues values = new ContentValues();
-
-        boolean missing = false;
-
-        if (mEtSeconds.getText().toString().trim().length() == 0) {
-            missing = true;
-        }
-
         // Test status
+        boolean missing = missingAnswers();
         int status;
         if (missing) {
             status = Test.INCOMPLETED;
@@ -248,11 +213,11 @@ public class TSTFragment extends AbstractFragment
 
         // Values
         if (mTestPhase == TestActivity.TEST_IN) {
-            values.put(DbContract.TestEntry.COLUMN_CONTENT_IN, generateContent());
-            values.put(DbContract.TestEntry.COLUMN_STATUS_IN, status);
+            values.put(TestEntry.COLUMN_CONTENT_IN, generateContent());
+            values.put(TestEntry.COLUMN_STATUS_IN, status);
         } else {
-            values.put(DbContract.TestEntry.COLUMN_CONTENT_OUT, generateContent());
-            values.put(DbContract.TestEntry.COLUMN_STATUS_OUT, status);
+            values.put(TestEntry.COLUMN_CONTENT_OUT, generateContent());
+            values.put(TestEntry.COLUMN_STATUS_OUT, status);
         }
 
         int rows = getActivity().getContentResolver().update(mTestUri, values, null, null);
@@ -262,25 +227,17 @@ public class TSTFragment extends AbstractFragment
     }
 
     /**
-     * Highlights unanswered question
+     * Help dialog
      */
-    private void highlight() {
-        if (mHighlightsON && mEtSeconds.getText().toString().trim().length() == 0) {
-            mTvSeconds.setTextColor(ContextCompat.getColor(getContext(), R.color.highlight));
-        } else {
-            mTvSeconds.setTextColor(ContextCompat.getColor(getContext(), R.color.textColor));
-        }
-    }
-
     @Override
     public void helpDialog() {
         AlertDialog dialog = new AlertDialog.Builder(getActivity()).create();
         // fromHtml deprecated for Android N and higher
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
-            dialog.setMessage(Html.fromHtml(getContext().getString(R.string.tst_manual),
+            dialog.setMessage(Html.fromHtml(getContext().getString(R.string.ott_manual),
                     Html.FROM_HTML_MODE_LEGACY));
         } else {
-            dialog.setMessage(Html.fromHtml(getContext().getString(R.string.tst_manual)));
+            dialog.setMessage(Html.fromHtml(getContext().getString(R.string.ott_manual)));
         }
 
         dialog.setButton(AlertDialog.BUTTON_NEUTRAL, "Close", new DialogInterface.OnClickListener() {
@@ -297,6 +254,9 @@ public class TSTFragment extends AbstractFragment
             msg.setTextSize(18);
     }
 
+    /**
+     * Notes dialog
+     */
     @Override
     public void notesDialog() {
         // Recover notes from database
@@ -305,8 +265,8 @@ public class TSTFragment extends AbstractFragment
         String oldNotesOut = null;
         if (cursor != null) {
             cursor.moveToFirst();
-            oldNotesIn = cursor.getString(cursor.getColumnIndex(DbContract.TestEntry.COLUMN_NOTES_IN));
-            oldNotesOut = cursor.getString(cursor.getColumnIndex(DbContract.TestEntry.COLUMN_NOTES_OUT));
+            oldNotesIn = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_NOTES_IN));
+            oldNotesOut = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_NOTES_OUT));
             cursor.close();
         }
 
@@ -314,16 +274,35 @@ public class TSTFragment extends AbstractFragment
         FragmentManager fm = getActivity().getSupportFragmentManager();
         NotesDialogFragment dialogFragment = NotesDialogFragment.newInstance(oldNotesIn, oldNotesOut);
         // Set target fragment for use later when sending results
-        dialogFragment.setTargetFragment(TSTFragment.this, 100);
+        dialogFragment.setTargetFragment(OttFragment.this, 100);
         dialogFragment.show(fm, "notes_fragment_dialog");
+    }
+
+
+    @Override
+    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+    }
+
+    @Override
+    public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+    }
+
+    @Override
+    public void afterTextChanged(Editable s) {
+        Log.d(LOG_TAG, "afterTextChanged");
+
+        // Inform parent activity
+        ((TestActivity) getActivity()).setUserHasSaved(false);
     }
 
     @Override
     public void onDialogSaveClick(String notesIn, String notesOut) {
         // Save to database
         ContentValues values = new ContentValues();
-        values.put(DbContract.TestEntry.COLUMN_NOTES_IN, notesIn);
-        values.put(DbContract.TestEntry.COLUMN_NOTES_OUT, notesOut);
+        values.put(TestEntry.COLUMN_NOTES_IN, notesIn);
+        values.put(TestEntry.COLUMN_NOTES_OUT, notesOut);
 
         int rows = getActivity().getContentResolver().update(mTestUri, values, null, null);
         Log.d(LOG_TAG, "rows updated: " + rows);

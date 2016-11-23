@@ -193,11 +193,12 @@ public class BasdaiFragment extends AbstractFragment implements NotesDialogFragm
         sum += mSlider[1].getProgress();
         sum += mSlider[2].getProgress();
         sum += mSlider[3].getProgress();
+        sum /= 10;
 
-        // Convert slider slider from 8 units to 10
+        // Convert slider from 8 units to 10
         float convertSix = mSlider[5].getProgress() * 10 / 8;
         // Average sliders 5 and 6
-        sum += (mSlider[4].getProgress() + convertSix) / 2;
+        sum += (mSlider[4].getProgress() / 10 + convertSix) / 2;
 
         String result = String.format(Locale.ENGLISH, "%.1f", sum / 5);
         mTvResult.setText(result);

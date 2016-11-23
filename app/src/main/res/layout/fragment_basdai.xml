@@ -55,7 +55,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/basdai_margin_question_slider"
-            android:max="10"
+            android:max="100"
             android:progress="0"/>
 
         <!-- Labels -->
@@ -97,7 +97,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/basdai_margin_question_slider"
-            android:max="10"
+            android:max="100"
             android:progress="0"/>
 
         <!-- Labels -->
@@ -139,7 +139,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/basdai_margin_question_slider"
-            android:max="10"
+            android:max="100"
             android:progress="0"/>
 
         <!-- Labels -->
@@ -181,7 +181,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/basdai_margin_question_slider"
-            android:max="10"
+            android:max="100"
             android:progress="0"/>
 
         <!-- Labels -->
@@ -223,7 +223,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/basdai_margin_question_slider"
-            android:max="10"
+            android:max="100"
             android:progress="0"/>
 
         <!-- Labels -->

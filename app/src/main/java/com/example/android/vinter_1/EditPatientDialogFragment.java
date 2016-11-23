@@ -54,9 +54,9 @@ public class EditPatientDialogFragment extends DialogFragment {
         if (getArguments() != null) {
             mTvName = (TextView) view.findViewById(R.id.edit_dialog_name_tv);
             mTvEntry = (TextView) view.findViewById(R.id.edit_dialog_entry_tv);
-            mPatientID = getArguments().getLong(MainActivity.KEY_PATIENT_ID);
-            mTvName.setText(getArguments().getString(MainActivity.KEY_PATIENT_NAME));
-            mTvEntry.setText(getArguments().getString(MainActivity.KEY_PATIENT_ENTRY));
+            mPatientID = getArguments().getLong(PatientListActivity.KEY_PATIENT_ID);
+            mTvName.setText(getArguments().getString(PatientListActivity.KEY_PATIENT_NAME));
+            mTvEntry.setText(getArguments().getString(PatientListActivity.KEY_PATIENT_ENTRY));
         } else {
             Log.d(LOG_TAG, "Error onCreateDialog: missing arguments");
         }

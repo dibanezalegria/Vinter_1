@@ -57,15 +57,19 @@ public class LoginActivity extends AppCompatActivity {
                     tvFailed.setVisibility(TextView.INVISIBLE);
                     etUser.setText("");
                     etPass.setText("");
-                } else if (user.equals("test") && pass.equals("")) {
+                } else if (user.equals("") && pass.equals("")) {
                     // Login
-                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                    Intent intent = new Intent(LoginActivity.this, PatientListActivity.class);
                     startActivity(intent);
                     tvFailed.setVisibility(TextView.INVISIBLE);
                     etUser.setText("");
                     etPass.setText("");
                 } else {
-                    // Fail login
+                    // Hide soft keyboard
+                    InputMethodManager imm = (InputMethodManager)
+                            getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+                    // Show fail login message
                     tvFailed.setVisibility(TextView.VISIBLE);
                 }
             }
