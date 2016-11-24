@@ -17,6 +17,8 @@ public class LoginActivity extends AppCompatActivity {
 
     private static final String LOG_TAG = LoginActivity.class.getSimpleName();
 
+    private boolean mRegisterButtonState;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,44 +40,64 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        final Button button = (Button) findViewById(R.id.login_button);
+        button.setTransformationMethod(null);   // button text non capitalize
         final EditText etUser = (EditText) findViewById(R.id.login_username);
         final EditText etPass = (EditText) findViewById(R.id.login_password);
         final TextView tvFailed = (TextView) findViewById(R.id.login_failed_text);
-
-        final Button button = (Button) findViewById(R.id.login_button);
-        button.setTransformationMethod(null);   // button text non capitalize
-        button.setOnClickListener(new View.OnClickListener() {
+        final TextView tvRegister = (TextView) findViewById(R.id.login_register_text);
+        tvRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String user = etUser.getText().toString().trim().toLowerCase();
-                String pass = etPass.getText().toString().trim().toLowerCase();
-
-                if (user.equals("admin") && pass.equals("")) {
-                    // Admin login
-                    Intent intent = new Intent(LoginActivity.this, AdminActivity.class);
-                    startActivity(intent);
-                    tvFailed.setVisibility(TextView.INVISIBLE);
-                    etUser.setText("");
-                    etPass.setText("");
-                } else if (user.equals("") && pass.equals("")) {
-                    // Login
-                    Intent intent = new Intent(LoginActivity.this, PatientListActivity.class);
-                    startActivity(intent);
-                    tvFailed.setVisibility(TextView.INVISIBLE);
-                    etUser.setText("");
-                    etPass.setText("");
+                if (mRegisterButtonState) {
+                    tvRegister.setText(R.string.login_no_account);
+                    button.setText("Log in");
                 } else {
-                    // Hide soft keyboard
-                    InputMethodManager imm = (InputMethodManager)
-                            getSystemService(Context.INPUT_METHOD_SERVICE);
-                    imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
-                    // Show fail login message
-                    tvFailed.setVisibility(TextView.VISIBLE);
+                    tvRegister.setText(R.string.login_already_registered);
+                    button.setText("Create account");
                 }
+                mRegisterButtonState = !mRegisterButtonState;
             }
         });
 
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Check mRegisterButtonState
+                if (mRegisterButtonState) {
+                    // Create new account
+                    // Show username already exists OR new account successfully created
+                } else {
+                    // Login
+                    String user = etUser.getText().toString().trim().toLowerCase();
+                    String pass = etPass.getText().toString().trim().toLowerCase();
 
+                    if (user.equals("admin") && pass.equals("")) {
+                        // Admin login
+                        Intent intent = new Intent(LoginActivity.this, AdminActivity.class);
+                        startActivity(intent);
+                        tvFailed.setVisibility(TextView.INVISIBLE);
+                        etUser.setText("");
+                        etPass.setText("");
+                    } else if (user.equals("") && pass.equals("")) {
+                        // Login
+                        Intent intent = new Intent(LoginActivity.this, PatientListActivity.class);
+                        startActivity(intent);
+                        tvFailed.setVisibility(TextView.INVISIBLE);
+                        etUser.setText("");
+                        etPass.setText("");
+                    } else {
+                        // Hide soft keyboard
+                        InputMethodManager imm = (InputMethodManager)
+                                getSystemService(Context.INPUT_METHOD_SERVICE);
+                        imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+                        // Show fail login message
+                        tvFailed.setVisibility(TextView.VISIBLE);
+                    }
+                }
+
+            }
+        });
 
     }
 }
