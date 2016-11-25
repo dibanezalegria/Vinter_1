@@ -160,8 +160,8 @@ public class BasgFragment extends AbstractFragment
     public boolean saveToDatabase() {
         ContentValues values = new ContentValues();
         String result = String.valueOf(
-                mSlider1.getProgress() / 2.0f) + "|" + String.valueOf(
-                mSlider2.getProgress() / 2.0f);
+                mSlider1.getProgress() / 10.0f) + "|" + String.valueOf(
+                mSlider2.getProgress() / 10.0f);
         if (mTestPhase == TestActivity.TEST_IN) {
             values.put(DbContract.TestEntry.COLUMN_CONTENT_IN, generateContent());
             values.put(DbContract.TestEntry.COLUMN_RESULT_IN, result);

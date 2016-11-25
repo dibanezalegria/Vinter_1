@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AlertDialog;
@@ -14,6 +13,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.android.vinter_1.data.DbContract.TestEntry;
@@ -31,6 +31,8 @@ public class TestActivity extends AppCompatActivity {
 
     // From bundle
     private String mHeaderString;
+    private long mUserID;
+    private String mUserName;
     private int mPatientID, mInOut;
 
     // Bundle key
@@ -65,11 +67,13 @@ public class TestActivity extends AppCompatActivity {
         cursor.close();
 
         // Header title
-        Bundle extra = getIntent().getExtras();
-        if (extra != null) {
-            mPatientID = extra.getInt(PatientListActivity.KEY_PATIENT_ID);
-            mHeaderString = extra.getString(PatientListActivity.KEY_HEADER);
-            mInOut = extra.getInt(TestListActivity.KEY_INOUT);
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            mUserID = extras.getLong(LoginActivity.KEY_USER_ID);
+            mUserName = extras.getString(LoginActivity.KEY_USER_NAME);
+            mPatientID = extras.getInt(PatientListActivity.KEY_PATIENT_ID);
+            mHeaderString = extras.getString(PatientListActivity.KEY_HEADER);
+            mInOut = extras.getInt(TestListActivity.KEY_INOUT);
             // Title for activity -> patient info
             setTitle(mHeaderString);
         }
@@ -174,7 +178,7 @@ public class TestActivity extends AppCompatActivity {
         }
 
         // Fab help
-        FloatingActionButton fabHelp = (FloatingActionButton) findViewById(R.id.activity_test_fab_help);
+        ImageButton fabHelp = (ImageButton) findViewById(R.id.activity_test_fab_help);
         fabHelp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -183,14 +187,13 @@ public class TestActivity extends AppCompatActivity {
         });
 
         // Fab notes
-        FloatingActionButton fabNotes = (FloatingActionButton) findViewById(R.id.activity_test_fab_notes);
+        ImageButton fabNotes = (ImageButton) findViewById(R.id.activity_test_fab_notes);
         fabNotes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mAbstractFragment.notesDialog();
             }
         });
-
     }
 
     @Override
@@ -223,6 +226,8 @@ public class TestActivity extends AppCompatActivity {
      */
     private void goBackToTestListActivity() {
         Intent upIntent = NavUtils.getParentActivityIntent(TestActivity.this);
+        upIntent.putExtra(LoginActivity.KEY_USER_ID, mUserID);
+        upIntent.putExtra(LoginActivity.KEY_USER_NAME, mUserName);
         upIntent.putExtra(PatientListActivity.KEY_HEADER, mHeaderString);
         upIntent.putExtra(PatientListActivity.KEY_PATIENT_ID, mPatientID);
         NavUtils.navigateUpTo(TestActivity.this, upIntent);

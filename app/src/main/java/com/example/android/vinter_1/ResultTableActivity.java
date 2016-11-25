@@ -1,9 +1,12 @@
 package com.example.android.vinter_1;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.WindowManager;
 import android.widget.TextView;
 
@@ -18,7 +21,8 @@ public class ResultTableActivity extends AppCompatActivity {
 
     private static final String LOG_TAG = ResultTableActivity.class.getSimpleName();
 
-    private long mPatientID;
+    private long mUserID, mPatientID;
+    private String mUserName;
     private String mHeaderString;
 
     @Override
@@ -33,6 +37,8 @@ public class ResultTableActivity extends AppCompatActivity {
         // Extract info from Bundle
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
+            mUserID = extras.getLong(LoginActivity.KEY_USER_ID, mUserID);
+            mUserName = extras.getString(LoginActivity.KEY_USER_NAME);
             mPatientID = extras.getLong(PatientListActivity.KEY_PATIENT_ID);
             mHeaderString = extras.getString(PatientListActivity.KEY_HEADER);
             Log.d(LOG_TAG, "Getting extras from Bundle -> mPatientID: " + mPatientID +
@@ -118,6 +124,34 @@ public class ResultTableActivity extends AppCompatActivity {
 
         if (cursor != null)
             cursor.close();
+    }
+
+    /**
+     * Navigate up
+     */
+    private void goBackToPatientListActivity() {
+        Intent upIntent = NavUtils.getParentActivityIntent(ResultTableActivity.this);
+        upIntent.putExtra(LoginActivity.KEY_USER_ID, mUserID);
+        upIntent.putExtra(LoginActivity.KEY_USER_NAME, mUserName);
+        NavUtils.navigateUpTo(ResultTableActivity.this, upIntent);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            // Respond to the action bar's Up/Home button
+            case android.R.id.home:
+                Log.d(LOG_TAG, "Back from ResultTableActivity: arrow");
+                goBackToPatientListActivity();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        Log.d(LOG_TAG, "Back from ResultTableActivity: back pressed");
+        goBackToPatientListActivity();
     }
 
     private void handleEQ5D(Cursor cursor) {

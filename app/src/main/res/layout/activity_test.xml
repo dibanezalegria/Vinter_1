@@ -9,53 +9,53 @@
     android:orientation="vertical">
 
     <!-- Header -->
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="24dp"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp"
+        android:gravity="center_vertical"
         android:background="@color/blue_grey_800">
 
-        <android.support.design.widget.FloatingActionButton
+        <ImageButton
             android:id="@+id/activity_test_fab_help"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:clickable="true"
-            android:scaleType="center"
+            android:layout_marginStart="16dp"
+            android:padding="6dp"
+            android:background="@drawable/help_question_custom_button"
             android:src="@drawable/ic_help_outline_white_36dp"
-            app:fabSize="mini"/>
-
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/activity_test_fab_notes"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:clickable="true"
-            android:scaleType="center"
-            android:src="@drawable/ic_comment_white_24dp"
-            app:fabSize="mini"/>
+            android:textColor="@android:color/white"/>
 
         <TextView
             android:id="@+id/activity_test_title"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="8"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_toEndOf="@id/activity_test_fab_help"
-            android:layout_toStartOf="@id/activity_test_fab_notes"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
             tools:text="IMF - Index Muscle Function"
             android:textSize="20sp"
             android:textColor="@android:color/white"/>
-    </RelativeLayout>
+
+        <ImageButton
+            android:id="@+id/activity_test_fab_notes"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:padding="6dp"
+            android:background="@drawable/notes_custom_button"
+            android:src="@drawable/ic_comment_white_24dp"
+            android:textColor="@android:color/white"/>
+    </LinearLayout>
 
     <FrameLayout
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
+        android:layout_height="wrap_content"/>
 </LinearLayout>
 
 

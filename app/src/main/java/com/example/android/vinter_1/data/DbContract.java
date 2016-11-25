@@ -14,6 +14,27 @@ public class DbContract {
     public static final Uri BASE_CONTENT_URI = Uri.parse("content://" + CONTENT_AUTHORITY);
     public static final String PATH_PATIENT = "patient";
     public static final String PATH_TEST = "test";
+    public static final String PATH_USER = "user";
+
+    /**
+     * Inner class that defines the table contents for 'user' table
+     */
+    public static final class UserEntry implements BaseColumns {
+        // The content URI to access the user data in the provider
+        public static final Uri CONTENT_URI = Uri.withAppendedPath(BASE_CONTENT_URI, PATH_USER);
+
+        public static final String TABLE_NAME = "user";
+
+        public static final String COLUMN_ID = BaseColumns._ID;
+        public static final String COLUMN_NAME = "name";
+        public static final String COLUMN_PASS = "pass";
+
+        // MIME types used by the getType method ContentProvider
+        public static final String CONTENT_LIST_TYPE =
+                ContentResolver.CURSOR_DIR_BASE_TYPE + "/" + CONTENT_AUTHORITY + "/" + PATH_USER;
+        public static final String CONTENT_ITEM_TYPE =
+                ContentResolver.CURSOR_ITEM_BASE_TYPE + "/" + CONTENT_AUTHORITY + "/" + PATH_USER;
+    }
 
     /**
      * Inner class that defines the table contents for 'patient' table
@@ -25,6 +46,7 @@ public class DbContract {
         public static final String TABLE_NAME = "patient";
 
         public static final String COLUMN_ID = BaseColumns._ID;
+        public static final String COLUMN_USER_ID_FK = "user_id";
         public static final String COLUMN_NAME = "name";
         public static final String COLUMN_ENTRY_NUMBER = "entry_number";
         public static final String COLUMN_NOTES = "notes";

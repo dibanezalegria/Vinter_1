@@ -10,6 +10,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.util.Log;
 
+import com.example.android.vinter_1.data.DbContract.UserEntry;
 import com.example.android.vinter_1.data.DbContract.PatientEntry;
 import com.example.android.vinter_1.data.DbContract.TestEntry;
 
@@ -24,15 +25,20 @@ public class DbProvider extends ContentProvider {
     /*
      * Constants used by UriMatcher
      */
-    private static final int PATIENTS = 100;
-    private static final int PATIENT_ID = 101;
-    private static final int TESTS = 200;
-    private static final int TEST_ID = 201;
+    private static final int USERS = 100;
+    private static final int USER_ID = 101;
+    private static final int PATIENTS = 200;
+    private static final int PATIENT_ID = 201;
+    private static final int TESTS = 300;
+    private static final int TEST_ID = 301;
 
     private static final UriMatcher sUriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
 
     static {
         // Add URI patterns that the provider should recognize.
+        sUriMatcher.addURI(DbContract.CONTENT_AUTHORITY, DbContract.PATH_USER, USERS);
+        sUriMatcher.addURI(DbContract.CONTENT_AUTHORITY, DbContract.PATH_USER + "/#", USER_ID);
+
         sUriMatcher.addURI(DbContract.CONTENT_AUTHORITY, DbContract.PATH_PATIENT, PATIENTS);
         sUriMatcher.addURI(DbContract.CONTENT_AUTHORITY, DbContract.PATH_PATIENT + "/#", PATIENT_ID);
 
@@ -55,6 +61,16 @@ public class DbProvider extends ContentProvider {
         Cursor cursor;
         final int match = sUriMatcher.match(uri);
         switch (match) {
+            case USERS:
+                cursor = database.query(UserEntry.TABLE_NAME, projection, selection,
+                        selectionArgs, null, null, sortOrder);
+                break;
+            case USER_ID:
+                selection = UserEntry.COLUMN_ID + "=?";
+                selectionArgs = new String[]{String.valueOf(ContentUris.parseId(uri))};
+                cursor = database.query(UserEntry.TABLE_NAME, projection, selection,
+                        selectionArgs, null, null, sortOrder);
+                break;
             case PATIENTS:
                 cursor = database.query(PatientEntry.TABLE_NAME, projection, selection,
                         selectionArgs, null, null, sortOrder);
@@ -91,6 +107,8 @@ public class DbProvider extends ContentProvider {
     public Uri insert(Uri uri, ContentValues values) {
         final int match = sUriMatcher.match(uri);
         switch (match) {
+            case USERS:
+                return insertUser(uri, values);
             case PATIENTS:
                 return insertPatient(uri, values);
             case TESTS:
@@ -98,6 +116,25 @@ public class DbProvider extends ContentProvider {
             default:
                 throw new IllegalArgumentException("Insertion is not supported for " + uri);
         }
+    }
+
+    /**
+     * Helper method that inserts a row in user table
+     */
+    private Uri insertUser(Uri uri, ContentValues values) {
+        SQLiteDatabase db = mDbHelper.getWritableDatabase();
+
+        long id = db.insert(UserEntry.TABLE_NAME, null, values);
+        if (id == -1) {
+            Log.d(LOG_TAG, "Failed to insert row for " + uri);
+            return null;
+        }
+
+        // Notify all listeners that the data has changed for the user URI
+        // uri: content://com.example.android.vinter_2/user
+        getContext().getContentResolver().notifyChange(uri, null);
+
+        return ContentUris.withAppendedId(uri, id);
     }
 
     /**
@@ -166,6 +203,16 @@ public class DbProvider extends ContentProvider {
         final int match = sUriMatcher.match(uri);
         try {
             switch (match) {
+                case USERS:
+                    // Delete all rows that match the selection and selection args
+                    rowsDeleted = db.delete(UserEntry.TABLE_NAME, selection, selectionArgs);
+                    break;
+                case USER_ID:
+                    // Delete a single row given by the ID in the URI
+                    selection = UserEntry.COLUMN_ID + "=?";
+                    selectionArgs = new String[]{String.valueOf(ContentUris.parseId(uri))};
+                    rowsDeleted = db.delete(UserEntry.TABLE_NAME, selection, selectionArgs);
+                    break;
                 case PATIENTS:
                     // Delete all rows that match the selection and selection args
                     rowsDeleted = db.delete(PatientEntry.TABLE_NAME, selection, selectionArgs);

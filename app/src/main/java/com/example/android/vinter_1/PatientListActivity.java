@@ -45,12 +45,27 @@ public class PatientListActivity extends AppCompatActivity
     public static final String KEY_PATIENT_ENTRY = "key_patient_entry";
     public static final String KEY_HEADER = "key_header";
 
+    private long mUserID;
+    private String mUserName;
     private PatientCursorAdapter mCursorAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_patient_list);
+
+        // Extract user id from bundle
+        Intent intent = getIntent();
+        if (intent != null && intent.hasExtra(LoginActivity.KEY_USER_ID) &&
+                intent.hasExtra(LoginActivity.KEY_USER_NAME)) {
+            mUserID = intent.getExtras().getLong(LoginActivity.KEY_USER_ID);
+            mUserName = intent.getExtras().getString(LoginActivity.KEY_USER_NAME);
+        } else {
+            mUserID = -1;   // should never happen
+            mUserName = "anonymous";
+        }
+
+        setTitle("VinterTests (" + mUserName + ")");
 
         // Keep screen on
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
@@ -89,6 +104,7 @@ public class PatientListActivity extends AppCompatActivity
     private Uri insertPatient(String name, int entry, String notes) {
         // Create a new map of values, where column names are the keys
         ContentValues values = new ContentValues();
+        values.put(PatientEntry.COLUMN_USER_ID_FK, mUserID);
         values.put(PatientEntry.COLUMN_NAME, name);
         values.put(PatientEntry.COLUMN_ENTRY_NUMBER, entry);
         values.put(PatientEntry.COLUMN_NOTES, notes);
@@ -113,7 +129,7 @@ public class PatientListActivity extends AppCompatActivity
             addTestForPatient(newPatientID, "TST", "TST", "- Timed Stands Test");
             addTestForPatient(newPatientID, "IMF", "IMF", "- Index of Muscle Function");
             addTestForPatient(newPatientID, "FSA", "FSA", "- Funktionsskattning Skuldra Arm");
-            addTestForPatient(newPatientID, "LED", "LEDSTATUS", "");
+            addTestForPatient(newPatientID, "LED", "Ledstatus", "");
             addTestForPatient(newPatientID, "BERGS", "Bergs", "- Bergs balansskala");
             addTestForPatient(newPatientID, "BDL", "BDL", "");
             addTestForPatient(newPatientID, "FSS", "FSS", "- Fatigue Severity Scale");
@@ -226,6 +242,8 @@ public class PatientListActivity extends AppCompatActivity
                 // Open new activity with list of tests for given patient id
                 Intent intent = new Intent(PatientListActivity.this, TestListActivity.class);
                 Bundle extras = new Bundle();
+                extras.putLong(LoginActivity.KEY_USER_ID, mUserID);
+                extras.putString(LoginActivity.KEY_USER_NAME, mUserName);
                 extras.putInt(KEY_PATIENT_ID, patientId);
                 String headerStr = name + " - " + entry;
                 extras.putString(KEY_HEADER, headerStr);
@@ -237,6 +255,8 @@ public class PatientListActivity extends AppCompatActivity
                 // Get patient's info from view
                 String headerStr = name + " - " + entry;
                 Bundle extras = new Bundle();
+                extras.putLong(LoginActivity.KEY_USER_ID, mUserID);
+                extras.putString(LoginActivity.KEY_USER_NAME, mUserName);
                 extras.putLong(KEY_PATIENT_ID, patientId);
                 extras.putString(KEY_HEADER, headerStr);
                 Intent intent = new Intent(PatientListActivity.this, ResultTableActivity.class);
@@ -283,10 +303,19 @@ public class PatientListActivity extends AppCompatActivity
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
         // This loader returns only active patients
         if (id == PATIENT_LOADER) {
-            String selection = PatientEntry.COLUMN_ACTIVE + "=?";
-            String[] selectionArgs = {String.valueOf(1)};
-            return new CursorLoader(this,
-                    PatientEntry.CONTENT_URI, null, selection, selectionArgs, null);
+            // Super user gets all patients for all users
+            if (mUserID != 0) {
+                String selection = PatientEntry.COLUMN_ACTIVE + "=? AND " +
+                        PatientEntry.COLUMN_USER_ID_FK + "=?";
+                String[] selectionArgs = {String.valueOf(1), String.valueOf(mUserID)};
+                return new CursorLoader(this,
+                        PatientEntry.CONTENT_URI, null, selection, selectionArgs, null);
+            } else {
+                String selection = PatientEntry.COLUMN_ACTIVE + "=?";
+                String[] selectionArgs = {String.valueOf(1)};
+                return new CursorLoader(this,
+                        PatientEntry.CONTENT_URI, null, selection, selectionArgs, null);
+            }
         }
         return null;
     }

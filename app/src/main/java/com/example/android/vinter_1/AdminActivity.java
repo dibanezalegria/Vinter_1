@@ -17,15 +17,18 @@ import android.widget.TextView;
 
 import com.example.android.vinter_1.data.DbContract.PatientEntry;
 import com.example.android.vinter_1.data.DbContract.TestEntry;
+import com.example.android.vinter_1.data.DbContract.UserEntry;
 
 public class AdminActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
 
     private static final String LOG_TAG = AdminActivity.class.getSimpleName();
 
     private static final int PATIENT_LOADER = 0;
+    private static final int USER_LOADER = 1;
 
     private TextView mTvNumberPatients;
-    private PatientRecoveryCursorAdapter mCursorAdapter;
+    private PatientRecoveryCursorAdapter mPatientCursorAdapter;
+    private UserCursorAdapter mUserCursorAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,12 +39,12 @@ public class AdminActivity extends AppCompatActivity implements LoaderManager.Lo
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         // Title
-        setTitle("Vintersol - Administrator");
+        setTitle("VinterTests - Administrator");
 
         mTvNumberPatients = (TextView) findViewById(R.id.admin_number_patients_tv);
 
-        Button exitBtn = (Button) findViewById(R.id.admin_exit_button);
-        exitBtn.setOnClickListener(new View.OnClickListener() {
+        Button logoutBtn = (Button) findViewById(R.id.admin_logout_button);
+        logoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
@@ -49,12 +52,14 @@ public class AdminActivity extends AppCompatActivity implements LoaderManager.Lo
         });
 
         Button resetBtn = (Button) findViewById(R.id.admin_reset_app_button);
+        resetBtn.setTransformationMethod(null);   // button text non capitalize
         resetBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Confirmation dialog
                 AlertDialog.Builder builder = new AlertDialog.Builder(AdminActivity.this);
-                builder.setMessage("Obs! Alla patienter, tester och mätresultat försvinner.")
+                builder.setMessage("All patients, tests and results will be deleted.\n\n" +
+                        "User accounts will NOT be deleted.")
                         .setPositiveButton("Reset", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
@@ -72,14 +77,22 @@ public class AdminActivity extends AppCompatActivity implements LoaderManager.Lo
         });
 
         // There is no data yet (until the loader finishes) so cursor is null for now.
-        mCursorAdapter = new PatientRecoveryCursorAdapter(this, null);
+        mUserCursorAdapter = new UserCursorAdapter(this, null);
+        mPatientCursorAdapter = new PatientRecoveryCursorAdapter(this, null);
 
-        // List view
-        final ListView listView = (ListView) findViewById(R.id.admin_list_view);
-        listView.setAdapter(mCursorAdapter);
+        // List view users
+        final ListView usersListView = (ListView) findViewById(R.id.admin_user_list_view);
+        usersListView.setAdapter(mUserCursorAdapter);
+        View emptyUserListView = findViewById(R.id.admin_user_list_empty_view);
+        usersListView.setEmptyView(emptyUserListView);
+
+        // List view patients
+        final ListView patientsListView = (ListView) findViewById(R.id.admin_patient_list_view);
+        patientsListView.setAdapter(mPatientCursorAdapter);
 
         // Kick off loader
         getSupportLoaderManager().initLoader(PATIENT_LOADER, null, this);
+        getSupportLoaderManager().initLoader(USER_LOADER, null, this);
     }
 
     private void resetApp() {
@@ -101,21 +114,34 @@ public class AdminActivity extends AppCompatActivity implements LoaderManager.Lo
                     PatientEntry.CONTENT_URI, null, selection, selectionArgs,
                     "_ID DESC");
         }
+
+        if (id == USER_LOADER) {
+            return new CursorLoader(this,
+                    UserEntry.CONTENT_URI, null, null, null, null);
+        }
         return null;
     }
 
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
         if (loader.getId() == PATIENT_LOADER) {
-            mCursorAdapter.swapCursor(data);
-            mTvNumberPatients.setText(String.valueOf(mCursorAdapter.getCount()));
+            mPatientCursorAdapter.swapCursor(data);
+            mTvNumberPatients.setText(String.valueOf(mPatientCursorAdapter.getCount()));
+        }
+
+        if (loader.getId() == USER_LOADER) {
+            mUserCursorAdapter.swapCursor(data);
         }
     }
 
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
         if (loader.getId() == PATIENT_LOADER) {
-            mCursorAdapter.swapCursor(null);
+            mPatientCursorAdapter.swapCursor(null);
+        }
+
+        if (loader.getId() == USER_LOADER) {
+            mUserCursorAdapter.swapCursor(null);
         }
     }
 }

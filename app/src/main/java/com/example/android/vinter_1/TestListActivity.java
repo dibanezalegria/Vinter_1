@@ -6,20 +6,20 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.LoaderManager;
+import android.support.v4.app.NavUtils;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
-import android.util.Log;
 import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.AdapterView;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -42,7 +42,9 @@ public class TestListActivity extends AppCompatActivity implements LoaderManager
     private static final int MENU_OUT = 1;
     private static final int MENU_LOG = 2;
 
+    private long mUserID;
     private int mPatientID;
+    private String mUserName;
     private String mHeaderString;
 
     private TestCursorAdapter mCursorAdapter;
@@ -58,16 +60,17 @@ public class TestListActivity extends AppCompatActivity implements LoaderManager
         // Extract info from Bundle
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
+            mUserID = extras.getLong(LoginActivity.KEY_USER_ID);
+            mUserName = extras.getString(LoginActivity.KEY_USER_NAME);
             mPatientID = extras.getInt(PatientListActivity.KEY_PATIENT_ID);
             mHeaderString = extras.getString(PatientListActivity.KEY_HEADER);
-            Log.d(LOG_TAG, "Getting extras from Bundle -> mPatientID: " + mPatientID + " mHeader: " + mHeaderString);
         }
 
         // Activity's title
         setTitle(mHeaderString);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.activity_test_list_fab_help);
-        fab.setOnClickListener(new View.OnClickListener() {
+        ImageButton helpBtn = (ImageButton) findViewById(R.id.activity_tests_list_help_btn);
+        helpBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 helpDialog();
@@ -111,8 +114,6 @@ public class TestListActivity extends AppCompatActivity implements LoaderManager
 
     @Override
     public boolean onContextItemSelected(MenuItem item) {
-        Log.d(LOG_TAG, "onContextItemSelected");
-
         // Debug
         if (item.getItemId() == MENU_LOG) {
             DbUtils.logTestDb(this);
@@ -124,6 +125,8 @@ public class TestListActivity extends AppCompatActivity implements LoaderManager
         Uri uri = ContentUris.withAppendedId(TestEntry.CONTENT_URI, info.id);
         Intent intent = new Intent(TestListActivity.this, TestActivity.class);
         intent.setData(uri);
+        intent.putExtra(LoginActivity.KEY_USER_ID, mUserID);
+        intent.putExtra(LoginActivity.KEY_USER_NAME, mUserName);
         intent.putExtra(PatientListActivity.KEY_PATIENT_ID, mPatientID);
         intent.putExtra(PatientListActivity.KEY_HEADER, mHeaderString);
         intent.putExtra(KEY_INOUT, item.getItemId());
@@ -154,6 +157,32 @@ public class TestListActivity extends AppCompatActivity implements LoaderManager
         TextView msg = (TextView) dialog.findViewById(android.R.id.message);
         if (msg != null)
             msg.setTextSize(18);
+    }
+
+    /**
+     * Navigate up
+     */
+    private void goBackToPatientListActivity() {
+        Intent upIntent = NavUtils.getParentActivityIntent(TestListActivity.this);
+        upIntent.putExtra(LoginActivity.KEY_USER_ID, mUserID);
+        upIntent.putExtra(LoginActivity.KEY_USER_NAME, mUserName);
+        NavUtils.navigateUpTo(TestListActivity.this, upIntent);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            // Respond to the action bar's Up/Home button
+            case android.R.id.home:
+                goBackToPatientListActivity();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        goBackToPatientListActivity();
     }
 
     @Override

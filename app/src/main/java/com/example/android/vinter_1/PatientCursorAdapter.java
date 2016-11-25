@@ -2,11 +2,11 @@ package com.example.android.vinter_1;
 
 import android.content.Context;
 import android.database.Cursor;
-import android.support.design.widget.FloatingActionButton;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CursorAdapter;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.android.vinter_1.data.DbContract.PatientEntry;
@@ -45,7 +45,7 @@ public class PatientCursorAdapter extends CursorAdapter {
         // Clicks in fab and item open the same option menu
 
         // Fab options listener
-        FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.patient_list_fab_result);
+        ImageButton fab = (ImageButton) view.findViewById(R.id.patient_list_fab_result);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

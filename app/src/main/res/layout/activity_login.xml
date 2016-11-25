@@ -9,7 +9,7 @@
     <RelativeLayout
         android:id="@+id/activity_login"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="@color/blue_grey_900"
         android:padding="64dp"
         tools:context="com.example.android.vinter_1.LoginActivity">
@@ -22,7 +22,7 @@
             android:src="@drawable/logo"/>
 
         <TextView
-            android:id="@+id/login_failed_text"
+            android:id="@+id/login_message_tv"
             style="@style/TextCustomNormal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -30,9 +30,8 @@
             android:layout_marginTop="32dp"
             android:layout_marginBottom="48dp"
             android:gravity="center"
-            android:text="@string/login_invalid"
-            android:textColor="@android:color/holo_red_light"
-            android:visibility="invisible"/>
+            tools:text="Info message"
+            android:textColor="@android:color/white"/>
 
         <TextView
             style="@style/TextCustomSmall"
@@ -52,7 +51,8 @@
             android:background="@color/blue_grey_100"
             android:fontFamily="sans-serif"
             android:hint="Username"
-            android:inputType="text"
+            android:inputType="textFilter"
+            android:digits="@string/valid_characters"
             android:maxLength="12"
             android:padding="8dp"
             android:paddingStart="12dp"
@@ -68,6 +68,7 @@
             android:fontFamily="sans-serif"
             android:hint="Password"
             android:inputType="textPassword"
+            android:digits="@string/valid_characters"
             android:maxLength="12"
             android:padding="8dp"
             android:paddingStart="12dp"
@@ -93,8 +94,17 @@
             android:layout_marginTop="32dp"
             android:gravity="center"
             android:clickable="true"
-            android:text="@string/login_no_account"
+            android:text="@string/login_no_account_yet"
             android:textColor="@android:color/white"/>
 
+        <TextView
+            style="@style/TextCustomSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="180dp"
+            android:text="@string/copyright"
+            android:layout_below="@id/login_register_text"
+            android:textColor="@color/blue_grey_400"/>
     </RelativeLayout>
 </ScrollView>

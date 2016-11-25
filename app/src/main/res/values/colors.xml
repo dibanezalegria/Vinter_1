@@ -41,6 +41,8 @@
     <color name="blue_grey_800">#37474F</color>
     <color name="blue_grey_900">#263238</color>
     <color name="indigo_200">#9FA8DA</color>
+    <color name="indigo_300">#7986CB</color>
+    <color name="indigo_400">#5C6BC0</color>
     <color name="indigo_500">#3F51B5</color>
     <color name="indigo_700">#303F9F</color>
     <color name="yellow_50">#FFFDE7</color>

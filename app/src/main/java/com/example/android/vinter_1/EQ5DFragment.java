@@ -661,6 +661,11 @@ public class EQ5DFragment extends AbstractFragment implements NotesDialogFragmen
             }
         });
         dialog.show();
+
+        // Change text size
+        TextView msg = (TextView) dialog.findViewById(android.R.id.message);
+        if (msg != null)
+            msg.setTextSize(18);
     }
 
     @Override

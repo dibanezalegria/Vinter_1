@@ -47,19 +47,19 @@ public class AddPatientDialogFragment extends DialogFragment {
                 .setPositiveButton("Save", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        TextView tvName = (TextView) view.findViewById(R.id.edit_dialog_name_tv);
-                        TextView tvEntry = (TextView) view.findViewById(R.id.edit_dialog_entry_tv);
+                        TextView tvName = (TextView) view.findViewById(R.id.add_dialog_name_tv);
+                        TextView tvEntry = (TextView) view.findViewById(R.id.add_dialog_entry_tv);
                         String nameStr = tvName.getText().toString().trim();
                         String entryStr = tvEntry.getText().toString().trim();
                         // Data validation: name is mandatory
-                        if (nameStr.length() != 0) {
+                        if (!nameStr.isEmpty()) {
                             // Validate entry number
                             int entry = 0;
-                            if (entryStr.length() != 0) {
+                            if (!entryStr.isEmpty()) {
                                 entry = Integer.parseInt(tvEntry.getText().toString());
                             }
                             mListener.onDialogCreateClick(AddPatientDialogFragment.this,
-                                    tvName.getText().toString(), entry);
+                                    nameStr, entry);
                         }
                     }
                 })

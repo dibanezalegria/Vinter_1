@@ -1,5 +1,6 @@
 <resources>
-    <string name="app_name">Vintersol</string>
+    <string name="app_name">VinterTests</string>
+    <string name="copyright">&#169;&#160;2016&#160;&#160;dibanezalegria@gmail.com</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string name="done_button">SPARA</string>
@@ -7,9 +8,11 @@
     <string name="test_saved_complete">Sparat. Test komplett.</string>
     <string name="test_saved_incomplete">Sparat. Test <b>EJ</b> komplett.</string>
 
-    <string name="login_no_account">No account yet? Register</string>
+    <string name="login_no_account_yet">No account yet? Register</string>
     <string name="login_already_registered">Already registered? Log in</string>
-    <string name="login_invalid">Login failed. Please try again.</string>
+
+    <string name="valid_characters">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789äåö</string>
+    <string name="valid_characters_plus_blank">abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789äåö</string>
 
     <!--
     ________________________________________________________________________________________________

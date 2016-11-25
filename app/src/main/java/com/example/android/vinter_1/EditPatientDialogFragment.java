@@ -66,12 +66,12 @@ public class EditPatientDialogFragment extends DialogFragment {
                 .setPositiveButton("Save", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        if (mTvName.getText().toString().trim().length() != 0 &&
-                                mTvEntry.getText().toString().trim().length() != 0) {
-                            // Call interface method implemented in MainActivity
-                            mListener.onDialogUpdateClick(mPatientID,
-                                    mTvName.getText().toString().trim(),
-                                    Integer.parseInt(mTvEntry.getText().toString().trim()));
+                        String nameStr = mTvName.getText().toString().trim();
+                        String entryStr = mTvEntry.getText().toString().trim();
+                        if (!nameStr.isEmpty() && !entryStr.isEmpty()) {
+                            // Call interface method implemented in PatientListActivity
+                            mListener.onDialogUpdateClick(mPatientID, nameStr,
+                                    Integer.parseInt(entryStr));
                             dismiss();
                         }
                     }

@@ -10,7 +10,7 @@
         android:background="@color/blue_grey_900"
         android:gravity="center_horizontal"
         android:padding="10dp"
-        android:text="Edit patient"
+        android:text="Redigera patient"
         android:textColor="@android:color/white"
         android:textSize="22sp"/>
 
@@ -30,7 +30,8 @@
             android:layout_gravity="center"
             android:ems="12"
             android:hint="Name"
-            android:inputType="text"
+            android:inputType="textFilter"
+            android:digits="@string/valid_characters_plus_blank"
             android:maxLength="20"
             android:textSize="20sp"/>
 
