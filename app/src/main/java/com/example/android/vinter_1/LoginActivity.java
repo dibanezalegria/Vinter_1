@@ -41,6 +41,9 @@ public class LoginActivity extends AppCompatActivity {
         // Keep screen on
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
+        // Title
+        setTitle("VinterTests");
+
         // Layout background listener closes soft keyboard
         RelativeLayout layout = (RelativeLayout) findViewById(R.id.activity_login);
         layout.setOnTouchListener(new View.OnTouchListener() {
@@ -72,13 +75,17 @@ public class LoginActivity extends AppCompatActivity {
                 if (mButtonInCreateAccountMode) {
                     tvRegister.setText(R.string.login_no_account_yet);
                     button.setText("Log in");
-                    button.setBackgroundResource(R.drawable.spara_custom_button);
+                    button.setBackgroundResource(R.drawable.custom_button_spara);
+                    hideMsg();
                 } else {
+                    showMsg("Enter user/pass for new account:");
                     tvRegister.setText(R.string.login_already_registered);
                     button.setText("Create account");
-                    button.setBackgroundResource(R.drawable.reset_custom_button);
+                    button.setBackgroundResource(R.drawable.custom_button_reset_app);
                 }
-                hideMsg();
+
+                etUser.setText("");
+                etPass.setText("");
                 mButtonInCreateAccountMode = !mButtonInCreateAccountMode;
             }
         });
@@ -91,8 +98,8 @@ public class LoginActivity extends AppCompatActivity {
                 // Check mButtonInCreateAccountMode
                 if (mButtonInCreateAccountMode) {
                     // Data validation
-                    if (user.isEmpty()) {
-                        showError("Error: username can not be empty.");
+                    if (user.isEmpty() || pass.isEmpty()) {
+                        showError("Error: username/password can not be empty.");
                         return;
                     }
                     // Is username available?
@@ -125,7 +132,7 @@ public class LoginActivity extends AppCompatActivity {
                     // Change button to login state
                     tvRegister.setText(R.string.login_no_account_yet);
                     button.setText("Log in");
-                    button.setBackgroundResource(R.drawable.spara_custom_button);
+                    button.setBackgroundResource(R.drawable.custom_button_spara);
                     mButtonInCreateAccountMode = false;
                     etUser.setText("");
                     etPass.setText("");
@@ -141,8 +148,6 @@ public class LoginActivity extends AppCompatActivity {
                         Intent intent = new Intent(LoginActivity.this, AdminActivity.class);
                         startActivity(intent);
                         mTvMessage.setVisibility(TextView.INVISIBLE);
-                        etUser.setText("");
-                        etPass.setText("");
                     } else if (user.equals("super") && pass.equals("super")) {
                         // Login
                         Intent intent = new Intent(LoginActivity.this, PatientListActivity.class);
@@ -150,8 +155,6 @@ public class LoginActivity extends AppCompatActivity {
                         intent.putExtra(KEY_USER_NAME, "superuser");
                         startActivity(intent);
                         mTvMessage.setVisibility(TextView.INVISIBLE);
-                        etUser.setText("");
-                        etPass.setText("");
                     } else if (loginValidation(user, pass)) {
                         Log.d(LOG_TAG, "valid login");
                         // Intent with user name as bundle
@@ -170,6 +173,12 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private void showMsg(String msg) {
+        mTvMessage.setText(msg);
+        mTvMessage.setTextColor(ContextCompat.getColor(this, android.R.color.white));
+        mTvMessage.setVisibility(TextView.VISIBLE);
     }
 
     private void showInfo(String msg) {

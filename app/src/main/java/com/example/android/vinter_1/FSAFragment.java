@@ -618,6 +618,11 @@ public class FSAFragment extends AbstractFragment implements NotesDialogFragment
             }
         });
         dialog.show();
+
+        // Change text size
+        TextView msg = (TextView) dialog.findViewById(android.R.id.message);
+        if (msg != null)
+            msg.setTextSize(18);
     }
 
     /**

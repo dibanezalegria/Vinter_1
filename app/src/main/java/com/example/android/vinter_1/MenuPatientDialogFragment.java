@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AlertDialog;
+import android.text.Html;
 
 /**
  * Created by Daniel Ibanez on 2016-10-30.
@@ -64,10 +65,10 @@ public class MenuPatientDialogFragment extends DialogFragment {
         final String id = args.getString(PatientListActivity.KEY_PATIENT_ID);
         final String name = args.getString(PatientListActivity.KEY_PATIENT_NAME);
         final String entry = args.getString(PatientListActivity.KEY_PATIENT_ENTRY);
-        final String title = name + " - " + entry;
+        final String title = "<b>" + name + " - " + entry + "</b>";
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle(title)
+        builder.setTitle(Html.fromHtml(title))
                 .setItems(R.array.menu_dialog_patient, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         // The 'which' argument contains the index position

@@ -1274,7 +1274,7 @@
                 style="@style/OutputTextViewStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
+                android:layout_marginEnd="10dp"
                 android:gravity="center"
                 android:minEms="2"/>
 
@@ -1290,8 +1290,8 @@
                 style="@style/OutputTextViewStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:layout_marginStart="16dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
                 android:gravity="center"
                 android:minEms="2"/>
 
@@ -1307,7 +1307,7 @@
                 style="@style/OutputTextViewStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="10dp"
                 android:gravity="center"
                 android:minEms="2"/>
         </LinearLayout>
@@ -1330,7 +1330,7 @@
                 style="@style/OutputTextViewStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
+                android:layout_marginEnd="10dp"
                 android:gravity="center"
                 android:minEms="2"/>
 
@@ -1346,8 +1346,8 @@
                 style="@style/OutputTextViewStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:layout_marginStart="16dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
                 android:gravity="center"
                 android:minEms="2"/>
 
@@ -1363,7 +1363,7 @@
                 style="@style/OutputTextViewStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="10dp"
                 android:gravity="center"
                 android:minEms="2"/>
         </LinearLayout>
@@ -1373,7 +1373,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
-            android:background="@drawable/spara_custom_button"
+            android:background="@drawable/custom_button_spara"
             android:text="@string/done_button"
             android:textAppearance="@style/TextCustomNormal"
             android:textColor="@android:color/white"/>

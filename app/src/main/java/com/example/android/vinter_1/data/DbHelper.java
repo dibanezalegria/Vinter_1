@@ -112,9 +112,13 @@ public class DbHelper extends SQLiteOpenHelper {
                 // Insert super user
 //                db.execSQL("INSERT INTO " + UserEntry.TABLE_NAME +
 //                        "(NAME, PASS) VALUES ('super', 'super')");
+
                 // Use ALTER to add column user_id_fk to Patient table
+                // When upgrading from v1, create 1st the account for the old user right after
+                // upgrading. This way old patients will get transferred to this user since we are
+                // creating the new column with id = 1
                 db.execSQL("ALTER TABLE " + PatientEntry.TABLE_NAME + " ADD COLUMN " +
-                        PatientEntry.COLUMN_USER_ID_FK + " INTEGER DEFAULT 0");
+                        PatientEntry.COLUMN_USER_ID_FK + " INTEGER DEFAULT 1");
 
         }
     }

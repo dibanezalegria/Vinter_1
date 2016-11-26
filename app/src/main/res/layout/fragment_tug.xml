@@ -98,7 +98,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="100dp"
-            android:background="@drawable/spara_custom_button"
+            android:background="@drawable/custom_button_spara"
             android:text="SPARA"
             android:textAppearance="@style/TextCustomNormal"
             android:textColor="@android:color/white"/>

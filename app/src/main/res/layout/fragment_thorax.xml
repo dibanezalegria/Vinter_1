@@ -55,8 +55,8 @@
                 android:ems="4"
                 android:gravity="center"
                 android:fontFamily="monospace"
-                android:inputType="number"
-                android:maxLength="3"
+                android:inputType="numberDecimal"
+                android:maxLength="4"
                 android:textSize="20sp"/>
 
             <TextView
@@ -71,7 +71,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="100dp"
-            android:background="@drawable/spara_custom_button"
+            android:background="@drawable/custom_button_spara"
             android:text="SPARA"
             android:textAppearance="@style/TextCustomNormal"
             android:textColor="@android:color/white"/>

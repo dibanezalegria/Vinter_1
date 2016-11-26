@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:padding="6dp"
-            android:background="@drawable/help_question_custom_button"
+            android:background="@drawable/custom_button_help"
             android:src="@drawable/ic_help_outline_white_36dp"
             android:textColor="@android:color/white"/>
 
@@ -47,7 +47,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:padding="6dp"
-            android:background="@drawable/notes_custom_button"
+            android:background="@drawable/custom_button_notes"
             android:src="@drawable/ic_comment_white_24dp"
             android:textColor="@android:color/white"/>
     </LinearLayout>
