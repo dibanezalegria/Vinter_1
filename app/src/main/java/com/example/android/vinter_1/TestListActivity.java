@@ -109,7 +109,7 @@ public class TestListActivity extends AppCompatActivity implements LoaderManager
         // Menu options
         menu.add(Menu.NONE, MENU_IN, 0, "Starta IN test");
         menu.add(Menu.NONE, MENU_OUT, 1, "Starta UT test");
-        //menu.add(Menu.NONE, MENU_LOG, 2, "LOG test table");
+//        menu.add(Menu.NONE, MENU_LOG, 2, "LOG test table");
     }
 
     @Override

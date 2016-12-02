@@ -112,7 +112,7 @@ public class PatientListActivity extends AppCompatActivity
         Uri uri = null;
         try {
             uri = getContentResolver().insert(PatientEntry.CONTENT_URI, values);
-            Log.d(LOG_TAG, "Insert patient returned uri: " + uri.toString());
+//            Log.d(LOG_TAG, "Insert patient returned uri: " + uri.toString());
         } catch (IllegalArgumentException e) {
             Log.d(LOG_TAG, e.getMessage());
         }
@@ -161,7 +161,7 @@ public class PatientListActivity extends AppCompatActivity
         values.put(TestEntry.COLUMN_TITLE_NAME, title);
 
         Uri uri = getContentResolver().insert(TestEntry.CONTENT_URI, values);
-        Log.d(LOG_TAG, "Insert patient returned uri: " + uri);
+//        Log.d(LOG_TAG, "Insert patient returned uri: " + uri);
 
         return uri;
     }
@@ -201,7 +201,7 @@ public class PatientListActivity extends AppCompatActivity
      * Callback from PatientCursorAdapter (Fab options)
      */
     public void optionFabClicked(View view) {
-        Log.d(LOG_TAG, "optionFabClicked");
+//        Log.d(LOG_TAG, "optionFabClicked");
         TextView tvId = (TextView) view.findViewById(R.id.patient_list_item_id_tv);
         TextView tvName = (TextView) view.findViewById(R.id.patient_list_item_name_tv);
         TextView tvEntry = (TextView) view.findViewById(R.id.patient_list_item_entry_tv);

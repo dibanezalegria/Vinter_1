@@ -22,6 +22,11 @@ public class TestActivity extends AppCompatActivity {
 
     private static final String LOG_TAG = TestActivity.class.getSimpleName();
 
+    // This flag allows to detect when the user is interacting with the app VS
+    // when the app is calling listeners for EditText or Spinners upon initialization
+    // ONLY ErgoFragment makes use of it for now.
+    public boolean mUserInteracting;
+
     // Custom fragment includes an abstract saveToDatabase method
     private AbstractFragment mAbstractFragment;
 
@@ -194,6 +199,12 @@ public class TestActivity extends AppCompatActivity {
                 mAbstractFragment.notesDialog();
             }
         });
+    }
+
+    @Override
+    public void onUserInteraction() {
+        super.onUserInteraction();
+        mUserInteracting = true;
     }
 
     @Override

@@ -574,33 +574,43 @@ public class ResultTableActivity extends AppCompatActivity {
         // In
         int statusIn = cursor.getInt(cursor.getColumnIndex(TestEntry.COLUMN_STATUS_IN));
         if (statusIn == Test.COMPLETED) {
+            TextView tvResult = (TextView) findViewById(R.id.table_ergo_result_in);
             TextView tvVikt = (TextView) findViewById(R.id.table_ergo_vikt_in);
             TextView tvLängd = (TextView) findViewById(R.id.table_ergo_längd_in);
             TextView tvÅlder = (TextView) findViewById(R.id.table_ergo_ålder_in);
             TextView tvBelas = (TextView) findViewById(R.id.table_ergo_belas_in);
 
+            String result = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_RESULT_IN));
+            tvResult.setText(result);
+
             String content = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_CONTENT_IN));
             String[] parts = content.split("\\|");
-            tvVikt.setText(parts[2]);
-            tvLängd.setText(parts[3]);
-            tvÅlder.setText(parts[4]);
-            tvBelas.setText(parts[6]);
+            tvVikt.setText(parts[4]);
+            tvLängd.setText(parts[5]);
+            tvÅlder.setText(parts[6]);
+            int belasPos = Integer.parseInt(parts[1]);
+            tvBelas.setText(String.valueOf((belasPos + 1) * 150));
         }
 
         // Out
         int statusOut = cursor.getInt(cursor.getColumnIndex(TestEntry.COLUMN_STATUS_OUT));
         if (statusOut == Test.COMPLETED) {
+            TextView tvResult = (TextView) findViewById(R.id.table_ergo_result_out);
             TextView tvVikt = (TextView) findViewById(R.id.table_ergo_vikt_out);
             TextView tvLängd = (TextView) findViewById(R.id.table_ergo_längd_out);
             TextView tvÅlder = (TextView) findViewById(R.id.table_ergo_ålder_out);
             TextView tvBelas = (TextView) findViewById(R.id.table_ergo_belas_out);
 
+            String result = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_RESULT_OUT));
+            tvResult.setText(result);
+
             String content = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_CONTENT_OUT));
             String[] parts = content.split("\\|");
-            tvVikt.setText(parts[2]);
-            tvLängd.setText(parts[3]);
-            tvÅlder.setText(parts[4]);
-            tvBelas.setText(parts[6]);
+            tvVikt.setText(parts[4]);
+            tvLängd.setText(parts[5]);
+            tvÅlder.setText(parts[6]);
+            int belasPos = Integer.parseInt(parts[1]);
+            tvBelas.setText(String.valueOf((belasPos + 1) * 150));
         }
     }
 

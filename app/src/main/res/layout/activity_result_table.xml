@@ -580,6 +580,7 @@
                     android:textAppearance="@style/TextCustomNormal"/>
 
                 <TextView
+                    android:id="@+id/table_ergo_result_in"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"
@@ -590,6 +591,7 @@
                     android:textAppearance="@style/TextCustomNormal"/>
 
                 <TextView
+                    android:id="@+id/table_ergo_result_out"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="15"

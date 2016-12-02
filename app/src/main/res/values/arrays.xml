@@ -285,4 +285,34 @@
         <item>6</item>
     </string-array>
 
+    <!-- ERGO Spinner values -->
+    <string-array name="ergo_gender_spinner">
+        <item>----</item>
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
+
+    <string-array name="ergo_belas_spinner_male">
+        <item>----</item>
+        <item>300 (50w)</item>
+        <item>450 (75w)</item>
+        <item>600 (100w)</item>
+        <item>750 (125w)</item>
+        <item>900 (150w)</item>
+        <item>1050 (175w)</item>
+        <item>1200 (200w)</item>
+        <item>1350 (225w)</item>
+        <item>1500 (250w)</item>
+    </string-array>
+
+    <string-array name="ergo_belas_spinner_female">
+        <item>----</item>
+        <item>300 (50w)</item>
+        <item>450 (75w)</item>
+        <item>600 (100w)</item>
+        <item>750 (125w)</item>
+        <item>900 (150w)</item>
+    </string-array>
+
+
 </resources>
