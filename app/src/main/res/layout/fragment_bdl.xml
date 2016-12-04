@@ -55,31 +55,31 @@
                 style="@style/bdl_text_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="0p = 0-6s"/>
+                android:text="0p   0-6s"/>
 
             <RadioButton
                 style="@style/bdl_text_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1p = 6s – 20s"/>
+                android:text="1p  >6s – 20s"/>
 
             <RadioButton
                 style="@style/bdl_text_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2p = 20s – 40s"/>
+                android:text="2p  >20s – 40s"/>
 
             <RadioButton
                 style="@style/bdl_text_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3p = 40s – 60s"/>
+                android:text="3p  >40s – 60s"/>
 
             <RadioButton
                 style="@style/bdl_text_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="4p = >60s"/>
+                android:text="4p  >60s"/>
         </RadioGroup>
 
         <TextView
@@ -110,31 +110,31 @@
                 style="@style/bdl_text_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="0p = 0-6s"/>
+                android:text="0p   0-6s"/>
 
             <RadioButton
                 style="@style/bdl_text_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1p = 6s – 20s"/>
+                android:text="1p  >6s – 20s"/>
 
             <RadioButton
                 style="@style/bdl_text_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2p = 20s – 40s"/>
+                android:text="2p  >20s – 40s"/>
 
             <RadioButton
                 style="@style/bdl_text_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3p = 40s – 60s"/>
+                android:text="3p  >40s – 60s"/>
 
             <RadioButton
                 style="@style/bdl_text_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="4p = >60s"/>
+                android:text="4p  >60s"/>
         </RadioGroup>
 
         <TextView
@@ -157,31 +157,31 @@
                 style="@style/bdl_text_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="0p = 0-6s"/>
+                android:text="0p   0-6s"/>
 
             <RadioButton
                 style="@style/bdl_text_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1p = 6s – 20s"/>
+                android:text="1p  >6s – 20s"/>
 
             <RadioButton
                 style="@style/bdl_text_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2p = 20s – 40s"/>
+                android:text="2p  >20s – 40s"/>
 
             <RadioButton
                 style="@style/bdl_text_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3p = 40s – 60s"/>
+                android:text="3p  >40s – 60s"/>
 
             <RadioButton
                 style="@style/bdl_text_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="4p = >60s"/>
+                android:text="4p  >60s"/>
         </RadioGroup>
 
         <TextView
@@ -204,31 +204,32 @@
                 style="@style/bdl_text_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="0p = kan inte blunda och stå på ett ben samtidigt"/>
+                android:gravity="center"
+                android:text="0p  kan inte blunda och stå på ett ben samtidigt"/>
 
             <RadioButton
                 style="@style/bdl_text_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1p = 1s – 6s"/>
+                android:text="1p  >1s – 6s"/>
 
             <RadioButton
                 style="@style/bdl_text_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2p = 6s – 13s"/>
+                android:text="2p  >6s – 13s"/>
 
             <RadioButton
                 style="@style/bdl_text_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3p = 13s – 20s"/>
+                android:text="3p  >13s – 20s"/>
 
             <RadioButton
                 style="@style/bdl_text_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="4p = >20s"/>
+                android:text="4p  >20s"/>
         </RadioGroup>
 
         <TextView
@@ -251,31 +252,31 @@
                 style="@style/bdl_text_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="0p = kan inte stå i tandemstående"/>
+                android:text="0p  kan inte stå i tandemstående"/>
 
             <RadioButton
                 style="@style/bdl_text_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1p = kan stå i tandemstående men gå mindre än 5 steg"/>
+                android:text="1p  kan stå i tandemstående men gå mindre än 5 steg"/>
 
             <RadioButton
                 style="@style/bdl_text_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2p = kan gå 5 steg men mindre än 15 steg med vändningen"/>
+                android:text="2p  kan gå 5 steg men mindre än 15 steg med vändningen"/>
 
             <RadioButton
                 style="@style/bdl_text_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3p= kan gå 15 steg och vända men mindre än 15 steg tillbaka"/>
+                android:text="3p  kan gå 15 steg och vända men mindre än 15 steg tillbaka"/>
 
             <RadioButton
                 style="@style/bdl_text_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="4p = kan gå 2 x 15 steg med vändning"/>
+                android:text="4p  kan gå 2 x 15 steg med vändning"/>
         </RadioGroup>
 
         <TextView
@@ -298,31 +299,31 @@
                 style="@style/bdl_text_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="0p = kan inte stå i tandemstående"/>
+                android:text="0p  kan inte stå i tandemstående"/>
 
             <RadioButton
                 style="@style/bdl_text_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1p = kan stå i tandemstående"/>
+                android:text="1p  kan stå i tandemstående"/>
 
             <RadioButton
                 style="@style/bdl_text_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2p = kan gå 2 steg men mindre än 8 steg"/>
+                android:text="2p  kan gå 2 steg men mindre än 8 steg"/>
 
             <RadioButton
                 style="@style/bdl_text_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3p = kan gå 8 steg men mindre än 15 steg"/>
+                android:text="3p  kan gå 8 steg men mindre än 15 steg"/>
 
             <RadioButton
                 style="@style/bdl_text_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="4p = kan gå 15 steg"/>
+                android:text="4p  kan gå 15 steg"/>
         </RadioGroup>
 
         <TextView
@@ -345,31 +346,31 @@
                 style="@style/bdl_text_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="0p = kan ej balansera kopp på fat utan att spilla"/>
+                android:text="0p  kan ej balansera kopp på fat utan att spilla"/>
 
             <RadioButton
                 style="@style/bdl_text_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1p = kan balansera kopp på gat, men gå mindre än 2,5 m utan spilla"/>
+                android:text="1p  kan balansera kopp på fat, men gå mindre än 2,5 m utan att spilla"/>
 
             <RadioButton
                 style="@style/bdl_text_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2p = kan gå 2,5 m men mindre än 5 m och vända utan att spilla"/>
+                android:text="2p  kan gå 2,5 m men mindre än 5 m och vända utan att spilla"/>
 
             <RadioButton
                 style="@style/bdl_text_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3p = kan gå 5 m och vända men mindre än 5 m tillbaka utan att spilla"/>
+                android:text="3p  kan gå 5 m och vända men mindre än 5 m tillbaka utan att spilla"/>
 
             <RadioButton
                 style="@style/bdl_text_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="4p = kan gå 2 x 5 m med vändning utan att spilla"/>
+                android:text="4p  kan gå 2 x 5 m med vändning utan att spilla"/>
         </RadioGroup>
 
         <TextView
@@ -392,31 +393,31 @@
                 style="@style/bdl_text_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="0p = klarar ej 1 omgång utan att rotera bröst- och ländrygg"/>
+                android:text="0p  klarar ej 1 omgång utan att rotera bröst- och ländrygg"/>
 
             <RadioButton
                 style="@style/bdl_text_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1p = klarar 1 omgång"/>
+                android:text="1p  klarar 1 omgång"/>
 
             <RadioButton
                 style="@style/bdl_text_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2p = klarar 2 omgång"/>
+                android:text="2p  klarar 2 omgång"/>
 
             <RadioButton
                 style="@style/bdl_text_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3p = klarar 3 omgång"/>
+                android:text="3p  klarar 3 omgång"/>
 
             <RadioButton
                 style="@style/bdl_text_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="4p = klarar 4 eller fler omgångar"/>
+                android:text="4p  klarar 4 eller fler omgångar"/>
         </RadioGroup>
 
         <TextView
@@ -439,31 +440,32 @@
                 style="@style/bdl_text_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="0p = kommer ej upp"/>
+                android:text="0p  kommer ej upp"/>
 
             <RadioButton
                 style="@style/bdl_text_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1p = kommer upp med minst en fotsula på stolen, ingen kroppsdel i golvet"/>
+                android:text="1p  kommer upp med minst en fotsula på stolen, ingen kroppsdel i golvet"/>
 
             <RadioButton
                 style="@style/bdl_text_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2p = står med stöd för händerna"/>
+                android:text="2p  står med stöd för händerna"/>
 
             <RadioButton
                 style="@style/bdl_text_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3p = står utan stöd för händerna"/>
+                android:text="3p  står utan stöd för händerna"/>
 
             <RadioButton
                 style="@style/bdl_text_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="4p = står med sträckta knän och höfter, klarar att hålla minst en arm sträckt framför sig med 90 grader i axelleden. Patienten ska från den utgångspositionen sträcka sig något framåt, så synlig tyngdpunktsförskjutning sker"/>
+                android:gravity="top"
+                android:text="4p  står med sträckta knän och höfter, klarar att hålla minst en arm sträckt framför sig med 90 grader i axelleden. Patienten ska från den utgångspositionen sträcka sig något framåt, så synlig tyngdpunktsförskjutning sker"/>
         </RadioGroup>
 
         <TextView
@@ -486,31 +488,31 @@
                 style="@style/bdl_text_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="0p = kan inte hoppa"/>
+                android:text="0p  kan inte hoppa"/>
 
             <RadioButton
                 style="@style/bdl_text_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1p = hoppar på stället och sätter direkt i andra foten efteråt"/>
+                android:text="1p  hoppar på stället och sätter direkt i andra foten efteråt"/>
 
             <RadioButton
                 style="@style/bdl_text_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2p = hoppar ett hopp på stället och stå kvar minst 5 s"/>
+                android:text="2p  hoppar ett hopp på stället och står kvar minst 5 s"/>
 
             <RadioButton
                 style="@style/bdl_text_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3p = hoppar ett hopp 2 dm och stå kvar minst 5 s"/>
+                android:text="3p  hoppar ett hopp 2 dm och står kvar minst 5 s"/>
 
             <RadioButton
                 style="@style/bdl_text_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="4p = hoppar två hopp 2 dm och står kvar minst 5 s  mellan varje hopp"/>
+                android:text="4p hoppar två hopp 2 dm och står kvar minst 5 s  mellan varje hopp"/>
         </RadioGroup>
 
         <TextView
@@ -533,31 +535,31 @@
                 style="@style/bdl_text_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="0p = klarar mindre än 3 steg upp reciprok gång "/>
+                android:text="0p  klarar mindre än 3 steg upp reciprok gång "/>
 
             <RadioButton
                 style="@style/bdl_text_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1p = klarar reciprok gång 3 steg men mindre än 10 steg upp"/>
+                android:text="1p  klarar reciprok gång 3 steg men mindre än 10 steg upp"/>
 
             <RadioButton
                 style="@style/bdl_text_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2p = klarar reciprok gång 10 steg upp men mindre än 10 steg ner"/>
+                android:text="2p  klarar reciprok gång 10 steg upp men mindre än 10 steg ner"/>
 
             <RadioButton
                 style="@style/bdl_text_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3p = klarar reciprok gång 10 steg upp och ner på mer än 20 s"/>
+                android:text="3p  klarar reciprok gång 10 steg upp och ner på mer än 20 s"/>
 
             <RadioButton
                 style="@style/bdl_text_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="4p = klarar reciprok gång 10 steg upp och ner på mindre än 20 s"/>
+                android:text="4p  klarar reciprok gång 10 steg upp och ner på mindre än 20 s"/>
         </RadioGroup>
 
         <LinearLayout

@@ -303,7 +303,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/bergs_text_radio_button"
-                android:text="3 = kan stå10 sekunder med tillsyn"/>
+                android:text="3 = kan stå 10 sekunder med tillsyn"/>
 
             <RadioButton
                 android:layout_width="wrap_content"

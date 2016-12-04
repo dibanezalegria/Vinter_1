@@ -36,7 +36,7 @@ public class TestActivity extends AppCompatActivity {
 
     // From bundle
     private String mHeaderString;
-    private long mUserID;
+    private int mUserID;
     private String mUserName;
     private int mPatientID, mInOut;
 
@@ -74,7 +74,7 @@ public class TestActivity extends AppCompatActivity {
         // Header title
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
-            mUserID = extras.getLong(LoginActivity.KEY_USER_ID);
+            mUserID = extras.getInt(LoginActivity.KEY_USER_ID);
             mUserName = extras.getString(LoginActivity.KEY_USER_NAME);
             mPatientID = extras.getInt(PatientListActivity.KEY_PATIENT_ID);
             mHeaderString = extras.getString(PatientListActivity.KEY_HEADER);

@@ -62,7 +62,7 @@
                 android:gravity="center"
                 android:ems="3"
                 android:maxLength="4"
-                android:inputType="numberDecimal"/>
+                android:inputType="number"/>
         </LinearLayout>
 
         <LinearLayout
@@ -76,7 +76,7 @@
                 style="@style/TextCustomNormal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Med/utan skor"/>
+                android:text="Med  skor"/>
 
             <CheckBox
                 android:id="@+id/tst_cb_shoes"

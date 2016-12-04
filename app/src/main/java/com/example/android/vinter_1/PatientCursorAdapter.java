@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CursorAdapter;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.android.vinter_1.data.DbContract.PatientEntry;
@@ -40,27 +39,6 @@ public class PatientCursorAdapter extends CursorAdapter {
 
         // Enable only for debugging
         tvId.setVisibility(TextView.GONE);
-
-        // Note on item listeners for this view
-        // Clicks in fab and item open the same option menu
-
-        // Fab options listener
-        ImageButton fab = (ImageButton) view.findViewById(R.id.patient_list_fab_result);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                View itemView = (View) v.getParent();
-                mPatientListActivity.optionFabClicked(itemView);
-            }
-        });
-
-        // Item list listener
-        view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mPatientListActivity.optionFabClicked(v);
-            }
-        });
 
         // Extract properties from cursor
         int id = cursor.getInt(cursor.getColumnIndex(PatientEntry._ID));

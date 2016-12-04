@@ -42,7 +42,7 @@ public class TestListActivity extends AppCompatActivity implements LoaderManager
     private static final int MENU_OUT = 1;
     private static final int MENU_LOG = 2;
 
-    private long mUserID;
+    private int mUserID;
     private int mPatientID;
     private String mUserName;
     private String mHeaderString;
@@ -60,7 +60,7 @@ public class TestListActivity extends AppCompatActivity implements LoaderManager
         // Extract info from Bundle
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
-            mUserID = extras.getLong(LoginActivity.KEY_USER_ID);
+            mUserID = extras.getInt(LoginActivity.KEY_USER_ID);
             mUserName = extras.getString(LoginActivity.KEY_USER_NAME);
             mPatientID = extras.getInt(PatientListActivity.KEY_PATIENT_ID);
             mHeaderString = extras.getString(PatientListActivity.KEY_HEADER);

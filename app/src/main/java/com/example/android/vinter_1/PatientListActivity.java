@@ -15,8 +15,12 @@ import android.support.v4.content.Loader;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.ContextMenu;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -27,17 +31,17 @@ import com.example.android.vinter_1.data.DbUtils;
 public class PatientListActivity extends AppCompatActivity
         implements AddPatientDialogFragment.NoticeDialogListener,
         EditPatientDialogFragment.NoticeDialogListener,
-        MenuPatientDialogFragment.OnMenuOptionSelectedListener,
         LoaderManager.LoaderCallbacks<Cursor> {
 
     private static final String LOG_TAG = PatientListActivity.class.getSimpleName();
     private static final int PATIENT_LOADER = 0;
 
-//    // Context menu constants
-//    private static final int EDIT = 0;
-//    private static final int DELETE = 1;
-//    private static final int RESULT = 2;
-//    private static final int LOG = 3;
+    // Context menu constants
+    private static final int PATIENT_TESTS = 0;
+    private static final int PATIENT_RESULTS = 1;
+    private static final int PATIENT_EDIT = 2;
+    private static final int PATIENT_DELETE = 3;
+    private static final int PATIENT_LOG = 4;
 
     // Bundle constants
     public static final String KEY_PATIENT_ID = "key_patient_id";
@@ -45,8 +49,10 @@ public class PatientListActivity extends AppCompatActivity
     public static final String KEY_PATIENT_ENTRY = "key_patient_entry";
     public static final String KEY_HEADER = "key_header";
 
-    private long mUserID;
+    private int mUserID;
     private String mUserName;
+    private int mPatientID;
+    private String mPatientName, mPatientEntry;
     private PatientCursorAdapter mCursorAdapter;
 
     @Override
@@ -58,7 +64,7 @@ public class PatientListActivity extends AppCompatActivity
         Intent intent = getIntent();
         if (intent != null && intent.hasExtra(LoginActivity.KEY_USER_ID) &&
                 intent.hasExtra(LoginActivity.KEY_USER_NAME)) {
-            mUserID = intent.getExtras().getLong(LoginActivity.KEY_USER_ID);
+            mUserID = intent.getExtras().getInt(LoginActivity.KEY_USER_ID);
             mUserName = intent.getExtras().getString(LoginActivity.KEY_USER_NAME);
         } else {
             mUserID = -1;   // should never happen
@@ -85,18 +91,112 @@ public class PatientListActivity extends AppCompatActivity
         // List view
         ListView listView = (ListView) findViewById(R.id.patients_list_view);
         listView.setAdapter(mCursorAdapter);
+        listView.setLongClickable(false);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Log.d(LOG_TAG, "list item clicked");
+                openContextMenu(view);
+            }
+        });
+
+        // Context menu
+        registerForContextMenu(listView);
 
         // Find and set empty view on the ListView, so that it only shows when the list has 0 items.
         View emptyView = findViewById(R.id.patient_list_empty_view);
         listView.setEmptyView(emptyView);
 
-        // Context menu
-        registerForContextMenu(listView);
-
         // Kick off loader
         getSupportLoaderManager().initLoader(PATIENT_LOADER, null, this);
     }
 
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) menuInfo;
+        // Extract patient's data
+        mPatientID = Integer.parseInt(((TextView) info.targetView.findViewById(R.id.patient_list_item_id_tv))
+                .getText().toString());
+        mPatientName = ((TextView) info.targetView.findViewById(R.id.patient_list_item_name_tv))
+                .getText().toString();
+        mPatientEntry = ((TextView) info.targetView.findViewById(R.id.patient_list_item_entry_tv))
+                .getText().toString();
+        menu.setHeaderTitle(mPatientName + " - " + mPatientEntry);
+        // Menu options
+        menu.add(Menu.NONE, PATIENT_TESTS, 0, "Tester");
+        menu.add(Menu.NONE, PATIENT_RESULTS, 1, "Mätresultat");
+        menu.add(Menu.NONE, PATIENT_EDIT, 2, "Redigera patient");
+        menu.add(Menu.NONE, PATIENT_DELETE, 3, "Ta bort patient");
+//        menu.add(Menu.NONE, PATIENT_LOG, 4, "Log");
+    }
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        // Action following menu option chosen
+        switch (item.getItemId()) {
+            case PATIENT_TESTS: {
+                // Open new activity with list of tests for given patient id
+                Intent intent = new Intent(PatientListActivity.this, TestListActivity.class);
+                Bundle extras = new Bundle();
+                extras.putInt(LoginActivity.KEY_USER_ID, mUserID);
+                extras.putString(LoginActivity.KEY_USER_NAME, mUserName);
+                extras.putInt(KEY_PATIENT_ID, mPatientID);
+                String headerStr = mPatientName + " - " + mPatientEntry;
+                extras.putString(KEY_HEADER, headerStr);
+                intent.putExtras(extras);
+                startActivity(intent);
+                break;
+            }
+            case PATIENT_RESULTS: {
+                // Get patient's info from view
+                String headerStr = mPatientName + " - " + mPatientEntry;
+                Bundle extras = new Bundle();
+                extras.putInt(LoginActivity.KEY_USER_ID, mUserID);
+                extras.putString(LoginActivity.KEY_USER_NAME, mUserName);
+                extras.putInt(KEY_PATIENT_ID, mPatientID);
+                extras.putString(KEY_HEADER, headerStr);
+                Intent intent = new Intent(PatientListActivity.this, ResultTableActivity.class);
+                intent.putExtras(extras);
+                startActivity(intent);
+                break;
+            }
+            case PATIENT_EDIT: {
+                Bundle bundle = new Bundle();
+                bundle.putInt(KEY_PATIENT_ID, mPatientID);
+                bundle.putString(KEY_PATIENT_NAME, mPatientName);
+                bundle.putString(KEY_PATIENT_ENTRY, mPatientEntry);
+                EditPatientDialogFragment dialogFragment = new EditPatientDialogFragment();
+                dialogFragment.setArguments(bundle);
+                dialogFragment.show(getSupportFragmentManager(), "edit_patient_dialog");
+                break;
+            }
+            case PATIENT_DELETE: {
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setMessage("Patienten tas bort.\n\nObs! Alla tester och mätresultat " +
+                        "för patienten försvinner.")
+                        .setTitle(mPatientName + " - " + mPatientEntry)
+                        .setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                deletePatient(mPatientID);
+                            }
+                        })
+                        .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                // Do nothing
+                            }
+                        })
+                        .create().show();
+                break;
+            }
+            default:
+                DbUtils.logPatientDb(this);
+        }
+
+        return super.onContextItemSelected(item);
+    }
 
     /**
      * Insert patient row in 'patient' table
@@ -119,7 +219,7 @@ public class PatientListActivity extends AppCompatActivity
 
         // Create test placeholders for patient in 'test' database
         if (uri != null) {
-            long newPatientID = ContentUris.parseId(uri);
+            int newPatientID = (int)ContentUris.parseId(uri);
             addTestForPatient(newPatientID, "VAS", "VAS", "- Visuell Analog Skala");
             addTestForPatient(newPatientID, "EQ5D", "EQ5D", "");
             addTestForPatient(newPatientID, "IPAQ", "I-PAQ", "");
@@ -152,7 +252,7 @@ public class PatientListActivity extends AppCompatActivity
     /**
      * Add test to database for given patient id
      */
-    private Uri addTestForPatient(long patientId, String code, String name, String title) {
+    private Uri addTestForPatient(int patientId, String code, String name, String title) {
         // Insert a new test for given patient id
         ContentValues values = new ContentValues();
         values.put(TestEntry.COLUMN_PATIENT_ID_FK, patientId);
@@ -169,7 +269,7 @@ public class PatientListActivity extends AppCompatActivity
     /**
      * Change status of patient to inactive. Only admin can see inactive patients
      */
-    private int deletePatient(long id) {
+    private int deletePatient(int id) {
         // Form uri
         Uri uri = ContentUris.withAppendedId(PatientEntry.CONTENT_URI, id);
 
@@ -184,7 +284,7 @@ public class PatientListActivity extends AppCompatActivity
     /**
      * Update patient entry on database
      */
-    private int updatePatient(long id, String name, int entry) {
+    private int updatePatient(int id, String name, int entry) {
         Uri uri = ContentUris.withAppendedId(PatientEntry.CONTENT_URI, id);
 
         // Values to update
@@ -198,30 +298,6 @@ public class PatientListActivity extends AppCompatActivity
     }
 
     /**
-     * Callback from PatientCursorAdapter (Fab options)
-     */
-    public void optionFabClicked(View view) {
-//        Log.d(LOG_TAG, "optionFabClicked");
-        TextView tvId = (TextView) view.findViewById(R.id.patient_list_item_id_tv);
-        TextView tvName = (TextView) view.findViewById(R.id.patient_list_item_name_tv);
-        TextView tvEntry = (TextView) view.findViewById(R.id.patient_list_item_entry_tv);
-
-        MenuPatientDialogFragment dialogFragment = new MenuPatientDialogFragment();
-        Bundle bundle = new Bundle();
-        bundle.putString(KEY_PATIENT_ID, tvId.getText().toString());
-        bundle.putString(KEY_PATIENT_NAME, tvName.getText().toString());
-        bundle.putString(KEY_PATIENT_ENTRY, tvEntry.getText().toString());
-        dialogFragment.setArguments(bundle);
-        dialogFragment.show(getSupportFragmentManager(), "menu_patient_dialog");
-
-//        // Change text size
-//        getSupportFragmentManager().executePendingTransactions();
-//        TextView msg = (TextView) dialogFragment.getDialog().findViewById(android.R.id.message);
-//        if (msg != null)
-//            msg.setTextSize(26);
-    }
-
-    /**
      * Interface implementations
      */
     @Override
@@ -230,73 +306,8 @@ public class PatientListActivity extends AppCompatActivity
     }
 
     @Override
-    public void onDialogUpdateClick(long id, String name, int entry) {
+    public void onDialogUpdateClick(int id, String name, int entry) {
         updatePatient(id, name, entry);
-    }
-
-    @Override
-    public void onMenuPatientDialogClick(int optionId, final int patientId, String name, String entry) {
-        // Action following menu option chosen
-        switch (optionId) {
-            case MenuPatientDialogFragment.MENU_DIALOG_TEST: {
-                // Open new activity with list of tests for given patient id
-                Intent intent = new Intent(PatientListActivity.this, TestListActivity.class);
-                Bundle extras = new Bundle();
-                extras.putLong(LoginActivity.KEY_USER_ID, mUserID);
-                extras.putString(LoginActivity.KEY_USER_NAME, mUserName);
-                extras.putInt(KEY_PATIENT_ID, patientId);
-                String headerStr = name + " - " + entry;
-                extras.putString(KEY_HEADER, headerStr);
-                intent.putExtras(extras);
-                startActivity(intent);
-                break;
-            }
-            case MenuPatientDialogFragment.MENU_DIALOG_RESULT: {
-                // Get patient's info from view
-                String headerStr = name + " - " + entry;
-                Bundle extras = new Bundle();
-                extras.putLong(LoginActivity.KEY_USER_ID, mUserID);
-                extras.putString(LoginActivity.KEY_USER_NAME, mUserName);
-                extras.putLong(KEY_PATIENT_ID, patientId);
-                extras.putString(KEY_HEADER, headerStr);
-                Intent intent = new Intent(PatientListActivity.this, ResultTableActivity.class);
-                intent.putExtras(extras);
-                startActivity(intent);
-                break;
-            }
-            case MenuPatientDialogFragment.MENU_DIALOG_EDIT: {
-                Bundle bundle = new Bundle();
-                bundle.putLong(KEY_PATIENT_ID, patientId);
-                bundle.putString(KEY_PATIENT_NAME, name);
-                bundle.putString(KEY_PATIENT_ENTRY, entry);
-                EditPatientDialogFragment dialogFragment = new EditPatientDialogFragment();
-                dialogFragment.setArguments(bundle);
-                dialogFragment.show(getSupportFragmentManager(), "edit_patient_dialog");
-                break;
-            }
-            case MenuPatientDialogFragment.MENU_DIALOG_DELETE: {
-                AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setMessage("Patienten tas bort.\n\nObs! Alla tester och mätresultat " +
-                        "för patienten försvinner.")
-                        .setTitle(name + " - " + entry)
-                        .setPositiveButton("Delete", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                deletePatient(patientId);
-                            }
-                        })
-                        .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                // Do nothing
-                            }
-                        })
-                        .create().show();
-                break;
-            }
-            default:
-                DbUtils.logPatientDb(this);
-        }
     }
 
     @Override

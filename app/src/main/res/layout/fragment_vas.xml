@@ -14,8 +14,8 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:paddingBottom="30dp"
-        android:paddingEnd="30dp"
-        android:paddingStart="30dp">
+        android:paddingEnd="16dp"
+        android:paddingStart="16dp">
 
         <!-- Header -->
         <TextView
@@ -71,20 +71,20 @@
                         android:id="@+id/vas_btn_minus_1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
                         android:background="@color/transparent"
                         android:clickable="true"
-                        android:src="@drawable/ic_remove_black_24dp"
-                        android:tint="@color/blue_grey_900"/>
+                        android:src="@drawable/ic_arrow_drop_down_black_36dp"
+                        android:tint="@color/blue_grey_600"/>
 
                     <!-- Output -->
                     <TextView
                         android:id="@+id/kondition_output_text_view"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
                         android:background="@drawable/spinner_blue_output_box"
-                        android:gravity="center"
                         android:ems="3"
+                        android:gravity="center"
                         android:textColor="@android:color/white"
                         android:textSize="@dimen/vas_output_text_size"/>
 
@@ -92,11 +92,10 @@
                         android:id="@+id/vas_btn_plus_1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
                         android:background="@color/transparent"
                         android:clickable="true"
-                        android:src="@drawable/ic_add_white_24dp"
-                        android:tint="@color/blue_grey_900"/>
+                        android:src="@drawable/ic_arrow_drop_up_black_36dp"
+                        android:tint="@color/blue_grey_600"/>
                 </LinearLayout>
             </LinearLayout>
 
@@ -122,19 +121,19 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
+                    android:layout_marginStart="12dp"
                     android:layout_weight="1"
                     android:gravity="start"
                     android:text="0"
                     android:textAppearance="?android:textAppearanceMedium"/>
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="50"
-                    android:textAppearance="?android:textAppearanceMedium"/>
+                <!--<TextView-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:gravity="center"-->
+                    <!--android:text="50"-->
+                    <!--android:textAppearance="?android:textAppearanceMedium"/>-->
 
                 <TextView
                     android:layout_width="0dp"
@@ -185,8 +184,8 @@
                         android:layout_gravity="center_vertical"
                         android:background="@color/transparent"
                         android:clickable="true"
-                        android:src="@drawable/ic_remove_black_24dp"
-                        android:tint="@color/blue_grey_900"/>
+                        android:src="@drawable/ic_arrow_drop_down_black_36dp"
+                        android:tint="@color/blue_grey_600"/>
 
                     <!-- Output -->
                     <TextView
@@ -194,8 +193,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/spinner_blue_output_box"
-                        android:gravity="center"
                         android:ems="3"
+                        android:gravity="center"
                         android:textColor="@android:color/white"
                         android:textSize="@dimen/vas_output_text_size"/>
 
@@ -206,8 +205,8 @@
                         android:layout_gravity="center_vertical"
                         android:background="@color/transparent"
                         android:clickable="true"
-                        android:src="@drawable/ic_add_white_24dp"
-                        android:tint="@color/blue_grey_900"/>
+                        android:src="@drawable/ic_arrow_drop_up_black_36dp"
+                        android:tint="@color/blue_grey_600"/>
                 </LinearLayout>
             </LinearLayout>
 
@@ -232,19 +231,19 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
+                    android:layout_marginStart="12dp"
                     android:layout_weight="1"
                     android:gravity="start"
                     android:text="0"
                     android:textAppearance="?android:textAppearanceMedium"/>
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="50"
-                    android:textAppearance="?android:textAppearanceMedium"/>
+                <!--<TextView-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:gravity="center"-->
+                    <!--android:text="50"-->
+                    <!--android:textAppearance="?android:textAppearanceMedium"/>-->
 
                 <TextView
                     android:layout_width="0dp"
@@ -295,8 +294,8 @@
                         android:layout_gravity="center_vertical"
                         android:background="@color/transparent"
                         android:clickable="true"
-                        android:src="@drawable/ic_remove_black_24dp"
-                        android:tint="@color/blue_grey_900"/>
+                        android:src="@drawable/ic_arrow_drop_down_black_36dp"
+                        android:tint="@color/blue_grey_600"/>
 
                     <!-- Output -->
                     <TextView
@@ -304,8 +303,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/spinner_blue_output_box"
-                        android:gravity="center"
                         android:ems="3"
+                        android:gravity="center"
                         android:textColor="@android:color/white"
                         android:textSize="@dimen/vas_output_text_size"/>
 
@@ -316,8 +315,8 @@
                         android:layout_gravity="center_vertical"
                         android:background="@color/transparent"
                         android:clickable="true"
-                        android:src="@drawable/ic_add_white_24dp"
-                        android:tint="@color/blue_grey_900"/>
+                        android:src="@drawable/ic_arrow_drop_up_black_36dp"
+                        android:tint="@color/blue_grey_600"/>
                 </LinearLayout>
             </LinearLayout>
 
@@ -342,19 +341,19 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
+                    android:layout_marginStart="12dp"
                     android:layout_weight="1"
                     android:gravity="start"
                     android:text="0"
                     android:textAppearance="?android:textAppearanceMedium"/>
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="50"
-                    android:textAppearance="?android:textAppearanceMedium"/>
+                <!--<TextView-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:gravity="center"-->
+                    <!--android:text="50"-->
+                    <!--android:textAppearance="?android:textAppearanceMedium"/>-->
 
                 <TextView
                     android:layout_width="0dp"
@@ -405,8 +404,8 @@
                         android:layout_gravity="center_vertical"
                         android:background="@color/transparent"
                         android:clickable="true"
-                        android:src="@drawable/ic_remove_black_24dp"
-                        android:tint="@color/blue_grey_900"/>
+                        android:src="@drawable/ic_arrow_drop_down_black_36dp"
+                        android:tint="@color/blue_grey_600"/>
 
                     <!-- Output -->
                     <TextView
@@ -414,8 +413,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/spinner_blue_output_box"
-                        android:gravity="center"
                         android:ems="3"
+                        android:gravity="center"
                         android:textColor="@android:color/white"
                         android:textSize="@dimen/vas_output_text_size"/>
 
@@ -426,8 +425,8 @@
                         android:layout_gravity="center_vertical"
                         android:background="@color/transparent"
                         android:clickable="true"
-                        android:src="@drawable/ic_add_white_24dp"
-                        android:tint="@color/blue_grey_900"/>
+                        android:src="@drawable/ic_arrow_drop_up_black_36dp"
+                        android:tint="@color/blue_grey_600"/>
                 </LinearLayout>
             </LinearLayout>
 
@@ -453,19 +452,19 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
+                    android:layout_marginStart="12dp"
                     android:layout_weight="1"
                     android:gravity="start"
                     android:text="0"
                     android:textAppearance="?android:textAppearanceMedium"/>
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="50"
-                    android:textAppearance="?android:textAppearanceMedium"/>
+                <!--<TextView-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:gravity="center"-->
+                    <!--android:text="50"-->
+                    <!--android:textAppearance="?android:textAppearanceMedium"/>-->
 
                 <TextView
                     android:layout_width="0dp"
@@ -516,8 +515,8 @@
                         android:layout_gravity="center_vertical"
                         android:background="@color/transparent"
                         android:clickable="true"
-                        android:src="@drawable/ic_remove_black_24dp"
-                        android:tint="@color/blue_grey_900"/>
+                        android:src="@drawable/ic_arrow_drop_down_black_36dp"
+                        android:tint="@color/blue_grey_600"/>
 
                     <!-- Output -->
                     <TextView
@@ -525,8 +524,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/spinner_blue_output_box"
-                        android:gravity="center"
                         android:ems="3"
+                        android:gravity="center"
                         android:textColor="@android:color/white"
                         android:textSize="@dimen/vas_output_text_size"/>
 
@@ -537,8 +536,8 @@
                         android:layout_gravity="center_vertical"
                         android:background="@color/transparent"
                         android:clickable="true"
-                        android:src="@drawable/ic_add_white_24dp"
-                        android:tint="@color/blue_grey_900"/>
+                        android:src="@drawable/ic_arrow_drop_up_black_36dp"
+                        android:tint="@color/blue_grey_600"/>
                 </LinearLayout>
             </LinearLayout>
 
@@ -563,19 +562,19 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
+                    android:layout_marginStart="12dp"
                     android:layout_weight="1"
                     android:gravity="start"
                     android:text="0"
                     android:textAppearance="?android:textAppearanceMedium"/>
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="50"
-                    android:textAppearance="?android:textAppearanceMedium"/>
+                <!--<TextView-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:gravity="center"-->
+                    <!--android:text="50"-->
+                    <!--android:textAppearance="?android:textAppearanceMedium"/>-->
 
                 <TextView
                     android:layout_width="0dp"

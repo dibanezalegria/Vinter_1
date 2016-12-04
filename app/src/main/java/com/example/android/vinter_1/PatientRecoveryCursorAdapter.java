@@ -52,7 +52,7 @@ public class PatientRecoveryCursorAdapter extends CursorAdapter {
             public void onClick(View v) {
                 View itemView = (View) v.getParent();
                 TextView tvId = (TextView) itemView.findViewById(R.id.patient_recovery_list_item_id_tv);
-                long id = Long.parseLong(tvId.getText().toString().trim());
+                int id = Integer.parseInt(tvId.getText().toString().trim());
                 // Form uri
                 Uri uri = ContentUris.withAppendedId(PatientEntry.CONTENT_URI, id);
                 // Restore only changes value in column active from 0 to 1

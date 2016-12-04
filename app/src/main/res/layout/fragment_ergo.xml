@@ -56,21 +56,20 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:ems="5"
-                        android:text="Gender"
+                        android:text="Kön"
                         android:textAppearance="@style/TextCustomNormal"/>
 
                     <Spinner
                         android:id="@+id/ergo_gender_spinner"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:entries="@array/ergo_gender_spinner"/>
+                        android:layout_marginStart="16dp"/>
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="32dp">
+                    android:layout_marginTop="26dp">
 
                     <TextView
                         android:id="@+id/ergo_tv_belas"
@@ -84,14 +83,13 @@
                         android:id="@+id/ergo_belas_spinner"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:entries="@array/ergo_belas_spinner_male"/>
+                        android:layout_marginStart="16dp"/>
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="32dp">
+                    android:layout_marginTop="26dp">
 
                     <TextView
                         android:id="@+id/ergo_tv_cykel"
@@ -296,8 +294,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="32dp"
-
-                    android:gravity="center_vertical">
+                    android:gravity="center_vertical"
+                    android:visibility="gone">
 
                     <TextView
                         style="@style/TextCustomLarge"
@@ -314,6 +312,17 @@
                         android:gravity="center_horizontal"
                         android:ems="4"/>
                 </LinearLayout>
+
+                <Button
+                    android:id="@+id/ergo_btnDone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginTop="32dp"
+                    android:background="@drawable/custom_button_spara"
+                    android:text="RÄKNA UT / SPARA"
+                    android:textAppearance="@style/TextCustomNormal"
+                    android:textColor="@android:color/white"/>
 
             </LinearLayout>
 
@@ -668,16 +677,7 @@
             </LinearLayout>
         </LinearLayout>
 
-        <Button
-            android:id="@+id/ergo_btnDone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:layout_marginTop="32dp"
-            android:background="@drawable/custom_button_spara"
-            android:text="SPARA"
-            android:textAppearance="@style/TextCustomNormal"
-            android:textColor="@android:color/white"/>
+
 
     </LinearLayout>
 </ScrollView>

@@ -20,7 +20,7 @@
         <ImageButton
             android:id="@+id/activity_test_fab_help"
             android:layout_width="0dp"
-            android:layout_weight="1"
+            android:layout_weight="9"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:padding="6dp"
@@ -31,7 +31,7 @@
         <TextView
             android:id="@+id/activity_test_title"
             android:layout_width="0dp"
-            android:layout_weight="8"
+            android:layout_weight="82"
             android:layout_height="wrap_content"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
@@ -42,14 +42,14 @@
         <ImageButton
             android:id="@+id/activity_test_fab_notes"
             android:layout_width="0dp"
-            android:layout_weight="1"
+            android:layout_weight="9"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:padding="6dp"
             android:background="@drawable/custom_button_notes"
             android:src="@drawable/ic_comment_white_24dp"
-            android:textColor="@android:color/white"/>
+            android:tint="@color/blue_grey_100"/>
     </LinearLayout>
 
     <FrameLayout

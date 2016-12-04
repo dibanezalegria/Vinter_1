@@ -46,8 +46,8 @@ public class ErgoFragment extends AbstractFragment implements NotesDialogFragmen
 
     private static final int N_ETs = 6;
     private static final int N_PULSE = 12;
-    public static final int GENDER_MALE = 1;
-    public static final int GENDER_FEMALE = 2;
+    protected static final int GENDER_MALE = 1;
+    protected static final int GENDER_FEMALE = 2;
 
     // Save state constant
     private static final String STATE_CONTENT = "state_content";
@@ -73,8 +73,8 @@ public class ErgoFragment extends AbstractFragment implements NotesDialogFragmen
         mEtData = new EditText[N_ETs];
         mPulse = new EditText[N_PULSE];
         // Generate tables
-        mValuesT3 = generateO2uptake();
-        mValuesT6 = generateResults();
+        mValuesT3 = generateT3();
+        mValuesT6 = generateT6();
     }
 
     @Override
@@ -117,6 +117,18 @@ public class ErgoFragment extends AbstractFragment implements NotesDialogFragmen
         mSpinGender = (Spinner) rootView.findViewById(R.id.ergo_gender_spinner);
         mSpinBelas = (Spinner) rootView.findViewById(R.id.ergo_belas_spinner);
 
+        // Spinner adapters
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(),
+                R.layout.ergo_spinner_list_item,
+                getResources().getStringArray(R.array.ergo_gender_spinner));
+        adapter.setDropDownViewResource(R.layout.ergo_spinner_list_item);
+        mSpinGender.setAdapter(adapter);
+        adapter = new ArrayAdapter<>(getContext(),
+                R.layout.ergo_spinner_list_item,
+                getResources().getStringArray(R.array.ergo_belas_spinner_male));
+        adapter.setDropDownViewResource(R.layout.ergo_spinner_list_item);
+        mSpinBelas.setAdapter(adapter);
+
         mEtData[0] = (EditText) rootView.findViewById(R.id.ergo_et_cykel);
         mEtData[1] = (EditText) rootView.findViewById(R.id.ergo_et_sadel);
         mEtData[2] = (EditText) rootView.findViewById(R.id.ergo_et_vikt);
@@ -152,6 +164,7 @@ public class ErgoFragment extends AbstractFragment implements NotesDialogFragmen
 
         // Done button
         Button btnDone = (Button) rootView.findViewById(R.id.ergo_btnDone);
+        btnDone.setTransformationMethod(null);   // button text non capitalize
         btnDone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -242,7 +255,7 @@ public class ErgoFragment extends AbstractFragment implements NotesDialogFragmen
             mTvResult.setText(mResult);
             int gender = mSpinGender.getSelectedItemPosition();
             int age = Integer.parseInt(mEtData[4].getText().toString());
-            mTvInterval.setText(getInterval(gender, age, Integer.parseInt(mResult)));
+//            mTvInterval.setText(getInterval(gender, age, Integer.parseInt(mResult)));
         }
 
         return rootView;
@@ -310,7 +323,7 @@ public class ErgoFragment extends AbstractFragment implements NotesDialogFragmen
 
             // Update result UI
             mTvResult.setText(mResult);
-            mTvInterval.setText(getInterval(gender, age, resultFromT6));
+//            mTvInterval.setText(getInterval(gender, age, resultFromT6));
         }
 
         // Values
@@ -460,7 +473,7 @@ public class ErgoFragment extends AbstractFragment implements NotesDialogFragmen
         }
     }
 
-    private float getValueFromT3(int gender, int pulse, int belas) {
+    protected float getValueFromT3(int gender, int pulse, int belas) {
         // Validate input
         if (pulse < 120 || pulse > 170) {
             Log.d(LOG_TAG, "Pulse outside valid range (120-170)");
@@ -513,7 +526,7 @@ public class ErgoFragment extends AbstractFragment implements NotesDialogFragmen
                         break;
                     // 1350
                     case 8:
-                        value = (Float.parseFloat(values[3]) / Float.parseFloat(values[4])) / 2;
+                        value = (Float.parseFloat(values[3]) + Float.parseFloat(values[4])) / 2;
                         break;
                     // 1500
                     case 9:
@@ -556,7 +569,7 @@ public class ErgoFragment extends AbstractFragment implements NotesDialogFragmen
     /**
      * Reads a value directly from table 6 instead of using regression analysis.
      */
-    public int getResultFromT6(int weight, float uptake) {
+    protected int getResultFromT6(int weight, float uptake) {
         // Data validation
         if (weight < 50 || weight > 100 || uptake < 1.5 || uptake > 6.0) {
             return -1;
@@ -564,7 +577,7 @@ public class ErgoFragment extends AbstractFragment implements NotesDialogFragmen
 
         // For testing
         if (mValuesT6 == null) {
-            mValuesT6 = generateResults();
+            mValuesT6 = generateT6();
         }
 
         int rowWeight = weight - 50;
@@ -583,10 +596,10 @@ public class ErgoFragment extends AbstractFragment implements NotesDialogFragmen
      * Estimates value for table 6 using regression analysis instead of directly
      * reading the value from the table.
      */
-    public int getResultUsingRegression(int weight, float valueFromT5) {
+    protected int getResultUsingRegression(int weight, float valueFromT5) {
         // For testing
         if (mValuesT6 == null) {
-            mValuesT6 = generateResults();
+            mValuesT6 = generateT6();
         }
 
         // Regression Analysis using the method of least squares
@@ -657,7 +670,7 @@ public class ErgoFragment extends AbstractFragment implements NotesDialogFragmen
     /**
      * Correction table 5
      */
-    private float correctValueUsingT5(float value, int age) {
+    protected float correctValueUsingT5(float value, int age) {
         // Table 5 used for correction
         SparseArray<Float> table = new SparseArray<>();
         table.put(15, 1.10f);
@@ -791,127 +804,127 @@ public class ErgoFragment extends AbstractFragment implements NotesDialogFragmen
         return (pulseA + pulseB) / 2;
     }
 
-    private String getInterval(int gender, int age, int result) {
-        String intervalStr = null;
-        switch (gender) {
-            case GENDER_MALE:
-                if (age < 30) {
-                    if (result < 39) {
-                        intervalStr = "<= 38";
-                    } else if (result < 44) {
-                        intervalStr = "39-43";
-                    } else if (result < 52) {
-                        intervalStr = "44-51";
-                    } else if (result < 57) {
-                        intervalStr = "52-56";
-                    } else {
-                        intervalStr = ">=57";
-                    }
-                } else if (age < 40) {
-                    if (result < 35) {
-                        intervalStr = "<= 34";
-                    } else if (result < 40) {
-                        intervalStr = "35-39";
-                    } else if (result < 48) {
-                        intervalStr = "40-47";
-                    } else if (result < 52) {
-                        intervalStr = "48-51";
-                    } else {
-                        intervalStr = ">=52";
-                    }
-                } else if (age < 50) {
-                    if (result < 31) {
-                        intervalStr = "<= 30";
-                    } else if (result < 36) {
-                        intervalStr = "31-35";
-                    } else if (result < 44) {
-                        intervalStr = "36-43";
-                    } else if (result < 48) {
-                        intervalStr = "44-47";
-                    } else {
-                        intervalStr = ">=48";
-                    }
-                } else if (age < 60) {
-                    if (result < 26) {
-                        intervalStr = "<= 25";
-                    } else if (result < 32) {
-                        intervalStr = "26-31";
-                    } else if (result < 40) {
-                        intervalStr = "32-39";
-                    } else if (result < 44) {
-                        intervalStr = "40-43";
-                    } else {
-                        intervalStr = ">=44";
-                    }
-                } else {
-                    if (result < 22) {
-                        intervalStr = "<= 21";
-                    } else if (result < 27) {
-                        intervalStr = "22-26";
-                    } else if (result < 36) {
-                        intervalStr = "27-35";
-                    } else if (result < 40) {
-                        intervalStr = "36-39";
-                    } else {
-                        intervalStr = ">=40";
-                    }
-                }
-                break;
-            case GENDER_FEMALE:
-                if (age < 30) {
-                    if (result < 29) {
-                        intervalStr = "<= 28";
-                    } else if (result < 35) {
-                        intervalStr = "29-34";
-                    } else if (result < 44) {
-                        intervalStr = "35-43";
-                    } else if (result < 49) {
-                        intervalStr = "44-48";
-                    } else {
-                        intervalStr = ">=49";
-                    }
-                } else if (age < 40) {
-                    if (result < 28) {
-                        intervalStr = "<= 27";
-                    } else if (result < 34) {
-                        intervalStr = "28-33";
-                    } else if (result < 42) {
-                        intervalStr = "34-41";
-                    } else if (result < 48) {
-                        intervalStr = "42-47";
-                    } else {
-                        intervalStr = ">=48";
-                    }
-                } else if (age < 50) {
-                    if (result < 26) {
-                        intervalStr = "<= 25";
-                    } else if (result < 32) {
-                        intervalStr = "26-31";
-                    } else if (result < 41) {
-                        intervalStr = "32-40";
-                    } else if (result < 46) {
-                        intervalStr = "41-45";
-                    } else {
-                        intervalStr = ">=46";
-                    }
-                } else {
-                    if (result < 22) {
-                        intervalStr = "<= 21";
-                    } else if (result < 29) {
-                        intervalStr = "22-28";
-                    } else if (result < 37) {
-                        intervalStr = "29-36";
-                    } else if (result < 42) {
-                        intervalStr = "37-41";
-                    } else {
-                        intervalStr = ">=42";
-                    }
-                }
-                break;
-        }
-
-        return intervalStr;
-    }
+//    private String getInterval(int gender, int age, int result) {
+//        String intervalStr = null;
+//        switch (gender) {
+//            case GENDER_MALE:
+//                if (age < 30) {
+//                    if (result < 39) {
+//                        intervalStr = "<= 38";
+//                    } else if (result < 44) {
+//                        intervalStr = "39-43";
+//                    } else if (result < 52) {
+//                        intervalStr = "44-51";
+//                    } else if (result < 57) {
+//                        intervalStr = "52-56";
+//                    } else {
+//                        intervalStr = ">=57";
+//                    }
+//                } else if (age < 40) {
+//                    if (result < 35) {
+//                        intervalStr = "<= 34";
+//                    } else if (result < 40) {
+//                        intervalStr = "35-39";
+//                    } else if (result < 48) {
+//                        intervalStr = "40-47";
+//                    } else if (result < 52) {
+//                        intervalStr = "48-51";
+//                    } else {
+//                        intervalStr = ">=52";
+//                    }
+//                } else if (age < 50) {
+//                    if (result < 31) {
+//                        intervalStr = "<= 30";
+//                    } else if (result < 36) {
+//                        intervalStr = "31-35";
+//                    } else if (result < 44) {
+//                        intervalStr = "36-43";
+//                    } else if (result < 48) {
+//                        intervalStr = "44-47";
+//                    } else {
+//                        intervalStr = ">=48";
+//                    }
+//                } else if (age < 60) {
+//                    if (result < 26) {
+//                        intervalStr = "<= 25";
+//                    } else if (result < 32) {
+//                        intervalStr = "26-31";
+//                    } else if (result < 40) {
+//                        intervalStr = "32-39";
+//                    } else if (result < 44) {
+//                        intervalStr = "40-43";
+//                    } else {
+//                        intervalStr = ">=44";
+//                    }
+//                } else {
+//                    if (result < 22) {
+//                        intervalStr = "<= 21";
+//                    } else if (result < 27) {
+//                        intervalStr = "22-26";
+//                    } else if (result < 36) {
+//                        intervalStr = "27-35";
+//                    } else if (result < 40) {
+//                        intervalStr = "36-39";
+//                    } else {
+//                        intervalStr = ">=40";
+//                    }
+//                }
+//                break;
+//            case GENDER_FEMALE:
+//                if (age < 30) {
+//                    if (result < 29) {
+//                        intervalStr = "<= 28";
+//                    } else if (result < 35) {
+//                        intervalStr = "29-34";
+//                    } else if (result < 44) {
+//                        intervalStr = "35-43";
+//                    } else if (result < 49) {
+//                        intervalStr = "44-48";
+//                    } else {
+//                        intervalStr = ">=49";
+//                    }
+//                } else if (age < 40) {
+//                    if (result < 28) {
+//                        intervalStr = "<= 27";
+//                    } else if (result < 34) {
+//                        intervalStr = "28-33";
+//                    } else if (result < 42) {
+//                        intervalStr = "34-41";
+//                    } else if (result < 48) {
+//                        intervalStr = "42-47";
+//                    } else {
+//                        intervalStr = ">=48";
+//                    }
+//                } else if (age < 50) {
+//                    if (result < 26) {
+//                        intervalStr = "<= 25";
+//                    } else if (result < 32) {
+//                        intervalStr = "26-31";
+//                    } else if (result < 41) {
+//                        intervalStr = "32-40";
+//                    } else if (result < 46) {
+//                        intervalStr = "41-45";
+//                    } else {
+//                        intervalStr = ">=46";
+//                    }
+//                } else {
+//                    if (result < 22) {
+//                        intervalStr = "<= 21";
+//                    } else if (result < 29) {
+//                        intervalStr = "22-28";
+//                    } else if (result < 37) {
+//                        intervalStr = "29-36";
+//                    } else if (result < 42) {
+//                        intervalStr = "37-41";
+//                    } else {
+//                        intervalStr = ">=42";
+//                    }
+//                }
+//                break;
+//        }
+//
+//        return intervalStr;
+//    }
 
     /**
      * Help dialog
@@ -1017,17 +1030,17 @@ public class ErgoFragment extends AbstractFragment implements NotesDialogFragmen
             if (position == GENDER_MALE) {
                 int selected = mSpinBelas.getSelectedItemPosition();
                 ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(),
-                        android.R.layout.simple_spinner_item,
+                        R.layout.ergo_spinner_list_item,
                         getResources().getStringArray(R.array.ergo_belas_spinner_male));
-                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                adapter.setDropDownViewResource(R.layout.ergo_spinner_list_item);
                 mSpinBelas.setAdapter(adapter);
                 mSpinBelas.setSelection(selected);
             } else {
                 int selected = mSpinBelas.getSelectedItemPosition();
                 ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(),
-                        android.R.layout.simple_spinner_item,
+                        R.layout.ergo_spinner_list_item,
                         getResources().getStringArray(R.array.ergo_belas_spinner_female));
-                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                adapter.setDropDownViewResource(R.layout.ergo_spinner_list_item);
                 mSpinBelas.setAdapter(adapter);
                 if (selected > 0 && selected < 6) {
                     mSpinBelas.setSelection(selected);
@@ -1052,7 +1065,7 @@ public class ErgoFragment extends AbstractFragment implements NotesDialogFragmen
     public void onNothingSelected(AdapterView<?> parent) {
     }
 
-    private String[][] generateO2uptake() {
+    private String[][] generateT3() {
         // Oxygen uptake men
         String[][] uptake = {
                 // male
@@ -1061,12 +1074,12 @@ public class ErgoFragment extends AbstractFragment implements NotesDialogFragmen
                         "1.9 3.0 4.1 5.5 6.8", "1.9 2.9 4.0 5.4 6.7", "1.8 2.9 4.0 5.3 6.6", "1.8 2.8 3.9 5.3 6.5", "1.8 2.8 3.9 5.2 6.4",
                         "1.7 2.8 3.8 5.1 6.3", "1.7 2.7 3.8 5.0 6.2", "1.7 2.7 3.7 5.0 6.1", "1.6 2.7 3.7 4.9 6.1", "1.6 2.6 3.6 4.8 6.0",
                         "1.6 2.6 3.6 4.8 6.0", "1.6 2.6 3.5 4.7 5.9", "1.6 2.5 3.5 4.6 5.8", "1.6 2.5 3.4 4.6 5.7", "1.6 2.5 3.4 4.5 5.7",
-                        "1.6 2.4 3.4 4.5 5.6", "1.5 2.4 3.3 4.4 5.6", "1.5 2.4 3.3 4.4 5.5", "1.5 2.4 3.2 4.3 5.4", "1.5 2.3 3.2 4.3 5.4",
-                        "1.6 2.3 3.2 4.2 5.3", "1.6 2.3 3.1 4.2 5.2", "1.6 2.3 3.1 4.1 5.2", "1.6 2.2 3.0 4.1 5.1", "1.6 2.2 3.0 4.0 5.1",
-                        "1.6 2.2 3.0 4.0 5.0", "1.6 2.2 2.9 4.0 5.0", "1.6 2.1 2.9 3.9 4.9", "1.6 2.1 2.9 3.9 4.9", "1.6 2.1 2.8 3.8 4.8",
-                        "1.6 2.1 2.8 3.8 4.8", "1.6 2.0 2.8 3.7 4.7", "1.6 2.0 2.8 3.7 4.6", "1.6 2.0 2.8 3.7 4.6", "1.6 2.0 2.7 3.6 4.5",
-                        "1.6 2.0 2.7 3.6 4.5", "1.6 1.9 2.7 3.6 4.5", "1.6 1.9 2.6 3.5 4.4", "1.6 1.9 2.6 3.5 4.4", "1.6 1.9 2.6 3.5 4.3",
-                        "1.6 1.8 2.6 3.4 4.3"},
+                        "1.5 2.4 3.4 4.5 5.6", "1.5 2.4 3.3 4.4 5.6", "1.5 2.4 3.3 4.4 5.5", "1.5 2.4 3.2 4.3 5.4", "1.5 2.3 3.2 4.3 5.4",
+                        "1.5 2.3 3.2 4.2 5.3", "1.5 2.3 3.1 4.2 5.2", "1.4 2.3 3.1 4.1 5.2", "1.4 2.2 3.0 4.1 5.1", "1.4 2.2 3.0 4.0 5.1",
+                        "1.4 2.2 3.0 4.0 5.0", "1.4 2.2 2.9 4.0 5.0", "1.3 2.1 2.9 3.9 4.9", "1.3 2.1 2.9 3.9 4.9", "1.3 2.1 2.8 3.8 4.8",
+                        "1.3 2.1 2.8 3.8 4.8", "1.2 2.0 2.8 3.7 4.7", "1.2 2.0 2.8 3.7 4.6", "1.2 2.0 2.8 3.7 4.6", "1.2 2.0 2.7 3.6 4.5",
+                        "1.2 2.0 2.7 3.6 4.5", "1.1 1.9 2.7 3.6 4.5", "1.1 1.9 2.6 3.5 4.4", "1.1 1.9 2.6 3.5 4.4", "1.1 1.9 2.6 3.5 4.3",
+                        "1.1 1.8 2.6 3.4 4.3"},
                 // female
                 {"2.6 3.4 4.1 4.8 5.6", "2.5 3.3 4.0 4.8 5.6", "2.5 3.2 3.9 4.7 5.5", "2.4 3.1 3.9 4.6 5.3", "2.4 3.1 3.8 4.5 5.2",
                         "2.3 3.0 3.7 4.4 5.1", "2.3 3.0 3.6 4.3 5.0", "2.2 2.9 3.5 4.2 4.9", "2.2 2.8 3.5 4.2 4.8", "2.2 2.8 3.4 4.1 4.8",
@@ -1084,7 +1097,7 @@ public class ErgoFragment extends AbstractFragment implements NotesDialogFragmen
         return uptake;
     }
 
-    private String[] generateResults() {
+    private String[] generateT6() {
         String[] table6 = {
                 "30 32 34 36 38 40 42 44 46 48 50 52 54 56 58 60 62 64 66 68 70 72 74 76 78 80 82 84 86 88 90 92 94 96 98 100 102 104 106 108 110 112 114 116 118 120",
                 "29 31 33 35 37 39 41 43 45 47 49 51 53 55 57 59 61 63 65 67 69 71 73 75 76 78 80 82 84 86 88 90 92 94 96 98 100 102 104 106 108 110 112 114 116 118",

@@ -20,13 +20,13 @@ public class EditPatientDialogFragment extends DialogFragment {
     private NoticeDialogListener mListener;
 
     private TextView mTvName, mTvEntry;
-    private Long mPatientID;
+    private int mPatientID;
 
     /**
      * Interface implemented by MainActivity
      */
     public interface NoticeDialogListener {
-        void onDialogUpdateClick(long id, String name, int entrada);
+        void onDialogUpdateClick(int id, String name, int entrada);
     }
 
     @Override
@@ -54,7 +54,7 @@ public class EditPatientDialogFragment extends DialogFragment {
         if (getArguments() != null) {
             mTvName = (TextView) view.findViewById(R.id.edit_dialog_name_tv);
             mTvEntry = (TextView) view.findViewById(R.id.edit_dialog_entry_tv);
-            mPatientID = getArguments().getLong(PatientListActivity.KEY_PATIENT_ID);
+            mPatientID = getArguments().getInt(PatientListActivity.KEY_PATIENT_ID);
             mTvName.setText(getArguments().getString(PatientListActivity.KEY_PATIENT_NAME));
             mTvEntry.setText(getArguments().getString(PatientListActivity.KEY_PATIENT_ENTRY));
         } else {

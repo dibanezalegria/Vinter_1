@@ -41,7 +41,7 @@
     <!-- MIN6 - BORGS Spinner values -->
     <!-- String between quotes, so spinner respect spaces -->
     <string-array name="min6_sp_rpe_values">
-        <item>n/a</item>
+        <item>------------------------------</item>
         <item>6</item>
         <item>7 Mycket, mycket lätt</item>
         <item>8</item>
@@ -60,8 +60,8 @@
     </string-array>
 
     <string-array name="min6_sp_cr10_values">
-        <item>n/a</item>
-        <item>0 Ingen"</item>
+        <item>------------------------------</item>
+        <item>0 Ingen</item>
         <item>0.3</item>
         <item>0.5 Mycket, mycket lätt</item>
         <item>1 Mycket lätt</item>
@@ -181,6 +181,7 @@
         <item>-</item>
         <item>4 = kan sitta tryggt och säkert i 2 minuter</item>
         <item>3 = kan sitta 2 minuter med tillsyn</item>
+        <item>3 = kan sitta 2 minuter med tillsyn</item>
         <item>2 = kan sitta i 30 sekunder</item>
         <item>1 = kan sitta i 10 sekunder</item>
         <item>0 = kan inte sitta 10 sekunder utan stöd</item>
@@ -287,13 +288,13 @@
 
     <!-- ERGO Spinner values -->
     <string-array name="ergo_gender_spinner">
-        <item>----</item>
-        <item>Male</item>
-        <item>Female</item>
+        <item>----------</item>
+        <item>Man</item>
+        <item>Kvinna</item>
     </string-array>
 
     <string-array name="ergo_belas_spinner_male">
-        <item>----</item>
+        <item>--------------------</item>
         <item>300 (50w)</item>
         <item>450 (75w)</item>
         <item>600 (100w)</item>
@@ -306,7 +307,7 @@
     </string-array>
 
     <string-array name="ergo_belas_spinner_female">
-        <item>----</item>
+        <item>--------------------</item>
         <item>300 (50w)</item>
         <item>450 (75w)</item>
         <item>600 (100w)</item>

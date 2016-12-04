@@ -230,9 +230,7 @@
                 android:id="@+id/min6_sp_cr10_test_start"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="60dp"
-                android:background="@color/bgBrightIn"
-                />
+                android:layout_marginEnd="60dp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -253,9 +251,7 @@
                 android:id="@+id/min6_sp_cr10_test_finish"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="60dp"
-                android:background="@color/bgBrightIn"
-                />
+                android:layout_marginEnd="60dp"/>
         </LinearLayout>
 
         <TextView
@@ -287,7 +283,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="60dp"
-                android:background="@color/bgBrightIn"
                 />
         </LinearLayout>
 
@@ -309,9 +304,7 @@
                 android:id="@+id/min6_sp_rpe_test_finish"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="60dp"
-                android:background="@color/bgBrightIn"
-                />
+                android:layout_marginEnd="60dp"/>
         </LinearLayout>
 
         <Button

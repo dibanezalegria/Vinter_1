@@ -82,7 +82,7 @@ public class UserCursorAdapter extends CursorAdapter {
         });
 
         // Extract properties from cursor
-        long id = cursor.getLong(cursor.getColumnIndex(UserEntry.COLUMN_ID));
+        int id = cursor.getInt(cursor.getColumnIndex(UserEntry.COLUMN_ID));
         String name = cursor.getString(cursor.getColumnIndex(UserEntry.COLUMN_NAME));
         String pass = cursor.getString(cursor.getColumnIndex(UserEntry.COLUMN_PASS));
 
@@ -97,9 +97,9 @@ public class UserCursorAdapter extends CursorAdapter {
         // Foreign key forces us to follow order of deletion (tests, patients and finally user)
         View itemView = (View) v.getParent();
         TextView tvId = (TextView) itemView.findViewById(R.id.user_list_item_id_tv);
-        long userId = -1;
+        int userId = -1;
         try {
-            userId = Long.parseLong(tvId.getText().toString());
+            userId = Integer.parseInt(tvId.getText().toString());
         } catch (Exception ex) {
             Log.d(LOG_TAG, "Exception: Error deleting user");
             return;

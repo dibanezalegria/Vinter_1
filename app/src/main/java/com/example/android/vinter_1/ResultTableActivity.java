@@ -21,7 +21,7 @@ public class ResultTableActivity extends AppCompatActivity {
 
     private static final String LOG_TAG = ResultTableActivity.class.getSimpleName();
 
-    private long mUserID, mPatientID;
+    private int mUserID, mPatientID;
     private String mUserName;
     private String mHeaderString;
 
@@ -37,9 +37,9 @@ public class ResultTableActivity extends AppCompatActivity {
         // Extract info from Bundle
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
-            mUserID = extras.getLong(LoginActivity.KEY_USER_ID, mUserID);
+            mUserID = extras.getInt(LoginActivity.KEY_USER_ID, mUserID);
             mUserName = extras.getString(LoginActivity.KEY_USER_NAME);
-            mPatientID = extras.getLong(PatientListActivity.KEY_PATIENT_ID);
+            mPatientID = extras.getInt(PatientListActivity.KEY_PATIENT_ID);
             mHeaderString = extras.getString(PatientListActivity.KEY_HEADER);
             Log.d(LOG_TAG, "Getting extras from Bundle -> mPatientID: " + mPatientID +
                     " mHeader: " + mHeaderString);

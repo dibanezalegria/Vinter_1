@@ -80,7 +80,7 @@ public class LoginActivity extends AppCompatActivity {
                 } else {
                     showMsg("Enter user/pass for new account:");
                     tvRegister.setText(R.string.login_already_registered);
-                    button.setText("Create account");
+                    button.setText("Register");
                     button.setBackgroundResource(R.drawable.custom_button_reset_app);
                 }
 
@@ -216,7 +216,7 @@ public class LoginActivity extends AppCompatActivity {
         return false;
     }
 
-    private long getUserID(String user) {
+    private int getUserID(String user) {
         String selection = UserEntry.COLUMN_NAME + "=?";
         String[] selectionArgs = {user};
         Cursor cursor = null;
@@ -225,7 +225,7 @@ public class LoginActivity extends AppCompatActivity {
                     selection, selectionArgs, null);
             if (cursor != null && cursor.getCount() == 1) {
                 cursor.moveToFirst();
-                return cursor.getLong(cursor.getColumnIndex(UserEntry.COLUMN_ID));
+                return cursor.getInt(cursor.getColumnIndex(UserEntry.COLUMN_ID));
             }
         } finally {
             if (cursor != null) {

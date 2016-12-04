@@ -653,7 +653,7 @@
                     android:ems="18"
                     android:maxLines="1"
                     android:padding="@dimen/mat_padding"
-                    android:text="Kroppsvikt(kg)"
+                    android:text="Kroppsvikt (kg)"
                     android:textAppearance="@style/TextCustomNormal"/>
 
                 <TextView
@@ -730,7 +730,7 @@
                     android:ems="18"
                     android:maxLines="1"
                     android:padding="@dimen/mat_padding"
-                    android:text="Längd(cm)"
+                    android:text="Längd (cm)"
                     android:textAppearance="@style/TextCustomNormal"/>
 
                 <TextView

@@ -1411,7 +1411,7 @@
                 android:ems="3"
                 android:fontFamily="monospace"
                 android:gravity="center"
-                android:inputType="number"
+                android:inputType="numberSigned"
                 android:maxLength="3"
                 android:textSize="20sp"/>
 
@@ -1423,7 +1423,7 @@
                 android:ems="3"
                 android:fontFamily="monospace"
                 android:gravity="center"
-                android:inputType="number"
+                android:inputType="numberSigned"
                 android:maxLength="3"
                 android:textSize="20sp"/>
 

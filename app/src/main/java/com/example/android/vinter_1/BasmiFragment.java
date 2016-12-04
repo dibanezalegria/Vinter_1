@@ -406,130 +406,128 @@ public class BasmiFragment extends AbstractFragment implements NotesDialogFragme
     }
 
     /**
-     * TODO: run test on this method
-     *
      * @return points for mean value for given question id
      */
-    public static int getPointsForMean(int question, float mean) {
+    public int getPointsForMean(int question, float mean) {
         // Return points for mean value for given question id
         switch (question) {
             case 0: {
-                if (mean > 85.0)
+                if (mean > 85.0f)
                     return 0;
-                else if (mean > 76.5)
+                else if (mean > 76.5f)
                     return 1;
-                else if (mean > 68.0)
+                else if (mean > 68.0f)
                     return 2;
-                else if (mean > 59.5)
+                else if (mean > 59.5f)
                     return 3;
-                else if (mean > 51.0)
+                else if (mean > 51.0f)
                     return 4;
-                else if (mean > 42.5)
+                else if (mean > 42.5f)
                     return 5;
-                else if (mean > 34.0)
+                else if (mean > 34.0f)
                     return 6;
-                else if (mean > 25.5)
+                else if (mean > 25.5f)
                     return 7;
-                else if (mean > 17.0)
+                else if (mean > 17.0f)
                     return 8;
-                else if (mean > 8.5)
+                else if (mean > 8.5f)
                     return 9;
                 else
                     return 10;
             }
             case 1: {
-                if (mean < 10.0)
+                if (mean < 10.0f)
                     return 0;
-                else if (mean < 13)
+                else if (mean < 13f)
                     return 1;
-                else if (mean < 16)
+                else if (mean < 16f)
                     return 2;
-                else if (mean < 19)
+                else if (mean < 19f)
                     return 3;
-                else if (mean < 22)
+                else if (mean < 22f)
                     return 4;
-                else if (mean < 25)
+                else if (mean < 25f)
                     return 5;
-                else if (mean < 28)
+                else if (mean < 28f)
                     return 6;
-                else if (mean < 31)
+                else if (mean < 31f)
                     return 7;
-                else if (mean < 34)
+                else if (mean < 34f)
                     return 8;
-                else if (mean < 37)
+                else if (mean < 37f)
                     return 9;
                 else
                     return 10;
             }
             case 2: {
-                if (mean > 20.0)
+                if (mean > 20.0f)
                     return 0;
-                else if (mean > 17.9)
+                else if (mean > 17.9f)
                     return 1;
-                else if (mean > 15.8)
+                else if (mean > 15.8f)
                     return 2;
-                else if (mean > 13.7)
+                else if (mean > 13.7f)
                     return 3;
-                else if (mean > 11.6)
+                else if (mean > 11.6f)
                     return 4;
-                else if (mean > 9.5)
+                else if (mean > 9.5f)
                     return 5;
-                else if (mean > 7.4)
+                else if (mean > 7.4f)
                     return 6;
-                else if (mean > 5.3)
+                else if (mean > 5.3f)
                     return 7;
-                else if (mean > 3.2)
+                else if (mean > 3.2f)
                     return 8;
-                else if (mean >= 1.2)
+                else if (mean > 1.1f)
                     return 9;
                 else
                     return 10;
             }
             case 3: {
-                if (mean > 120.0)
+                if (mean > 119.5f)
                     return 0;
-                else if (mean > 109.5)
+                else if (mean > 109.5f)
                     return 1;
-                else if (mean > 99.5)
+                else if (mean > 99.5f)
                     return 2;
-                else if (mean > 89.5)
+                else if (mean > 89.5f)
                     return 3;
-                else if (mean > 79.5)
+                else if (mean > 79.5f)
                     return 4;
-                else if (mean > 69.5)
+                else if (mean > 69.5f)
                     return 5;
-                else if (mean > 59.5)
+                else if (mean > 59.5f)
                     return 6;
-                else if (mean > 49.5)
+                else if (mean > 49.5f)
                     return 7;
-                else if (mean > 39.5)
+                else if (mean > 39.5f)
                     return 8;
-                else if (mean >= 30)
+                else if (mean >= 30f)
                     return 9;
                 else
                     return 10;
             }
 
             case 4: {
-                if (mean > 7.0)
+                if (mean > 7.0f)
                     return 0;
-                else if (mean > 6.3)
+                else if (mean > 6.3f)
                     return 1;
-                else if (mean > 5.6)
+                else if (mean > 5.6f)
                     return 2;
-                else if (mean > 4.9)
+                else if (mean > 4.9f)
                     return 3;
-                else if (mean > 4.2)
+                else if (mean > 4.2f)
                     return 4;
-                else if (mean > 3.5)
+                else if (mean > 3.5f)
                     return 5;
-                else if (mean > 2.8)
+                else if (mean > 2.8f)
                     return 6;
-                else if (mean > 2.1)
+                else if (mean > 2.1f)
                     return 7;
-                else if (mean > 1.4)
+                else if (mean > 1.4f)
                     return 8;
-                else if (mean > 0.7)
+                else if (mean > 0.7f)
                     return 9;
                 else
                     return 10;
