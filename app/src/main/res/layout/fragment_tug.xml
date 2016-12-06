@@ -78,7 +78,7 @@
                 android:id="@+id/tug_tv_help"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="7"
+                android:ems="8"
                 android:text="Gånghjälpmedel"
                 android:textAppearance="@style/TextCustomNormal"/>
 
@@ -86,10 +86,12 @@
                 android:id="@+id/tug_et_help"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="6"
+                android:inputType="textFilter"
+                android:digits="@string/valid_characters_plus_blank"
+                android:ems="12"
+                android:maxLength="20"
                 android:fontFamily="monospace"
                 android:gravity="center"
-                android:inputType="text"
                 android:textSize="20sp"/>
         </LinearLayout>
 

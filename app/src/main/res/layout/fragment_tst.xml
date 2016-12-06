@@ -61,7 +61,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:ems="3"
-                android:maxLength="4"
+                android:maxLength="3"
                 android:inputType="number"/>
         </LinearLayout>
 
@@ -76,7 +76,7 @@
                 style="@style/TextCustomNormal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Med  skor"/>
+                android:text="Med skor"/>
 
             <CheckBox
                 android:id="@+id/tst_cb_shoes"

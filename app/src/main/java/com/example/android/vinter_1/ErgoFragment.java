@@ -33,6 +33,7 @@ import android.widget.TextView;
 import com.example.android.vinter_1.data.DbContract.TestEntry;
 import com.example.android.vinter_1.data.Test;
 
+import java.math.BigDecimal;
 import java.util.Locale;
 
 
@@ -253,8 +254,8 @@ public class ErgoFragment extends AbstractFragment implements NotesDialogFragmen
         // Restore result and interval UI
         if (!mResult.equals("-1")) {
             mTvResult.setText(mResult);
-            int gender = mSpinGender.getSelectedItemPosition();
-            int age = Integer.parseInt(mEtData[4].getText().toString());
+//            int gender = mSpinGender.getSelectedItemPosition();
+//            int age = Integer.parseInt(mEtData[4].getText().toString());
 //            mTvInterval.setText(getInterval(gender, age, Integer.parseInt(mResult)));
         }
 
@@ -379,48 +380,48 @@ public class ErgoFragment extends AbstractFragment implements NotesDialogFragmen
         // Only some fields are mandatory: gender, belastning, vikt, ålder and two pulses
 
         if (mSpinGender.getSelectedItemPosition() == 0) {
-            showAlertDialog("Gender is missing");
+            showAlertDialog("Ange kön");
             return true;
         }
 
         if (mSpinBelas.getSelectedItemPosition() == 0) {
-            showAlertDialog("Belastning is missing");
+            showAlertDialog("Ange belastning");
             return true;
         }
 
         // Weight
         if (mEtData[2].getText().toString().isEmpty()) {
-            showAlertDialog("Weight is missing");
-            return true;
-        }
-
-        // Age
-        if (mEtData[4].getText().toString().isEmpty()) {
-            showAlertDialog("Age is missing");
+            showAlertDialog("Ange vikt");
             return true;
         }
 
         // Check weight range
         int weight = Integer.parseInt(mEtData[2].getText().toString());
         if (weight < 50 || weight > 100) {
-            showAlertDialog("Weight out of range[50, 100]");
+            showAlertDialog("Vikt ogiltigt värde [50, 100]");
+            return true;
+        }
+
+        // Age
+        if (mEtData[4].getText().toString().isEmpty()) {
+            showAlertDialog("Ange ålder");
             return true;
         }
 
         // Check age range
         int age = Integer.parseInt(mEtData[4].getText().toString());
         if (age < 15 || age > 100) {
-            showAlertDialog("Age out of range[15, 100]");
+            showAlertDialog("Ålder ogiltigt värde [15, 100]");
             return true;
         }
 
         // At least to pulses are mandatory
         int meanPulse = getMeanPulse();
         if (meanPulse == -1) {
-            showAlertDialog("At least two heart rate measures are needed to calculate result.");
+            showAlertDialog("Två pulsvärden behövs för att beräkna resultat.");
             return true;
         } else if (meanPulse < 120 || meanPulse > 170) {
-            showAlertDialog("Average pulse of last two measures is out of range [120, 170]");
+            showAlertDialog("Ogiltigt medelvärde för pulse [120, 170]");
             return true;
         }
 
@@ -503,6 +504,9 @@ public class ErgoFragment extends AbstractFragment implements NotesDialogFragmen
                     // 450
                     case 2:
                         value = (Float.parseFloat(values[0]) + Float.parseFloat(values[1])) / 2;
+                        BigDecimal bd = new BigDecimal(value);
+                        bd = bd.setScale(1, BigDecimal.ROUND_DOWN);
+                        value = bd.floatValue();
                         break;
                     // 600
                     case 3:
@@ -511,6 +515,9 @@ public class ErgoFragment extends AbstractFragment implements NotesDialogFragmen
                     // 750
                     case 4:
                         value = (Float.parseFloat(values[1]) + Float.parseFloat(values[2])) / 2;
+                        bd = new BigDecimal(value);
+                        bd = bd.setScale(1, BigDecimal.ROUND_DOWN);
+                        value = bd.floatValue();
                         break;
                     // 900
                     case 5:
@@ -519,6 +526,9 @@ public class ErgoFragment extends AbstractFragment implements NotesDialogFragmen
                     // 1050
                     case 6:
                         value = (Float.parseFloat(values[2]) + Float.parseFloat(values[3])) / 2;
+                        bd = new BigDecimal(value);
+                        bd = bd.setScale(1, BigDecimal.ROUND_DOWN);
+                        value = bd.floatValue();
                         break;
                     // 1200
                     case 7:
@@ -527,6 +537,9 @@ public class ErgoFragment extends AbstractFragment implements NotesDialogFragmen
                     // 1350
                     case 8:
                         value = (Float.parseFloat(values[3]) + Float.parseFloat(values[4])) / 2;
+                        bd = new BigDecimal(value);
+                        bd = bd.setScale(1, BigDecimal.ROUND_DOWN);
+                        value = bd.floatValue();
                         break;
                     // 1500
                     case 9:
@@ -709,11 +722,15 @@ public class ErgoFragment extends AbstractFragment implements NotesDialogFragmen
             }
         }
 
-        String str = String.format(Locale.ENGLISH, "%.1f", value * factor);
+        //        String str = String.format(Locale.ENGLISH, "%.1f", Math.round(value * factor));
 
-        Log.d(LOG_TAG, "Correction factor: " + factor + " before: " + value + " after: " + str);
+        // Adjusting to "snurra" results -> 2.96 becomes 2.9 instead of 3.0
+        BigDecimal bd = new BigDecimal(Float.toString(value * factor));
+        bd = bd.setScale(1, BigDecimal.ROUND_FLOOR);
 
-        return Float.parseFloat(str);
+        Log.d(LOG_TAG, "Correction factor: " + factor + " before: " + value + " after: " + bd);
+
+        return bd.floatValue();
     }
 
     private float correctUsingRegression(int age) {
@@ -1002,7 +1019,7 @@ public class ErgoFragment extends AbstractFragment implements NotesDialogFragmen
         // new data in the fields.
         if (((TestActivity) getActivity()).mUserInteracting) {
             mTvResult.setText("");
-            mTvInterval.setText("");
+//            mTvInterval.setText("");
         }
 
         // Inform parent activity
@@ -1055,7 +1072,7 @@ public class ErgoFragment extends AbstractFragment implements NotesDialogFragmen
         // different gender/belastning.
         if (((TestActivity) getActivity()).mUserInteracting) {
             mTvResult.setText("");
-            mTvInterval.setText("");
+//            mTvInterval.setText("");
         }
 
         highlight();   // Dynamic highlighting

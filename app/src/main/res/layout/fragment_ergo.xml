@@ -57,13 +57,20 @@
                         android:layout_height="wrap_content"
                         android:ems="5"
                         android:text="Kön"
+                        android:layout_gravity="center_vertical"
                         android:textAppearance="@style/TextCustomNormal"/>
 
-                    <Spinner
-                        android:id="@+id/ergo_gender_spinner"
+                    <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"/>
+                        android:background="@color/bgBrightIn"
+                        android:paddingEnd="6dp">
+
+                        <Spinner
+                            android:id="@+id/ergo_gender_spinner"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                    </RelativeLayout>
                 </LinearLayout>
 
                 <LinearLayout
@@ -75,15 +82,22 @@
                         android:id="@+id/ergo_tv_belas"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
                         android:ems="5"
                         android:text="Belastning"
                         android:textAppearance="@style/TextCustomNormal"/>
 
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@color/bgBrightIn"
+                        android:paddingEnd="6dp">
+
                     <Spinner
                         android:id="@+id/ergo_belas_spinner"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"/>
+                        android:layout_height="wrap_content"/>
+                    </RelativeLayout>
                 </LinearLayout>
 
                 <LinearLayout

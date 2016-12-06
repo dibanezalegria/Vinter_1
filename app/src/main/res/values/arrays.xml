@@ -41,7 +41,7 @@
     <!-- MIN6 - BORGS Spinner values -->
     <!-- String between quotes, so spinner respect spaces -->
     <string-array name="min6_sp_rpe_values">
-        <item>------------------------------</item>
+        <item>-</item>
         <item>6</item>
         <item>7 Mycket, mycket lätt</item>
         <item>8</item>
@@ -60,7 +60,7 @@
     </string-array>
 
     <string-array name="min6_sp_cr10_values">
-        <item>------------------------------</item>
+        <item>-</item>
         <item>0 Ingen</item>
         <item>0.3</item>
         <item>0.5 Mycket, mycket lätt</item>
@@ -288,13 +288,13 @@
 
     <!-- ERGO Spinner values -->
     <string-array name="ergo_gender_spinner">
-        <item>----------</item>
+        <item>-</item>
         <item>Man</item>
         <item>Kvinna</item>
     </string-array>
 
     <string-array name="ergo_belas_spinner_male">
-        <item>--------------------</item>
+        <item>-</item>
         <item>300 (50w)</item>
         <item>450 (75w)</item>
         <item>600 (100w)</item>
@@ -307,12 +307,12 @@
     </string-array>
 
     <string-array name="ergo_belas_spinner_female">
-        <item>--------------------</item>
+        <item>-</item>
         <item>300 (50w)</item>
         <item>450 (75w)</item>
         <item>600 (100w)</item>
         <item>750 (125w)</item>
-        <item>900 (150w)</item>
+        <item>900 (150w)&#160;&#160;</item>
     </string-array>
 
 

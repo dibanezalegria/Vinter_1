@@ -55,9 +55,9 @@
                 android:layout_weight="1"/>
 
             <TextView
+                style="@style/TextCustomNormal"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                style="@style/TextCustomNormal"
                 android:layout_weight="1"
                 android:text="| = 30 m"/>
         </LinearLayout>
@@ -215,43 +215,57 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
+            android:layout_marginEnd="40dp"
             android:layout_marginStart="20dp">
 
             <TextView
                 android:id="@+id/min6_tv_cr10_test_start"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
                 android:minEms="5"
                 android:text="Teststart"
-                android:textAppearance="@style/TextCustomNormal"
-                />
+                android:textAppearance="@style/TextCustomNormal"/>
 
-            <Spinner
-                android:id="@+id/min6_sp_cr10_test_start"
-                android:layout_width="match_parent"
+            <RelativeLayout
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="60dp"/>
+                android:background="@color/bgBrightIn"
+                android:paddingEnd="6dp">
+
+                <Spinner
+                    android:id="@+id/min6_sp_cr10_test_start"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </RelativeLayout>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="40dp"
             android:layout_marginStart="20dp">
 
             <TextView
                 android:id="@+id/min6_tv_cr10_test_finish"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
                 android:minEms="5"
                 android:text="Avslutat"
-                android:textAppearance="@style/TextCustomNormal"
-                />
+                android:textAppearance="@style/TextCustomNormal"/>
 
-            <Spinner
-                android:id="@+id/min6_sp_cr10_test_finish"
-                android:layout_width="match_parent"
+            <RelativeLayout
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="60dp"/>
+                android:background="@color/bgBrightIn"
+                android:paddingEnd="6dp">
+
+                <Spinner
+                    android:id="@+id/min6_sp_cr10_test_finish"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </RelativeLayout>
         </LinearLayout>
 
         <TextView
@@ -267,44 +281,57 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
+            android:layout_marginEnd="40dp"
             android:layout_marginStart="20dp">
 
             <TextView
                 android:id="@+id/min6_tv_rpe_test_start"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
                 android:minEms="5"
                 android:text="Teststart"
-                android:textAppearance="@style/TextCustomNormal"
-                />
+                android:textAppearance="@style/TextCustomNormal"/>
 
-            <Spinner
-                android:id="@+id/min6_sp_rpe_test_start"
-                android:layout_width="match_parent"
+            <RelativeLayout
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="60dp"
-                />
+                android:background="@color/bgBrightIn"
+                android:paddingEnd="6dp">
+
+                <Spinner
+                    android:id="@+id/min6_sp_rpe_test_start"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </RelativeLayout>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="40dp"
             android:layout_marginStart="20dp">
 
             <TextView
                 android:id="@+id/min6_tv_rpe_test_finish"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
                 android:minEms="5"
                 android:text="Avslutat"
-                android:textAppearance="@style/TextCustomNormal"
-                />
+                android:textAppearance="@style/TextCustomNormal"/>
 
-            <Spinner
-                android:id="@+id/min6_sp_rpe_test_finish"
-                android:layout_width="match_parent"
+            <RelativeLayout
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="60dp"/>
+                android:background="@color/bgBrightIn"
+                android:paddingEnd="6dp">
+
+                <Spinner
+                    android:id="@+id/min6_sp_rpe_test_finish"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </RelativeLayout>
         </LinearLayout>
 
         <Button
