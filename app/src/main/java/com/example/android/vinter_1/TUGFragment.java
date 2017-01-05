@@ -21,9 +21,12 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.android.vinter_1.data.DbContract;
@@ -33,7 +36,7 @@ import com.example.android.vinter_1.data.Test;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class TUGFragment extends AbstractFragment implements NotesDialogFragment.NotesDialogListener, TextWatcher {
+public class TUGFragment extends AbstractFragment implements NotesDialogFragment.NotesDialogListener, TextWatcher, AdapterView.OnItemSelectedListener {
 
     private static final String LOG_TAG = TUGFragment.class.getSimpleName();
 
@@ -42,7 +45,8 @@ public class TUGFragment extends AbstractFragment implements NotesDialogFragment
     private static final String STATE_HIGH_ON = "state_high_on";
 
     private TextView mTvSeconds, mTvHelp;
-    private EditText mEtSeconds, mEtHelp;
+    private EditText mEtSeconds;
+    private Spinner mSpinHelp;
 
     private Uri mTestUri;
     private int mTestPhase;
@@ -66,10 +70,6 @@ public class TUGFragment extends AbstractFragment implements NotesDialogFragment
         mRootView = inflater.inflate(R.layout.fragment_tug, container, false);
 
         if (mTestPhase == TestActivity.TEST_OUT) {
-//            ScrollView scroll = (ScrollView) mRootView.findViewById(R.id.basfi_background);
-//            scroll.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.bgOut));
-//            View separator = (View) mRootView.findViewById(R.id.basfi_separator);
-//            separator.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.bgBrightOut));
             TextView textView = (TextView) mRootView.findViewById(R.id.tug_title);
             textView.setText("UT test");
         }
@@ -90,11 +90,16 @@ public class TUGFragment extends AbstractFragment implements NotesDialogFragment
         mTvSeconds = (TextView) mRootView.findViewById(R.id.tug_tv_seconds);
         mTvHelp = (TextView) mRootView.findViewById(R.id.tug_tv_help);
         mEtSeconds = (EditText) mRootView.findViewById(R.id.tug_et_seconds);
-        mEtHelp = (EditText) mRootView.findViewById(R.id.tug_et_help);
+
+        mSpinHelp = (Spinner) mRootView.findViewById(R.id.tug_help_spinner);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(),
+                R.layout.tug_spinner_list_item,
+                getResources().getStringArray(R.array.tug_help_spinner));
+        mSpinHelp.setAdapter(adapter);
 
         // Listeners
         mEtSeconds.addTextChangedListener(this);
-        mEtHelp.addTextChangedListener(this);
+        mSpinHelp.setOnItemSelectedListener(this);
 
         // Done button
         Button btnDone = (Button) mRootView.findViewById(R.id.tug_btnDone);
@@ -163,7 +168,13 @@ public class TUGFragment extends AbstractFragment implements NotesDialogFragment
             // Set edit text views
             String[] content = contentStr.split("\\|");
             mEtSeconds.setText(content[0]);
-            mEtHelp.setText(content[1]);
+            int selected = 0;
+            try {
+                selected = Integer.parseInt(content[1]);
+            } catch (NumberFormatException ex) {
+                Log.d(LOG_TAG, "Gånghjälpmedel is not a number -> VinteTest v1.1");
+            }
+            mSpinHelp.setSelection(selected);
         }
 
         return mRootView;
@@ -198,7 +209,7 @@ public class TUGFragment extends AbstractFragment implements NotesDialogFragment
         StringBuilder builder = new StringBuilder();
         builder.append(mEtSeconds.getText().toString().trim());
         builder.append("|");
-        builder.append(mEtHelp.getText().toString().trim());
+        builder.append(mSpinHelp.getSelectedItemPosition());
         builder.append("|");
         builder.append("0|");   // Fix: split() can not handle all positions empty
 
@@ -344,5 +355,21 @@ public class TUGFragment extends AbstractFragment implements NotesDialogFragment
 
         int rows = getActivity().getContentResolver().update(mTestUri, values, null, null);
         Log.d(LOG_TAG, "rows updated: " + rows);
+
+        // Inform TestActivity that notes have been updated
+        ((TestActivity) getActivity()).notesHaveBeenUpdated(notesIn, notesOut);
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        if (((TestActivity) getActivity()).mUserInteracting) {
+            // Inform parent activity
+            ((TestActivity) getActivity()).setUserHasSaved(false);
+        }
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
     }
 }

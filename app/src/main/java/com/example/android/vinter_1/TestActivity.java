@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.NavUtils;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -43,6 +44,9 @@ public class TestActivity extends AppCompatActivity {
     // Bundle key
     public static final String KEY_URI = "key_uri";
 
+    // Fab notes
+    private ImageButton fabNotes;
+
     // Fragments inform TestActivity about user's actions
     private boolean mUserHasSaved;
 
@@ -69,6 +73,8 @@ public class TestActivity extends AppCompatActivity {
         String testCode = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_CODE));
         String testName = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_NAME));
         String testTitle = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_TITLE_NAME));
+        String testNotesIn = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_NOTES_IN));
+        String testNotesOut = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_NOTES_OUT));
         cursor.close();
 
         // Header title
@@ -192,13 +198,16 @@ public class TestActivity extends AppCompatActivity {
         });
 
         // Fab notes
-        ImageButton fabNotes = (ImageButton) findViewById(R.id.activity_test_fab_notes);
+        fabNotes = (ImageButton) findViewById(R.id.activity_test_fab_notes);
         fabNotes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mAbstractFragment.notesDialog();
             }
         });
+
+        // Set fab notes background color
+        notesHaveBeenUpdated(testNotesIn, testNotesOut);
     }
 
     @Override
@@ -249,6 +258,18 @@ public class TestActivity extends AppCompatActivity {
      */
     public void setUserHasSaved(boolean saved) {
         mUserHasSaved = saved;
+    }
+
+    /**
+     * Fragment informs when notes get updated
+     */
+    public void notesHaveBeenUpdated(String notesIn, String notesOut) {
+        if ((notesIn != null && !notesIn.isEmpty()) ||
+                (notesOut != null && !notesOut.isEmpty())) {
+            fabNotes.setBackground(ContextCompat.getDrawable(this, R.drawable.custom_button_help));
+        } else {
+            fabNotes.setBackground(ContextCompat.getDrawable(this, R.drawable.custom_button_notes));
+        }
     }
 
     @Override

@@ -48,8 +48,9 @@ public class MIN6Fragment extends AbstractFragment implements NotesDialogFragmen
     private static final String STATE_HIGH_ON = "state_high_on";
     private static final String STATE_TICK_COUNTER = "state_tick_counter";
 
+    private Spinner mSpinHelp;
     private Spinner spRpeStart, spRpeFinish, spCR10Start, spCR10Finish;
-    private EditText mETmeters, mEThelp, mETpulseStart, mETpulseFinish;
+    private EditText mETmeters, mETpulseStart, mETpulseFinish;
     private TextView mTVmeters, mTVhelp, mTVpulseStart, mTVpulseFinish, mTVcr10Start, mTVcr10Finish,
             mTVRpeStart, mTVRpeFinish;
     private ImageButton mBtnMeterMinus, mBtnMeterPlus;
@@ -117,9 +118,16 @@ public class MIN6Fragment extends AbstractFragment implements NotesDialogFragmen
                 R.layout.min6_spinner_list_item);
         spRpeFinish.setAdapter(adapter);
 
+        // Spinner help
+        mSpinHelp = (Spinner) mRootView.findViewById(R.id.min6_help_spinner);
+        ArrayAdapter<String> helpAdapter = new ArrayAdapter<>(getContext(),
+                R.layout.min6_help_spinner_list_item,
+                getResources().getStringArray(R.array.min6_help_spinner));
+        mSpinHelp.setAdapter(helpAdapter);
+        mSpinHelp.setOnItemSelectedListener(this);
+
         // Edit text
         mETmeters = (EditText) mRootView.findViewById(R.id.min6_et_meters);
-        mEThelp = (EditText) mRootView.findViewById(R.id.min6_et_help);
         mETpulseStart = (EditText) mRootView.findViewById(R.id.min6_et_start_pulse);
         mETpulseFinish = (EditText) mRootView.findViewById(R.id.min6_et_finish_pulse);
 
@@ -148,7 +156,6 @@ public class MIN6Fragment extends AbstractFragment implements NotesDialogFragmen
             }
         });
 
-        mEThelp.addTextChangedListener(this);
         mETpulseStart.addTextChangedListener(this);
         mETpulseFinish.addTextChangedListener(this);
 
@@ -264,7 +271,13 @@ public class MIN6Fragment extends AbstractFragment implements NotesDialogFragmen
             }
 
             mETmeters.setText(content[0]);
-            mEThelp.setText(content[1]);
+            int selected = 0;
+            try {
+                selected = Integer.parseInt(content[1]);
+            } catch (NumberFormatException ex) {
+                Log.d(LOG_TAG, "Gånghjälpmedel is not a number -> VinteTest v1.1");
+            }
+            mSpinHelp.setSelection(selected);
             mETpulseStart.setText(content[2]);
             mETpulseFinish.setText(content[3]);
             // Set spinners
@@ -372,7 +385,7 @@ public class MIN6Fragment extends AbstractFragment implements NotesDialogFragmen
         StringBuilder builder = new StringBuilder();
         builder.append(mETmeters.getText().toString().trim());
         builder.append("|");
-        builder.append(mEThelp.getText().toString().trim());
+        builder.append(mSpinHelp.getSelectedItemPosition());
         builder.append("|");
         builder.append(mETpulseStart.getText().toString().trim());
         builder.append("|");
@@ -426,7 +439,7 @@ public class MIN6Fragment extends AbstractFragment implements NotesDialogFragmen
         StringBuilder builder = new StringBuilder();
         builder.append(mETmeters.getText().toString().trim());
         builder.append("|");
-        builder.append(mEThelp.getText().toString().trim());
+        builder.append(mSpinHelp.getSelectedItemPosition());
         builder.append("|");
         builder.append(mETpulseStart.getText().toString().trim());
         builder.append("|");
@@ -592,6 +605,9 @@ public class MIN6Fragment extends AbstractFragment implements NotesDialogFragmen
 
         int rows = getActivity().getContentResolver().update(mTestUri, values, null, null);
         Log.d(LOG_TAG, "rows updated: " + rows);
+
+        // Inform TestActivity that notes have been updated
+        ((TestActivity) getActivity()).notesHaveBeenUpdated(notesIn, notesOut);
     }
 
     /**
@@ -621,8 +637,10 @@ public class MIN6Fragment extends AbstractFragment implements NotesDialogFragmen
         Log.d(LOG_TAG, "onItemSelected");
         highlightQuestions();   // Dynamic highlighting
 
-        // Inform parent activity
-        ((TestActivity) getActivity()).setUserHasSaved(false);
+        if (((TestActivity) getActivity()).mUserInteracting) {
+            // Inform parent activity
+            ((TestActivity) getActivity()).setUserHasSaved(false);
+        }
     }
 
     @Override

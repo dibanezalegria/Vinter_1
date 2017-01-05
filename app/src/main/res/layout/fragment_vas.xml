@@ -479,6 +479,7 @@
 
         <!-- Hälsa slider -->
         <LinearLayout
+            android:visibility="gone"
             xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:tools="http://schemas.android.com/tools"
             style="@style/vas_layout_background_in"

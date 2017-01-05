@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Vinter Tests</string>
-    <string name="copyright">&#169;&#160;2016&#160;&#160;pbluedotsoft@gmail.com</string>
+    <string name="copyright">&#169;&#160;2017&#160;pbluedotsoft@gmail.com</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string name="done_button">SPARA</string>
@@ -22,7 +22,7 @@
     ________________________________________________________________________________________________
     -->
     <!-- CDATA sections are used to escape blocks of text containing characters that would otherwise be regarded as markup. -->
-    <string name="test_list_activity_manual"><![CDATA[<h1>Tester sjukgymnastiken/fysioterapin</h1><u>Självskattning</u><br/>EQ5D (ska göras på alla patienter)<br/>VAS (ska göras på alla patienter)<br/>FSS<br/>IPAQ<br/>Borgs ansträngningsskala<br/>Borgs smärtskala<br/><br/><u>Gångtester</u><br/>TUG<br/>6 min gångtest (görs på samtliga patienter som kan gå)<br/><br/><u>Balanstester</u><br/>Bergs balanstest<br/>BDL<br/>IMF<br/><br/><u>Tester rörlighet</u><br/>FSA<br/>Ledstatus<br/><br/><u>Konditionstest</u><br/>Ergometercykeltest (Åstrands)<br/><br/><u>Ryggreumatiska tester</u><br/>BAS-MI<br/>BAS-DAI<br/>BAS-FI<br/>BAS-G<br/><br/><u>Muskeltester</u><br/>TST<br/>Ashworth skalan<br/>Myositstatus<br/>IMF<br/><br/><u>Övriga tester</u><br/>Smärtteckning<br/><br/><br/><b>Obligatoriska tester på reumatiska patienter från Stockholms läns landsting, Västra Götaland och Halland</b><p>6-minuters gångtest<br/>Ergometri cykeltest(Åstrands cykeltest)<br/>Timed stands test<br/>Timed up and go<br/>EQ5-D<br/>I-PAQ<br/>VAS - trötthet<br/>VAS - generell hälsa<br/>VAS - smärta<br/><br/>Vid ryggsjukdomar görs även nedanstående test<br/><br/>BASMI<br/>BASFI<br/>BASDAI<br/>BAS-G<br/>Ott i flexion och extension<br/>Thoraxexkursion</p>]]></string>
+    <string name="test_list_activity_manual"><![CDATA[<h1>Tester sjukgymnastiken/fysioterapin</h1><u>Självskattning</u><br/>EQ5D (ska göras på alla patienter)<br/>VAS (ska göras på alla patienter)<br/>FSS<br/>IPAQ<br/>Borgs ansträngningsskala<br/>Borgs smärtskala<br/><br/><u>Gångtester</u><br/>TUG<br/>6 min gångtest (görs på samtliga patienter som kan gå)<br/><br/><u>Balanstester</u><br/>Bergs balanstest<br/>BDL<br/>IMF<br/><br/><u>Tester rörlighet</u><br/>FSA<br/>Ledstatus<br/><br/><u>Konditionstest</u><br/>Ergometercykeltest (Åstrands)<br/><br/><u>Ryggreumatiska tester</u><br/>BAS-MI<br/>BAS-DAI<br/>BAS-FI<br/>BAS-G<br/><br/><u>Muskeltester</u><br/>TST<br/>Ashworth skalan<br/>Myositstatus<br/>IMF<br/><br/><u>Övriga tester</u><br/>Smärtteckning<br/><br/><br/><b>Obligatoriska tester på reumatiska patienter från Stockholms läns landsting, Västra Götaland och Halland</b><p>6-minuters gångtest<br/>Ergometri cykeltest(Åstrands cykeltest)<br/>Timed stands test<br/>EQ5-D<br/>VAS - trötthet<br/>VAS - generell hälsa<br/>VAS - smärta<br/><br/>Vid ryggsjukdomar görs även nedanstående test<br/><br/>BASMI<br/>BASFI<br/>BASDAI<br/>BAS-G<br/>Ott i flexion och extension<br/>Thoraxexkursion</p>]]></string>
 
     <!--
     ________________________________________________________________________________________________

@@ -574,6 +574,9 @@ public class BasmiFragment extends AbstractFragment implements NotesDialogFragme
 
         int rows = getActivity().getContentResolver().update(mTestUri, values, null, null);
         Log.d(LOG_TAG, "rows updated: " + rows);
+
+        // Inform TestActivity that notes have been updated
+        ((TestActivity) getActivity()).notesHaveBeenUpdated(notesIn, notesOut);
     }
 
     @Override

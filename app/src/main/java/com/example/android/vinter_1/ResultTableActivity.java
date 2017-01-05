@@ -182,6 +182,15 @@ public class ResultTableActivity extends AppCompatActivity {
             String[] contentArray = contentOut.split("\\|");
             tvHealthOut.setText(contentArray[EQ5DFragment.N_QUESTIONS]);
         }
+
+        // Notes
+        String notesIn = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_NOTES_IN));
+        String notesOut = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_NOTES_OUT));
+
+        if ((notesIn != null && !notesIn.isEmpty()) || (notesOut != null && !notesOut.isEmpty())) {
+            TextView notes = (TextView) findViewById(R.id.table_eq5d_notes);
+            notes.setText("*");
+        }
     }
 
     private void handleVAS(Cursor cursor) {
@@ -192,7 +201,7 @@ public class ResultTableActivity extends AppCompatActivity {
             TextView tvSmaIn = (TextView) findViewById(R.id.table_vas_sma_in);
             TextView tvSteIn = (TextView) findViewById(R.id.table_vas_ste_in);
             TextView tvTroIn = (TextView) findViewById(R.id.table_vas_tro_in);
-            TextView tvGenIn = (TextView) findViewById(R.id.table_vas_gen_in);
+//            TextView tvGenIn = (TextView) findViewById(R.id.table_vas_gen_in);
 
             String contentIn = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_CONTENT_IN));
             String[] contentArray = contentIn.split("\\|");
@@ -200,7 +209,7 @@ public class ResultTableActivity extends AppCompatActivity {
             tvSmaIn.setText(contentArray[1]);
             tvSteIn.setText(contentArray[2]);
             tvTroIn.setText(contentArray[3]);
-            tvGenIn.setText(contentArray[4]);
+//            tvGenIn.setText(contentArray[4]);
         }
 
         // Out
@@ -210,7 +219,7 @@ public class ResultTableActivity extends AppCompatActivity {
             TextView tvSmaOut = (TextView) findViewById(R.id.table_vas_sma_out);
             TextView tvSteOut = (TextView) findViewById(R.id.table_vas_ste_out);
             TextView tvTroOut = (TextView) findViewById(R.id.table_vas_tro_out);
-            TextView tvGenOut = (TextView) findViewById(R.id.table_vas_gen_out);
+//            TextView tvGenOut = (TextView) findViewById(R.id.table_vas_gen_out);
 
             String contentOut = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_CONTENT_OUT));
             String[] contentArray = contentOut.split("\\|");
@@ -218,7 +227,16 @@ public class ResultTableActivity extends AppCompatActivity {
             tvSmaOut.setText(contentArray[1]);
             tvSteOut.setText(contentArray[2]);
             tvTroOut.setText(contentArray[3]);
-            tvGenOut.setText(contentArray[4]);
+//            tvGenOut.setText(contentArray[4]);
+        }
+
+        // Notes
+        String notesIn = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_NOTES_IN));
+        String notesOut = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_NOTES_OUT));
+
+        if ((notesIn != null && !notesIn.isEmpty()) || (notesOut != null && !notesOut.isEmpty())) {
+            TextView notes = (TextView) findViewById(R.id.table_vas_notes);
+            notes.setText("*");
         }
     }
 
@@ -232,7 +250,32 @@ public class ResultTableActivity extends AppCompatActivity {
             String contentIn = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_CONTENT_IN));
             String[] content = contentIn.split("\\|");
             tvIn.setText(content[0]);
-            tvHelpIn.setText(content[1]);
+            String help;
+                switch (content[1]) {
+                    case "0":
+                        help = "-";
+                        break;
+                    case "1":
+                        help = "rollator";
+                        break;
+                    case "2":
+                        help = "käpp";
+                        break;
+                    case "3":
+                        help = "1 kkp";
+                        break;
+                    case "4":
+                        help = "2 kkp";
+                        break;
+                    case "5":
+                        help = "ortos";
+                        break;
+                    default:
+                        Log.d(LOG_TAG, "Compatibility mode with v1.1");
+                        help = content[1];
+
+                }
+                tvHelpIn.setText(help);
         }
 
         // Out
@@ -241,10 +284,44 @@ public class ResultTableActivity extends AppCompatActivity {
             TextView tvOut = (TextView) findViewById(R.id.table_tug_out);
             TextView tvHelpOut = (TextView) findViewById(R.id.table_tug_help_out);
 
-            String contentIn = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_CONTENT_OUT));
-            String[] content = contentIn.split("\\|");
+            String contentOut = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_CONTENT_OUT));
+            String[] content = contentOut.split("\\|");
             tvOut.setText(content[0]);
-            tvHelpOut.setText(content[1]);
+            String help;
+            switch (content[1]) {
+                case "0":
+                    help = "-";
+                    break;
+                case "1":
+                    help = "rollator";
+                    break;
+                case "2":
+                    help = "käpp";
+                    break;
+                case "3":
+                    help = "1 kkp";
+                    break;
+                case "4":
+                    help = "2 kkp";
+                    break;
+                case "5":
+                    help = "ortos";
+                    break;
+                default:
+                    Log.d(LOG_TAG, "Compatibility mode with v1.1");
+                    help = content[1];
+
+            }
+            tvHelpOut.setText(help);
+        }
+
+        // Notes
+        String notesIn = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_NOTES_IN));
+        String notesOut = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_NOTES_OUT));
+
+        if ((notesIn != null && !notesIn.isEmpty()) || (notesOut != null && !notesOut.isEmpty())) {
+            TextView notes = (TextView) findViewById(R.id.table_tug_notes);
+            notes.setText("*");
         }
     }
 
@@ -261,11 +338,35 @@ public class ResultTableActivity extends AppCompatActivity {
             TextView tvRpeStart = (TextView) findViewById(R.id.table_6min_rpe_start_in);
             TextView tvRpeEnd = (TextView) findViewById(R.id.table_6min_rpe_end_in);
 
-
             String contentIn = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_RESULT_IN));
             String[] content = contentIn.split("\\|");
             tvMeter.setText(content[0]);
-            tvHelp.setText(content[1]);
+            String help;
+            switch (content[1]) {
+                case "0":
+                    help = "-";
+                    break;
+                case "1":
+                    help = "rollator";
+                    break;
+                case "2":
+                    help = "käpp";
+                    break;
+                case "3":
+                    help = "1 kkp";
+                    break;
+                case "4":
+                    help = "2 kkp";
+                    break;
+                case "5":
+                    help = "ortos";
+                    break;
+                default:
+                    Log.d(LOG_TAG, "Compatibility mode with v1.1");
+                    help = content[1];
+
+            }
+            tvHelp.setText(help);
             tvPulseStart.setText(content[2]);
             tvPulseEnd.setText(content[3]);
             tvCR10Start.setText(content[4]);
@@ -289,13 +390,47 @@ public class ResultTableActivity extends AppCompatActivity {
             String contentOut = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_RESULT_OUT));
             String[] content = contentOut.split("\\|");
             tvMeter.setText(content[0]);
-            tvHelp.setText(content[1]);
+            String help;
+            switch (content[1]) {
+                case "0":
+                    help = "-";
+                    break;
+                case "1":
+                    help = "rollator";
+                    break;
+                case "2":
+                    help = "käpp";
+                    break;
+                case "3":
+                    help = "1 kkp";
+                    break;
+                case "4":
+                    help = "2 kkp";
+                    break;
+                case "5":
+                    help = "ortos";
+                    break;
+                default:
+                    Log.d(LOG_TAG, "Compatibility mode with v1.1");
+                    help = content[1];
+
+            }
+            tvHelp.setText(help);
             tvPulseStart.setText(content[2]);
             tvPulseEnd.setText(content[3]);
             tvCR10Start.setText(content[4]);
             tvCR10End.setText(content[5]);
             tvRpeStart.setText(content[6]);
             tvRpeEnd.setText(content[7]);
+        }
+
+        // Notes
+        String notesIn = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_NOTES_IN));
+        String notesOut = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_NOTES_OUT));
+
+        if ((notesIn != null && !notesIn.isEmpty()) || (notesOut != null && !notesOut.isEmpty())) {
+            TextView notes = (TextView) findViewById(R.id.table_6min_notes);
+            notes.setText("*");
         }
     }
 
@@ -315,6 +450,15 @@ public class ResultTableActivity extends AppCompatActivity {
             String resultOut = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_RESULT_OUT));
             tvResultOut.setText(resultOut);
         }
+
+        // Notes
+        String notesIn = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_NOTES_IN));
+        String notesOut = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_NOTES_OUT));
+
+        if ((notesIn != null && !notesIn.isEmpty()) || (notesOut != null && !notesOut.isEmpty())) {
+            TextView notes = (TextView) findViewById(R.id.table_bergs_result_notes);
+            notes.setText("*");
+        }
     }
 
     private void handleBDL(Cursor cursor) {
@@ -333,6 +477,15 @@ public class ResultTableActivity extends AppCompatActivity {
             String resultOut = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_RESULT_OUT));
             tvResultOut.setText(resultOut);
         }
+
+        // Notes
+        String notesIn = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_NOTES_IN));
+        String notesOut = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_NOTES_OUT));
+
+        if ((notesIn != null && !notesIn.isEmpty()) || (notesOut != null && !notesOut.isEmpty())) {
+            TextView notes = (TextView) findViewById(R.id.table_bdl_result_notes);
+            notes.setText("*");
+        }
     }
 
     private void handleIMF(Cursor cursor) {
@@ -350,6 +503,15 @@ public class ResultTableActivity extends AppCompatActivity {
             TextView tvResultOut = (TextView) findViewById(R.id.table_imf_result_out);
             String resultOut = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_RESULT_OUT));
             tvResultOut.setText(resultOut);
+        }
+
+        // Notes
+        String notesIn = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_NOTES_IN));
+        String notesOut = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_NOTES_OUT));
+
+        if ((notesIn != null && !notesIn.isEmpty()) || (notesOut != null && !notesOut.isEmpty())) {
+            TextView notes = (TextView) findViewById(R.id.table_imf_result_notes);
+            notes.setText("*");
         }
     }
 
@@ -381,6 +543,15 @@ public class ResultTableActivity extends AppCompatActivity {
             TextView tvResultOut = (TextView) findViewById(R.id.table_basmi_result_out);
             String resultOut = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_RESULT_OUT));
             tvResultOut.setText(resultOut);
+        }
+
+        // Notes
+        String notesIn = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_NOTES_IN));
+        String notesOut = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_NOTES_OUT));
+
+        if ((notesIn != null && !notesIn.isEmpty()) || (notesOut != null && !notesOut.isEmpty())) {
+            TextView notes = (TextView) findViewById(R.id.table_basmi_result_notes);
+            notes.setText("*");
         }
     }
 
@@ -458,6 +629,15 @@ public class ResultTableActivity extends AppCompatActivity {
                 tvSmartV.setText(part[5]);
             }
         }
+
+        // Notes
+        String notesIn = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_NOTES_IN));
+        String notesOut = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_NOTES_OUT));
+
+        if ((notesIn != null && !notesIn.isEmpty()) || (notesOut != null && !notesOut.isEmpty())) {
+            TextView notes = (TextView) findViewById(R.id.table_fsa_notes);
+            notes.setText("*");
+        }
     }
 
     private void handleFSS(Cursor cursor) {
@@ -475,6 +655,15 @@ public class ResultTableActivity extends AppCompatActivity {
             TextView tvResult = (TextView) findViewById(R.id.table_fss_out);
             String result = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_RESULT_OUT));
             tvResult.setText(result);
+        }
+
+        // Notes
+        String notesIn = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_NOTES_IN));
+        String notesOut = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_NOTES_OUT));
+
+        if ((notesIn != null && !notesIn.isEmpty()) || (notesOut != null && !notesOut.isEmpty())) {
+            TextView notes = (TextView) findViewById(R.id.table_fss_notes);
+            notes.setText("*");
         }
     }
 
@@ -494,6 +683,15 @@ public class ResultTableActivity extends AppCompatActivity {
             String result = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_RESULT_OUT));
             tvResult.setText(result);
         }
+
+        // Notes
+        String notesIn = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_NOTES_IN));
+        String notesOut = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_NOTES_OUT));
+
+        if ((notesIn != null && !notesIn.isEmpty()) || (notesOut != null && !notesOut.isEmpty())) {
+            TextView notes = (TextView) findViewById(R.id.table_basfi_notes);
+            notes.setText("*");
+        }
     }
 
     private void handleBASDAI(Cursor cursor) {
@@ -511,6 +709,15 @@ public class ResultTableActivity extends AppCompatActivity {
             TextView tvResult = (TextView) findViewById(R.id.table_basdai_out);
             String result = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_RESULT_OUT));
             tvResult.setText(result);
+        }
+
+        // Notes
+        String notesIn = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_NOTES_IN));
+        String notesOut = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_NOTES_OUT));
+
+        if ((notesIn != null && !notesIn.isEmpty()) || (notesOut != null && !notesOut.isEmpty())) {
+            TextView notes = (TextView) findViewById(R.id.table_basdai_notes);
+            notes.setText("*");
         }
     }
 
@@ -544,6 +751,15 @@ public class ResultTableActivity extends AppCompatActivity {
             else
                 tvShoes.setText("utan");
         }
+
+        // Notes
+        String notesIn = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_NOTES_IN));
+        String notesOut = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_NOTES_OUT));
+
+        if ((notesIn != null && !notesIn.isEmpty()) || (notesOut != null && !notesOut.isEmpty())) {
+            TextView notes = (TextView) findViewById(R.id.table_tst_notes);
+            notes.setText("*");
+        }
     }
 
     private void handleBASG(Cursor cursor) {
@@ -567,6 +783,15 @@ public class ResultTableActivity extends AppCompatActivity {
             String[] part = result.split("\\|");
             tvBasg1.setText(part[0]);
             tvBasg2.setText(part[1]);
+        }
+
+        // Notes
+        String notesIn = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_NOTES_IN));
+        String notesOut = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_NOTES_OUT));
+
+        if ((notesIn != null && !notesIn.isEmpty()) || (notesOut != null && !notesOut.isEmpty())) {
+            TextView notes = (TextView) findViewById(R.id.table_basg1_notes);
+            notes.setText("*");
         }
     }
 
@@ -612,6 +837,15 @@ public class ResultTableActivity extends AppCompatActivity {
             int belasPos = Integer.parseInt(parts[1]);
             tvBelas.setText(String.valueOf((belasPos + 1) * 150));
         }
+
+        // Notes
+        String notesIn = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_NOTES_IN));
+        String notesOut = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_NOTES_OUT));
+
+        if ((notesIn != null && !notesIn.isEmpty()) || (notesOut != null && !notesOut.isEmpty())) {
+            TextView notes = (TextView) findViewById(R.id.table_ergo_result_notes);
+            notes.setText("*");
+        }
     }
 
     private void handleIPAQ(Cursor cursor) {
@@ -635,6 +869,15 @@ public class ResultTableActivity extends AppCompatActivity {
             String[] part = result.split("\\|");
             tvF.setText(part[0]);
             tvS.setText(part[1]);
+        }
+
+        // Notes
+        String notesIn = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_NOTES_IN));
+        String notesOut = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_NOTES_OUT));
+
+        if ((notesIn != null && !notesIn.isEmpty()) || (notesOut != null && !notesOut.isEmpty())) {
+            TextView notes = (TextView) findViewById(R.id.table_ipaq_fysisk_notes);
+            notes.setText("*");
         }
     }
 
@@ -661,6 +904,15 @@ public class ResultTableActivity extends AppCompatActivity {
             tvFlex.setText(part[0]);
             tvExt.setText(part[1]);
         }
+
+        // Notes
+        String notesIn = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_NOTES_IN));
+        String notesOut = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_NOTES_OUT));
+
+        if ((notesIn != null && !notesIn.isEmpty()) || (notesOut != null && !notesOut.isEmpty())) {
+            TextView notes = (TextView) findViewById(R.id.table_ottflex_notes);
+            notes.setText("*");
+        }
     }
 
     private void handleThorax(Cursor cursor) {
@@ -681,7 +933,15 @@ public class ResultTableActivity extends AppCompatActivity {
             String[] part = result.split("\\|");
             tv.setText(part[0]);
         }
-    }
 
+        // Notes
+        String notesIn = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_NOTES_IN));
+        String notesOut = cursor.getString(cursor.getColumnIndex(TestEntry.COLUMN_NOTES_OUT));
+
+        if ((notesIn != null && !notesIn.isEmpty()) || (notesOut != null && !notesOut.isEmpty())) {
+            TextView notes = (TextView) findViewById(R.id.table_thorax_notes);
+            notes.setText("*");
+        }
+    }
 
 }

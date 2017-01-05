@@ -315,5 +315,24 @@
         <item>900 (150w)&#160;&#160;</item>
     </string-array>
 
+    <!-- TUG spinner -->
+    <string-array name="tug_help_spinner">
+        <item>-</item>
+        <item>rollator</item>
+        <item>käpp</item>
+        <item>1 kkp</item>
+        <item>2 kkp</item>
+        <item>ortos</item>
+    </string-array>
+
+    <!-- 6MIN spinner -->
+    <string-array name="min6_help_spinner">
+        <item>-</item>
+        <item>rollator</item>
+        <item>käpp</item>
+        <item>1 kkp</item>
+        <item>2 kkp</item>
+        <item>ortos</item>
+    </string-array>
 
 </resources>

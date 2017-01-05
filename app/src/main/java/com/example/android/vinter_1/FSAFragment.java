@@ -658,6 +658,9 @@ public class FSAFragment extends AbstractFragment implements NotesDialogFragment
 
         int rows = getActivity().getContentResolver().update(mTestUri, values, null, null);
         Log.d(LOG_TAG, "rows updated: " + rows);
+
+        // Inform TestActivity that notes have been updated
+        ((TestActivity) getActivity()).notesHaveBeenUpdated(notesIn, notesOut);
     }
 
 

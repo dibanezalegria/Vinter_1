@@ -1035,6 +1035,9 @@ public class ErgoFragment extends AbstractFragment implements NotesDialogFragmen
 
         int rows = getActivity().getContentResolver().update(mTestUri, values, null, null);
         Log.d(LOG_TAG, "rows updated: " + rows);
+
+        // Inform TestActivity that notes have been updated
+        ((TestActivity) getActivity()).notesHaveBeenUpdated(notesIn, notesOut);
     }
 
     /**
@@ -1073,6 +1076,8 @@ public class ErgoFragment extends AbstractFragment implements NotesDialogFragmen
         if (((TestActivity) getActivity()).mUserInteracting) {
             mTvResult.setText("");
 //            mTvInterval.setText("");
+            // Inform parent activity
+            ((TestActivity) getActivity()).setUserHasSaved(false);
         }
 
         highlight();   // Dynamic highlighting

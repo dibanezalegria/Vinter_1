@@ -117,27 +117,28 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            >
+            android:layout_marginEnd="160dp">
 
             <TextView
                 android:id="@+id/min6_tv_help"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="5"
+                android:layout_gravity="center_vertical"
                 android:text="Hjälpmedel"
-                android:textAppearance="@style/TextCustomNormal"
-                />
+                android:textAppearance="@style/TextCustomNormal"/>
 
-            <EditText
-                android:id="@+id/min6_et_help"
+            <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="12"
-                android:fontFamily="monospace"
-                android:gravity="center"
-                android:inputType="text"
-                android:maxLength="20"
-                android:textSize="20sp"/>
+                android:background="@color/bgBrightIn"
+                android:paddingEnd="6dp">
+
+                <Spinner
+                    android:id="@+id/min6_help_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </RelativeLayout>
         </LinearLayout>
 
         <TextView

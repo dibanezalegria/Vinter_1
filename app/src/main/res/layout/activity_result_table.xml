@@ -45,7 +45,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="70"
+                    android:layout_weight="65"
                     android:ems="18"
                     android:padding="@dimen/mat_padding"
                     android:textAppearance="@style/TextCustomNormal"/>
@@ -71,6 +71,15 @@
                     android:padding="@dimen/mat_padding"
                     android:text="UT"
                     android:textAppearance="@style/TextCustomNormal"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:ems="2"
+                    android:gravity="center"
+                    android:padding="@dimen/mat_padding"
+                    android:textAppearance="@style/TextCustomNormal"/>
             </LinearLayout>
 
             <LinearLayout
@@ -81,7 +90,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="70"
+                    android:layout_weight="65"
                     android:background="@drawable/layout_border_only"
                     android:ems="18"
                     android:padding="@dimen/mat_padding"
@@ -109,6 +118,17 @@
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
                     android:textAppearance="@style/TextCustomNormal"/>
+
+                <TextView
+                    android:id="@+id/table_6min_notes"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:background="@drawable/layout_border_only"
+                    android:gravity="center"
+                    android:padding="@dimen/mat_padding"
+                    android:textAppearance="@style/TextCustomNormal"
+                    android:textColor="@color/red_600"/>
             </LinearLayout>
 
             <LinearLayout
@@ -118,7 +138,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="70"
+                    android:layout_weight="65"
                     android:background="@drawable/layout_border_only"
                     android:ems="18"
                     android:padding="@dimen/mat_padding"
@@ -150,6 +170,15 @@
                     android:maxLines="1"
                     android:padding="@dimen/mat_padding"
                     android:textAppearance="@style/TextCustomNormal"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:background="@drawable/layout_border_only"
+                    android:gravity="center"
+                    android:padding="@dimen/mat_padding"
+                    android:textAppearance="@style/TextCustomNormal"/>
             </LinearLayout>
 
             <LinearLayout
@@ -160,7 +189,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="70"
+                    android:layout_weight="65"
                     android:background="@drawable/layout_border_only"
                     android:ems="18"
                     android:padding="@dimen/mat_padding"
@@ -188,6 +217,15 @@
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
                     android:textAppearance="@style/TextCustomNormal"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:background="@drawable/layout_border_only"
+                    android:gravity="center"
+                    android:padding="@dimen/mat_padding"
+                    android:textAppearance="@style/TextCustomNormal"/>
             </LinearLayout>
 
             <LinearLayout
@@ -197,7 +235,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="70"
+                    android:layout_weight="65"
                     android:background="@drawable/layout_border_only"
                     android:ems="18"
                     android:padding="@dimen/mat_padding"
@@ -225,6 +263,15 @@
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
                     android:textAppearance="@style/TextCustomNormal"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:background="@drawable/layout_border_only"
+                    android:gravity="center"
+                    android:padding="@dimen/mat_padding"
+                    android:textAppearance="@style/TextCustomNormal"/>
             </LinearLayout>
 
             <LinearLayout
@@ -235,7 +282,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="70"
+                    android:layout_weight="65"
                     android:background="@drawable/layout_border_only"
                     android:ellipsize="end"
                     android:ems="18"
@@ -265,6 +312,15 @@
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
                     android:textAppearance="@style/TextCustomNormal"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:background="@drawable/layout_border_only"
+                    android:gravity="center"
+                    android:padding="@dimen/mat_padding"
+                    android:textAppearance="@style/TextCustomNormal"/>
             </LinearLayout>
 
             <LinearLayout
@@ -274,7 +330,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="70"
+                    android:layout_weight="65"
                     android:background="@drawable/layout_border_only"
                     android:ellipsize="end"
                     android:ems="18"
@@ -304,6 +360,15 @@
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
                     android:textAppearance="@style/TextCustomNormal"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:background="@drawable/layout_border_only"
+                    android:gravity="center"
+                    android:padding="@dimen/mat_padding"
+                    android:textAppearance="@style/TextCustomNormal"/>
             </LinearLayout>
 
             <LinearLayout
@@ -314,7 +379,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="70"
+                    android:layout_weight="65"
                     android:background="@drawable/layout_border_only"
                     android:ems="18"
                     android:maxLines="1"
@@ -343,6 +408,15 @@
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
                     android:textAppearance="@style/TextCustomNormal"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:background="@drawable/layout_border_only"
+                    android:gravity="center"
+                    android:padding="@dimen/mat_padding"
+                    android:textAppearance="@style/TextCustomNormal"/>
             </LinearLayout>
 
             <LinearLayout
@@ -352,7 +426,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="70"
+                    android:layout_weight="65"
                     android:background="@drawable/layout_border_only"
                     android:ems="18"
                     android:maxLines="1"
@@ -381,12 +455,20 @@
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
                     android:textAppearance="@style/TextCustomNormal"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:background="@drawable/layout_border_only"
+                    android:gravity="center"
+                    android:padding="@dimen/mat_padding"
+                    android:textAppearance="@style/TextCustomNormal"/>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                >
+                android:layout_height="wrap_content">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -405,7 +487,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="70"
+                    android:layout_weight="65"
                     android:background="@drawable/layout_border_only"
                     android:ems="18"
                     android:maxLines="1"
@@ -434,6 +516,17 @@
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
                     android:textAppearance="@style/TextCustomNormal"/>
+
+                <TextView
+                    android:id="@+id/table_tst_notes"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:background="@drawable/layout_border_only"
+                    android:gravity="center"
+                    android:padding="@dimen/mat_padding"
+                    android:textAppearance="@style/TextCustomNormal"
+                    android:textColor="@color/red_600"/>
             </LinearLayout>
 
             <LinearLayout
@@ -444,7 +537,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="70"
+                    android:layout_weight="65"
                     android:background="@drawable/layout_border_only"
                     android:ems="18"
                     android:maxLines="1"
@@ -473,6 +566,15 @@
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
                     android:textAppearance="@style/TextCustomNormal"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:background="@drawable/layout_border_only"
+                    android:gravity="center"
+                    android:padding="@dimen/mat_padding"
+                    android:textAppearance="@style/TextCustomNormal"/>
             </LinearLayout>
 
             <LinearLayout
@@ -482,7 +584,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="70"
+                    android:layout_weight="65"
                     android:background="@drawable/layout_border_only"
                     android:ems="18"
                     android:maxLines="1"
@@ -511,6 +613,17 @@
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
                     android:textAppearance="@style/TextCustomNormal"/>
+
+                <TextView
+                    android:id="@+id/table_tug_notes"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:background="@drawable/layout_border_only"
+                    android:gravity="center"
+                    android:padding="@dimen/mat_padding"
+                    android:textAppearance="@style/TextCustomNormal"
+                    android:textColor="@color/red_600"/>
             </LinearLayout>
 
             <LinearLayout
@@ -521,7 +634,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="70"
+                    android:layout_weight="65"
                     android:background="@drawable/layout_border_only"
                     android:ems="18"
                     android:maxLines="1"
@@ -554,11 +667,21 @@
                     android:maxLines="1"
                     android:padding="@dimen/mat_padding"
                     android:textAppearance="@style/TextCustomNormal"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:background="@drawable/layout_border_only"
+                    android:gravity="center"
+                    android:padding="@dimen/mat_padding"
+                    android:textAppearance="@style/TextCustomNormal"/>
             </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/layout_border_only"
                 android:padding="@dimen/mat_padding"
                 android:textAppearance="@style/TextCustomNormal"/>
 
@@ -570,7 +693,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="70"
+                    android:layout_weight="65"
                     android:background="@drawable/layout_border_only"
                     android:ellipsize="end"
                     android:ems="18"
@@ -600,6 +723,17 @@
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
                     android:textAppearance="@style/TextCustomNormal"/>
+
+                <TextView
+                    android:id="@+id/table_ergo_result_notes"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:background="@drawable/layout_border_only"
+                    android:gravity="center"
+                    android:padding="@dimen/mat_padding"
+                    android:textAppearance="@style/TextCustomNormal"
+                    android:textColor="@color/red_600"/>
             </LinearLayout>
 
             <LinearLayout
@@ -609,7 +743,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="70"
+                    android:layout_weight="65"
                     android:background="@drawable/layout_border_only"
                     android:ems="18"
                     android:maxLines="1"
@@ -638,6 +772,15 @@
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
                     android:textAppearance="@style/TextCustomNormal"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:background="@drawable/layout_border_only"
+                    android:gravity="center"
+                    android:padding="@dimen/mat_padding"
+                    android:textAppearance="@style/TextCustomNormal"/>
             </LinearLayout>
 
             <LinearLayout
@@ -648,7 +791,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="70"
+                    android:layout_weight="65"
                     android:background="@drawable/layout_border_only"
                     android:ems="18"
                     android:maxLines="1"
@@ -677,6 +820,15 @@
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
                     android:textAppearance="@style/TextCustomNormal"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:background="@drawable/layout_border_only"
+                    android:gravity="center"
+                    android:padding="@dimen/mat_padding"
+                    android:textAppearance="@style/TextCustomNormal"/>
             </LinearLayout>
 
             <LinearLayout
@@ -686,7 +838,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="70"
+                    android:layout_weight="65"
                     android:background="@drawable/layout_border_only"
                     android:ems="18"
                     android:maxLines="1"
@@ -715,6 +867,15 @@
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
                     android:textAppearance="@style/TextCustomNormal"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:background="@drawable/layout_border_only"
+                    android:gravity="center"
+                    android:padding="@dimen/mat_padding"
+                    android:textAppearance="@style/TextCustomNormal"/>
             </LinearLayout>
 
             <LinearLayout
@@ -725,7 +886,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="70"
+                    android:layout_weight="65"
                     android:background="@drawable/layout_border_only"
                     android:ems="18"
                     android:maxLines="1"
@@ -754,22 +915,33 @@
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
                     android:textAppearance="@style/TextCustomNormal"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:background="@drawable/layout_border_only"
+                    android:gravity="center"
+                    android:padding="@dimen/mat_padding"
+                    android:textAppearance="@style/TextCustomNormal"/>
             </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/layout_border_only"
                 android:padding="@dimen/mat_padding"
                 android:textAppearance="@style/TextCustomNormal"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:background="@drawable/table_row_light_bg">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="70"
+                    android:layout_weight="65"
                     android:background="@drawable/layout_border_only"
                     android:ellipsize="end"
                     android:ems="18"
@@ -799,17 +971,27 @@
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
                     android:textAppearance="@style/TextCustomNormal"/>
+
+                <TextView
+                    android:id="@+id/table_vas_notes"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:background="@drawable/layout_border_only"
+                    android:gravity="center"
+                    android:padding="@dimen/mat_padding"
+                    android:textAppearance="@style/TextCustomNormal"
+                    android:textColor="@color/red_600"/>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/blue_grey_50">
+                android:layout_height="wrap_content">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="70"
+                    android:layout_weight="65"
                     android:background="@drawable/layout_border_only"
                     android:ems="18"
                     android:maxLines="1"
@@ -838,16 +1020,26 @@
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
                     android:textAppearance="@style/TextCustomNormal"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="70"
+                    android:layout_weight="5"
+                    android:background="@drawable/layout_border_only"
+                    android:gravity="center"
+                    android:padding="@dimen/mat_padding"
+                    android:textAppearance="@style/TextCustomNormal"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/table_row_light_bg">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="65"
                     android:background="@drawable/layout_border_only"
                     android:ems="18"
                     android:maxLines="1"
@@ -876,17 +1068,25 @@
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
                     android:textAppearance="@style/TextCustomNormal"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/blue_grey_50">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="70"
+                    android:layout_weight="5"
+                    android:background="@drawable/layout_border_only"
+                    android:gravity="center"
+                    android:padding="@dimen/mat_padding"
+                    android:textAppearance="@style/TextCustomNormal"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="65"
                     android:background="@drawable/layout_border_only"
                     android:ems="18"
                     android:maxLines="1"
@@ -915,41 +1115,12 @@
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
                     android:textAppearance="@style/TextCustomNormal"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="70"
+                    android:layout_weight="5"
                     android:background="@drawable/layout_border_only"
-                    android:ems="18"
-                    android:maxLines="1"
-                    android:padding="@dimen/mat_padding"
-                    android:text="VAS - Generell hälsa (0-100mm, 100=bästa tänkbara hälsa)"
-                    android:textAppearance="@style/TextCustomNormal"/>
-
-                <TextView
-                    android:id="@+id/table_vas_gen_in"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="15"
-                    android:background="@drawable/layout_border_only"
-                    android:ems="4"
-                    android:gravity="center"
-                    android:padding="@dimen/mat_padding"
-                    android:textAppearance="@style/TextCustomNormal"/>
-
-                <TextView
-                    android:id="@+id/table_vas_gen_out"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="15"
-                    android:background="@drawable/layout_border_only"
-                    android:ems="4"
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
                     android:textAppearance="@style/TextCustomNormal"/>
@@ -969,7 +1140,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="70"
+                    android:layout_weight="65"
                     android:background="@drawable/layout_border_only"
                     android:ems="18"
                     android:maxLines="1"
@@ -998,17 +1169,28 @@
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
                     android:textAppearance="@style/TextCustomNormal"/>
+
+                <TextView
+                    android:id="@+id/table_eq5d_notes"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:background="@drawable/layout_border_only"
+                    android:gravity="center"
+                    android:padding="@dimen/mat_padding"
+                    android:textAppearance="@style/TextCustomNormal"
+                    android:textColor="@color/red_600"/>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/blue_grey_50">
+                android:background="@drawable/table_row_light_bg">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="70"
+                    android:layout_weight="65"
                     android:background="@drawable/layout_border_only"
                     android:ellipsize="end"
                     android:ems="18"
@@ -1038,6 +1220,15 @@
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
                     android:textAppearance="@style/TextCustomNormal"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:background="@drawable/layout_border_only"
+                    android:gravity="center"
+                    android:padding="@dimen/mat_padding"
+                    android:textAppearance="@style/TextCustomNormal"/>
             </LinearLayout>
 
             <TextView
@@ -1050,12 +1241,12 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/blue_grey_50">
+                android:background="@drawable/table_row_light_bg">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="70"
+                    android:layout_weight="65"
                     android:background="@drawable/layout_border_only"
                     android:ems="18"
                     android:maxLines="1"
@@ -1084,6 +1275,17 @@
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
                     android:textAppearance="@style/TextCustomNormal"/>
+
+                <TextView
+                    android:id="@+id/table_ipaq_fysisk_notes"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:background="@drawable/layout_border_only"
+                    android:gravity="center"
+                    android:padding="@dimen/mat_padding"
+                    android:textAppearance="@style/TextCustomNormal"
+                    android:textColor="@color/red_600"/>
             </LinearLayout>
 
             <LinearLayout
@@ -1093,7 +1295,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="70"
+                    android:layout_weight="65"
                     android:background="@drawable/layout_border_only"
                     android:ems="18"
                     android:maxLines="1"
@@ -1122,6 +1324,15 @@
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
                     android:textAppearance="@style/TextCustomNormal"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:background="@drawable/layout_border_only"
+                    android:gravity="center"
+                    android:padding="@dimen/mat_padding"
+                    android:textAppearance="@style/TextCustomNormal"/>
             </LinearLayout>
 
             <TextView
@@ -1138,7 +1349,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="70"
+                    android:layout_weight="65"
                     android:background="@drawable/layout_border_only"
                     android:ems="18"
                     android:maxLines="1"
@@ -1167,17 +1378,28 @@
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
                     android:textAppearance="@style/TextCustomNormal"/>
+
+                <TextView
+                    android:id="@+id/table_fss_notes"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:background="@drawable/layout_border_only"
+                    android:gravity="center"
+                    android:padding="@dimen/mat_padding"
+                    android:textAppearance="@style/TextCustomNormal"
+                    android:textColor="@color/red_600"/>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/blue_grey_50">
+                android:background="@drawable/table_row_light_bg">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="70"
+                    android:layout_weight="65"
                     android:background="@drawable/layout_border_only"
                     android:ems="18"
                     android:maxLines="1"
@@ -1206,6 +1428,17 @@
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
                     android:textAppearance="@style/TextCustomNormal"/>
+
+                <TextView
+                    android:id="@+id/table_imf_result_notes"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:background="@drawable/layout_border_only"
+                    android:gravity="center"
+                    android:padding="@dimen/mat_padding"
+                    android:textAppearance="@style/TextCustomNormal"
+                    android:textColor="@color/red_600"/>
             </LinearLayout>
 
             <LinearLayout
@@ -1215,7 +1448,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="70"
+                    android:layout_weight="65"
                     android:background="@drawable/layout_border_only"
                     android:ems="18"
                     android:maxLines="1"
@@ -1244,17 +1477,28 @@
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
                     android:textAppearance="@style/TextCustomNormal"/>
+
+                <TextView
+                    android:id="@+id/table_bergs_result_notes"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:background="@drawable/layout_border_only"
+                    android:gravity="center"
+                    android:padding="@dimen/mat_padding"
+                    android:textAppearance="@style/TextCustomNormal"
+                    android:textColor="@color/red_600"/>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/blue_grey_50">
+                android:background="@drawable/table_row_light_bg">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="70"
+                    android:layout_weight="65"
                     android:background="@drawable/layout_border_only"
                     android:ems="18"
                     android:maxLines="1"
@@ -1283,6 +1527,17 @@
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
                     android:textAppearance="@style/TextCustomNormal"/>
+
+                <TextView
+                    android:id="@+id/table_bdl_result_notes"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:background="@drawable/layout_border_only"
+                    android:gravity="center"
+                    android:padding="@dimen/mat_padding"
+                    android:textAppearance="@style/TextCustomNormal"
+                    android:textColor="@color/red_600"/>
             </LinearLayout>
 
             <TextView
@@ -1294,13 +1549,12 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/blue_grey_50">
+                android:layout_height="wrap_content">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="70"
+                    android:layout_weight="65"
                     android:background="@drawable/layout_border_only"
                     android:ems="18"
                     android:maxLines="1"
@@ -1329,6 +1583,17 @@
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
                     android:textAppearance="@style/TextCustomNormal"/>
+
+                <TextView
+                    android:id="@+id/table_basdai_notes"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:background="@drawable/layout_border_only"
+                    android:gravity="center"
+                    android:padding="@dimen/mat_padding"
+                    android:textAppearance="@style/TextCustomNormal"
+                    android:textColor="@color/red_600"/>
             </LinearLayout>
 
             <LinearLayout
@@ -1338,7 +1603,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="70"
+                    android:layout_weight="65"
                     android:background="@drawable/layout_border_only"
                     android:ems="18"
                     android:maxLines="1"
@@ -1367,17 +1632,28 @@
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
                     android:textAppearance="@style/TextCustomNormal"/>
+
+                <TextView
+                    android:id="@+id/table_basfi_notes"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:background="@drawable/layout_border_only"
+                    android:gravity="center"
+                    android:padding="@dimen/mat_padding"
+                    android:textAppearance="@style/TextCustomNormal"
+                    android:textColor="@color/red_600"/>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/blue_grey_50">
+                android:background="@drawable/table_row_light_bg">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="70"
+                    android:layout_weight="65"
                     android:background="@drawable/layout_border_only"
                     android:ems="18"
                     android:maxLines="1"
@@ -1406,6 +1682,17 @@
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
                     android:textAppearance="@style/TextCustomNormal"/>
+
+                <TextView
+                    android:id="@+id/table_basg1_notes"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:background="@drawable/layout_border_only"
+                    android:gravity="center"
+                    android:padding="@dimen/mat_padding"
+                    android:textAppearance="@style/TextCustomNormal"
+                    android:textColor="@color/red_600"/>
             </LinearLayout>
 
             <LinearLayout
@@ -1415,7 +1702,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="70"
+                    android:layout_weight="65"
                     android:background="@drawable/layout_border_only"
                     android:ems="18"
                     android:maxLines="1"
@@ -1444,17 +1731,26 @@
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
                     android:textAppearance="@style/TextCustomNormal"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:background="@drawable/layout_border_only"
+                    android:gravity="center"
+                    android:padding="@dimen/mat_padding"
+                    android:textAppearance="@style/TextCustomNormal"/>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/blue_grey_50">
+                android:background="@drawable/table_row_light_bg">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="70"
+                    android:layout_weight="65"
                     android:background="@drawable/layout_border_only"
                     android:ems="18"
                     android:maxLines="1"
@@ -1483,6 +1779,17 @@
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
                     android:textAppearance="@style/TextCustomNormal"/>
+
+                <TextView
+                    android:id="@+id/table_basmi_result_notes"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:background="@drawable/layout_border_only"
+                    android:gravity="center"
+                    android:padding="@dimen/mat_padding"
+                    android:textAppearance="@style/TextCustomNormal"
+                    android:textColor="@color/red_600"/>
             </LinearLayout>
 
             <TextView
@@ -1495,12 +1802,12 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/blue_grey_50">
+                android:background="@drawable/table_row_light_bg">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="70"
+                    android:layout_weight="65"
                     android:background="@drawable/layout_border_only"
                     android:ems="18"
                     android:maxLines="1"
@@ -1529,6 +1836,17 @@
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
                     android:textAppearance="@style/TextCustomNormal"/>
+
+                <TextView
+                    android:id="@+id/table_ottflex_notes"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:background="@drawable/layout_border_only"
+                    android:gravity="center"
+                    android:padding="@dimen/mat_padding"
+                    android:textAppearance="@style/TextCustomNormal"
+                    android:textColor="@color/red_600"/>
             </LinearLayout>
 
             <LinearLayout
@@ -1538,7 +1856,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="70"
+                    android:layout_weight="65"
                     android:background="@drawable/layout_border_only"
                     android:ems="18"
                     android:maxLines="1"
@@ -1567,17 +1885,26 @@
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
                     android:textAppearance="@style/TextCustomNormal"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:background="@drawable/layout_border_only"
+                    android:gravity="center"
+                    android:padding="@dimen/mat_padding"
+                    android:textAppearance="@style/TextCustomNormal"/>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/blue_grey_50">
+                android:background="@drawable/table_row_light_bg">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="70"
+                    android:layout_weight="65"
                     android:background="@drawable/layout_border_only"
                     android:ems="18"
                     android:maxLines="1"
@@ -1606,6 +1933,17 @@
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
                     android:textAppearance="@style/TextCustomNormal"/>
+
+                <TextView
+                    android:id="@+id/table_thorax_notes"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:background="@drawable/layout_border_only"
+                    android:gravity="center"
+                    android:padding="@dimen/mat_padding"
+                    android:textAppearance="@style/TextCustomNormal"
+                    android:textColor="@color/red_600"/>
             </LinearLayout>
 
             <TextView
@@ -1618,12 +1956,12 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/blue_grey_50">
+                android:background="@drawable/table_row_light_bg">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="40"
+                    android:layout_weight="35"
                     android:ems="18"
                     android:maxLines="1"
                     android:padding="@dimen/mat_padding"
@@ -1650,6 +1988,17 @@
                     android:padding="@dimen/mat_padding"
                     android:text="VÄNSTER"
                     android:textAppearance="@style/TextCustomNormal"/>
+
+                <TextView
+                    android:id="@+id/table_fsa_notes"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:background="@drawable/layout_border_only"
+                    android:gravity="center"
+                    android:padding="@dimen/mat_padding"
+                    android:textAppearance="@style/TextCustomNormal"
+                    android:textColor="@color/red_600"/>
             </LinearLayout>
 
             <LinearLayout
@@ -1659,7 +2008,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="40"
+                    android:layout_weight="35"
                     android:background="@drawable/layout_border_only"
                     android:ems="18"
                     android:maxLines="1"
@@ -1710,17 +2059,26 @@
                     android:padding="@dimen/mat_padding"
                     android:text="UT"
                     android:textAppearance="@style/TextCustomNormal"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:background="@drawable/layout_border_only"
+                    android:gravity="center"
+                    android:padding="@dimen/mat_padding"
+                    android:textAppearance="@style/TextCustomNormal"/>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/blue_grey_50">
+                android:background="@drawable/table_row_light_bg">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="40"
+                    android:layout_weight="35"
                     android:background="@drawable/layout_border_only"
                     android:ellipsize="end"
                     android:ems="18"
@@ -1772,6 +2130,15 @@
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
                     android:textAppearance="@style/TextCustomNormal"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:background="@drawable/layout_border_only"
+                    android:gravity="center"
+                    android:padding="@dimen/mat_padding"
+                    android:textAppearance="@style/TextCustomNormal"/>
             </LinearLayout>
 
             <LinearLayout
@@ -1781,7 +2148,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="40"
+                    android:layout_weight="35"
                     android:background="@drawable/layout_border_only"
                     android:ellipsize="end"
                     android:ems="18"
@@ -1833,17 +2200,26 @@
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
                     android:textAppearance="@style/TextCustomNormal"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:background="@drawable/layout_border_only"
+                    android:gravity="center"
+                    android:padding="@dimen/mat_padding"
+                    android:textAppearance="@style/TextCustomNormal"/>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/blue_grey_50">
+                android:background="@drawable/table_row_light_bg">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="40"
+                    android:layout_weight="35"
                     android:background="@drawable/layout_border_only"
                     android:ems="18"
                     android:gravity="center"
@@ -1873,6 +2249,15 @@
                     android:padding="@dimen/mat_padding"
                     android:text="UT"
                     android:textAppearance="@style/TextCustomNormal"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:background="@drawable/layout_border_only"
+                    android:gravity="center"
+                    android:padding="@dimen/mat_padding"
+                    android:textAppearance="@style/TextCustomNormal"/>
             </LinearLayout>
 
             <LinearLayout
@@ -1882,11 +2267,10 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="40"
+                    android:layout_weight="35"
                     android:background="@drawable/layout_border_only"
                     android:ellipsize="end"
                     android:ems="18"
-                    android:gravity="center"
                     android:maxLines="1"
                     android:padding="@dimen/mat_padding"
                     android:text="Funktion: (5-60p, 60p=ua)"
@@ -1913,21 +2297,29 @@
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
                     android:textAppearance="@style/TextCustomNormal"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:background="@drawable/layout_border_only"
+                    android:gravity="center"
+                    android:padding="@dimen/mat_padding"
+                    android:textAppearance="@style/TextCustomNormal"/>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/blue_grey_50">
+                android:background="@drawable/table_row_light_bg">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="40"
+                    android:layout_weight="35"
                     android:background="@drawable/layout_border_only"
                     android:ellipsize="end"
                     android:ems="18"
-                    android:gravity="center"
                     android:maxLines="1"
                     android:padding="@dimen/mat_padding"
                     android:text="Smärta: (0-inf, 0=ingen smärta)"
@@ -1954,6 +2346,36 @@
                     android:gravity="center"
                     android:padding="@dimen/mat_padding"
                     android:textAppearance="@style/TextCustomNormal"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:background="@drawable/layout_border_only"
+                    android:gravity="center"
+                    android:padding="@dimen/mat_padding"
+                    android:textAppearance="@style/TextCustomNormal"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/TextCustomNormal"
+                    android:text="*"
+                    android:textColor="@color/red_600"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="6dp"
+                    android:textAppearance="@style/TextCustomNormal"
+                    android:text="kommentar"/>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

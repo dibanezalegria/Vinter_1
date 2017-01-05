@@ -37,7 +37,7 @@
             style="@style/TextCustomSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="v1.1"
+            android:text="v1.2"
             android:layout_below="@id/login_logo_image"
             android:layout_alignParentEnd="true"
             android:textColor="@color/blue_grey_400"/>
