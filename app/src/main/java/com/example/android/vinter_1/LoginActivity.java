@@ -148,13 +148,6 @@ public class LoginActivity extends AppCompatActivity {
                         Intent intent = new Intent(LoginActivity.this, AdminActivity.class);
                         startActivity(intent);
                         mTvMessage.setVisibility(TextView.INVISIBLE);
-                    } else if (user.equals("super") && pass.equals("super")) {
-                        // Login
-                        Intent intent = new Intent(LoginActivity.this, PatientListActivity.class);
-                        intent.putExtra(KEY_USER_ID, 0);
-                        intent.putExtra(KEY_USER_NAME, "superuser");
-                        startActivity(intent);
-                        mTvMessage.setVisibility(TextView.INVISIBLE);
                     } else if (loginValidation(user, pass)) {
                         Log.d(LOG_TAG, "valid login");
                         // Intent with user name as bundle

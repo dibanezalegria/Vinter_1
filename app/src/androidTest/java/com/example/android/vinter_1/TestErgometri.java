@@ -9,7 +9,9 @@ import org.junit.runner.RunWith;
 import java.util.Locale;
 import java.util.Random;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+
 
 /**
  * Instrumentation test, which will execute on an Android device.
@@ -74,7 +76,7 @@ public class TestErgometri {
         }
 
         // Check for each belastning that result for pulse is less than result for next pulse
-        for (int belas = 1; belas < 10; belas++) {
+        for (int belas = 1; belas < 6; belas++) {
             float prev = Float.MAX_VALUE;
             for (int pulse = 120; pulse < 170; pulse++) {
                 float value = fragment.getValueFromT3(ErgoFragment.GENDER_FEMALE, pulse, belas);
@@ -97,7 +99,7 @@ public class TestErgometri {
         }
 
         // Rows
-        final int N_ROWS = 51;
+        final int N_ROWS = 81;
         int[] rows = new int[N_ROWS];
         int value = 50;
         for (int i = 0; i < N_ROWS; i++) {
@@ -130,6 +132,36 @@ public class TestErgometri {
     }
 
     @Test
+    public void testSingleEntry() {
+        ErgoFragment fragment = new ErgoFragment();
+        assertEquals(30, fragment.getResultUsingRegression(50, 1.5f));
+        assertEquals(120, fragment.getResultUsingRegression(50, 6.0f));
+        assertEquals(27, fragment.getResultUsingRegression(55, 1.5f));
+        assertEquals(109, fragment.getResultUsingRegression(55, 6.0f));
+        assertEquals(25, fragment.getResultUsingRegression(60, 1.5f));
+        assertEquals(100, fragment.getResultUsingRegression(60, 6.0f));
+        assertEquals(23, fragment.getResultUsingRegression(65, 1.5f));
+        assertEquals(92, fragment.getResultUsingRegression(65, 6.0f));
+        assertEquals(21, fragment.getResultUsingRegression(70, 1.5f));
+        assertEquals(86, fragment.getResultUsingRegression(70, 6.0f));
+        assertEquals(20, fragment.getResultUsingRegression(75, 1.5f));
+        assertEquals(80, fragment.getResultUsingRegression(75, 6.0f));
+        assertEquals(19, fragment.getResultUsingRegression(80, 1.5f));
+        assertEquals(75, fragment.getResultUsingRegression(80, 6.0f));
+        assertEquals(18, fragment.getResultUsingRegression(85, 1.5f));
+        assertEquals(71, fragment.getResultUsingRegression(85, 6.0f));
+        assertEquals(17, fragment.getResultUsingRegression(90, 1.5f));
+        assertEquals(67, fragment.getResultUsingRegression(90, 6.0f));
+        assertEquals(16, fragment.getResultUsingRegression(95, 1.5f));
+        assertEquals(63, fragment.getResultUsingRegression(95, 6.0f));
+        assertEquals(15, fragment.getResultUsingRegression(100, 1.5f));
+        assertEquals(60, fragment.getResultUsingRegression(100, 6.0f));
+
+//        int resultFromT6 = fragment.getResultUsingRegression(weight, valueFromT5);
+//        Log.d(LOG_TAG, "Single entry: " + resultFromT6);
+    }
+
+    @Test
     public void testRandomEntries() {
         ErgoFragment fragment = new ErgoFragment();
         Random ran = new Random();
@@ -137,8 +169,8 @@ public class TestErgometri {
         for (int i = 0; i < 10000; i++) {
             int belas = ran.nextInt(9) + 1;
             int pulse = ran.nextInt(51) + 120;
-            int age = ran.nextInt(85) + 15;
-            int weight = ran.nextInt(51) + 50;
+            int age = ran.nextInt(75) + 15;
+            int weight = ran.nextInt(71) + 45;
 
             int resultFromT6;
             float valueFromT3 = fragment.getValueFromT3(ErgoFragment.GENDER_MALE, pulse, belas);
@@ -155,15 +187,15 @@ public class TestErgometri {
 
             assertTrue("belas:" + belas + " pulse:" + pulse + " age:" + age + " weight:" + weight +
                     " T3:" + valueFromT3 + " T5:" + valueFromT5 + " T6:" + resultFromT6,
-                    resultFromT6 > 1 && resultFromT6 < 170);
+                    resultFromT6 > -4 && resultFromT6 < 175);
         }
 
         // Female
         for (int i = 0; i < 10000; i++) {
             int belas = ran.nextInt(5) + 1;
             int pulse = ran.nextInt(51) + 120;
-            int age = ran.nextInt(85) + 15;
-            int weight = ran.nextInt(51) + 50;
+            int age = ran.nextInt(75) + 15;
+            int weight = ran.nextInt(71) + 45;
 
             int resultFromT6;
             float valueFromT3 = fragment.getValueFromT3(ErgoFragment.GENDER_FEMALE, pulse, belas);
@@ -180,7 +212,7 @@ public class TestErgometri {
 
             assertTrue("belas:" + belas + " pulse:" + pulse + " age:" + age + " weight:" + weight +
                             " T3:" + valueFromT3 + " T5:" + valueFromT5 + " T6:" + resultFromT6,
-                    resultFromT6 > 1 && resultFromT6 < 170);
+                    resultFromT6 > -4 && resultFromT6 < 175);
         }
     }
 }

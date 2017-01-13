@@ -143,7 +143,7 @@ public class MIN6Fragment extends AbstractFragment implements NotesDialogFragmen
 
             @Override
             public void afterTextChanged(Editable s) {
-                Log.d(LOG_TAG, "Update only mETmeters");
+//                Log.d(LOG_TAG, "Update only mETmeters");
                 if (!mETmeters.getText().toString().equals(""))
                     mTickCounter = Integer.parseInt(mETmeters.getText().toString()) / 30;
 

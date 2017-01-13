@@ -219,7 +219,7 @@ public class PatientListActivity extends AppCompatActivity
 
         // Create test placeholders for patient in 'test' database
         if (uri != null) {
-            int newPatientID = (int)ContentUris.parseId(uri);
+            int newPatientID = (int) ContentUris.parseId(uri);
             addTestForPatient(newPatientID, "VAS", "VAS", "- Visuell Analog Skala");
             addTestForPatient(newPatientID, "EQ5D", "EQ5D", "");
             addTestForPatient(newPatientID, "IPAQ", "I-PAQ", "");
@@ -315,18 +315,11 @@ public class PatientListActivity extends AppCompatActivity
         // This loader returns only active patients
         if (id == PATIENT_LOADER) {
             // Super user gets all patients for all users
-            if (mUserID != 0) {
-                String selection = PatientEntry.COLUMN_ACTIVE + "=? AND " +
-                        PatientEntry.COLUMN_USER_ID_FK + "=?";
-                String[] selectionArgs = {String.valueOf(1), String.valueOf(mUserID)};
-                return new CursorLoader(this,
-                        PatientEntry.CONTENT_URI, null, selection, selectionArgs, null);
-            } else {
-                String selection = PatientEntry.COLUMN_ACTIVE + "=?";
-                String[] selectionArgs = {String.valueOf(1)};
-                return new CursorLoader(this,
-                        PatientEntry.CONTENT_URI, null, selection, selectionArgs, null);
-            }
+            String selection = PatientEntry.COLUMN_ACTIVE + "=? AND " +
+                    PatientEntry.COLUMN_USER_ID_FK + "=?";
+            String[] selectionArgs = {String.valueOf(1), String.valueOf(mUserID)};
+            return new CursorLoader(this,
+                    PatientEntry.CONTENT_URI, null, selection, selectionArgs, null);
         }
         return null;
     }
